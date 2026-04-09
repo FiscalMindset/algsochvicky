@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { featuredSystems } from "../../content/portfolio";
+import { compactActionLabel } from "../../lib/utils";
 import { Button } from "../ui/button";
 import { SectionHeading } from "../ui/section-heading";
 import { Surface } from "../ui/surface";
@@ -86,14 +87,17 @@ export function SelectedSystemsSection() {
                       <p className="mt-4 text-base text-muted sm:text-lg">{activeSystem.summary}</p>
                     </div>
 
-                    <div className="grid gap-2 self-start sm:grid-cols-2 lg:grid-cols-1">
+                    <div className="grid w-full gap-2 self-start sm:grid-cols-2 xl:w-auto xl:min-w-[19rem] xl:grid-cols-3">
                       {activeSystem.links.map((link) => (
                         <Button
                           key={link.label}
                           href={link.href ?? "#"}
                           variant={link.variant === "primary" ? "primary" : "secondary"}
+                          size="sm"
+                          className="w-full min-w-0 px-3"
+                          aria-label={`${activeSystem.title} ${link.label}`}
                         >
-                          {link.label}
+                          <span className="truncate">{compactActionLabel(link.label)}</span>
                         </Button>
                       ))}
                     </div>

@@ -1,7 +1,7 @@
 import { ArrowDownRight, Bot, Cpu, Workflow } from "lucide-react";
 import { brandProfile } from "../../content/portfolio";
 import { Button } from "../ui/button";
-import { HeroSignalMap } from "../visuals/hero-signal-map";
+import { HeroFeaturedSystems, HeroSignalMap } from "../visuals/hero-signal-map";
 
 export function HeroSection() {
   const capabilityCards = [
@@ -94,6 +94,10 @@ export function HeroSection() {
           </div>
 
           <HeroSignalMap />
+        </div>
+
+        <div className="mt-6">
+          <HeroFeaturedSystems />
         </div>
       </div>
     </section>

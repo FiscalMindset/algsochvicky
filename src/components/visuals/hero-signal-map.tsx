@@ -1,5 +1,14 @@
 import { motion } from "framer-motion";
 import { featuredSystems } from "../../content/portfolio";
+import { Button } from "../ui/button";
+
+function compactLinkLabel(label: string) {
+  if (label === "Repository") return "Repo";
+  if (label === "Live Demo") return "Live";
+  if (label === "YouTube Demo") return "Video";
+  if (label === "APK Releases") return "APK";
+  return label;
+}
 
 const stages = [
   {
@@ -32,8 +41,9 @@ const productSignals = featuredSystems.map((system) => ({
   id: system.id,
   step: system.id === "commandbrain" ? "01" : system.id === "speakai" ? "02" : system.id === "algsoch" ? "03" : "04",
   title: system.title,
-  detail: system.thesis,
-  tags: system.signals.slice(0, 3)
+  detail: system.shorthand,
+  tags: system.signals.slice(0, 3),
+  links: system.links.slice(0, 3)
 }));
 
 const proofPoints = [
@@ -129,65 +139,80 @@ export function HeroSignalMap() {
             </div>
           </div>
 
-          <div className="grid min-w-0 gap-4">
-            <div className="surface-soft min-w-0 rounded-[28px] p-4 sm:p-5">
-              <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">What this proves</div>
-              <div className="mt-4 grid gap-3 lg:grid-cols-3">
-                {proofPoints.map((point) => (
-                  <div
-                    key={point}
-                    className="min-w-0 rounded-2xl border border-line/70 bg-white/4 p-4 text-sm leading-6 text-muted"
-                  >
-                    {point}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="surface-soft min-w-0 rounded-[28px] p-4 sm:p-5">
-              <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div className="min-w-0">
-                  <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Featured systems</div>
-                  <div className="mt-2 max-w-2xl text-sm leading-6 text-muted">
-                    Four flagship systems, shown as product boxes instead of compressed labels.
-                  </div>
+          <div className="surface-soft min-w-0 rounded-[28px] p-4 sm:p-5">
+            <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">What this proves</div>
+            <div className="mt-4 grid gap-3 lg:grid-cols-3">
+              {proofPoints.map((point) => (
+                <div
+                  key={point}
+                  className="min-w-0 rounded-2xl border border-line/70 bg-white/4 p-4 text-sm leading-6 text-muted"
+                >
+                  {point}
                 </div>
-                <div className="self-start rounded-full border border-line/70 bg-white/4 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-                  Mobile-safe layout
-                </div>
-              </div>
-
-              <div className="mt-4 grid gap-4 xl:grid-cols-2">
-                {productSignals.map((signal) => (
-                  <div
-                    key={signal.id}
-                    className="min-w-0 rounded-[24px] border border-line/70 bg-white/4 p-4 sm:p-5"
-                  >
-                    <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                      <div className="text-base font-semibold text-ink">{signal.title}</div>
-                      <div className="self-start rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 font-mono text-[10px] text-accent">
-                        {signal.step}
-                      </div>
-                    </div>
-
-                    <div className="mt-3 text-sm leading-7 text-muted">{signal.detail}</div>
-
-                    <div className="mt-4 grid gap-2">
-                      {signal.tags.map((tag) => (
-                        <div
-                          key={tag}
-                          className="min-w-0 rounded-xl border border-accent/20 bg-accent/10 px-3 py-2 text-[11px] font-medium leading-5 text-ink"
-                        >
-                          <span className="block">{tag}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function HeroFeaturedSystems() {
+  return (
+    <div className="grid gap-4">
+      <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div className="min-w-0">
+          <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Featured systems</div>
+          <div className="mt-2 max-w-2xl text-sm leading-6 text-muted">
+            Four flagship systems, shown directly as product modules instead of hiding inside the operating panel.
+          </div>
+        </div>
+        <div className="self-start rounded-full border border-line/70 bg-white/4 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+          Visible at first read
+        </div>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-2 2xl:grid-cols-4">
+        {productSignals.map((signal) => (
+          <div key={signal.id} className="surface-soft min-w-0 rounded-[24px] p-4">
+            <div className="flex min-w-0 items-start justify-between gap-3">
+              <div className="text-base font-semibold leading-tight text-ink">{signal.title}</div>
+              <div className="self-start rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 font-mono text-[10px] text-accent">
+                {signal.step}
+              </div>
+            </div>
+
+            <div className="mt-2 text-[13px] leading-6 text-muted">{signal.detail}</div>
+
+            <div className="mt-3 rounded-2xl border border-accent/20 bg-accent/10 px-3 py-2">
+              <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent/75">Signals</div>
+              <div className="mt-1 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-[11px] font-medium leading-5 text-ink/90">
+                {signal.tags.map((tag, index) => (
+                  <div key={tag} className="inline-flex min-w-0 items-center gap-2">
+                    {index > 0 ? <span className="text-accent/45">•</span> : null}
+                    <span className="min-w-0 text-pretty">{tag}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              {signal.links.map((link) => (
+                <Button
+                  key={`${signal.id}-${link.label}`}
+                  href={link.href ?? "#"}
+                  variant={link.variant === "primary" ? "primary" : "secondary"}
+                  size="sm"
+                  className="h-9 min-w-0 justify-center px-3 text-[11px] sm:w-full"
+                  aria-label={`${signal.title} ${link.label}`}
+                >
+                  <span className="truncate">{compactLinkLabel(link.label)}</span>
+                </Button>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

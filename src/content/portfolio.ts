@@ -245,7 +245,8 @@ export const featuredSystems: FeaturedSystem[] = [
     signals: ["RunAnywhere Web SDK", "Local command memory", "Safety + execution"],
     links: [
       { label: "Repository", href: "https://github.com/algsoch/smart_terminal", variant: "primary" },
-      { label: "Live Demo", href: "https://smart-terminal.onrender.com/", variant: "secondary" }
+      { label: "Live Demo", href: "https://smart-terminal.onrender.com/", variant: "secondary" },
+      { label: "YouTube Demo", href: "https://www.youtube.com/shorts/mMPo7_v08pE", variant: "secondary" }
     ]
   },
   {
@@ -284,7 +285,8 @@ export const featuredSystems: FeaturedSystem[] = [
     signals: ["RunAnywhere Web SDK", "Browser speech", "Offline voice practice"],
     links: [
       { label: "Repository", href: "https://github.com/algsoch/speakai", variant: "primary" },
-      { label: "Ask About Voice Fit", href: "#agent", variant: "secondary" }
+      { label: "Live Demo", href: "https://speakai-af1l.onrender.com/", variant: "secondary" },
+      { label: "YouTube Demo", href: "https://www.youtube.com/shorts/KPWbz52uyuo", variant: "secondary" }
     ]
   },
   {
@@ -323,7 +325,8 @@ export const featuredSystems: FeaturedSystem[] = [
     signals: ["RunAnywhere SDK", "Android offline AI", "7 learning modes"],
     links: [
       { label: "Repository", href: "https://github.com/FiscalMindset/algsoch", variant: "primary" },
-      { label: "APK Releases", href: "https://github.com/FiscalMindset/algsoch/releases", variant: "secondary" }
+      { label: "APK Releases", href: "https://github.com/FiscalMindset/algsoch/releases", variant: "secondary" },
+      { label: "YouTube Demo", href: "https://www.youtube.com/shorts/T09FWf5gFew", variant: "secondary" }
     ]
   },
   {
@@ -546,7 +549,7 @@ export const repositorySignals: RepositorySignal[] = [
       "An offline-first command memory and execution copilot that converts natural language into commands, stores them locally, and supports simulate or real execution.",
     whyItMatters:
       "It proves Vicky can build a local-first AI product with command generation, safety review, memory, analytics, and execution workflows instead of a disposable prompt box.",
-    bestFor: ["Best overall GitHub signal", "Agentic systems", "Technical depth", "Execution interfaces"],
+    bestFor: ["Agentic systems", "Technical depth", "Execution interfaces"],
     repoUrl: "https://github.com/algsoch/smart_terminal",
     demoUrl: "https://smart-terminal.onrender.com/",
     highlights: [
@@ -573,6 +576,7 @@ export const repositorySignals: RepositorySignal[] = [
       "It shows Vicky can build a focused voice product with local inference, browser speech integration, and model caching instead of a generic cloud assistant.",
     bestFor: ["Voice AI", "Multimodal UX", "Conversational systems"],
     repoUrl: "https://github.com/algsoch/speakai",
+    demoUrl: "https://speakai-af1l.onrender.com/",
     highlights: [
       "100% on-device English practice",
       "Web Speech API plus local model flow",
@@ -595,7 +599,7 @@ export const repositorySignals: RepositorySignal[] = [
       "An AI-powered study companion for Android with seven learning modes and fully offline RunAnywhere-powered inference.",
     whyItMatters:
       "It shows serious mobile AI product execution: Android/Kotlin engineering, model download and inference management, seven-mode UX, and privacy-first local operation.",
-    bestFor: ["Flagship product", "Applied intelligence", "Product taste", "Design + engineering"],
+    bestFor: ["Best overall GitHub signal", "Flagship product", "Applied intelligence", "Design + engineering"],
     repoUrl: "https://github.com/FiscalMindset/algsoch",
     highlights: [
       "Offline Android study companion",
@@ -1019,13 +1023,13 @@ export const knowledgeEntries: KnowledgeEntry[] = [
     title: "Best overall GitHub project",
     type: "github",
     summary:
-      "CommandBrain is the strongest overall GitHub signal because it combines agentic execution depth, product control, and operator-facing AI UX.",
+      "Algsoch is the strongest overall GitHub project because it combines product maturity, on-device AI, Android execution, and current flagship identity in one system.",
     evidence: [
-      "It is the clearest proof of agentic systems engineering.",
-      "It shows execution visibility rather than just generated output.",
-      "It balances architecture depth with usable product design."
+      "It is the clearest current proof of serious product execution around AI.",
+      "It combines Android engineering, local inference, privacy-first design, and multi-mode learning UX.",
+      "It reflects both current flagship positioning and real technical depth."
     ],
-    tags: ["best project", "strongest github project", "github winner", "commandbrain"],
-    relatedSystems: ["commandbrain"]
+    tags: ["best project", "strongest github project", "github winner", "algsoch"],
+    relatedSystems: ["algsoch"]
   }
 ];

@@ -3,8 +3,10 @@ import { tokenize } from "../../lib/utils";
 
 export function scoreRepositorySignal(repository: RepositorySignal) {
   const manualBoost = repository.featured ? 0.3 : 0;
+  const flagshipBoost = repository.id === "algsoch" ? 0.12 : 0;
   return (
     manualBoost +
+    flagshipBoost +
     repository.completeness * 0.18 +
     repository.executionDepth * 0.24 +
     repository.aiDepth * 0.24 +
@@ -63,10 +65,13 @@ export function recommendRepositoriesForQuery(query: string) {
             repository.themes.reduce((sum, item) => sum + (item.toLowerCase().includes(token) ? 2 : 0), 0),
           0
         ) +
-        (isBestProjectQuestion(query) && repository.id === "commandbrain" ? 8 : 0) +
+        (isBestProjectQuestion(query) && repository.id === "algsoch" ? 10 : 0) +
         (queryLower.includes("voice") && repository.id === "speakai" ? 8 : 0) +
         (queryLower.includes("news") && repository.id === "algsoch-news" ? 8 : 0) +
-        (queryLower.includes("flagship") && repository.id === "algsoch" ? 8 : 0) +
+        ((queryLower.includes("flagship") || queryLower.includes("best app") || queryLower.includes("strongest app")) &&
+        repository.id === "algsoch"
+          ? 10
+          : 0) +
         ((queryLower.includes("ml") || queryLower.includes("machine learning") || queryLower.includes("medical")) &&
         repository.id === "silent-disease-detection-engine"
           ? 8

@@ -225,7 +225,7 @@ function composeBestProjectAnswer(query: string) {
     `- @algsoch: ${accountMap.algsoch.join(", ")}.`,
     ``,
     "## Bottom Line",
-    `If the question is “which single GitHub project best proves Vicky's engineering depth?”, the answer should be ${winner.title}. If the question is “which project is the flagship product?”, that answer is Algsoch.`
+    `If the question is “which single GitHub project best represents Vicky Kumar overall today?”, the answer should be ${winner.title}. CommandBrain still remains one of the strongest historical technical signals, but Algsoch is the clearest flagship product signal.`
   ].join("\n");
 }
 
