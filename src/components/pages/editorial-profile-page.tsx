@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowUpRight, Newspaper, Sparkles } from "lucide-react";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   brandProfile,
   capabilitySignals,
@@ -9,8 +9,10 @@ import {
   philosophyStatements,
   repositorySignals
 } from "../../content/portfolio";
-import { compactActionLabel, getSectionHref, getSystemRouteHref } from "../../lib/utils";
+import { cn, compactActionLabel, getSectionHref, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
+
+const EDITORIAL_THEME_STORAGE_KEY = "algsoch-editorial-theme";
 
 const editorialLead = [
   "Vicky Kumar does not approach AI as a branding layer. He approaches it as software that has to survive contact with real users, real workflows, and real runtime constraints.",
@@ -104,6 +106,7 @@ const editorialReadingOrder = [
 ] as const;
 
 export function EditorialProfilePage() {
+  const [editorialTheme, setEditorialTheme] = useState<"night" | "newsprint">("night");
   const currentDate = useMemo(
     () =>
       new Intl.DateTimeFormat("en-IN", {
@@ -119,6 +122,25 @@ export function EditorialProfilePage() {
   );
   const primaryContactDetails = useMemo(() => contactDetails.slice(0, 4), []);
   const githubContactDetails = useMemo(() => contactDetails.filter((detail) => detail.label.startsWith("GitHub")), []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const savedTheme = window.localStorage.getItem(EDITORIAL_THEME_STORAGE_KEY);
+    if (savedTheme === "newsprint" || savedTheme === "night") {
+      setEditorialTheme(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    window.localStorage.setItem(EDITORIAL_THEME_STORAGE_KEY, editorialTheme);
+  }, [editorialTheme]);
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -139,16 +161,18 @@ export function EditorialProfilePage() {
     };
   }, []);
 
+  const isNewsprint = editorialTheme === "newsprint";
+
   return (
-    <div className="relative overflow-x-hidden">
-      <div className="pointer-events-none fixed inset-0 bg-grid opacity-[0.04]" />
-      <div className="pointer-events-none fixed left-[-10%] top-10 h-[22rem] w-[22rem] rounded-full bg-accent/10 blur-[150px]" />
+    <div className="editorial-shell relative overflow-x-hidden" data-editorial-theme={editorialTheme}>
+      <div className="editorial-grid-overlay pointer-events-none fixed inset-0 bg-grid opacity-[0.04]" />
+      <div className="editorial-glow pointer-events-none fixed left-[-10%] top-10 h-[22rem] w-[22rem] rounded-full bg-accent/10 blur-[150px]" />
 
       <header className="fixed inset-x-0 top-0 z-40">
         <div className="section-frame pt-3 sm:pt-4">
-          <div className="surface flex flex-wrap items-center justify-between gap-3 rounded-[28px] px-4 py-2.5 sm:rounded-full sm:px-5 sm:py-3">
+          <div className="surface editorial-surface flex flex-wrap items-center justify-between gap-3 rounded-[28px] px-4 py-2.5 sm:rounded-full sm:px-5 sm:py-3">
             <a href={getSectionHref("hero")} className="flex min-w-0 items-center gap-3 text-ink">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line/70 bg-white/4">
+              <div className="editorial-badge flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line/70 bg-white/4">
                 <ArrowLeft size={16} />
               </div>
               <div className="min-w-0">
@@ -157,11 +181,20 @@ export function EditorialProfilePage() {
               </div>
             </a>
 
-            <div className="hidden items-center gap-2 lg:flex">
-              <div className="rounded-full border border-line/70 bg-white/4 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+            <div className="flex items-center gap-2">
+              <div className="editorial-badge hidden rounded-full border border-line/70 bg-white/4 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted lg:flex">
                 Editorial profile
               </div>
-              <Button href="/docs/vicky_software_engineer.pdf" size="sm">
+              <Button
+                size="sm"
+                variant={isNewsprint ? "primary" : "secondary"}
+                className="editorial-action"
+                data-editorial-variant={isNewsprint ? "primary" : "secondary"}
+                onClick={() => setEditorialTheme((current) => (current === "night" ? "newsprint" : "night"))}
+              >
+                {isNewsprint ? "Night View" : "Newsprint View"}
+              </Button>
+              <Button href="/docs/vicky_software_engineer.pdf" size="sm" className="editorial-action" data-editorial-variant="primary">
                 Open Resume
               </Button>
             </div>
@@ -172,7 +205,7 @@ export function EditorialProfilePage() {
       <main className="pt-24 sm:pt-28">
         <section className="section-space pt-8 sm:pt-12">
           <div className="section-frame">
-            <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/75 p-5 sm:p-6 lg:p-8">
+            <div className="editorial-surface rounded-[34px] border border-line/75 bg-canvas-elevated/75 p-5 sm:p-6 lg:p-8">
               <div className="border-y border-line/70 py-3">
                 <div className="grid gap-3 lg:grid-cols-[0.95fr_1.1fr_0.95fr] lg:items-center">
                   <div className="grid gap-1 text-center lg:text-left">
@@ -196,14 +229,14 @@ export function EditorialProfilePage() {
 
               <div className="mt-4 grid gap-2 rounded-[22px] border border-line/70 bg-black/15 p-3 sm:grid-cols-2 xl:grid-cols-4">
                 {editionFacts.map(([label, value]) => (
-                  <div key={label} className="rounded-[16px] border border-line/70 bg-white/4 px-3 py-2.5">
+                  <div key={label} className="editorial-note rounded-[16px] border border-line/70 bg-white/4 px-3 py-2.5">
                     <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent/75">{label}</div>
                     <div className="mt-1.5 text-sm font-semibold text-ink">{value}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-4 rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
+              <div className="editorial-card mt-4 rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
                 <div className="flex flex-col gap-3 border-b border-dashed border-line/70 pb-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">In this issue</div>
@@ -214,7 +247,7 @@ export function EditorialProfilePage() {
 
                 <div className="mt-4 grid gap-3 lg:grid-cols-2">
                   {editorialBriefs.map((brief, index) => (
-                    <div key={brief.label} className="grid grid-cols-[auto_1fr] gap-3 border-l-2 border-accent/30 bg-white/[0.03] px-3 py-3">
+                    <div key={brief.label} className="editorial-note grid grid-cols-[auto_1fr] gap-3 border-l-2 border-accent/30 bg-white/[0.03] px-3 py-3">
                       <div className="pt-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent/75">0{index + 1}</div>
                       <div className="min-w-0">
                         <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink">{brief.label}</div>
@@ -227,7 +260,7 @@ export function EditorialProfilePage() {
 
               <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] xl:grid-cols-[0.9fr_1.2fr_0.9fr]">
                 <div className="grid content-start gap-5 md:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:grid-cols-1">
-                  <div className="mx-auto w-full max-w-[17rem] overflow-hidden rounded-[26px] border border-line/70 bg-black/20 md:mx-0 md:max-w-none">
+                  <div className="editorial-card mx-auto w-full max-w-[17rem] overflow-hidden rounded-[26px] border border-line/70 bg-black/20 md:mx-0 md:max-w-none">
                     <div className="aspect-[4/4.8] bg-gradient-to-b from-white/8 to-transparent sm:aspect-[4/5]">
                       <img
                         src={brandProfile.portraitUrl}
@@ -242,7 +275,7 @@ export function EditorialProfilePage() {
                     </div>
                   </div>
 
-                  <div className="rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                  <div className="editorial-card rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
                     <div className="flex items-center justify-between gap-3 border-b border-dashed border-line/70 pb-3">
                       <div>
                         <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Profile ledger</div>
@@ -253,7 +286,7 @@ export function EditorialProfilePage() {
                       </div>
                     </div>
 
-                    <div className="mt-4 overflow-hidden rounded-[20px] border border-line/70 bg-white/[0.03]">
+                    <div className="editorial-note mt-4 overflow-hidden rounded-[20px] border border-line/70 bg-white/[0.03]">
                       <div className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-3 border-b border-line/70 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-muted sm:grid-cols-[minmax(0,0.52fr)_minmax(0,1fr)]">
                         <div>Record</div>
                         <div>Filed detail</div>
@@ -265,7 +298,7 @@ export function EditorialProfilePage() {
                           href={detail.href}
                           target={detail.href.startsWith("http") ? "_blank" : undefined}
                           rel={detail.href.startsWith("http") ? "noreferrer" : undefined}
-                          className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-3 px-3 py-3 transition hover:bg-white/[0.04] sm:grid-cols-[minmax(0,0.52fr)_minmax(0,1fr)]"
+                          className="editorial-ledger-row grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-3 px-3 py-3 transition hover:bg-white/[0.04] sm:grid-cols-[minmax(0,0.52fr)_minmax(0,1fr)]"
                         >
                           <div className="min-w-0">
                             <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent/80">{detail.label}</div>
@@ -278,7 +311,7 @@ export function EditorialProfilePage() {
                       ))}
                     </div>
 
-                    <div className="mt-3 rounded-[18px] border border-line/70 bg-white/[0.035] px-3 py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+                    <div className="editorial-note mt-3 rounded-[18px] border border-line/70 bg-white/[0.035] px-3 py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
                       Current public identities: LinkedIn, GitHub / algsoch, GitHub / fiscalmindset
                     </div>
                   </div>
@@ -298,16 +331,16 @@ export function EditorialProfilePage() {
                     A long-form editorial read on projects, capabilities, thinking process, engineering standards, and why the work signals much more than surface-level AI interest.
                   </p>
 
-                  <div className="mt-5 grid gap-3 rounded-[24px] border border-line/70 bg-black/15 p-4 md:grid-cols-3">
-                    <div className="rounded-[18px] border border-line/70 bg-white/4 px-3 py-3">
+                  <div className="editorial-card mt-5 grid gap-3 rounded-[24px] border border-line/70 bg-black/15 p-4 md:grid-cols-3">
+                    <div className="editorial-note rounded-[18px] border border-line/70 bg-white/4 px-3 py-3">
                       <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent/75">Byline</div>
                       <div className="mt-2 text-sm text-ink">Profile desk / Algsoch Review</div>
                     </div>
-                    <div className="rounded-[18px] border border-line/70 bg-white/4 px-3 py-3">
+                    <div className="editorial-note rounded-[18px] border border-line/70 bg-white/4 px-3 py-3">
                       <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent/75">Read</div>
                       <div className="mt-2 text-sm text-ink">Projects, systems, skill, mindset</div>
                     </div>
-                    <div className="rounded-[18px] border border-line/70 bg-white/4 px-3 py-3">
+                    <div className="editorial-note rounded-[18px] border border-line/70 bg-white/4 px-3 py-3">
                       <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent/75">Frame</div>
                       <div className="mt-2 text-sm text-ink">AI in product form, not prompt form</div>
                     </div>
@@ -327,7 +360,7 @@ export function EditorialProfilePage() {
                       {editorialLead[0]}
                     </p>
 
-                    <div className="editorial-column-block relative overflow-hidden rounded-[26px] border border-accent/20 bg-accent/10 p-5 sm:p-6">
+                    <div className="editorial-quote editorial-column-block relative overflow-hidden rounded-[26px] border border-accent/20 bg-accent/10 p-5 sm:p-6">
                       <div className="pointer-events-none absolute left-3 top-1 font-display text-[5rem] leading-none text-accent/18 sm:text-[6.5rem]">
                         “
                       </div>
@@ -349,14 +382,14 @@ export function EditorialProfilePage() {
                 </div>
 
                 <div className="grid gap-5 content-start lg:col-span-2 xl:col-span-1">
-                  <div className="rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                  <div className="editorial-card rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
                     <div className="flex items-center justify-between gap-3 border-b border-dashed border-line/70 pb-3">
                       <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Margin notes</div>
                       <div className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted">Editor annotations</div>
                     </div>
                     <div className="mt-4 grid gap-3">
                       {marginNotes.map((item, index) => (
-                        <div key={item} className="grid grid-cols-[auto_1fr] gap-3 border-l-2 border-accent/30 bg-white/[0.03] px-3 py-3">
+                        <div key={item} className="editorial-note grid grid-cols-[auto_1fr] gap-3 border-l-2 border-accent/30 bg-white/[0.03] px-3 py-3">
                           <div className="pt-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent/75">N0{index + 1}</div>
                           <div className="text-sm leading-6 text-muted">{item}</div>
                         </div>
@@ -364,7 +397,7 @@ export function EditorialProfilePage() {
                     </div>
                   </div>
 
-                  <div className="rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                  <div className="editorial-card rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
                     <div className="flex items-center justify-between gap-3 border-b border-dashed border-line/70 pb-3">
                       <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Front-page index</div>
                       <div className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted">Routes</div>
@@ -384,11 +417,11 @@ export function EditorialProfilePage() {
                     </div>
 
                     <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                      <Button href="/docs/vicky_software_engineer.pdf" size="sm" className="w-full justify-between">
+                      <Button href="/docs/vicky_software_engineer.pdf" size="sm" className="editorial-action w-full justify-between" data-editorial-variant="primary">
                         Resume
                         <ArrowUpRight size={14} />
                       </Button>
-                      <Button href={getSystemRouteHref("algsoch")} variant="secondary" size="sm" className="w-full justify-between">
+                      <Button href={getSystemRouteHref("algsoch")} variant="secondary" size="sm" className="editorial-action w-full justify-between" data-editorial-variant="secondary">
                         Flagship
                         <ArrowUpRight size={14} />
                       </Button>
@@ -408,7 +441,7 @@ export function EditorialProfilePage() {
               </div>
               <div className="h-px flex-1 bg-gradient-to-r from-line/70 via-accent/35 to-transparent" />
             </div>
-            <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
+            <div className="editorial-surface rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
               <div className="border-b border-line/70 pb-3">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                   <div>
@@ -423,7 +456,7 @@ export function EditorialProfilePage() {
 
               <div className="mt-6 grid gap-4 xl:grid-cols-2">
                 {featuredSystems.map((system) => (
-                  <article key={system.id} className="rounded-[28px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                  <article key={system.id} className="editorial-card rounded-[28px] border border-line/70 bg-black/15 p-4 sm:p-5">
                     <div className="flex flex-col gap-3 border-b border-dashed border-line/70 pb-3 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0">
                         <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent/80">{system.shorthand}</div>
@@ -438,11 +471,11 @@ export function EditorialProfilePage() {
                     <div className="mt-4 text-sm leading-7 text-muted">{system.summary}</div>
 
                     <div className="mt-4 grid gap-3 md:grid-cols-2">
-                      <div className="rounded-[20px] border border-line/70 bg-white/4 p-4">
+                      <div className="editorial-note rounded-[20px] border border-line/70 bg-white/4 p-4">
                         <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent/75">What it proves</div>
                         <div className="mt-3 text-sm leading-7 text-muted">{system.significance}</div>
                       </div>
-                      <div className="rounded-[20px] border border-line/70 bg-white/4 p-4">
+                      <div className="editorial-note rounded-[20px] border border-line/70 bg-white/4 p-4">
                         <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent/75">Signals</div>
                         <div className="mt-3 flex flex-wrap gap-2">
                           {system.signals.map((signal) => (
@@ -454,13 +487,13 @@ export function EditorialProfilePage() {
                       </div>
                     </div>
 
-                    <div className="mt-4 rounded-[20px] border border-line/70 bg-black/15 px-4 py-3">
+                    <div className="editorial-note mt-4 rounded-[20px] border border-line/70 bg-black/15 px-4 py-3">
                       <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent/75">Editorial read</div>
                       <div className="mt-2 text-sm leading-7 text-muted">{system.outcomes[0]}</div>
                     </div>
 
                     <div className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
-                      <Button href={getSystemRouteHref(system.id)} size="sm" className="w-full justify-center">
+                      <Button href={getSystemRouteHref(system.id)} size="sm" className="editorial-action w-full justify-center" data-editorial-variant="primary">
                         Case Study
                       </Button>
                       {system.links.map((link) => (
@@ -469,7 +502,8 @@ export function EditorialProfilePage() {
                           href={link.href ?? "#"}
                           variant={link.variant === "primary" ? "primary" : "secondary"}
                           size="sm"
-                          className="w-full justify-center"
+                          className="editorial-action w-full justify-center"
+                          data-editorial-variant={link.variant === "primary" ? "primary" : "secondary"}
                         >
                           {compactActionLabel(link.label)}
                         </Button>
@@ -491,7 +525,7 @@ export function EditorialProfilePage() {
               <div className="h-px flex-1 bg-gradient-to-r from-line/70 via-accent/35 to-transparent" />
             </div>
             <div className="grid gap-5 xl:grid-cols-[1.08fr_0.92fr]">
-              <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
+              <div className="editorial-surface rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
                 <div className="border-b border-line/70 pb-3">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                     <div>
@@ -506,11 +540,11 @@ export function EditorialProfilePage() {
 
                 <div className="mt-6 grid gap-4 lg:grid-cols-3">
                   {editorialSkillGroups.map((group) => (
-                    <div key={group.title} className="rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                    <div key={group.title} className="editorial-card rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
                       <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent/75">{group.title}</div>
                       <div className="mt-4 grid gap-3">
                         {group.items.map((item) => (
-                          <div key={item} className="rounded-[16px] border border-line/70 bg-white/4 px-3 py-3 text-sm leading-6 text-muted">
+                          <div key={item} className="editorial-note rounded-[16px] border border-line/70 bg-white/4 px-3 py-3 text-sm leading-6 text-muted">
                             {item}
                           </div>
                         ))}
@@ -519,11 +553,11 @@ export function EditorialProfilePage() {
                   ))}
                 </div>
 
-                <div className="mt-6 rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                <div className="editorial-card mt-6 rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
                   <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Capability rail</div>
                   <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                     {capabilitySignals.map((signal) => (
-                      <div key={signal.title} className="rounded-[18px] border border-line/70 bg-white/4 p-4">
+                      <div key={signal.title} className="editorial-note rounded-[18px] border border-line/70 bg-white/4 p-4">
                         <div className="text-sm font-semibold text-ink">{signal.title}</div>
                         <div className="mt-2 text-sm leading-6 text-muted">{signal.detail}</div>
                       </div>
@@ -533,7 +567,7 @@ export function EditorialProfilePage() {
               </div>
 
               <div className="grid gap-5">
-                <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
+                <div className="editorial-surface rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
                   <div className="border-b border-line/70 pb-3">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                       <div>
@@ -546,7 +580,7 @@ export function EditorialProfilePage() {
                     </div>
                   </div>
 
-                  <div className="relative mt-6 overflow-hidden rounded-[26px] border border-accent/20 bg-accent/10 p-5 sm:p-6">
+                  <div className="editorial-quote relative mt-6 overflow-hidden rounded-[26px] border border-accent/20 bg-accent/10 p-5 sm:p-6">
                     <div className="pointer-events-none absolute left-3 top-1 font-display text-[4.75rem] leading-none text-accent/18 sm:text-[6rem]">
                       “
                     </div>
@@ -561,7 +595,7 @@ export function EditorialProfilePage() {
 
                   <div className="mt-6 grid gap-4">
                     {philosophyStatements.map((statement, index) => (
-                      <div key={statement.title} className="rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                      <div key={statement.title} className="editorial-card rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
                         <div className="flex items-start gap-3">
                           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-accent/20 bg-accent/10 font-mono text-[10px] uppercase tracking-[0.12em] text-accent">
                             0{index + 1}
@@ -576,7 +610,7 @@ export function EditorialProfilePage() {
                   </div>
                 </div>
 
-                <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
+                <div className="editorial-surface rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
                   <div className="border-b border-line/70 pb-3">
                     <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Working Archive</div>
                     <div className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">Additional serious repository signal.</div>
@@ -584,7 +618,7 @@ export function EditorialProfilePage() {
 
                   <div className="mt-6 grid gap-3">
                     {secondarySignals.map((repository) => (
-                      <div key={repository.id} className="rounded-[22px] border border-line/70 bg-black/15 p-4">
+                      <div key={repository.id} className="editorial-card rounded-[22px] border border-line/70 bg-black/15 p-4">
                         <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0">
                             <div className="text-sm font-semibold text-ink">{repository.title}</div>
@@ -611,7 +645,7 @@ export function EditorialProfilePage() {
               </div>
               <div className="h-px flex-1 bg-gradient-to-r from-line/70 via-accent/35 to-transparent" />
             </div>
-            <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
+            <div className="editorial-surface rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
               <div className="border-b border-line/70 pb-3">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                   <div>
@@ -627,7 +661,7 @@ export function EditorialProfilePage() {
               <div className="mt-6 grid gap-5 xl:grid-cols-[1.05fr_0.95fr]">
                 <div className="grid gap-4">
                   {githubAccounts.map((account) => (
-                    <div key={account.handle} className="rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                    <div key={account.handle} className="editorial-card rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
                       <div className="flex items-start gap-4">
                         <img
                           src={account.avatarUrl}
@@ -647,7 +681,7 @@ export function EditorialProfilePage() {
                           href={account.href}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink transition hover:border-accent/30 hover:bg-white/[0.06]"
+                          className="editorial-badge inline-flex items-center gap-2 rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink transition hover:border-accent/30 hover:bg-white/[0.06]"
                         >
                           Open profile
                           <ArrowUpRight size={12} />
@@ -665,7 +699,7 @@ export function EditorialProfilePage() {
                 </div>
 
                 <div className="grid gap-4">
-                  <div className="rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                  <div className="editorial-card rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
                     <div className="flex items-center justify-between gap-3 border-b border-dashed border-line/70 pb-3">
                       <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Closing read</div>
                       <div className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted">Editor close</div>
@@ -678,22 +712,22 @@ export function EditorialProfilePage() {
                   </div>
 
                   <div className="grid gap-3 sm:grid-cols-2">
-                    <Button href="/docs/vicky_software_engineer.pdf" size="lg" className="w-full justify-center">
+                    <Button href="/docs/vicky_software_engineer.pdf" size="lg" className="editorial-action w-full justify-center" data-editorial-variant="primary">
                       Resume
                       <ArrowUpRight size={16} />
                     </Button>
-                    <Button href={getSectionHref("contact")} variant="secondary" size="lg" className="w-full justify-center">
+                    <Button href={getSectionHref("contact")} variant="secondary" size="lg" className="editorial-action w-full justify-center" data-editorial-variant="secondary">
                       Main portfolio
                     </Button>
-                    <Button href={getSystemRouteHref("algsoch")} variant="secondary" size="lg" className="w-full justify-center">
+                    <Button href={getSystemRouteHref("algsoch")} variant="secondary" size="lg" className="editorial-action w-full justify-center" data-editorial-variant="secondary">
                       Flagship case study
                     </Button>
-                    <Button href="mailto:npdimagine@gmail.com" variant="secondary" size="lg" className="w-full justify-center">
+                    <Button href="mailto:npdimagine@gmail.com" variant="secondary" size="lg" className="editorial-action w-full justify-center" data-editorial-variant="secondary">
                       Email Vicky
                     </Button>
                   </div>
 
-                  <div className="rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                  <div className="editorial-card rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
                     <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">
                       <Sparkles size={14} />
                       Editorial route
