@@ -78,6 +78,31 @@ const marginNotes = [
   "Algsoch leads as the flagship because it combines Android execution, offline AI, and product identity in one system."
 ] as const;
 
+const editorialBriefs = [
+  {
+    label: "Lead story",
+    detail: "Algsoch anchors the profile because it combines Android product execution with offline AI."
+  },
+  {
+    label: "Systems desk",
+    detail: "CommandBrain and SpeakAI show local runtime discipline, browser control, and interface thinking."
+  },
+  {
+    label: "Workflow desk",
+    detail: "Algsoch News shows orchestration, structured output, and visible agent traces."
+  },
+  {
+    label: "Read path",
+    detail: "Projects, skills, mindset, GitHub split, and direct contact sit in one continuous route."
+  }
+] as const;
+
+const editorialReadingOrder = [
+  { index: "01", title: "Read the flagship", href: "/?system=algsoch" },
+  { index: "02", title: "Inspect the projects edition", href: "#projects" },
+  { index: "03", title: "Review GitHub identity split", href: "#editorial-github" }
+] as const;
+
 export function EditorialProfilePage() {
   const currentDate = useMemo(
     () =>
@@ -92,6 +117,8 @@ export function EditorialProfilePage() {
     () => repositorySignals.filter((repository) => !featuredSystems.some((system) => system.id === repository.id)).slice(0, 4),
     []
   );
+  const primaryContactDetails = useMemo(() => contactDetails.slice(0, 4), []);
+  const githubContactDetails = useMemo(() => contactDetails.filter((detail) => detail.label.startsWith("GitHub")), []);
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -176,10 +203,32 @@ export function EditorialProfilePage() {
                 ))}
               </div>
 
-              <div className="mt-6 grid gap-6 xl:grid-cols-[0.9fr_1.2fr_0.9fr]">
-                <div className="grid gap-5 content-start">
-                  <div className="overflow-hidden rounded-[26px] border border-line/70 bg-black/20">
-                    <div className="aspect-[4/5] bg-gradient-to-b from-white/8 to-transparent">
+              <div className="mt-4 rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
+                <div className="flex flex-col gap-3 border-b border-dashed border-line/70 pb-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">In this issue</div>
+                    <div className="mt-1 text-sm text-muted">A front-page read of product signal, engineering depth, AI capability, and public identity.</div>
+                  </div>
+                  <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted">Feature brief</div>
+                </div>
+
+                <div className="mt-4 grid gap-3 lg:grid-cols-2">
+                  {editorialBriefs.map((brief, index) => (
+                    <div key={brief.label} className="grid grid-cols-[auto_1fr] gap-3 border-l-2 border-accent/30 bg-white/[0.03] px-3 py-3">
+                      <div className="pt-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent/75">0{index + 1}</div>
+                      <div className="min-w-0">
+                        <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink">{brief.label}</div>
+                        <div className="mt-1 text-sm leading-6 text-muted">{brief.detail}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] xl:grid-cols-[0.9fr_1.2fr_0.9fr]">
+                <div className="grid content-start gap-5 md:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:grid-cols-1">
+                  <div className="mx-auto w-full max-w-[17rem] overflow-hidden rounded-[26px] border border-line/70 bg-black/20 md:mx-0 md:max-w-none">
+                    <div className="aspect-[4/4.8] bg-gradient-to-b from-white/8 to-transparent sm:aspect-[4/5]">
                       <img
                         src={brandProfile.portraitUrl}
                         alt={`${brandProfile.name} portrait`}
@@ -194,20 +243,43 @@ export function EditorialProfilePage() {
                   </div>
 
                   <div className="rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Profile ledger</div>
-                    <div className="mt-4 grid gap-3">
-                      {contactDetails.slice(0, 4).map((detail) => (
+                    <div className="flex items-center justify-between gap-3 border-b border-dashed border-line/70 pb-3">
+                      <div>
+                        <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Profile ledger</div>
+                        <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-muted">Filed contacts / identity directory</div>
+                      </div>
+                      <div className="rounded-full border border-line/70 bg-white/4 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-muted">
+                        Pg 01
+                      </div>
+                    </div>
+
+                    <div className="mt-4 overflow-hidden rounded-[20px] border border-line/70 bg-white/[0.03]">
+                      <div className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-3 border-b border-line/70 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-muted sm:grid-cols-[minmax(0,0.52fr)_minmax(0,1fr)]">
+                        <div>Record</div>
+                        <div>Filed detail</div>
+                      </div>
+
+                      {[...primaryContactDetails, ...githubContactDetails].map((detail, index) => (
                         <a
                           key={detail.label}
                           href={detail.href}
                           target={detail.href.startsWith("http") ? "_blank" : undefined}
                           rel={detail.href.startsWith("http") ? "noreferrer" : undefined}
-                          className="rounded-[18px] border border-line/70 bg-white/4 px-3 py-3 transition hover:border-accent/30 hover:bg-white/[0.06]"
+                          className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-3 px-3 py-3 transition hover:bg-white/[0.04] sm:grid-cols-[minmax(0,0.52fr)_minmax(0,1fr)]"
                         >
-                          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{detail.label}</div>
-                          <div className="mt-2 text-sm leading-6 text-ink break-all">{detail.value}</div>
+                          <div className="min-w-0">
+                            <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent/80">{detail.label}</div>
+                            <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-muted">
+                              File 0{index + 1}
+                            </div>
+                          </div>
+                          <div className="min-w-0 text-sm leading-6 text-ink break-words">{detail.value}</div>
                         </a>
                       ))}
+                    </div>
+
+                    <div className="mt-3 rounded-[18px] border border-line/70 bg-white/[0.035] px-3 py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+                      Current public identities: LinkedIn, GitHub / algsoch, GitHub / fiscalmindset
                     </div>
                   </div>
                 </div>
@@ -218,11 +290,11 @@ export function EditorialProfilePage() {
                     {brandProfile.brand} = {brandProfile.brandMeaning}
                   </div>
 
-                  <h1 className="mt-5 text-balance font-display text-4xl font-semibold leading-[0.92] text-ink sm:text-5xl lg:text-[5rem]">
+                  <h1 className="mt-5 text-balance font-display text-[2.35rem] font-semibold leading-[0.92] text-ink sm:text-5xl lg:text-[4.25rem] xl:text-[5rem]">
                     Vicky Kumar builds AI systems that read like products, not demos.
                   </h1>
 
-                  <p className="mt-5 max-w-3xl text-lg leading-8 text-muted sm:text-xl">
+                  <p className="mt-5 max-w-3xl text-base leading-8 text-muted sm:text-xl">
                     A long-form editorial read on projects, capabilities, thinking process, engineering standards, and why the work signals much more than surface-level AI interest.
                   </p>
 
@@ -250,50 +322,75 @@ export function EditorialProfilePage() {
                     ))}
                   </div>
 
-                  <div className="mt-6 grid gap-4">
-                    <p className="text-pretty text-base leading-8 text-ink/95 first-letter:float-left first-letter:mr-3 first-letter:font-display first-letter:text-6xl first-letter:leading-[0.78] first-letter:text-accent">
+                  <div className="mt-6 editorial-columns">
+                    <p className="editorial-column-block text-pretty text-base leading-8 text-ink/95 first-letter:float-left first-letter:mr-3 first-letter:font-display first-letter:text-6xl first-letter:leading-[0.78] first-letter:text-accent">
                       {editorialLead[0]}
                     </p>
 
-                    <div className="rounded-[26px] border border-accent/20 bg-accent/10 p-5">
-                      <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/80">Pull Quote</div>
-                      <blockquote className="mt-3 text-balance font-display text-2xl font-semibold leading-[1.08] text-ink sm:text-[2rem]">
+                    <div className="editorial-column-block relative overflow-hidden rounded-[26px] border border-accent/20 bg-accent/10 p-5 sm:p-6">
+                      <div className="pointer-events-none absolute left-3 top-1 font-display text-[5rem] leading-none text-accent/18 sm:text-[6.5rem]">
+                        “
+                      </div>
+                      <div className="pointer-events-none absolute bottom-[-1.6rem] right-3 font-display text-[5rem] leading-none text-accent/18 sm:text-[6.5rem]">
+                        ”
+                      </div>
+                      <div className="relative font-mono text-[10px] uppercase tracking-[0.2em] text-accent/80">Pull Quote</div>
+                      <blockquote className="relative mt-4 text-balance font-display text-xl font-semibold leading-[1.08] text-ink sm:text-[2rem]">
                         “{editorialPullQuotes[0]}”
                       </blockquote>
                     </div>
 
                     {editorialLead.slice(1).map((paragraph) => (
-                      <p key={paragraph} className="text-pretty text-base leading-8 text-muted">
+                      <p key={paragraph} className="editorial-column-block text-pretty text-base leading-8 text-muted">
                         {paragraph}
                       </p>
                     ))}
                   </div>
                 </div>
 
-                <div className="grid gap-5 content-start">
+                <div className="grid gap-5 content-start lg:col-span-2 xl:col-span-1">
                   <div className="rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Margin notes</div>
+                    <div className="flex items-center justify-between gap-3 border-b border-dashed border-line/70 pb-3">
+                      <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Margin notes</div>
+                      <div className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted">Editor annotations</div>
+                    </div>
                     <div className="mt-4 grid gap-3">
-                      {marginNotes.map((item) => (
-                        <div key={item} className="rounded-[18px] border border-line/70 bg-white/4 px-3 py-3 text-sm leading-6 text-muted">
-                          {item}
+                      {marginNotes.map((item, index) => (
+                        <div key={item} className="grid grid-cols-[auto_1fr] gap-3 border-l-2 border-accent/30 bg-white/[0.03] px-3 py-3">
+                          <div className="pt-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent/75">N0{index + 1}</div>
+                          <div className="text-sm leading-6 text-muted">{item}</div>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div className="rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Front-page links</div>
-                    <div className="mt-4 grid gap-2">
-                      <Button href="/docs/vicky_software_engineer.pdf" size="sm" className="w-full justify-center">
+                    <div className="flex items-center justify-between gap-3 border-b border-dashed border-line/70 pb-3">
+                      <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Front-page index</div>
+                      <div className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted">Routes</div>
+                    </div>
+                    <div className="mt-4 grid gap-3">
+                      {editorialReadingOrder.map((item) => (
+                        <a
+                          key={item.index}
+                          href={item.href}
+                          className="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-dashed border-line/60 pb-3 last:border-b-0 last:pb-0"
+                        >
+                          <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent/75">{item.index}</div>
+                          <div className="text-sm text-ink">{item.title}</div>
+                          <ArrowUpRight size={14} className="text-muted" />
+                        </a>
+                      ))}
+                    </div>
+
+                    <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                      <Button href="/docs/vicky_software_engineer.pdf" size="sm" className="w-full justify-between">
                         Resume
                         <ArrowUpRight size={14} />
                       </Button>
-                      <Button href={getSystemRouteHref("algsoch")} variant="secondary" size="sm" className="w-full justify-center">
-                        Flagship case study
-                      </Button>
-                      <Button href="#projects" variant="secondary" size="sm" className="w-full justify-center">
-                        Read the projects edition
+                      <Button href={getSystemRouteHref("algsoch")} variant="secondary" size="sm" className="w-full justify-between">
+                        Flagship
+                        <ArrowUpRight size={14} />
                       </Button>
                     </div>
                   </div>
@@ -305,18 +402,32 @@ export function EditorialProfilePage() {
 
         <section id="projects" className="section-space pt-4">
           <div className="section-frame">
+            <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+                Continued on Page 02 / Projects Edition
+              </div>
+              <div className="h-px flex-1 bg-gradient-to-r from-line/70 via-accent/35 to-transparent" />
+            </div>
             <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
               <div className="border-b border-line/70 pb-3">
-                <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Projects Edition</div>
-                <div className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">Four flagship systems that explain the portfolio best.</div>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Projects Edition</div>
+                    <div className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">Four flagship systems that explain the portfolio best.</div>
+                  </div>
+                  <div className="self-start rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+                    Issue stamp / Pg 02
+                  </div>
+                </div>
               </div>
 
               <div className="mt-6 grid gap-4 xl:grid-cols-2">
                 {featuredSystems.map((system) => (
                   <article key={system.id} className="rounded-[28px] border border-line/70 bg-black/15 p-4 sm:p-5">
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="flex flex-col gap-3 border-b border-dashed border-line/70 pb-3 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0">
                         <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent/80">{system.shorthand}</div>
+                        <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-muted">Special report / product file</div>
                         <h2 className="mt-3 text-2xl font-semibold leading-tight text-ink">{system.title}</h2>
                       </div>
                       <div className="self-start rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
@@ -371,13 +482,26 @@ export function EditorialProfilePage() {
           </div>
         </section>
 
-        <section className="section-space pt-4">
+        <section id="editorial-github" className="section-space pt-4">
           <div className="section-frame">
+            <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+                Continued on Page 03 / Skills & Mindset
+              </div>
+              <div className="h-px flex-1 bg-gradient-to-r from-line/70 via-accent/35 to-transparent" />
+            </div>
             <div className="grid gap-5 xl:grid-cols-[1.08fr_0.92fr]">
               <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
                 <div className="border-b border-line/70 pb-3">
-                  <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Skill Ledger</div>
-                  <div className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">What the work suggests about actual capability.</div>
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Skill Ledger</div>
+                      <div className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">What the work suggests about actual capability.</div>
+                    </div>
+                    <div className="self-start rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+                      Skill file / Pg 03
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-6 grid gap-4 lg:grid-cols-3">
@@ -411,13 +535,26 @@ export function EditorialProfilePage() {
               <div className="grid gap-5">
                 <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
                   <div className="border-b border-line/70 pb-3">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Thinking & Mindset</div>
-                    <div className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">How the engineering judgment reads.</div>
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                      <div>
+                        <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Thinking & Mindset</div>
+                        <div className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">How the engineering judgment reads.</div>
+                      </div>
+                      <div className="self-start rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+                        Opinion desk / Pg 03
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="mt-6 rounded-[26px] border border-accent/20 bg-accent/10 p-5">
-                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/80">Pull Quote</div>
-                    <blockquote className="mt-3 text-balance font-display text-xl font-semibold leading-[1.14] text-ink sm:text-[1.75rem]">
+                  <div className="relative mt-6 overflow-hidden rounded-[26px] border border-accent/20 bg-accent/10 p-5 sm:p-6">
+                    <div className="pointer-events-none absolute left-3 top-1 font-display text-[4.75rem] leading-none text-accent/18 sm:text-[6rem]">
+                      “
+                    </div>
+                    <div className="pointer-events-none absolute bottom-[-1.6rem] right-3 font-display text-[4.75rem] leading-none text-accent/18 sm:text-[6rem]">
+                      ”
+                    </div>
+                    <div className="relative font-mono text-[10px] uppercase tracking-[0.2em] text-accent/80">Pull Quote</div>
+                    <blockquote className="relative mt-3 text-balance font-display text-xl font-semibold leading-[1.14] text-ink sm:text-[1.75rem]">
                       “{editorialPullQuotes[1]}”
                     </blockquote>
                   </div>
@@ -468,10 +605,23 @@ export function EditorialProfilePage() {
 
         <section className="section-space pt-4">
           <div className="section-frame">
+            <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+                Continued on Page 04 / GitHub & Contact
+              </div>
+              <div className="h-px flex-1 bg-gradient-to-r from-line/70 via-accent/35 to-transparent" />
+            </div>
             <div className="rounded-[34px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6 lg:p-8">
               <div className="border-b border-line/70 pb-3">
-                <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">GitHub & Contact</div>
-                <div className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">Identity split, contact path, and what to read next.</div>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">GitHub & Contact</div>
+                    <div className="mt-3 text-2xl font-semibold text-ink sm:text-3xl">Identity split, contact path, and what to read next.</div>
+                  </div>
+                  <div className="self-start rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+                    Closing sheet / Pg 04
+                  </div>
+                </div>
               </div>
 
               <div className="mt-6 grid gap-5 xl:grid-cols-[1.05fr_0.95fr]">
@@ -491,6 +641,18 @@ export function EditorialProfilePage() {
                           <div className="mt-2 text-sm leading-7 text-muted">{account.overview}</div>
                         </div>
                       </div>
+                      <div className="mt-4 flex items-center justify-between gap-3 border-t border-dashed border-line/70 pt-3">
+                        <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted">{account.status === "primary" ? "Current public account" : "Legacy public account"}</div>
+                        <a
+                          href={account.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full border border-line/70 bg-white/4 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink transition hover:border-accent/30 hover:bg-white/[0.06]"
+                        >
+                          Open profile
+                          <ArrowUpRight size={12} />
+                        </a>
+                      </div>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {account.tags.map((tag) => (
                           <span key={tag} className="rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs text-ink">
@@ -504,7 +666,10 @@ export function EditorialProfilePage() {
 
                 <div className="grid gap-4">
                   <div className="rounded-[24px] border border-line/70 bg-black/15 p-4 sm:p-5">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Closing read</div>
+                    <div className="flex items-center justify-between gap-3 border-b border-dashed border-line/70 pb-3">
+                      <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Closing read</div>
+                      <div className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted">Editor close</div>
+                    </div>
                     <div className="mt-4 text-base leading-8 text-muted">
                       The cleanest way to read this portfolio is simple: the work is strongest where software engineering,
                       AI capability, interface quality, and workflow design have to operate as one system. That is the

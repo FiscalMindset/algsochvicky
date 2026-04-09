@@ -101,4 +101,20 @@ body {
   .section-space {
     @apply py-12 sm:py-16 lg:py-24;
   }
+
+  .editorial-columns {
+    column-gap: 2rem;
+  }
+
+  @screen lg {
+    .editorial-columns {
+      column-count: 2;
+      column-gap: 2.5rem;
+    }
+  }
+
+  .editorial-column-block {
+    break-inside: avoid;
+    margin-bottom: 1.25rem;
+  }
 }
