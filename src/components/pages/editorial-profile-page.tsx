@@ -40,8 +40,9 @@ const editorialSkillGroups = [
     title: "Software Desk",
     items: [
       "React, TypeScript, Vite, browser-side product engineering",
+      "Python, FastAPI, backend services, model-facing application logic",
       "Android, Kotlin, Jetpack Compose, offline mobile UX",
-      "FastAPI, pipeline services, structured delivery layers"
+      "Pipeline services, structured delivery layers, and production workflow wiring"
     ]
   },
   {

@@ -7,9 +7,11 @@ import { cn, getEditorialRouteHref } from "../../lib/utils";
 type NavShellProps = {
   items: NavItem[];
   activeSection: string;
+  theme: "default" | "newsprint";
+  onToggleTheme: () => void;
 };
 
-export function NavShell({ items, activeSection }: NavShellProps) {
+export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShellProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollYProgress } = useScroll();
 
@@ -52,6 +54,19 @@ export function NavShell({ items, activeSection }: NavShellProps) {
                 })}
               </nav>
 
+              <button
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition",
+                  theme === "newsprint"
+                    ? "border-accent/35 bg-accent/12 text-ink hover:bg-accent/18"
+                    : "border-line/80 bg-white/0 text-ink hover:border-accent/30 hover:bg-white/5"
+                )}
+                onClick={onToggleTheme}
+                aria-label="Toggle newspaper theme"
+              >
+                {theme === "newsprint" ? "Color View" : "Newspaper View"}
+              </button>
+
               <a
                 href={getEditorialRouteHref()}
                 className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent/16"
@@ -82,6 +97,20 @@ export function NavShell({ items, activeSection }: NavShellProps) {
           >
             <div className="surface rounded-[28px] p-4">
               <div className="grid gap-2">
+                <button
+                  className={cn(
+                    "rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition",
+                    theme === "newsprint"
+                      ? "border-accent/25 bg-accent/10 text-ink"
+                      : "border-line/80 text-ink hover:bg-white/5"
+                  )}
+                  onClick={() => {
+                    onToggleTheme();
+                    setMobileOpen(false);
+                  }}
+                >
+                  {theme === "newsprint" ? "Color View" : "Newspaper View"}
+                </button>
                 <a
                   href={getEditorialRouteHref()}
                   className="rounded-2xl border border-accent/25 bg-accent/10 px-4 py-3 text-sm font-semibold text-ink"
