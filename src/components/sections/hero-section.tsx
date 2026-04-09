@@ -1,5 +1,6 @@
 import { ArrowDownRight, Bot, Cpu, Workflow } from "lucide-react";
 import { brandProfile } from "../../content/portfolio";
+import { getEditorialRouteHref } from "../../lib/utils";
 import { CapabilityStripSection } from "./capability-strip-section";
 import { AudienceRoutesSection } from "./audience-routes-section";
 import { Button } from "../ui/button";
@@ -49,6 +50,14 @@ export function HeroSection() {
                 Activate Local AI Layer
               </Button>
             </div>
+
+            <a
+              href={getEditorialRouteHref()}
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:text-ink"
+            >
+              Read the editorial profile
+              <ArrowDownRight size={14} />
+            </a>
 
             <AudienceRoutesSection />
 

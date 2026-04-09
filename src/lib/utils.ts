@@ -123,3 +123,7 @@ export function getSystemRouteHref(id: string) {
 export function getSectionHref(id: string) {
   return `/#${id}`;
 }
+
+export function getEditorialRouteHref() {
+  return "/?view=editorial";
+}

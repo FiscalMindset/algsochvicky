@@ -1,8 +1,8 @@
 import { AnimatePresence, motion, useScroll } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { brandProfile, type NavItem } from "../../content/portfolio";
-import { cn } from "../../lib/utils";
+import { cn, getEditorialRouteHref } from "../../lib/utils";
 
 type NavShellProps = {
   items: NavItem[];
@@ -33,23 +33,33 @@ export function NavShell({ items, activeSection }: NavShellProps) {
               </div>
             </a>
 
-            <nav className="hidden items-center gap-1 lg:flex">
-              {items.map((item) => {
-                const active = item.id === activeSection;
-                return (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className={cn(
-                      "rounded-full px-3 py-2 text-sm transition duration-200",
-                      active ? "bg-accent/14 text-ink" : "text-muted hover:text-ink"
-                    )}
-                  >
-                    {item.label}
-                  </a>
-                );
-              })}
-            </nav>
+            <div className="hidden items-center gap-3 lg:flex">
+              <nav className="flex items-center gap-1">
+                {items.map((item) => {
+                  const active = item.id === activeSection;
+                  return (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className={cn(
+                        "rounded-full px-3 py-2 text-sm transition duration-200",
+                        active ? "bg-accent/14 text-ink" : "text-muted hover:text-ink"
+                      )}
+                    >
+                      {item.label}
+                    </a>
+                  );
+                })}
+              </nav>
+
+              <a
+                href={getEditorialRouteHref()}
+                className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent/16"
+              >
+                Editorial Page
+                <ArrowUpRight size={14} />
+              </a>
+            </div>
 
             <button
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line/80 text-muted transition hover:text-ink lg:hidden"
@@ -72,6 +82,13 @@ export function NavShell({ items, activeSection }: NavShellProps) {
           >
             <div className="surface rounded-[28px] p-4">
               <div className="grid gap-2">
+                <a
+                  href={getEditorialRouteHref()}
+                  className="rounded-2xl border border-accent/25 bg-accent/10 px-4 py-3 text-sm font-semibold text-ink"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Editorial Page
+                </a>
                 {items.map((item) => (
                   <a
                     key={item.id}

@@ -1,6 +1,7 @@
 import { featuredSystems, navItems } from "../content/portfolio";
 import { useActiveSection } from "../hooks/use-active-section";
 import { RuntimeProvider } from "../features/runanywhere/runtime-provider";
+import { EditorialProfilePage } from "../components/pages/editorial-profile-page";
 import { SystemCaseStudyPage } from "../components/pages/system-case-study-page";
 import { ArchitectureSection } from "../components/sections/architecture-section";
 import { BuildWithAiSection } from "../components/sections/build-with-ai-section";
@@ -20,6 +21,13 @@ function getSystemFromLocation() {
   const systemId = querySystem ?? hashMatch?.[1] ?? pathMatch?.[1];
 
   return featuredSystems.find((system) => system.id === systemId) ?? null;
+}
+
+function isEditorialRoute() {
+  const params = new URLSearchParams(window.location.search);
+  const view = params.get("view");
+
+  return view === "editorial" || /^#\/editorial\/?$/.test(window.location.hash) || /^\/editorial\/?$/.test(window.location.pathname);
 }
 
 function PortfolioHome() {
@@ -53,11 +61,12 @@ function PortfolioHome() {
 }
 
 export default function App() {
+  const editorialRoute = isEditorialRoute();
   const routeSystem = getSystemFromLocation();
 
   return (
     <RuntimeProvider>
-      {routeSystem ? <SystemCaseStudyPage system={routeSystem} /> : <PortfolioHome />}
+      {editorialRoute ? <EditorialProfilePage /> : routeSystem ? <SystemCaseStudyPage system={routeSystem} /> : <PortfolioHome />}
     </RuntimeProvider>
   );
 }
