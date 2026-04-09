@@ -8,6 +8,7 @@ import {
 } from "../../features/github/repo-intelligence";
 import { compactActionLabel, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
+import { GitHubCommitSurface } from "../ui/github-commit-surface";
 import { SectionHeading } from "../ui/section-heading";
 import { YouTubePreview } from "../ui/youtube-preview";
 
@@ -107,6 +108,13 @@ export function GitHubIntelligenceSection() {
                     note="Open the full demo on YouTube."
                   />
                 ) : null}
+                <GitHubCommitSurface
+                  repoUrl={topRepository.repoUrl}
+                  title={topRepository.title}
+                  fallbackEntries={topRepository.highlights ?? [topRepository.overview, topRepository.whyItMatters]}
+                  className="mt-4"
+                  compact
+                />
               </div>
             ) : null}
 
@@ -286,6 +294,14 @@ export function GitHubIntelligenceSection() {
                       ))}
                     </div>
                   ) : null}
+
+                  <GitHubCommitSurface
+                    repoUrl={repository.repoUrl}
+                    title={repository.title}
+                    fallbackEntries={repository.highlights ?? [repository.overview, repository.whyItMatters]}
+                    className="mt-4"
+                    compact
+                  />
 
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                     {[

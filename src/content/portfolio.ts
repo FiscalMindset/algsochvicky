@@ -142,6 +142,11 @@ export const brandProfile = {
 
 export const contactDetails: ContactDetail[] = [
   {
+    label: "Resume",
+    value: "vicky_software_engineer.pdf",
+    href: "/docs/vicky_software_engineer.pdf"
+  },
+  {
     label: "Phone",
     value: "+91 8383848219",
     href: "tel:+918383848219"
@@ -971,6 +976,10 @@ export const philosophyStatements = [
 ];
 
 export const contactActions = [
+  {
+    label: "Open Resume",
+    href: "/docs/vicky_software_engineer.pdf"
+  },
   {
     label: "Open GitHub",
     href: "https://github.com/fiscalmindset"

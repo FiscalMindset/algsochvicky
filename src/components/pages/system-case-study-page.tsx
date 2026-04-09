@@ -3,6 +3,7 @@ import { useEffect, useMemo } from "react";
 import { brandProfile, featuredSystems, type FeaturedSystem } from "../../content/portfolio";
 import { compactActionLabel, getSectionHref, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
+import { GitHubCommitSurface } from "../ui/github-commit-surface";
 import { Surface } from "../ui/surface";
 import { YouTubePreview } from "../ui/youtube-preview";
 
@@ -158,6 +159,14 @@ export function SystemCaseStudyPage({ system }: SystemCaseStudyPageProps) {
                       </div>
                     </div>
                   )}
+
+                  <div className="mt-5">
+                    <GitHubCommitSurface
+                      repoUrl={system.links.find((link) => link.label === "Repository")?.href}
+                      title={system.title}
+                      fallbackEntries={[...system.architecture.slice(0, 2), ...system.outcomes.slice(0, 2)]}
+                    />
+                  </div>
                 </div>
               </Surface>
             </div>

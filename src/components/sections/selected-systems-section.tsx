@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { featuredSystems } from "../../content/portfolio";
 import { compactActionLabel, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
+import { GitHubCommitSurface } from "../ui/github-commit-surface";
 import { SectionHeading } from "../ui/section-heading";
 import { Surface } from "../ui/surface";
 
@@ -74,9 +75,9 @@ export function SelectedSystemsSection() {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
-              <Surface className="relative overflow-hidden p-5 sm:p-6 lg:p-8">
-                <div className={`absolute inset-0 bg-gradient-to-br ${activeSystem.accent}`} />
-                <div className="pointer-events-none absolute inset-0 panel-grid opacity-30" />
+              <Surface className="relative p-5 sm:p-6 lg:p-8">
+                <div className={`pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-br ${activeSystem.accent}`} />
+                <div className="pointer-events-none absolute inset-0 rounded-[28px] panel-grid opacity-30" />
                 <div className="relative">
                   <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
                     <div className="max-w-2xl">
@@ -125,6 +126,13 @@ export function SelectedSystemsSection() {
                     </div>
 
                     <div className="grid gap-5">
+                      <GitHubCommitSurface
+                        repoUrl={activeSystem.links.find((link) => link.label === "Repository")?.href}
+                        title={activeSystem.title}
+                        fallbackEntries={[...activeSystem.architecture.slice(0, 2), ...activeSystem.outcomes.slice(0, 2)]}
+                        compact
+                      />
+
                       <div className="rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
                         <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">
                           Architecture glimpse

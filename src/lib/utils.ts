@@ -48,7 +48,44 @@ export function compactActionLabel(label: string) {
   if (label === "Live Demo") return "Live";
   if (label === "YouTube Demo") return "Video";
   if (label === "APK Releases") return "APK";
+  if (label === "Commit History") return "Commits";
   return label;
+}
+
+type LinkShape = {
+  label: string;
+  href?: string;
+  variant?: "primary" | "secondary";
+};
+
+export function getGitHubCommitHistoryUrl(repoUrl?: string) {
+  if (!repoUrl || !repoUrl.includes("github.com")) {
+    return null;
+  }
+
+  return `${repoUrl.replace(/\/+$/, "")}/commits`;
+}
+
+export function appendCommitHistoryLink<T extends LinkShape>(links: T[]) {
+  if (links.some((link) => link.label === "Commit History")) {
+    return links;
+  }
+
+  const repositoryLink = links.find((link) => link.label === "Repository" && link.href);
+  const commitHistoryUrl = getGitHubCommitHistoryUrl(repositoryLink?.href);
+
+  if (!commitHistoryUrl) {
+    return links;
+  }
+
+  return [
+    ...links,
+    {
+      label: "Commit History",
+      href: commitHistoryUrl,
+      variant: "secondary"
+    } as T
+  ];
 }
 
 export function extractYouTubeVideoId(url: string) {
