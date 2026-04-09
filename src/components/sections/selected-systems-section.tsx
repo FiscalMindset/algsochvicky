@@ -4,7 +4,6 @@ import { featuredSystems } from "../../content/portfolio";
 import { compactActionLabel, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
 import { GitHubCommitSurface } from "../ui/github-commit-surface";
-import { SectionHeading } from "../ui/section-heading";
 import { Surface } from "../ui/surface";
 
 export function SelectedSystemsSection() {
@@ -21,41 +20,60 @@ export function SelectedSystemsSection() {
   return (
     <section id="systems" className="section-space">
       <div className="section-frame">
-        <SectionHeading
-          eyebrow="Selected Systems"
-          title="Built intelligence, engineered as products."
-          description="These are not presented as hobby projects or a repo dump. Each system is positioned as a proof point for how Vicky designs interfaces, workflows, runtime behavior, and product maturity around AI."
-          aside={
-            <p>
-              Each module is treated like a case-study surface: thesis, workflow, architecture, and why the system
-              matters all sit in one view.
+        <div className="mb-5 grid gap-3 xl:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] xl:items-end">
+          <div className="max-w-3xl">
+            <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Selected Systems</div>
+            <h2 className="text-balance font-display text-3xl font-semibold leading-[0.96] text-ink sm:text-4xl lg:text-[3.5rem]">
+              Built intelligence, engineered as products.
+            </h2>
+            <p className="mt-3 max-w-2xl text-pretty text-sm leading-7 text-muted sm:text-base lg:text-lg">
+              These are not presented as hobby projects or a repo dump. Each system is positioned as a proof point for
+              how Vicky designs interfaces, workflows, runtime behavior, and product maturity around AI.
             </p>
-          }
-        />
+          </div>
 
-        <div className="grid gap-5 xl:grid-cols-[0.78fr_1.22fr]">
-          <div className="grid gap-3">
+          <p className="max-w-md text-sm leading-7 text-muted">
+            Each module is treated like a case-study surface: thesis, workflow, architecture, and why the system
+            matters all sit in one view.
+          </p>
+        </div>
+
+        <div className="grid gap-5 xl:grid-cols-[0.78fr_1.22fr] xl:items-start">
+          <div className="grid content-start gap-2 self-start">
             {featuredSystems.map((system) => {
               const active = system.id === activeSystem.id;
               return (
                 <button
                   key={system.id}
-                  className={`text-left transition ${active ? "scale-[1.01]" : "opacity-90 hover:opacity-100"}`}
+                  className={`text-left transition ${active ? "" : "opacity-92 hover:opacity-100"}`}
                   onClick={() => setActiveId(system.id)}
                 >
                   <div
-                    className={`rounded-[26px] border p-4 sm:p-5 ${
+                    className={`rounded-[20px] border p-3 sm:p-3.5 ${
                       active ? "border-accent/40 bg-accent/10" : "border-line/75 bg-white/4"
                     }`}
                   >
-                    <div className="font-mono text-[10px] uppercase tracking-[0.26em] text-muted">{system.shorthand}</div>
-                    <div className="mt-3 text-lg font-semibold text-ink sm:text-xl">{system.title}</div>
-                    <div className="mt-2 text-sm text-muted">{system.thesis}</div>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {system.signals.map((signal) => (
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <div className="text-[15px] font-semibold leading-tight text-ink sm:text-base">{system.title}</div>
+                        <div className="mt-1 line-clamp-1 text-[12px] leading-5 text-muted">{system.shorthand}</div>
+                      </div>
+                      <div
+                        className={`shrink-0 rounded-full border px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] ${
+                          active
+                            ? "border-accent/25 bg-accent/12 text-accent"
+                            : "border-line/70 bg-black/20 text-muted"
+                        }`}
+                      >
+                        {active ? "Active" : "View"}
+                      </div>
+                    </div>
+
+                    <div className="mt-2 flex flex-wrap gap-1">
+                      {system.signals.slice(0, 2).map((signal) => (
                         <span
                           key={signal}
-                          className="rounded-full border border-line/70 bg-white/4 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted"
+                          className="rounded-full border border-line/70 bg-white/4 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.08em] text-muted"
                         >
                           {signal}
                         </span>
