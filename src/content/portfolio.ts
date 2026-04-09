@@ -14,6 +14,11 @@ export type SystemLink = {
   variant?: "primary" | "secondary";
 };
 
+export type SystemAudienceFit = {
+  title: string;
+  detail: string;
+};
+
 export type FeaturedSystem = {
   id: string;
   title: string;
@@ -27,6 +32,8 @@ export type FeaturedSystem = {
   stack: string[];
   architecture: string[];
   outcomes: string[];
+  deliverables: string[];
+  audienceFit: SystemAudienceFit[];
   themes: string[];
   accent: string;
   signals: string[];
@@ -57,6 +64,26 @@ export type ContactDetail = {
   label: string;
   value: string;
   href: string;
+};
+
+export type AudienceRoute = {
+  id: string;
+  title: string;
+  question: string;
+  summary: string;
+  proof: string;
+  href: string;
+  cta: string;
+};
+
+export type ConversionPath = {
+  id: string;
+  title: string;
+  lead: string;
+  detail: string;
+  proof: string;
+  href: string;
+  cta: string;
 };
 
 export type KnowledgeEntry = {
@@ -165,6 +192,84 @@ export const contactScenarios = [
   }
 ] as const;
 
+export const audienceRoutes: AudienceRoute[] = [
+  {
+    id: "founder",
+    title: "Founder / Cofounder",
+    question: "Can Vicky turn AI into a serious product, not just a feature demo?",
+    summary: "Start with the flagship product path and see how on-device AI, UX, and product thinking come together in one shipped system.",
+    proof: "Best proof: Algsoch",
+    href: "/?system=algsoch",
+    cta: "Open flagship case study"
+  },
+  {
+    id: "recruiter",
+    title: "Recruiter / Hiring Team",
+    question: "Is there enough proof for a real software engineer or AI engineer role?",
+    summary: "Follow the strongest hiring signals first: current flagship product quality, historical command-system depth, and a curated GitHub read.",
+    proof: "Best proof: Algsoch + GitHub Intelligence",
+    href: "/#github",
+    cta: "View hiring signal"
+  },
+  {
+    id: "client",
+    title: "Client / Product Lead",
+    question: "What can he actually build for my product, workflow, or use case?",
+    summary: "Use the build-mode surfaces to match chat, voice, automation, local AI, or agent workflows to a real delivery path.",
+    proof: "Best proof: Build Modes + Ask Vicky",
+    href: "/#build-modes",
+    cta: "See build modes"
+  },
+  {
+    id: "technical-reviewer",
+    title: "Technical Reviewer",
+    question: "Is there real architecture depth behind the visual presentation?",
+    summary: "Go straight to the detailed system pages and inspect workflow boundaries, runtime choices, and implementation layers.",
+    proof: "Best proof: CommandBrain case study",
+    href: "/?system=commandbrain",
+    cta: "Inspect architecture"
+  }
+];
+
+export const conversionPaths: ConversionPath[] = [
+  {
+    id: "founder",
+    title: "Founder",
+    lead: "You need someone who can shape the product and ship the intelligence layer.",
+    detail: "This is the right fit when the problem is bigger than a chatbot and needs product judgment, interface design, orchestration, and engineering execution working together.",
+    proof: "Best entry: Algsoch and Algsoch News",
+    href: "/?system=algsoch",
+    cta: "See flagship build"
+  },
+  {
+    id: "client",
+    title: "Client",
+    lead: "You need a usable AI workflow, voice experience, local tool, or serious chat product.",
+    detail: "The work is strongest where there is a real workflow to design, a runtime to control, and an interface people actually need to trust and use.",
+    proof: "Best entry: Build Modes and Ask Vicky",
+    href: "/#agent",
+    cta: "Ask about your use case"
+  },
+  {
+    id: "recruiter",
+    title: "Recruiter",
+    lead: "You need fast evidence of engineering depth, AI capability, and product maturity.",
+    detail: "The portfolio is curated to surface flagship product work first, then historical technical signal, rather than hiding the strongest proof inside a noisy repo list.",
+    proof: "Best entry: GitHub Intelligence and system case studies",
+    href: "/#github",
+    cta: "Review hiring signal"
+  },
+  {
+    id: "technical",
+    title: "Technical Interviewer",
+    lead: "You want architecture, tradeoffs, and real implementation proof.",
+    detail: "The case-study pages expose runtime layers, architecture choices, stack, workflow design, and why each project matters beyond a visual impression.",
+    proof: "Best entry: CommandBrain and Algsoch News",
+    href: "/?system=commandbrain",
+    cta: "Open technical proof"
+  }
+];
+
 export const navItems: NavItem[] = [
   { id: "hero", label: "Overview" },
   { id: "systems", label: "Systems" },
@@ -240,6 +345,21 @@ export const featuredSystems: FeaturedSystem[] = [
       "Demonstrates command memory as a product system, not a one-shot prompt trick.",
       "Balances generation, safety, storage, and execution in one interface."
     ],
+    deliverables: ["Browser product", "Local command memory", "Execution control surface", "Bridge-ready runtime"],
+    audienceFit: [
+      {
+        title: "For technical reviewers",
+        detail: "Shows clear boundaries between generation, storage, safety review, and execution."
+      },
+      {
+        title: "For recruiters",
+        detail: "Strong evidence of React, TypeScript, product design, and applied AI execution in one system."
+      },
+      {
+        title: "For founders",
+        detail: "Proves Vicky can turn a repeated operator pain point into a real workflow product."
+      }
+    ],
     themes: ["AI Systems", "Command Interface", "Agentic"],
     accent: "from-accent/25 via-accent/10 to-transparent",
     signals: ["RunAnywhere Web SDK", "Local command memory", "Safety + execution"],
@@ -279,6 +399,21 @@ export const featuredSystems: FeaturedSystem[] = [
       "Shows a concrete voice AI product rather than a generic assistant.",
       "Demonstrates local model download UX and reuse.",
       "Proves browser-based, privacy-respecting voice practice design."
+    ],
+    deliverables: ["Voice-first interface", "Browser speech workflow", "On-device model activation", "Offline practice UX"],
+    audienceFit: [
+      {
+        title: "For clients",
+        detail: "Shows a usable voice experience, not only speech recognition or prompt glue."
+      },
+      {
+        title: "For recruiters",
+        detail: "Proves multimodal thinking across browser APIs, local runtime, and conversation design."
+      },
+      {
+        title: "For product leads",
+        detail: "Strong proof that Vicky can make AI interaction feel focused and intentional."
+      }
     ],
     themes: ["Voice / Chat / Agentic", "Interfaces", "AI Systems"],
     accent: "from-sky-400/20 via-accent/10 to-transparent",
@@ -320,6 +455,21 @@ export const featuredSystems: FeaturedSystem[] = [
       "Demonstrates Android product execution with on-device models.",
       "Connects privacy, speed, and educational UX in one system."
     ],
+    deliverables: ["Android app", "On-device inference", "Seven-mode learning UX", "Private local-first experience"],
+    audienceFit: [
+      {
+        title: "For founders",
+        detail: "Best proof that Vicky can shape a full product, not just integrate an API."
+      },
+      {
+        title: "For recruiters",
+        detail: "Strongest overall signal of current engineering maturity, Android execution, and AI product quality."
+      },
+      {
+        title: "For clients",
+        detail: "Shows how privacy, product usability, and AI capability can be designed as one system."
+      }
+    ],
     themes: ["Full-Stack Products", "Interfaces", "AI Systems"],
     accent: "from-white/15 via-white/5 to-transparent",
     signals: ["RunAnywhere SDK", "Android offline AI", "7 learning modes"],
@@ -360,6 +510,21 @@ export const featuredSystems: FeaturedSystem[] = [
       "Shows serious visible agent orchestration, not a hidden one-shot call.",
       "Demonstrates AI workflow design tied to a real media output pipeline.",
       "Bridges extraction, editorial shaping, packaging, QA, and rendering in one product."
+    ],
+    deliverables: ["5-agent workflow", "Screenplay JSON", "Traceable orchestration", "Rendered MP4 output"],
+    audienceFit: [
+      {
+        title: "For technical reviewers",
+        detail: "Best proof of visible orchestration, retries, structured outputs, and pipeline design."
+      },
+      {
+        title: "For clients",
+        detail: "Shows Vicky can design a serious automation workflow around AI, not only a chat surface."
+      },
+      {
+        title: "For founders",
+        detail: "Demonstrates product-grade workflow thinking for media and operations-heavy use cases."
+      }
     ],
     themes: ["AI Systems", "Tools", "News Automation", "Agentic"],
     accent: "from-amber-200/15 via-accent/5 to-transparent",

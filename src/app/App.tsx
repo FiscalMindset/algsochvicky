@@ -1,9 +1,9 @@
-import { navItems } from "../content/portfolio";
+import { featuredSystems, navItems } from "../content/portfolio";
 import { useActiveSection } from "../hooks/use-active-section";
 import { RuntimeProvider } from "../features/runanywhere/runtime-provider";
+import { SystemCaseStudyPage } from "../components/pages/system-case-study-page";
 import { ArchitectureSection } from "../components/sections/architecture-section";
 import { BuildWithAiSection } from "../components/sections/build-with-ai-section";
-import { CapabilityStripSection } from "../components/sections/capability-strip-section";
 import { ContactSection } from "../components/sections/contact-section";
 import { GitHubIntelligenceSection } from "../components/sections/github-intelligence-section";
 import { HeroSection } from "../components/sections/hero-section";
@@ -13,7 +13,16 @@ import { PhilosophySection } from "../components/sections/philosophy-section";
 import { PortfolioAgentSection } from "../components/sections/portfolio-agent-section";
 import { SelectedSystemsSection } from "../components/sections/selected-systems-section";
 
-function PortfolioApp() {
+function getSystemFromLocation() {
+  const querySystem = new URLSearchParams(window.location.search).get("system");
+  const hashMatch = window.location.hash.match(/^#\/systems\/([^/?#]+)/);
+  const pathMatch = window.location.pathname.match(/^\/systems\/([^/?#]+)/);
+  const systemId = querySystem ?? hashMatch?.[1] ?? pathMatch?.[1];
+
+  return featuredSystems.find((system) => system.id === systemId) ?? null;
+}
+
+function PortfolioHome() {
   const activeSection = useActiveSection(navItems.map((item) => item.id));
 
   return (
@@ -30,7 +39,6 @@ function PortfolioApp() {
       <NavShell items={navItems} activeSection={activeSection} />
       <main>
         <HeroSection />
-        <CapabilityStripSection />
         <SelectedSystemsSection />
         <ArchitectureSection />
         <BuildWithAiSection />
@@ -45,9 +53,11 @@ function PortfolioApp() {
 }
 
 export default function App() {
+  const routeSystem = getSystemFromLocation();
+
   return (
     <RuntimeProvider>
-      <PortfolioApp />
+      {routeSystem ? <SystemCaseStudyPage system={routeSystem} /> : <PortfolioHome />}
     </RuntimeProvider>
   );
 }

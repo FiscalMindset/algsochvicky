@@ -51,7 +51,7 @@ export function LocalRuntimeSection() {
               </div>
             </div>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
               {[
                 ["Model", localLanguageModel.name],
                 ["Purpose", localLanguageModel.purpose],
@@ -78,7 +78,7 @@ export function LocalRuntimeSection() {
                   style={{ width: `${Math.max(snapshot.progress * 100, snapshot.modelStatus === "active" ? 100 : 0)}%` }}
                 />
               </div>
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              <div className="mt-4 grid gap-3 md:grid-cols-3">
                 {[
                   {
                     step: "Download",
@@ -109,18 +109,24 @@ export function LocalRuntimeSection() {
               ) : null}
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button onClick={() => void activate()} disabled={isBusy}>
+            <div className="mt-6 grid gap-3 md:grid-cols-2 xl:flex xl:flex-wrap">
+              <Button onClick={() => void activate()} disabled={isBusy} className="w-full xl:w-auto">
                 {snapshot.cached ? "Load Local Model" : "Download + Activate Local AI"}
               </Button>
               <Button
                 variant="secondary"
                 onClick={() => void release()}
                 disabled={snapshot.modelStatus !== "active" || isBusy}
+                className="w-full xl:w-auto"
               >
                 Release Runtime
               </Button>
-              <Button variant="secondary" onClick={() => void clearCache()} disabled={isBusy || !snapshot.cached}>
+              <Button
+                variant="secondary"
+                onClick={() => void clearCache()}
+                disabled={isBusy || !snapshot.cached}
+                className="w-full xl:w-auto md:col-span-2 xl:col-span-1"
+              >
                 Clear Cached Model
               </Button>
             </div>

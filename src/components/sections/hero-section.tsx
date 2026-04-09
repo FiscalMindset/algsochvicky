@@ -1,5 +1,7 @@
 import { ArrowDownRight, Bot, Cpu, Workflow } from "lucide-react";
 import { brandProfile } from "../../content/portfolio";
+import { CapabilityStripSection } from "./capability-strip-section";
+import { AudienceRoutesSection } from "./audience-routes-section";
 import { Button } from "../ui/button";
 import { HeroFeaturedSystems, HeroSignalMap } from "../visuals/hero-signal-map";
 
@@ -31,73 +33,91 @@ export function HeroSection() {
               {brandProfile.brand} = {brandProfile.brandMeaning}
             </div>
 
-            <h1 className="max-w-4xl text-balance font-display text-4xl font-semibold leading-[0.94] text-ink sm:text-5xl lg:text-[5.15rem]">
+            <h1 className="max-w-4xl text-balance font-display text-3xl font-semibold leading-[0.96] text-ink sm:text-4xl md:text-5xl lg:text-[4.7rem]">
               Vicky Kumar builds intelligent products that feel engineered, not improvised.
             </h1>
 
             <p className="mt-5 max-w-2xl text-pretty text-base text-muted sm:text-lg lg:text-xl">{brandProfile.statement}</p>
             <p className="mt-4 max-w-2xl text-pretty text-sm text-muted/90 sm:text-base lg:text-lg">{brandProfile.supporting}</p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button href="#systems" size="lg">
+            <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
+              <Button href="#systems" size="lg" className="w-full sm:w-auto">
                 Inspect Selected Systems
                 <ArrowDownRight size={16} />
               </Button>
-              <Button href="#runtime" variant="secondary" size="lg">
+              <Button href="#runtime" variant="secondary" size="lg" className="w-full sm:w-auto">
                 Activate Local AI Layer
               </Button>
             </div>
 
-            <div className="mt-6 grid gap-4 xl:grid-cols-[220px_minmax(0,1fr)]">
-              <div className="surface-soft overflow-hidden rounded-[28px]">
-                <div className="grid min-w-0 grid-cols-[92px_minmax(0,1fr)] sm:grid-cols-[116px_minmax(0,1fr)] xl:grid-cols-1">
-                  <div className="min-h-[112px] overflow-hidden sm:min-h-[136px] xl:min-h-0 xl:aspect-[4/5]">
-                    <img
-                      src={brandProfile.portraitUrl}
-                      alt={`${brandProfile.name} portrait`}
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                  <div className="border-l border-line/70 p-4 xl:border-l-0 xl:border-t">
-                    <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent/75">Vicky Kumar</div>
-                    <div className="mt-2 text-sm font-semibold text-ink">Software Engineer · AI Engineer</div>
-                    <div className="mt-2 text-sm text-muted">
-                      Agentic systems, runtime-aware AI products, and usable interfaces.
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <AudienceRoutesSection />
 
-              <div className="surface-soft rounded-[28px] p-4 sm:p-5">
-                <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Capability rail</div>
-                <div className="mt-4 grid gap-3">
-                  {capabilityCards.map((item, index) => (
-                    <div
-                      key={item.title}
-                      className="rounded-[22px] border border-line/70 bg-white/4 p-4"
-                    >
-                      <div className="grid gap-3 sm:grid-cols-[auto_minmax(0,180px)_minmax(0,1fr)] sm:items-start">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent">
-                          {item.icon}
-                        </div>
-                        <div className="min-w-0">
-                          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">0{index + 1}</div>
-                          <div className="mt-2 text-sm font-semibold leading-5 text-ink">{item.title}</div>
-                        </div>
-                        <div className="min-w-0 text-sm leading-6 text-muted">{item.detail}</div>
+            <div className="surface-soft mt-6 overflow-hidden rounded-[30px]">
+              <div className="grid gap-4 p-4 sm:p-5 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
+                <div className="rounded-[22px] border border-line/70 bg-black/15 p-4">
+                  <div className="grid gap-4 sm:grid-cols-[96px_minmax(0,1fr)]">
+                    <div className="self-start overflow-hidden rounded-[20px] border border-line/70 bg-white/4">
+                      <div className="aspect-square min-h-[96px] bg-gradient-to-b from-white/8 to-transparent">
+                        <img
+                          src={brandProfile.portraitUrl}
+                          alt={`${brandProfile.name} portrait`}
+                          className="h-full w-full scale-[1.08] object-cover object-top"
+                        />
                       </div>
                     </div>
-                  ))}
+
+                    <div className="min-w-0">
+                      <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent/75">Identity Surface</div>
+                      <div className="mt-2 text-base font-semibold text-ink sm:text-lg">{brandProfile.name}</div>
+                      <div className="mt-1.5 text-sm font-medium leading-6 text-ink/90">
+                        Software Engineer · AI Engineer
+                      </div>
+                      <div className="mt-2.5 text-sm leading-6 text-muted">
+                        Agentic systems, runtime-aware AI products, and usable interfaces.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {["Software Systems", "Agentic Workflows", "On-Device AI"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 overflow-hidden rounded-[18px] border border-line/70 bg-white/4">
+                    {capabilityCards.map((item, index) => (
+                      <div
+                        key={item.title}
+                        className={`flex items-start gap-3 px-3.5 py-3.5 sm:px-4 ${
+                          index < capabilityCards.length - 1 ? "border-b border-line/70" : ""
+                        }`}
+                      >
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent">
+                          {item.icon}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="text-sm font-semibold leading-5 text-ink">{item.title}</div>
+                          <div className="mt-1.5 text-sm leading-6 text-muted">{item.detail}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+
+                <HeroFeaturedSystems embedded />
               </div>
             </div>
           </div>
 
-          <HeroSignalMap />
-        </div>
-
-        <div className="mt-6">
-          <HeroFeaturedSystems />
+          <div className="grid gap-6 content-start">
+            <HeroSignalMap />
+            <CapabilityStripSection embedded />
+          </div>
         </div>
       </div>
     </section>

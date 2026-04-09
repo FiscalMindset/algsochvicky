@@ -1,5 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
-import { brandProfile, contactActions, contactDetails, contactScenarios, contactTags } from "../../content/portfolio";
+import {
+  brandProfile,
+  contactActions,
+  contactDetails,
+  contactScenarios,
+  contactTags,
+  conversionPaths
+} from "../../content/portfolio";
 import { Button } from "../ui/button";
 
 export function ContactSection() {
@@ -12,10 +19,10 @@ export function ContactSection() {
           <div className="relative">
             <div className="max-w-4xl">
               <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/75">Contact / CTA</div>
-              <h2 className="mt-4 text-balance font-display text-4xl font-semibold leading-none text-ink sm:text-5xl lg:text-[4.5rem]">
+              <h2 className="mt-4 text-balance font-display text-3xl font-semibold leading-[0.96] text-ink sm:text-4xl lg:text-[4rem]">
                 Let’s build intelligent products with software quality at the core.
               </h2>
-              <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
+              <p className="mt-5 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
                 If you need AI-native product engineering, agentic workflows, voice or chat systems, or runtime-aware
                 local intelligence, {brandProfile.name}'s work is built to show how that execution looks in practice.
               </p>
@@ -31,9 +38,15 @@ export function ContactSection() {
                 ))}
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:flex xl:flex-wrap">
                 {contactActions.map((action, index) => (
-                  <Button key={action.label} href={action.href} variant={index === 0 ? "primary" : "secondary"} size="lg">
+                  <Button
+                    key={action.label}
+                    href={action.href}
+                    variant={index === 0 ? "primary" : "secondary"}
+                    size="lg"
+                    className="w-full xl:w-auto"
+                  >
                     {action.label}
                     <ArrowUpRight size={16} />
                   </Button>
@@ -46,12 +59,33 @@ export function ContactSection() {
                 <div className="rounded-[24px] border border-line/70 bg-black/15 p-5 sm:p-6">
                   <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Best fit</div>
                   <p className="mt-4 text-sm leading-7 text-muted">
-                    Building a chatbot, a voice interface, an agentic workflow, a local AI tool, or a more serious
-                    AI-native product? This portfolio is designed to make the answer visible before the first call.
+                    This is the right fit when the job is not “add AI somehow,” but define the product surface, build
+                    the workflow, control the runtime, and ship something people can actually trust and use.
                   </p>
                 </div>
 
-                <div className="grid gap-3 md:grid-cols-3">
+                <div className="grid gap-3 xl:grid-cols-2">
+                  {conversionPaths.map((path) => (
+                    <a
+                      key={path.id}
+                      href={path.href}
+                      className="group rounded-[24px] border border-line/70 bg-black/15 p-5 transition hover:border-accent/30 hover:bg-white/[0.05]"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/75">{path.title}</div>
+                        <ArrowUpRight size={14} className="mt-0.5 text-accent/70 transition group-hover:text-accent" />
+                      </div>
+                      <div className="mt-3 text-sm font-semibold leading-6 text-ink">{path.lead}</div>
+                      <div className="mt-3 text-sm leading-7 text-muted">{path.detail}</div>
+                      <div className="mt-4 rounded-2xl border border-accent/20 bg-accent/10 px-3 py-2 text-xs text-ink">
+                        {path.proof}
+                      </div>
+                      <div className="mt-4 text-sm text-accent">{path.cta}</div>
+                    </a>
+                  ))}
+                </div>
+
+                <div className="grid gap-3 xl:grid-cols-3">
                   {contactScenarios.map((scenario) => (
                     <div key={scenario.title} className="rounded-[24px] border border-line/70 bg-black/15 p-5">
                       <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/75">{scenario.title}</div>
@@ -63,7 +97,7 @@ export function ContactSection() {
 
               <div className="rounded-[24px] border border-line/70 bg-black/15 p-5 sm:p-6">
                 <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Direct contact</div>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="mt-4 grid gap-3 md:grid-cols-2">
                   {contactDetails.map((detail) => (
                     <a
                       key={detail.label}

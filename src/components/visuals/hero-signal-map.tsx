@@ -1,14 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { featuredSystems } from "../../content/portfolio";
+import { cn, compactActionLabel, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
-
-function compactLinkLabel(label: string) {
-  if (label === "Repository") return "Repo";
-  if (label === "Live Demo") return "Live";
-  if (label === "YouTube Demo") return "Video";
-  if (label === "APK Releases") return "APK";
-  return label;
-}
+import { YouTubePreview } from "../ui/youtube-preview";
 
 const stages = [
   {
@@ -42,6 +37,7 @@ const productSignals = featuredSystems.map((system) => ({
   step: system.id === "commandbrain" ? "01" : system.id === "speakai" ? "02" : system.id === "algsoch" ? "03" : "04",
   title: system.title,
   detail: system.shorthand,
+  proof: system.outcomes[0],
   tags: system.signals.slice(0, 3),
   links: system.links.slice(0, 3)
 }));
@@ -158,62 +154,177 @@ export function HeroSignalMap() {
   );
 }
 
-export function HeroFeaturedSystems() {
+type HeroFeaturedSystemsProps = {
+  embedded?: boolean;
+};
+
+export function HeroFeaturedSystems({ embedded = false }: HeroFeaturedSystemsProps) {
+  const [activeId, setActiveId] = useState(productSignals[0]?.id ?? "");
+  const activeSignal = productSignals.find((signal) => signal.id === activeId) ?? productSignals[0];
+  const videoLink = activeSignal?.links.find((link) => link.label === "YouTube Demo")?.href;
+  const actionLinks = activeSignal?.links.filter((link) => link.label !== "YouTube Demo") ?? [];
+
+  if (embedded && !activeSignal) {
+    return null;
+  }
+
   return (
-    <div className="grid gap-4">
+    <div
+      className={cn(
+        "grid gap-4",
+        embedded ? "min-w-0 rounded-[22px] border border-line/70 bg-black/15 p-4 h-full content-start" : ""
+      )}
+    >
       <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div className="min-w-0">
           <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Featured systems</div>
           <div className="mt-2 max-w-2xl text-sm leading-6 text-muted">
-            Four flagship systems, shown directly as product modules instead of hiding inside the operating panel.
+            {embedded
+              ? "Four flagship systems, compressed into one fast product rail."
+              : "Four flagship systems, compressed into a faster first-read product strip."}
           </div>
-        </div>
-        <div className="self-start rounded-full border border-line/70 bg-white/4 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-          Visible at first read
         </div>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-2 2xl:grid-cols-4">
-        {productSignals.map((signal) => (
-          <div key={signal.id} className="surface-soft min-w-0 rounded-[24px] p-4">
-            <div className="flex min-w-0 items-start justify-between gap-3">
-              <div className="text-base font-semibold leading-tight text-ink">{signal.title}</div>
-              <div className="self-start rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 font-mono text-[10px] text-accent">
-                {signal.step}
-              </div>
-            </div>
-
-            <div className="mt-2 text-[13px] leading-6 text-muted">{signal.detail}</div>
-
-            <div className="mt-3 rounded-2xl border border-accent/20 bg-accent/10 px-3 py-2">
-              <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent/75">Signals</div>
-              <div className="mt-1 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-[11px] font-medium leading-5 text-ink/90">
-                {signal.tags.map((tag, index) => (
-                  <div key={tag} className="inline-flex min-w-0 items-center gap-2">
-                    {index > 0 ? <span className="text-accent/45">•</span> : null}
-                    <span className="min-w-0 text-pretty">{tag}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-3 grid gap-2 sm:grid-cols-2">
-              {signal.links.map((link) => (
-                <Button
-                  key={`${signal.id}-${link.label}`}
-                  href={link.href ?? "#"}
-                  variant={link.variant === "primary" ? "primary" : "secondary"}
-                  size="sm"
-                  className="h-9 min-w-0 justify-center px-3 text-[11px] sm:w-full"
-                  aria-label={`${signal.title} ${link.label}`}
+      {embedded ? (
+        <div className="grid gap-3">
+          <div className="grid gap-2 sm:grid-cols-2">
+            {productSignals.map((signal) => {
+              const active = signal.id === activeSignal.id;
+              return (
+                <button
+                  key={signal.id}
+                  className={cn(
+                    "min-w-0 rounded-[18px] border px-3 py-3 text-left transition",
+                    active ? "border-accent/35 bg-accent/10" : "border-line/70 bg-white/4 hover:border-accent/20"
+                  )}
+                  onClick={() => setActiveId(signal.id)}
                 >
-                  <span className="truncate">{compactLinkLabel(link.label)}</span>
-                </Button>
-              ))}
+                  <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent/75">{signal.step}</div>
+                  <div className="mt-1 text-sm font-semibold leading-tight text-ink">{signal.title}</div>
+                  <div className="mt-1 text-[12px] leading-5 text-muted">{signal.detail}</div>
+                  <div className="mt-2 flex min-w-0 flex-wrap gap-1">
+                    {signal.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={`${signal.id}-${tag}`}
+                        className="rounded-full border border-line/70 bg-white/4 px-2 py-1 text-[9px] font-medium uppercase tracking-[0.08em] text-ink/85"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="min-w-0 rounded-[20px] border border-line/70 bg-white/4 p-3.5">
+            <div className="grid min-w-0 gap-3">
+              <div className="min-w-0">
+                <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent/75">{activeSignal.step}</div>
+                  <div className="min-w-0 text-base font-semibold leading-tight text-ink">{activeSignal.title}</div>
+                </div>
+                <div className="mt-1.5 text-[13px] leading-5 text-muted">{activeSignal.detail}</div>
+                <div className="mt-2 text-[12px] leading-5 text-ink/85">{activeSignal.proof}</div>
+
+                <div className="mt-2.5 flex min-w-0 flex-wrap gap-1.5">
+                  {activeSignal.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-ink/90"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                  <Button href={getSystemRouteHref(activeSignal.id)} size="sm" className="h-8 min-w-0 justify-center px-3 text-[10px]">
+                    <span className="truncate">Case Study</span>
+                  </Button>
+                  {actionLinks.map((link) => (
+                    <Button
+                      key={`${activeSignal.id}-${link.label}`}
+                      href={link.href ?? "#"}
+                      variant={link.variant === "primary" ? "primary" : "secondary"}
+                      size="sm"
+                      className="h-8 min-w-0 justify-center px-3 text-[10px]"
+                      aria-label={`${activeSignal.title} ${link.label}`}
+                    >
+                      <span className="truncate">{compactActionLabel(link.label)}</span>
+                    </Button>
+                  ))}
+
+                  {videoLink ? (
+                    <Button
+                      href={videoLink}
+                      variant="secondary"
+                      size="sm"
+                      className="h-8 min-w-0 justify-center px-3 text-[10px]"
+                      aria-label={`${activeSignal.title} video demo`}
+                    >
+                      <span className="truncate">Video</span>
+                    </Button>
+                  ) : null}
+                </div>
+              </div>
+
+              {videoLink ? (
+                <YouTubePreview
+                  url={videoLink}
+                  title={activeSignal.title}
+                  note="Preview card. Open the full demo on YouTube."
+                  className="w-full"
+                />
+              ) : null}
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ) : (
+        <div className="grid gap-3 xl:grid-cols-2 2xl:grid-cols-4">
+          {productSignals.map((signal) => (
+            <div key={signal.id} className="surface-soft min-w-0 rounded-[20px] border border-line/70 bg-white/4 p-3.5">
+              <div className="grid gap-3 min-w-0">
+                <div className="min-w-0">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent/75">{signal.step}</div>
+                  <div className="mt-1 text-base font-semibold leading-tight text-ink">{signal.title}</div>
+                  <div className="mt-2 text-[13px] leading-5 text-muted">{signal.detail}</div>
+
+                  <div className="mt-3 flex min-w-0 flex-wrap gap-1.5">
+                    {signal.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-ink/90"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex min-w-0 flex-wrap gap-1.5">
+                  <Button href={getSystemRouteHref(signal.id)} size="sm" className="h-8 min-w-0 justify-center px-3 text-[10px]">
+                    <span className="truncate">Case Study</span>
+                  </Button>
+                  {signal.links.map((link) => (
+                    <Button
+                      key={`${signal.id}-${link.label}`}
+                      href={link.href ?? "#"}
+                      variant={link.variant === "primary" ? "primary" : "secondary"}
+                      size="sm"
+                      className="h-8 min-w-0 justify-center px-3 text-[10px]"
+                      aria-label={`${signal.title} ${link.label}`}
+                    >
+                      <span className="truncate">{compactActionLabel(link.label)}</span>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

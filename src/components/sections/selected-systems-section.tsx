@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { featuredSystems } from "../../content/portfolio";
-import { compactActionLabel } from "../../lib/utils";
+import { compactActionLabel, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
 import { SectionHeading } from "../ui/section-heading";
 import { Surface } from "../ui/surface";
@@ -78,7 +78,7 @@ export function SelectedSystemsSection() {
                 <div className={`absolute inset-0 bg-gradient-to-br ${activeSystem.accent}`} />
                 <div className="pointer-events-none absolute inset-0 panel-grid opacity-30" />
                 <div className="relative">
-                  <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                  <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
                     <div className="max-w-2xl">
                       <div className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent/80">Case Study</div>
                       <h3 className="mt-3 text-balance font-display text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl">
@@ -87,7 +87,10 @@ export function SelectedSystemsSection() {
                       <p className="mt-4 text-base text-muted sm:text-lg">{activeSystem.summary}</p>
                     </div>
 
-                    <div className="grid w-full gap-2 self-start sm:grid-cols-2 xl:w-auto xl:min-w-[19rem] xl:grid-cols-3">
+                    <div className="grid w-full gap-2 self-start sm:grid-cols-2 xl:max-w-md">
+                      <Button href={getSystemRouteHref(activeSystem.id)} size="sm" className="w-full min-w-0 px-3">
+                        <span className="truncate">Case Study</span>
+                      </Button>
                       {activeSystem.links.map((link) => (
                         <Button
                           key={link.label}
@@ -103,7 +106,7 @@ export function SelectedSystemsSection() {
                     </div>
                   </div>
 
-                  <div className="mt-6 grid gap-5 lg:grid-cols-2">
+                  <div className="mt-6 grid gap-5 xl:grid-cols-2">
                     <div className="grid gap-5">
                       <div className="rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
                         <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">What it solves</div>
@@ -137,7 +140,7 @@ export function SelectedSystemsSection() {
                     </div>
                   </div>
 
-                  <div className="mt-5 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+                  <div className="mt-5 grid gap-5 xl:grid-cols-[0.95fr_1.05fr]">
                     <div className="rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
                       <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">
                         Technical layers built
@@ -168,7 +171,7 @@ export function SelectedSystemsSection() {
 
                   <div className="mt-5 rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
                     <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">Why this is strong signal</div>
-                    <div className="mt-4 grid gap-3 lg:grid-cols-3">
+                    <div className="mt-4 grid gap-3 xl:grid-cols-3">
                       {activeSystem.outcomes.map((outcome) => (
                         <div key={outcome} className="rounded-2xl border border-line/70 bg-white/4 p-3 text-sm text-muted">
                           {outcome}

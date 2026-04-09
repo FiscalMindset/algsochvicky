@@ -42,7 +42,7 @@ export function ArchitectureSection() {
 
           <div className="grid gap-6">
             <ArchitectureBlueprint activeLayerId={activeLayer.id} />
-            <div className="grid gap-5 lg:grid-cols-2">
+            <div className="grid gap-5 xl:grid-cols-2">
               <div className="rounded-[28px] border border-line/75 bg-white/4 p-5">
                 <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">Modules</div>
                 <div className="mt-4 grid gap-3">

@@ -68,3 +68,21 @@ export function getYouTubeEmbedUrl(url: string) {
 
   return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&controls=1`;
 }
+
+export function getYouTubeThumbnailUrl(url: string) {
+  const videoId = extractYouTubeVideoId(url);
+
+  if (!videoId) {
+    return null;
+  }
+
+  return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+}
+
+export function getSystemRouteHref(id: string) {
+  return `/?system=${id}`;
+}
+
+export function getSectionHref(id: string) {
+  return `/#${id}`;
+}

@@ -6,9 +6,10 @@ import {
   getRepositoryThemes,
   getTopRepository
 } from "../../features/github/repo-intelligence";
-import { compactActionLabel, getYouTubeEmbedUrl } from "../../lib/utils";
+import { compactActionLabel, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
 import { SectionHeading } from "../ui/section-heading";
+import { YouTubePreview } from "../ui/youtube-preview";
 
 function getRepositoryActions(id: string, repoUrl?: string, demoUrl?: string) {
   const featuredMatch = featuredSystems.find((system) => system.id === id);
@@ -41,7 +42,7 @@ export function GitHubIntelligenceSection() {
   );
   const topRepositoryVideo = useMemo(() => {
     const videoLink = topRepositoryActions.find((link) => link.label === "YouTube Demo" && link.href)?.href;
-    return videoLink ? getYouTubeEmbedUrl(videoLink) : null;
+    return videoLink ?? null;
   }, [topRepositoryActions]);
   const repositories = useMemo(
     () => getRankedRepositories(activeTheme === "All" ? undefined : activeTheme),
@@ -79,7 +80,10 @@ export function GitHubIntelligenceSection() {
                   ))}
                 </div>
                 {topRepositoryActions.length ? (
-                  <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                    <Button href={getSystemRouteHref(topRepository.id)} size="sm" className="w-full min-w-0">
+                      <span className="truncate">Case Study</span>
+                    </Button>
                     {topRepositoryActions.map((link) => (
                       <Button
                         key={`${topRepository.id}-${link.label}`}
@@ -95,23 +99,13 @@ export function GitHubIntelligenceSection() {
                   </div>
                 ) : null}
                 {topRepositoryVideo ? (
-                  <div className="mt-4 overflow-hidden rounded-[22px] border border-line/70 bg-black/25">
-                    <div className="flex items-center justify-between border-b border-line/60 px-3 py-2">
-                      <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent/75">Muted preview</div>
-                      <div className="text-[11px] text-muted">Autoplay without sound</div>
-                    </div>
-                    <div className="aspect-[9/16] w-full sm:aspect-video">
-                      <iframe
-                        title={`${topRepository.title} video preview`}
-                        src={topRepositoryVideo}
-                        className="h-full w-full"
-                        loading="lazy"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  </div>
+                  <YouTubePreview
+                    url={topRepositoryVideo}
+                    title={topRepository.title}
+                    className="mt-4"
+                    aspectClassName="mx-auto aspect-[4/5] w-full max-w-[26rem] sm:max-w-none sm:aspect-video"
+                    note="Open the full demo on YouTube."
+                  />
                 ) : null}
               </div>
             ) : null}
@@ -272,7 +266,12 @@ export function GitHubIntelligenceSection() {
                   ) : null}
 
                   {repositoryActions.length ? (
-                    <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+                      {featuredSystems.some((system) => system.id === repository.id) ? (
+                        <Button href={getSystemRouteHref(repository.id)} size="sm" className="w-full min-w-0">
+                          <span className="truncate">Case Study</span>
+                        </Button>
+                      ) : null}
                       {repositoryActions.map((link) => (
                         <Button
                           key={`${repository.id}-${link.label}`}
@@ -288,7 +287,7 @@ export function GitHubIntelligenceSection() {
                     </div>
                   ) : null}
 
-                  <div className="mt-4 grid gap-3 sm:grid-cols-4">
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                     {[
                       ["Execution", repository.executionDepth],
                       ["AI depth", repository.aiDepth],
