@@ -13,7 +13,7 @@
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=FiscalMindset&theme=radical&border_radius=12&border_color=30363d&hide_border=false" alt="GitHub Stats" style="margin: 8px;"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=algsoch&theme=radical&border_radius=12&border_color=30363d&hide_border=false&layout=compact" alt="Top Langs" style="margin: 8px;"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=algsoch&theme=radical&border_radius=12&border_color=30363d&hide_border=false&layout=compact" alt="Top Languages" style="margin: 8px;"/>
 </p>
 
 ---
@@ -291,10 +291,9 @@ flowchart TD
 |:---------|:-----|
 | 💼 LinkedIn | [linkedin.com/in/algsoch](https://www.linkedin.com/in/algsoch) |
 | 🌐 Portfolio | [algsochvicky.onrender.com](https://algsochvicky.onrender.com) |
-| 🐙 Coral MCP | [withcoral/coral](https://github.com/withcoral/coral) |
 
 ---
 
 ## 📜 License
 
-MIT License · Built with ❤️ · Deployed on [Render](https://render.com) & [Vercel](https://vercel.com)
+MIT License · Deployed on [Render](https://render.com) & [Vercel](https://vercel.com)
