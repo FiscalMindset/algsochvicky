@@ -70,10 +70,12 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+    word-spacing: 0.02em;
   }
 
   .text-pretty {
     text-wrap: pretty;
+    word-spacing: 0.02em;
   }
 
   .surface {
