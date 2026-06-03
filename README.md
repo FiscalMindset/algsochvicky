@@ -278,38 +278,53 @@
 ## 📚 Technologies I Work With
 
 ### 🤖 AI & ML
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
-  <span style="background: #161b22; border: 1px solid #3b82f6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #60a5fa;">🤖 RunAnywhere SDK</span>
-  <span style="background: #161b22; border: 1px solid #10b981; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #34d399;">🧠 TensorFlow</span>
-  <span style="background: #161b22; border: 1px solid #8b5cf6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #a78bfa;">🔗 LangChain</span>
-  <span style="background: #161b22; border: 1px solid #ec4899; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #f472b6;">💎 Gemini AI</span>
-  <span style="background: #161b22; border: 1px solid #f97316; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #fb923c;">🦙 Ollama</span>
-  <span style="background: #161b22; border: 1px solid #06b6d4; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #22d3ee;">🧬 SmolLM2/SmolVLM</span>
-</div>
+
+| Technology | Description |
+|------------|-------------|
+| 🤖 RunAnywhere SDK | On-device AI inference, offline-first apps |
+| 🧠 TensorFlow | CNN models, brain tumor detection (97.9%) |
+| 🔗 LangChain | LLM chains and agents |
+| 💎 Gemini AI | Multi-modal AI for FAQ generation |
+| 🦙 Ollama | Local LLM inference |
+| 🧬 SmolLM2/SmolVLM | Lightweight on-device models |
 
 ### 🐙 Workflow & Integration
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
-  <span style="background: #161b22; border: 1px solid #8b5cf6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #a78bfa;">🐙 Coral MCP</span>
-  <span style="background: #161b22; border: 1px solid #f59e0b; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #fbbf24;">⚡ Kestra</span>
-  <span style="background: #161b22; border: 1px solid #f97316; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #fb923c;">🦾 Playwright</span>
-  <span style="background: #161b22; border: 1px solid #6366f1; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #818cf8;">🔄 Temporal</span>
-</div>
+
+| Technology | Description |
+|------------|-------------|
+| 🐙 Coral MCP | Cross-source SQL queries, 12 PRs merged |
+| ⚡ Kestra | Declarative workflow orchestration |
+| 🦾 Playwright | Web scraping, automation |
+| 🔄 Temporal | Distributed workflow engine |
 
 ### 🛠️ Full-Stack
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
-  <span style="background: #161b22; border: 1px solid #61dafb; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #61dafb;">⚛️ React</span>
-  <span style="background: #161b22; border: 1px solid #3178c6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #79b8ff;">🔷 TypeScript</span>
-  <span style="background: #161b22; border: 1px solid #06b6d4; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #22d3ee;">🎨 Tailwind CSS</span>
-  <span style="background: #161b22; border: 1px solid #68a063; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #85e89d;">🐍 Python</span>
-  <span style="background: #161b22; border: 1px solid #68a063; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #85e89d;">⚡ FastAPI</span>
-  <span style="background: #161b22; border: 1px solid #339933; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #85e89d;">🟢 Node.js</span>
-</div>
+
+| Technology | Description |
+|------------|-------------|
+| ⚛️ React / Next.js | Frontend frameworks |
+| 🔷 TypeScript | Type-safe JavaScript |
+| 🎨 Tailwind CSS | Utility-first styling |
+| 🐍 Python | Backend, AI/ML |
+| ⚡ FastAPI | Python REST API framework |
+| 🟢 Node.js | JavaScript runtime |
+| 🍃 MongoDB | NoSQL database |
+| 🐘 PostgreSQL | Relational database |
 
 ### 📱 Mobile
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
-  <span style="background: #161b22; border: 1px solid #7F52FF; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #a78bfa;">🤖 Kotlin</span>
-  <span style="background: #161b22; border: 1px solid #3b82f6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #60a5fa;">📦 Android</span>
-</div>
+
+| Technology | Description |
+|------------|-------------|
+| 🤖 Kotlin | Android development |
+| 📦 Android | Mobile platform |
+
+### ☁️ Cloud & DevOps
+
+| Technology | Description |
+|------------|-------------|
+| 🚀 Render | Deployment platform |
+| 🌐 Vercel | Frontend hosting |
+| 🐙 GitHub | Version control |
+| 🔀 GitHub Actions | CI/CD pipelines |
 
 ---
 
