@@ -1,82 +1,250 @@
-<p align="center">
-  <img src="https://avatars.githubusercontent.com/u/254638087?v=4" width="120" height="120" style="border-radius: 50%; border: 4px solid #FF6B6B;">
-  <br><br>
-  <strong style="font-size: 28px;">Vicky Kumar</strong>
-  <br>
-  <em style="font-size: 16px; color: #8b949e;">AI Engineer · Full-Stack Developer · Agentic Systems Builder</em>
-  <br><br>
-  <a href="https://github.com/FiscalMindset"><img src="https://img.shields.io/badge/GitHub-FiscalMindset-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
-  <a href="https://github.com/algsoch"><img src="https://img.shields.io/badge/GitHub-algsoch-181717?style=for-the-badge&logo=github" alt="GitHub algsoch"/></a>
-  <a href="https://www.linkedin.com/in/algsoch"><img src="https://img.shields.io/badge/LinkedIn-algsoch-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn"/></a>
-  <a href="https://algsochvicky.onrender.com"><img src="https://img.shields.io/badge/Portfolio-View%20Live-FF6B6B?style=for-the-badge" alt="Portfolio"/></a>
-</p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: #58a6ff !important;
+  box-shadow: 0 8px 25px rgba(88, 166, 255, 0.2);
+}
+.tool-card:hover {
+  border-color: #58a6ff !important;
+  transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
 
-<!-- GitHub Stats (via github-readme-stats.vercel.app) -->
-<p align="center">
-  <a href="https://github.com/FiscalMindset">
-    <img src="https://img.shields.io/badge/GitHub%20Stats-20%20repos-181717?style=for-the-badge&logo=github" alt="GitHub Stats"/>
-  </a>
-  <a href="https://github.com/algsoch?tab=repositories">
-    <img src="https://img.shields.io/badge/Projects-107+-181717?style=for-the-badge&logo=github" alt="Projects"/>
-  </a>
-  <a href="https://github.com/FiscalMindset?tab=achievements">
-    <img src="https://img.shields.io/badge/Achievements-3%20badges-FFD700?style=for-the-badge" alt="Achievements"/>
-  </a>
-</p>
+<div id="vicky-kumar" align="center">
+  <img src="https://avatars.githubusercontent.com/u/254638087?v=4" width="120" height="120" style="border-radius: 50%; border: 4px solid #FF6B6B; box-shadow: 0 4px 20px rgba(255,107,107,0.3);">
+  <h1 style="margin: 20px 0 10px; font-size: 32px; color: #c9d1d9;">Vicky Kumar</h1>
+  <p style="font-size: 18px; color: #8b949e; margin: 0 0 20px;">
+    <strong style="color: #FF6B6B;">AI Engineer</strong> · 
+    <strong style="color: #58a6ff;">Full-Stack Developer</strong> · 
+    <strong style="color: #a371f7;">Agentic Systems Builder</strong>
+  </p>
+  <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+    <a href="https://github.com/FiscalMindset"><img src="https://img.shields.io/badge/GitHub-FiscalMindset-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
+    <a href="https://github.com/algsoch"><img src="https://img.shields.io/badge/GitHub-algsoch-181717?style=for-the-badge&logo=github" alt="GitHub algsoch"/></a>
+    <a href="https://www.linkedin.com/in/algsoch"><img src="https://img.shields.io/badge/LinkedIn-algsoch-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn"/></a>
+    <a href="https://algsochvicky.onrender.com"><img src="https://img.shields.io/badge/Portfolio-View%20Live-FF6B6B?style=for-the-badge" alt="Portfolio"/></a>
+  </div>
+</div>
+
+<div align="center" style="background: linear-gradient(135deg, #161b22 0%, #21262d 100%); padding: 20px; border-radius: 12px; margin: 20px 0; border: 1px solid #30363d;">
+  <h3 style="color: #c9d1d9; margin: 0 0 15px;">Quick Stats</h3>
+  <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+    <a href="https://github.com/FiscalMindset" style="text-decoration: none;">
+      <span style="background: #238636; color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold;">📦 20 Repos</span>
+    </a>
+    <a href="https://github.com/algsoch?tab=repositories" style="text-decoration: none;">
+      <span style="background: #1f6feb; color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold;">🚀 107+ Projects</span>
+    </a>
+    <a href="https://github.com/FiscalMindset?tab=achievements" style="text-decoration: none;">
+      <span style="background: #9e6a03; color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold;">🏅 3 Achievements</span>
+    </a>
+  </div>
+</div>
+
+<details>
+<summary style="cursor: pointer; color: #58a6ff; font-size: 18px; margin: 20px 0;">📑 Table of Contents</summary>
+
+- [🔗 Project Ecosystem](#-project-ecosystem)
+- [🚀 Featured Projects](#-featured-projects)
+- [🛠️ Technical Skills](#️-technical-skills)
+- [💻 IDEs & Development Tools](#-ides--development-tools)
+- [🌟 Open Source Contributions](#-open-source-contributions)
+- [📊 GitHub Statistics](#-github-statistics)
+- [🏅 GitHub Achievements](#-github-achievements)
+- [📬 Get In Touch](#-get-in-touch)
+</details>
 
 ---
 
 ## 🔗 Project Ecosystem
 
-```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#21262d', 'primaryTextColor': '#c9d1d9', 'primaryBorderColor': '#30363d', 'lineColor': '#58a6ff', 'secondaryColor': '#161b22', 'tertiaryColor': '#0d1117'}}}%%
-flowchart TD
-    subgraph Core["🚀 Core Technologies"]
-        direction LR
-        RA["🤖 RunAnywhere SDK"] 
-        CORAL["🐙 Coral MCP"]
-        KESTRA["⚡ Kestra"]
-        OPMETA["📊 OpenMetadata"]
-        PLAY["🦾 Playwright"]
-        SELENIUM["🌐 Selenium"]
-        GEM["💎 Gemini AI"]
-        TF["🧠 TensorFlow"]
-    end
+<div style="background: linear-gradient(135deg, #161b22 0%, #21262d 100%); border: 1px solid #30363d; border-radius: 12px; padding: 20px; margin: 20px 0;">
+  <p style="color: #8b949e; margin: 0 0 15px;">Explore my complete project landscape across both GitHub accounts</p>
+</div>
 
-    subgraph FiscalMindset_Repos["📦 @FiscalMindset Projects"]
-        algsoch["📱 algsoch<br/><small>RunAnywhere · SmolLM2/SmolVLM</small>"]
-        algsochnews["📰 algsochnews<br/><small>Multi-agent AI newsroom</small>"]
-        careops["🏥 careops<br/><small>Coral · 9 data sources</small>"]
-        autopr["📤 autopr<br/><small>Kestra · Multi-platform posts</small>"]
-        devalert["🔔 devalert<br/><small>Kestra · Opportunity alerts</small>"]
-        women["🛡️ Sentinel Grid<br/><small>Kestra · Emergency response</small>"]
-        kairon["🎓 Kairon<br/><small>Playwright · NSUT attendance</small>"]
-        faq["❓ FAQ Generator<br/><small>MERN + Gemini AI</small>"]
-        magicpin["🏪 algsoch_magicpin<br/><small>WhatsApp AI assistant</small>"]
-    end
+### 🚀 Core Technologies
 
-    subgraph algsoch_Repos["🧪 @algsoch Projects"]
-        synapse["🧠 Synapse-Graph<br/><small>OpenMetadata · Neural governance</small>"]
-        speakAI["🎤 speakAI<br/><small>RunAnywhere · 100% offline</small>"]
-        smart["💻 smart_terminal<br/><small>RunAnywhere · CommandBrain</small>"]
-        brain["🧠 brain_tumor<br/><small>TensorFlow · 97.9% CNN</small>"]
-        chatbot["🤖 chatbot_assistant<br/><small>TDS · Pattern recognition</small>"]
-        htmlcheck["🔍 html-checker<br/><small>HTML validator</small>"]
-        cognivise["👁️ Cognivise<br/><small>CV · Cognition</small>"]
-    end
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0;">
+  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🤖 RunAnywhere SDK</span>
+  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🐙 Coral MCP</span>
+  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">⚡ Kestra</span>
+  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">📊 OpenMetadata</span>
+  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🦾 Playwright</span>
+  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🌐 Selenium</span>
+  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">💎 Gemini AI</span>
+  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🧠 TensorFlow</span>
+</div>
 
-    RA --> algsoch
-    RA --> speakAI
-    RA --> smart
-    CORAL --> careops
-    KESTRA --> autopr
-    KESTRA --> devalert
-    KESTRA --> women
-    OPMETA --> synapse
-    PLAY --> kairon
-    GEM --> faq
-    TF --> brain
-```
+### 📦 @FiscalMindset Projects
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin: 15px 0;">
+
+<a href="https://github.com/FiscalMindset/algsoch" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">📱</span>
+    <strong style="color: #58a6ff;">algsoch</strong>
+    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">RunAnywhere SDK · SmolLM2/SmolVLM · 100% Offline AI Learning</p>
+</div>
+</a>
+
+<a href="https://github.com/FiscalMindset/algsochnews" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">📰</span>
+    <strong style="color: #58a6ff;">algsochnews</strong>
+    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">Multi-agent AI newsroom · Automated content generation</p>
+</div>
+</a>
+
+<a href="https://github.com/FiscalMindset/careops" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">🏥</span>
+    <strong style="color: #58a6ff;">careops</strong>
+    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">Coral MCP · 9 data sources · Family care coordination</p>
+</div>
+</a>
+
+<a href="https://github.com/FiscalMindset/autopr" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">📤</span>
+    <strong style="color: #58a6ff;">autopr</strong>
+    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">Kestra · Multi-platform posts · GitHub workflow automation</p>
+</div>
+</a>
+
+<a href="https://github.com/FiscalMindset/devalert" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">🔔</span>
+    <strong style="color: #58a6ff;">devalert</strong>
+    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">Kestra · LLM filtering · Telegram alerts</p>
+</div>
+</a>
+
+<a href="https://github.com/FiscalMindset/women" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">🛡️</span>
+    <strong style="color: #58a6ff;">Sentinel Grid</strong>
+    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">Kestra · Emergency response · GPS + Audio dispatch</p>
+</div>
+</a>
+
+<a href="https://github.com/FiscalMindset/Kairon" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">🎓</span>
+    <strong style="color: #58a6ff;">Kairon</strong>
+    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">Playwright · NSUT attendance automation</p>
+</div>
+</a>
+
+</div>
+
+### 🧪 @algsoch Projects
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin: 15px 0;">
+
+<a href="https://github.com/algsoch/Synapse-Graph" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">🧠</span>
+    <strong style="color: #a371f7;">Synapse-Graph</strong>
+    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">OpenMetadata · Neural governance · Knowledge graph</p>
+</div>
+</a>
+
+<a href="https://github.com/algsoch/speakAI" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">🎤</span>
+    <strong style="color: #a371f7;">speakAI</strong>
+    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">RunAnywhere · 100% offline · English practice</p>
+</div>
+</a>
+
+<a href="https://github.com/algsoch/smart_terminal" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">💻</span>
+    <strong style="color: #a371f7;">smart_terminal</strong>
+    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">RunAnywhere · CommandBrain · AI terminal</p>
+</div>
+</a>
+
+<a href="https://github.com/algsoch/brain_tumor" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">🧠</span>
+    <strong style="color: #a371f7;">brain_tumor</strong>
+    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">TensorFlow · 97.9% CNN accuracy · Medical AI</p>
+</div>
+</a>
+
+<a href="https://github.com/algsoch/chatbot_assistant" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">🤖</span>
+    <strong style="color: #a371f7;">chatbot_assistant</strong>
+    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">TDS · Pattern recognition · AI assistant</p>
+</div>
+</a>
+
+<a href="https://github.com/algsoch/html-checker" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">🔍</span>
+    <strong style="color: #a371f7;">html-checker</strong>
+    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">HTML validator · Syntax checker</p>
+</div>
+</a>
+
+<a href="https://github.com/algsoch/Cognivise" style="text-decoration: none;">
+<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <span style="font-size: 24px;">👁️</span>
+    <strong style="color: #a371f7;">Cognivise</strong>
+    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
+  </div>
+  <p style="color: #8b949e; font-size: 13px; margin: 0;">Computer Vision · Cognitive analysis</p>
+</div>
+</a>
+
+</div>
 
 ---
 
@@ -123,13 +291,11 @@ flowchart TD
 | Project | Account | Tech Stack | Status | Link |
 |--------:|--------:|------------|:------:|------|
 | **Kairon** | @FiscalMindset | Playwright, NSUT Portal | 🔧 Active | [GitHub](https://github.com/FiscalMindset/Kairon) |
-| **algsoch_magicpin** | @FiscalMindset | Selenium, WhatsApp API | 🟢 Live | [🌐](https://algsoch-magicpin.onrender.com) |
 
 ### 🎓 Education & Utilities
 
 | Project | Account | Tech Stack | Status | Link |
 |--------:|--------:|------------|:------:|------|
-| **FAQ Generator** | @FiscalMindset | MERN, Gemini Pro | 🟢 Live | [🌐](https://faq-v300.onrender.com) |
 | **chatbot_assistant** | @algsoch | TDS, Pattern recognition | 🟢 Live | [🌐](https://tds-assistant.onrender.com/) |
 | **html-checker** | @algsoch | HTML parsing/validation | 🟢 Live | [🌐](https://html-checker-1.onrender.com) |
 
@@ -137,135 +303,242 @@ flowchart TD
 
 ## 🛠️ Technical Skills
 
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
+
 ### 🤖 AI & Machine Learning
 
-| Skill | Experience | Projects |
-|:------|:----------:|:---------|
-| 🤖 RunAnywhere SDK | Production | algsoch, speakAI, smart_terminal |
-| 🧠 TensorFlow / Keras | Production | brain_tumor (97.9% accuracy) |
-| 💎 Gemini AI | Production | FAQ Generator |
-| 🔗 LangChain | Intermediate | Various LLM projects |
-| 🦙 Ollama | Intermediate | Local LLM setups |
-| 🧬 SmolLM2 / SmolVLM | Production | algsoch (on-device) |
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🤖 RunAnywhere SDK</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🧠 TensorFlow</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">💎 Gemini AI</span>
+    <span style="background: #1f6feb; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🔗 LangChain</span>
+    <span style="background: #1f6feb; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🦙 Ollama</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🧬 SmolLM2/SmolVLM</span>
+  </div>
+  <p style="color: #8b949e; font-size: 12px; margin: 12px 0 0;">Production: algsoch, brain_tumor (97.9%)</p>
+</div>
 
 ### 🌐 Web Scraping & Browser Automation
 
-| Skill | Experience | Projects |
-|:------|:----------:|:---------|
-| 🦾 Playwright | Expert | Kairon (NSUT attendance) |
-| 🌐 Selenium | Expert | algsoch_magicpin, WhatsApp bots |
-| 📜 Puppeteer | Intermediate | Various automation |
-| 🕷️ Beautiful Soup | Expert | Data extraction |
-| 📊 Scrapy | Intermediate | Large-scale crawling |
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🦾 Playwright</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🌐 Selenium</span>
+    <span style="background: #1f6feb; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">📜 Puppeteer</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🕷️ Beautiful Soup</span>
+    <span style="background: #1f6feb; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">📊 Scrapy</span>
+  </div>
+  <p style="color: #8b949e; font-size: 12px; margin: 12px 0 0;">Expert: Kairon, WhatsApp bots</p>
+</div>
 
 ### 🔄 Workflow & Data Orchestration
 
-| Skill | Experience | Projects |
-|:------|:----------:|:---------|
-| ⚡ Kestra | Production | autopr, devalert, Sentinel Grid |
-| 🐙 Coral MCP | Expert (12 PRs) | careops, Synapse-Graph integration |
-| 📊 OpenMetadata | Production | Synapse-Graph |
-| 🔄 Temporal | Learning | - |
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">⚡ Kestra</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🐙 Coral MCP (12 PRs)</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">📊 OpenMetadata</span>
+    <span style="background: #9e6a03; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🔄 Temporal</span>
+  </div>
+  <p style="color: #8b949e; font-size: 12px; margin: 12px 0 0;">Production: autopr, devalert, Sentinel Grid</p>
+</div>
 
 ### 🛠️ Full-Stack Development
 
-| Skill | Experience | Projects |
-|:------|:----------:|:---------|
-| ⚛️ React / Next.js | Expert | algsochnews, FAQ Generator |
-| 🔷 TypeScript | Expert | Portfolio site (this!) |
-| 🎨 Tailwind CSS | Expert | All frontend projects |
-| 🐍 Python | Expert | AI/ML, FastAPI backends |
-| ⚡ FastAPI | Expert | API development |
-| 🟢 Node.js | Intermediate | Various tools |
-| 🍃 MongoDB | Expert | careops, multiple projects |
-| 🐘 PostgreSQL | Intermediate | Various projects |
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">⚛️ React/Next.js</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🔷 TypeScript</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🎨 Tailwind CSS</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🐍 Python</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">⚡ FastAPI</span>
+    <span style="background: #1f6feb; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🟢 Node.js</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🍃 MongoDB</span>
+    <span style="background: #1f6feb; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🐘 PostgreSQL</span>
+  </div>
+</div>
 
 ### 📱 Mobile Development
 
-| Skill | Experience | Projects |
-|:------|:----------:|:---------|
-| 🤖 Kotlin | Production | algsoch (Android app) |
-| 📦 Android | Production | NSUT bot, algsoch |
-| 🏗️ Jetpack Compose | Intermediate | UI components |
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🤖 Kotlin</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">📦 Android</span>
+    <span style="background: #1f6feb; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🏗️ Jetpack Compose</span>
+  </div>
+  <p style="color: #8b949e; font-size: 12px; margin: 12px 0 0;">Production: algsoch Android app</p>
+</div>
 
 ### ☁️ Cloud & DevOps
 
-| Skill | Experience |
-|:------|:----------:|
-| 🚀 Render | Deployment (all live sites) |
-| 🌐 Vercel | Frontend hosting |
-| 🐙 GitHub Actions | CI/CD pipelines |
-| 🐳 Docker | Containerization |
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🚀 Render</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🌐 Vercel</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🐙 GitHub Actions</span>
+    <span style="background: #238636; color: white; padding: 6px 12px; border-radius: 15px; font-size: 13px;">🐳 Docker</span>
+  </div>
+</div>
+
+</div>
 
 ---
 
 ## 💻 IDEs & Development Tools
 
-| Tool | Type | Link |
-|:-----|:----:|:-----|
-| ⚡ OpenCode | AI Coding Environment | [opencode.ai](https://opencode.ai) |
-| 🔮 Codex | AI Assistant | [codex.so](https://codex.so) |
-| 🦞 OpenClaw | Claude-powered IDE | [openclaw.dev](https://openclaw.dev) |
-| 📘 VS Code | Main Editor | [code.visualstudio.com](https://code.visualstudio.com) |
-| 🍲 Kimchi | Custom Dev Env | [GitHub](https://github.com/raphyr-dev/kimchi) |
-| 🤖 GitHub Copilot | AI Pair Programmer | [copilot.github.com](https://github.com/features/copilot) |
-| 📐 Cursor | AI-first IDE | [cursor.com](https://www.cursor.com) |
-| 🔷 GitHub CLI | Version Control | CLI tool |
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
+  <a href="https://opencode.ai" style="text-decoration: none;">
+    <div class="tool-card" style="background: #161b22; border: 1px solid #30363d; padding: 12px 18px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 20px;">⚡</span>
+      <span style="color: #c9d1d9;">OpenCode</span>
+    </div>
+  </a>
+  <a href="https://codex.so" style="text-decoration: none;">
+    <div class="tool-card" style="background: #161b22; border: 1px solid #30363d; padding: 12px 18px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 20px;">🔮</span>
+      <span style="color: #c9d1d9;">Codex</span>
+    </div>
+  </a>
+  <a href="https://openclaw.dev" style="text-decoration: none;">
+    <div class="tool-card" style="background: #161b22; border: 1px solid #30363d; padding: 12px 18px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 20px;">🦞</span>
+      <span style="color: #c9d1d9;">OpenClaw</span>
+    </div>
+  </a>
+  <a href="https://code.visualstudio.com" style="text-decoration: none;">
+    <div class="tool-card" style="background: #161b22; border: 1px solid #30363d; padding: 12px 18px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 20px;">📘</span>
+      <span style="color: #c9d1d9;">VS Code</span>
+    </div>
+  </a>
+  <a href="https://github.com/raphyr-dev/kimchi" style="text-decoration: none;">
+    <div class="tool-card" style="background: #161b22; border: 1px solid #30363d; padding: 12px 18px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 20px;">🍲</span>
+      <span style="color: #c9d1d9;">Kimchi</span>
+    </div>
+  </a>
+  <a href="https://copilot.github.com" style="text-decoration: none;">
+    <div class="tool-card" style="background: #161b22; border: 1px solid #30363d; padding: 12px 18px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 20px;">🤖</span>
+      <span style="color: #c9d1d9;">GitHub Copilot</span>
+    </div>
+  </a>
+  <a href="https://cursor.com" style="text-decoration: none;">
+    <div class="tool-card" style="background: #161b22; border: 1px solid #30363d; padding: 12px 18px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 20px;">📐</span>
+      <span style="color: #c9d1d9;">Cursor</span>
+    </div>
+  </a>
+</div>
+
+<style>
+.tool-card:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+</style>
 
 ---
 
 ## 🌟 Open Source Contributions
 
-### 🐙 Coral MCP — 12 Pull Requests
+<div style="background: linear-gradient(135deg, #1a2332 0%, #231f2e 100%); border: 1px solid #30363d; border-radius: 12px; padding: 20px; margin: 20px 0;">
+  <h3 style="color: #c9d1d9; margin: 0 0 15px;">
+    🐙 <a href="https://github.com/withcoral/coral" style="color: #58a6ff; text-decoration: none;">Coral MCP</a> — 12 Pull Requests
+  </h3>
+  <p style="color: #8b949e; margin: 0 0 15px;">
+    <span style="background: #238636; color: white; padding: 2px 10px; border-radius: 12px; font-size: 12px; margin-right: 8px;">✅ 9 Merged</span>
+    <span style="background: #1f6feb; color: white; padding: 2px 10px; border-radius: 12px; font-size: 12px; margin-right: 8px;">🔄 2 Open</span>
+    <span style="background: #9e6a03; color: white; padding: 2px 10px; border-radius: 12px; font-size: 12px;">📊 12 Total</span>
+  </p>
+  <p style="color: #a371f7; font-size: 14px; margin: 0;">📋 CLA Signed Contributor</p>
+</div>
 
-**CLA Signed Contributor** to [withcoral/coral](https://github.com/withcoral/coral)
+### 🔌 AI Sources Integrated
 
-| Status | Count |
-|:------:|:-----:|
-| ✅ Merged | 9 |
-| 🔄 Open | 2 |
-| 📊 Total | 12 |
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 20px 0;">
 
-**Sources Added:**
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>Voyage AI</b> — <a href="https://github.com/withcoral/coral/pull/1115" style="color: #238636;">#1115 ✅</a>
+</div>
 
-- Voyage AI — [#1115](https://github.com/withcoral/coral/pull/1115) ✅
-- Sarvam AI — [#1112](https://github.com/withcoral/coral/pull/1112) ✅
-- Cohere AI — [#1098](https://github.com/withcoral/coral/pull/1098) ✅
-- Mistral AI — [#1011](https://github.com/withcoral/coral/pull/1011) ✅
-- OpenRouter — [#882](https://github.com/withcoral/coral/pull/882) ✅
-- LM Studio — [#834](https://github.com/withcoral/coral/pull/834) ✅
-- Ollama — [#798](https://github.com/withcoral/coral/pull/798) ✅
-- Groq AI — [#754](https://github.com/withcoral/coral/pull/754) ✅
-- Deepgram ASR — [#1118](https://github.com/withcoral/coral/pull/1118) 🔄
-- NVIDIA NIM — [#958](https://github.com/withcoral/coral/pull/958) 🔄
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>Sarvam AI</b> — <a href="https://github.com/withcoral/coral/pull/1112" style="color: #238636;">#1112 ✅</a>
+</div>
 
-[View All PRs →](https://github.com/withcoral/coral/pulls?q=author%3AFiscalMindset)
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>Cohere AI</b> — <a href="https://github.com/withcoral/coral/pull/1098" style="color: #238636;">#1098 ✅</a>
+</div>
+
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>Mistral AI</b> — <a href="https://github.com/withcoral/coral/pull/1011" style="color: #238636;">#1011 ✅</a>
+</div>
+
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>OpenRouter</b> — <a href="https://github.com/withcoral/coral/pull/882" style="color: #238636;">#882 ✅</a>
+</div>
+
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>LM Studio</b> — <a href="https://github.com/withcoral/coral/pull/834" style="color: #238636;">#834 ✅</a>
+</div>
+
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>Ollama</b> — <a href="https://github.com/withcoral/coral/pull/798" style="color: #238636;">#798 ✅</a>
+</div>
+
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>Groq AI</b> — <a href="https://github.com/withcoral/coral/pull/754" style="color: #238636;">#754 ✅</a>
+</div>
+
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>Deepgram ASR</b> — <a href="https://github.com/withcoral/coral/pull/1118" style="color: #1f6feb;">#1118 🔄</a>
+</div>
+
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px;">
+<b>NVIDIA NIM</b> — <a href="https://github.com/withcoral/coral/pull/958" style="color: #1f6feb;">#958 🔄</a>
+</div>
+
+</div>
+
+<p align="center">
+  <a href="https://github.com/withcoral/coral/pulls?q=author%3AFiscalMindset" style="background: #238636; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+    View All PRs →
+  </a>
+</p>
 
 ---
 
 ## 📊 GitHub Statistics
 
-### @FiscalMindset — Primary Account
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0;">
 
-| Metric | Count |
-|:------|:-----:|
-| 📦 Repositories | 20 |
-| ⭐ Stars | 6 |
-| ⬆️ Commits | 42 |
-| 🔀 PRs Merged | 22 |
-| 🐛 Issues | 12 |
-| 👥 Followers | 3 |
+<div style="background: linear-gradient(135deg, #1a2332 0%, #231f2e 100%); border: 1px solid #30363d; border-radius: 12px; padding: 25px;">
+  <h3 style="color: #58a6ff; margin: 0 0 15px;">@FiscalMindset</h3>
+  <p style="color: #8b949e; font-size: 14px; line-height: 1.8;">
+    📦 <strong>20</strong> Repositories<br>
+    ⭐ <strong>6</strong> Stars<br>
+    ⬆️ <strong>42</strong> Commits<br>
+    🔀 <strong>22</strong> PRs Merged<br>
+    🐛 <strong>12</strong> Issues<br>
+    👥 <strong>3</strong> Followers
+  </p>
+</div>
 
-### @algsoch — Original Projects Account
+<div style="background: linear-gradient(135deg, #1a2332 0%, #231f2e 100%); border: 1px solid #30363d; border-radius: 12px; padding: 25px;">
+  <h3 style="color: #a371f7; margin: 0 0 15px;">@algsoch</h3>
+  <p style="color: #8b949e; font-size: 14px; line-height: 1.8;">
+    📦 <strong>107+</strong> Repositories<br>
+    ⭐ <strong>24+</strong> Stars<br>
+    ⬆️ <strong>217</strong> Commits<br>
+    🔀 <strong>28</strong> PRs Merged<br>
+    👥 <strong>6</strong> Followers<br>
+    🎯 <strong>350+</strong> Contributions
+  </p>
+</div>
 
-| Metric | Count |
-|:------|:-----:|
-| 📦 Repositories | 107+ |
-| ⭐ Stars | 24+ |
-| ⬆️ Commits | 217 |
-| 🔀 PRs Merged | 28 |
-| 👥 Followers | 6 |
-| 🎯 Contributions | 350+ |
+</div>
 
 ---
 
@@ -283,25 +556,61 @@ flowchart TD
 
 ## 📬 Get In Touch
 
-> **Let's Build Something Amazing**
-> Open to collaborations, freelance projects, and interesting problems
+<div style="background: linear-gradient(135deg, #21262d 0%, #161b22 100%); border: 1px solid #30363d; border-radius: 12px; padding: 25px; margin: 20px 0; text-align: center;">
+  <h2 style="color: #FF6B6B; margin: 0 0 10px;">Let's Build Something Amazing</h2>
+  <p style="color: #8b949e; margin: 0; font-size: 16px;">
+    Open to collaborations, freelance projects, and interesting problems
+  </p>
+</div>
 
-### GitHub Profiles
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 25px 0;">
 
-| Account | Type | Link |
-|:--------|:----:|:-----|
-| @FiscalMindset | Primary Account | [GitHub](https://github.com/FiscalMindset) |
-| @algsoch | Original Projects | [GitHub](https://github.com/algsoch) |
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center;">
+  <h3 style="color: #c9d1d9; margin: 0 0 15px;">🌐 GitHub Profiles</h3>
+  <div style="margin: 10px 0;">
+    <a href="https://github.com/FiscalMindset" style="display: inline-block; background: #238636; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; margin: 5px;">
+      @FiscalMindset
+    </a>
+    <a href="https://github.com/algsoch" style="display: inline-block; background: #1f6feb; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; margin: 5px;">
+      @algsoch
+    </a>
+  </div>
+</div>
 
-### Connect
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center;">
+  <h3 style="color: #c9d1d9; margin: 0 0 15px;">📱 Connect</h3>
+  <div style="margin: 10px 0;">
+    <a href="https://www.linkedin.com/in/algsoch" style="display: inline-block; background: #0A66C2; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; margin: 5px;">
+      💼 LinkedIn
+    </a>
+    <a href="https://algsochvicky.onrender.com" style="display: inline-block; background: #FF6B6B; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; margin: 5px;">
+      🌐 Portfolio
+    </a>
+  </div>
+</div>
 
-| Platform | Link |
-|:---------|:-----|
-| 💼 LinkedIn | [linkedin.com/in/algsoch](https://www.linkedin.com/in/algsoch) |
-| 🌐 Portfolio | [algsochvicky.onrender.com](https://algsochvicky.onrender.com) |
+</div>
 
 ---
 
 ## 📜 License
 
-MIT License · Deployed on [Render](https://render.com) & [Vercel](https://vercel.com)
+<div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center; border: 1px solid #30363d;">
+  <p style="margin: 0; color: #c9d1d9;">
+    <strong style="color: #58a6ff;">MIT License</strong> · Built with ❤️ · Deployed on 
+    <a href="https://render.com" style="color: #ff6b6b; text-decoration: none;">Render</a> & 
+    <a href="https://vercel.com" style="color: #ffffff; text-decoration: none;">Vercel</a>
+  </p>
+  <p style="margin: 10px 0 0; color: #8b949e; font-size: 14px;">
+    © 2024 Vicky Kumar · Last updated: June 2024
+  </p>
+</div>
+
+---
+
+<p align="center">
+  <a href="#vicky-kumar">🔝 Back to Top</a>
+</p>
+
+</body>
+</html>
