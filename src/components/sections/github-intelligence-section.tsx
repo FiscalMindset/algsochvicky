@@ -177,6 +177,78 @@ export function GitHubIntelligenceSection() {
               </div>
             ))}
 
+            {/* GitHub Contribution Stats */}
+            <div className="rounded-[28px] border border-accent/25 bg-accent/10 p-4 sm:p-5">
+              <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/80">@fiscalmindset · Contribution Stats</div>
+              
+              {/* Stats Grid */}
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <div className="rounded-2xl border border-accent/20 bg-accent/12 p-3 text-center">
+                  <div className="text-2xl font-bold text-ink">88</div>
+                  <div className="mt-1 text-xs text-muted">Contributions</div>
+                </div>
+                <div className="rounded-2xl border border-accent/20 bg-accent/12 p-3 text-center">
+                  <div className="text-2xl font-bold text-ink">36</div>
+                  <div className="mt-1 text-xs text-muted">Commits</div>
+                </div>
+                <div className="rounded-2xl border border-accent/20 bg-accent/12 p-3 text-center">
+                  <div className="text-2xl font-bold text-ink">19</div>
+                  <div className="mt-1 text-xs text-muted">Pull Requests</div>
+                </div>
+                <div className="rounded-2xl border border-accent/20 bg-accent/12 p-3 text-center">
+                  <div className="text-2xl font-bold text-ink">12</div>
+                  <div className="mt-1 text-xs text-muted">Issues</div>
+                </div>
+              </div>
+
+              {/* Account Metrics */}
+              <div className="mt-4 flex flex-wrap gap-3">
+                <div className="rounded-full border border-accent/20 bg-accent/12 px-4 py-1.5 text-sm text-ink">
+                  <span className="font-semibold text-accent">20</span> public repos
+                </div>
+                <div className="rounded-full border border-accent/20 bg-accent/12 px-4 py-1.5 text-sm text-ink">
+                  <span className="font-semibold text-accent">3</span> followers
+                </div>
+                <div className="rounded-full border border-accent/20 bg-accent/12 px-4 py-1.5 text-sm text-ink">
+                  <span className="font-semibold text-accent">2</span> following
+                </div>
+              </div>
+
+              {/* Key Achievements */}
+              <div className="mt-5">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">Key Achievements</div>
+                <div className="mt-3 grid gap-2">
+                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🚀 Built Algsoch — Android AI news app with on-device intelligence</div>
+                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🤖 Created Algsoch News — Multi-agent AI newsroom system</div>
+                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🧠 Developed Synapse-Graph — AI autopsy engine for neural governance</div>
+                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🔧 Built Kairon — AI-powered system automation platform</div>
+                </div>
+              </div>
+
+              {/* Pinned Repositories */}
+              <div className="mt-5">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">Pinned Repositories</div>
+                <div className="mt-3 grid gap-2">
+                  <a href="https://github.com/FiscalMindset/algsoch" target="_blank" rel="noreferrer" className="group rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
+                    <div className="flex items-center justify-between"><span className="font-semibold text-ink group-hover:text-accent">algsoch</span><span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Kotlin</span></div>
+                    <p className="mt-1 text-xs text-muted">Android AI news app with on-device intelligence</p>
+                  </a>
+                  <a href="https://github.com/FiscalMindset/algsochnews" target="_blank" rel="noreferrer" className="group rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
+                    <div className="flex items-center justify-between"><span className="font-semibold text-ink group-hover:text-accent">algsochnews</span><span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Python</span></div>
+                    <p className="mt-1 text-xs text-muted">Multi-agent AI newsroom system</p>
+                  </a>
+                  <a href="https://github.com/FiscalMindset/Kairon" target="_blank" rel="noreferrer" className="group rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
+                    <div className="flex items-center justify-between"><span className="font-semibold text-ink group-hover:text-accent">Kairon</span><span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Python</span></div>
+                    <p className="mt-1 text-xs text-muted">AI-powered system automation</p>
+                  </a>
+                  <a href="https://github.com/FiscalMindset/Synapse-Graph" target="_blank" rel="noreferrer" className="group rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
+                    <div className="flex items-center justify-between"><span className="font-semibold text-ink group-hover:text-accent">Synapse-Graph</span><span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Python</span></div>
+                    <p className="mt-1 text-xs text-muted">AI autopsy engine for neural governance</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+
             <div className="rounded-[28px] border border-line/75 bg-canvas-elevated/70 p-4 sm:p-5">
               <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Ranking read</div>
               <div className="mt-3 grid gap-3">
