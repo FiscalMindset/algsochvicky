@@ -73,25 +73,86 @@
 
 ## 📊 GitHub Stats
 
-### @FiscalMindset (Primary Account)
-
-| Metric | Count |
-|--------|-------|
-| 📦 Public Repos | 20 |
-| ⭐ Stars | 6 |
-| ⬆️ Commits | 42 |
-| 🔀 PRs | 22 |
-| 🐛 Issues | 12 |
-
-### @algsoch (Original Projects Account)
-
-| Metric | Count |
-|--------|-------|
-| 📦 Public Repos | 107+ |
-| ⭐ Stars | 24+ |
-| ⬆️ Commits | 217 |
-| 🔀 PRs | 28 |
-| 👥 Followers | 6 |
+<table align="center" style="border-collapse: collapse; width: 100%; max-width: 800px;">
+  <tr>
+    <td width="50%" style="vertical-align: top; padding: 16px; border: 1px solid #333; border-radius: 12px; background: #0d1117;">
+      <h3 align="center" style="margin: 0 0 12px 0; color: #FF6B6B;">
+        <a href="https://github.com/FiscalMindset" style="text-decoration: none; color: #FF6B6B;">@FiscalMindset</a>
+      </h3>
+      <p align="center" style="margin: 0 0 16px 0; font-size: 12px; color: #8b949e;">Primary Account</p>
+      <table align="center" style="border-collapse: collapse;">
+        <tr>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">20</div>
+            <div style="font-size: 11px; color: #8b949e;">📦 Repos</div>
+          </td>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">6</div>
+            <div style="font-size: 11px; color: #8b949e;">⭐ Stars</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">42</div>
+            <div style="font-size: 11px; color: #8b949e;">⬆️ Commits</div>
+          </td>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">22</div>
+            <div style="font-size: 11px; color: #8b949e;">🔀 PRs</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">12</div>
+            <div style="font-size: 11px; color: #8b949e;">🐛 Issues</div>
+          </td>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">3</div>
+            <div style="font-size: 11px; color: #8b949e;">👥 Followers</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="50%" style="vertical-align: top; padding: 16px; border: 1px solid #333; border-radius: 12px; background: #0d1117; margin-left: 16px;">
+      <h3 align="center" style="margin: 0 0 12px 0; color: #8b949e;">
+        <a href="https://github.com/algsoch" style="text-decoration: none; color: #8b949e;">@algsoch</a>
+      </h3>
+      <p align="center" style="margin: 0 0 16px 0; font-size: 12px; color: #6e7681;">Original Projects Account</p>
+      <table align="center" style="border-collapse: collapse;">
+        <tr>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">107+</div>
+            <div style="font-size: 11px; color: #8b949e;">📦 Repos</div>
+          </td>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">24+</div>
+            <div style="font-size: 11px; color: #8b949e;">⭐ Stars</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">217</div>
+            <div style="font-size: 11px; color: #8b949e;">⬆️ Commits</div>
+          </td>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">28</div>
+            <div style="font-size: 11px; color: #8b949e;">🔀 PRs</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">6</div>
+            <div style="font-size: 11px; color: #8b949e;">👥 Followers</div>
+          </td>
+          <td style="padding: 8px 16px; text-align: center;">
+            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">350</div>
+            <div style="font-size: 11px; color: #8b949e;">🎯 Contributions</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -247,7 +308,29 @@ MIT License
 
 ## 📬 Contact
 
-- **@FiscalMindset**: [GitHub](https://github.com/FiscalMindset)
-- **@algsoch**: [GitHub](https://github.com/algsoch)
-- **LinkedIn**: [algsoch](https://www.linkedin.com/in/algsoch)
-- **Portfolio**: [algsochvicky.onrender.com](https://algsochvicky.onrender.com)
+<table align="center" style="border-collapse: collapse; width: 100%; max-width: 600px;">
+  <tr>
+    <td align="center" style="padding: 12px;">
+      <a href="https://github.com/FiscalMindset" style="text-decoration: none;">
+        <img src="https://img.shields.io/badge/GitHub-@FiscalMindset-181717?style=for-the-badge&logo=github" alt="@FiscalMindset">
+      </a>
+    </td>
+    <td align="center" style="padding: 12px;">
+      <a href="https://github.com/algsoch" style="text-decoration: none;">
+        <img src="https://img.shields.io/badge/GitHub-@algsoch-181717?style=for-the-badge&logo=github" alt="@algsoch">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="padding: 12px;">
+      <a href="https://www.linkedin.com/in/algsoch" style="text-decoration: none;">
+        <img src="https://img.shields.io/badge/LinkedIn-algsoch-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn">
+      </a>
+    </td>
+    <td align="center" style="padding: 12px;">
+      <a href="https://algsochvicky.onrender.com" style="text-decoration: none;">
+        <img src="https://img.shields.io/badge/Portfolio-algsochvicky.onrender.com-FF6B6B?style=for-the-badge" alt="Portfolio">
+      </a>
+    </td>
+  </tr>
+</table>
