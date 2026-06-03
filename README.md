@@ -17,37 +17,37 @@
 
 ## 🚀 Featured Projects
 
-### 🤖 AI Systems (Built by Me)
+### 🤖 AI Systems
 
-| Project | Account | Description | Status |
-|---------|---------|-------------|--------|
-| [algsochnews](https://github.com/FiscalMindset/algsochnews) | @FiscalMindset | Multi-agent AI newsroom that turns a public news URL into a broadcast screenplay, visible agent workflow, and rendered video | ⭐ Original |
-| [Synapse-Graph](https://github.com/FiscalMindset/Synapse-Graph) | @FiscalMindset | AI autopsy engine that repurposes OpenMetadata for live neural governance, tracing and quarantining hallucinating attention heads at runtime | 🔥 Original |
-| [careops](https://github.com/FiscalMindset/careops) | @FiscalMindset | Coral-powered family care coordination agent connecting patient records, prescription photos, lab PDFs, doctor chats into a doctor-visit packet | 🆕 Original |
-| [cognifyz](https://github.com/algsoch/cognifyz) | @algsoch | AI-powered data processing and transformation platform | 🔧 Original |
+| Project | Account | Description | Website |
+|---------|---------|-------------|---------|
+| [algsochnews](https://github.com/FiscalMindset/algsochnews) | @FiscalMindset | Multi-agent AI newsroom — turns URL into broadcast screenplay with visible agent workflow | [🌐 Live](https://algsochnews-1.onrender.com) |
+| [Synapse-Graph](https://github.com/FiscalMindset/Synapse-Graph) | @FiscalMindset | AI autopsy engine for neural governance — traces and quarantines hallucinating attention heads | [🌐 Live](https://fiscalmindset.github.io/Synapse-Graph/) |
+| [careops](https://github.com/FiscalMindset/careops) | @FiscalMindset | Coral-powered family care coordination — connects patient records, prescriptions, labs into doctor-visit packets | - |
 
 ### 📱 Android Applications
 
-| Project | Account | Description | Downloads |
-|---------|---------|-------------|-----------|
-| [algsoch](https://github.com/algsoch/algsoch) | @algsoch | Android AI news app with on-device intelligence | 107K+ |
+| Project | Account | Description | Website |
+|---------|---------|-------------|---------|
+| [algsoch](https://github.com/algsoch/algsoch) | @algsoch | Android AI news app with on-device intelligence | [🌐 Live](https://algsoch.github.io/algsoch/frontend/) |
+| [nsut_bot](https://github.com/FiscalMindset/nsut_bot) | @FiscalMindset | NSUT Bot - Kotlin Android application | - |
 
 ### 🧠 ML/AI Projects
 
-| Project | Account | Description | Accuracy |
-|---------|---------|-------------|----------|
-| [brain_tumor](https://github.com/algsoch/brain_tumor) | @algsoch | Brain tumor detection using CNN image processing | 97.9% |
-| [Cognivise](https://github.com/algsoch/Cognivise) | @algsoch | Cognition + Vision → Clean, powerful, memorable | - |
+| Project | Account | Description | Website |
+|---------|---------|-------------|---------|
+| [brain_tumor](https://github.com/algsoch/brain_tumor) | @algsoch | CNN-based brain tumor detection with 97.9% accuracy (EfficientNetB3) | [🌐 Live](https://brain-tumor-mcug.onrender.com/) |
+| [Cognivise](https://github.com/algsoch/Cognivise) | @algsoch | Cognition + Vision — Clean, powerful, memorable | - |
+| [chatbot_assistant](https://github.com/algsoch/chatbot_assistant) | @algsoch | Vicky Data Science Assistant — pattern recognition based query solver for data science problems | [🌐 Live](https://tds-assistant.onrender.com/) |
 | [deep_learning](https://github.com/algsoch/deep_learning) | @algsoch | Deep learning experiments and models | - |
-| [chatbot_assistant](https://github.com/algsoch/chatbot_assistant) | @algsoch | AI chatbot implementation | - |
 
 ### 🛠️ Developer Tools
 
-| Project | Account | Description |
-|---------|---------|-------------|
-| [html-checker](https://github.com/algsoch/html-checker) | @algsoch | Web app to clean HTML code from unwanted tags like cite_start |
-| [smart_terminal](https://github.com/algsoch/smart_terminal) | @algsoch | Local command for smart terminal |
-| [women](https://github.com/algsoch/women) | @algsoch | Safety and empowerment platform |
+| Project | Account | Description | Website |
+|---------|---------|-------------|---------|
+| [html-checker](https://github.com/algsoch/html-checker) | @algsoch | Web app to clean HTML code from unwanted tags like cite_start | [🌐 Live](https://html-checker-1.onrender.com) |
+| [smart_terminal](https://github.com/algsoch/smart_terminal) | @algsoch | Local command for smart terminal | - |
+| [women](https://github.com/algsoch/women) | @algsoch | Safety and empowerment platform | - |
 
 ### 📚 Learning & Experiments
 
@@ -64,10 +64,10 @@
 | Category | Technologies |
 |----------|--------------|
 | **Frontend** | React, TypeScript, Tailwind CSS, Vite |
-| **Backend** | Node.js, Rust |
-| **AI/ML** | Python, TensorFlow, PyTorch, LangChain |
+| **Backend** | Node.js, Rust, Python |
+| **AI/ML** | TensorFlow, PyTorch, LangChain, OpenAI |
 | **Mobile** | Kotlin (Android) |
-| **Tools** | Git, GitHub, Coral MCP |
+| **Tools** | Git, GitHub, Coral MCP, Render, Vercel |
 
 ---
 
@@ -76,76 +76,76 @@
 <table align="center" style="border-collapse: collapse; width: 100%; max-width: 800px;">
   <tr>
     <td width="50%" style="vertical-align: top; padding: 16px; border: 1px solid #333; border-radius: 12px; background: #0d1117;">
-      <h3 align="center" style="margin: 0 0 12px 0; color: #FF6B6B;">
+      <h3 align="center" style="margin: 0 0 8px 0;">
         <a href="https://github.com/FiscalMindset" style="text-decoration: none; color: #FF6B6B;">@FiscalMindset</a>
       </h3>
       <p align="center" style="margin: 0 0 16px 0; font-size: 12px; color: #8b949e;">Primary Account</p>
-      <table align="center" style="border-collapse: collapse;">
+      <table align="center" style="border-collapse: collapse; width: 100%;">
         <tr>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">20</div>
-            <div style="font-size: 11px; color: #8b949e;">📦 Repos</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">20</div>
+            <div style="font-size: 11px; color: #8b949e;">📦 Repositories</div>
           </td>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">6</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">6</div>
             <div style="font-size: 11px; color: #8b949e;">⭐ Stars</div>
           </td>
         </tr>
         <tr>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">42</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">42</div>
             <div style="font-size: 11px; color: #8b949e;">⬆️ Commits</div>
           </td>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">22</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">22</div>
             <div style="font-size: 11px; color: #8b949e;">🔀 PRs</div>
           </td>
         </tr>
         <tr>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">12</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">12</div>
             <div style="font-size: 11px; color: #8b949e;">🐛 Issues</div>
           </td>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">3</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">3</div>
             <div style="font-size: 11px; color: #8b949e;">👥 Followers</div>
           </td>
         </tr>
       </table>
     </td>
-    <td width="50%" style="vertical-align: top; padding: 16px; border: 1px solid #333; border-radius: 12px; background: #0d1117; margin-left: 16px;">
-      <h3 align="center" style="margin: 0 0 12px 0; color: #8b949e;">
+    <td width="50%" style="vertical-align: top; padding: 16px; border: 1px solid #333; border-radius: 12px; background: #0d1117; margin-left: 8px;">
+      <h3 align="center" style="margin: 0 0 8px 0;">
         <a href="https://github.com/algsoch" style="text-decoration: none; color: #8b949e;">@algsoch</a>
       </h3>
       <p align="center" style="margin: 0 0 16px 0; font-size: 12px; color: #6e7681;">Original Projects Account</p>
-      <table align="center" style="border-collapse: collapse;">
+      <table align="center" style="border-collapse: collapse; width: 100%;">
         <tr>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">107+</div>
-            <div style="font-size: 11px; color: #8b949e;">📦 Repos</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">107+</div>
+            <div style="font-size: 11px; color: #8b949e;">📦 Repositories</div>
           </td>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">24+</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">24+</div>
             <div style="font-size: 11px; color: #8b949e;">⭐ Stars</div>
           </td>
         </tr>
         <tr>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">217</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">217</div>
             <div style="font-size: 11px; color: #8b949e;">⬆️ Commits</div>
           </td>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">28</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">28</div>
             <div style="font-size: 11px; color: #8b949e;">🔀 PRs</div>
           </td>
         </tr>
         <tr>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">6</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">6</div>
             <div style="font-size: 11px; color: #8b949e;">👥 Followers</div>
           </td>
-          <td style="padding: 8px 16px; text-align: center;">
-            <div style="font-size: 24px; font-weight: bold; color: #c9d1d9;">350</div>
+          <td style="padding: 10px; text-align: center; border-top: 1px solid #21262d;">
+            <div style="font-size: 28px; font-weight: bold; color: #c9d1d9;">350</div>
             <div style="font-size: 11px; color: #8b949e;">🎯 Contributions</div>
           </td>
         </tr>
@@ -158,34 +158,121 @@
 
 ## 🐙 Coral MCP Contributions
 
-Contributed 12 PRs to [withcoral/coral](https://github.com/withcoral/coral) — CLA Signed
+<div align="center" style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; margin: 16px 0;">
+  <h3 style="margin: 0 0 8px 0; color: #c9d1d9;">
+    <a href="https://github.com/withcoral/coral" style="color: #FF6B6B; text-decoration: none;">withcoral/coral</a>
+  </h3>
+  <p style="margin: 0 0 16px 0; color: #8b949e; font-size: 14px;">
+    12 PRs merged/open — CLA Signed
+  </p>
+  
+  <table align="center" style="border-collapse: collapse; width: 100%; max-width: 600px;">
+    <tr>
+      <td style="padding: 8px; text-align: center; border-bottom: 1px solid #21262d;">
+        <span style="background: #238636; color: white; padding: 4px 12px; border-radius: 16px; font-size: 12px;">✅ 9 Merged</span>
+      </td>
+      <td style="padding: 8px; text-align: center; border-bottom: 1px solid #21262d;">
+        <span style="background: #9e6a03; color: white; padding: 4px 12px; border-radius: 16px; font-size: 12px;">🔄 2 Open</span>
+      </td>
+      <td style="padding: 8px; text-align: center; border-bottom: 1px solid #21262d;">
+        <span style="background: #1f6feb; color: white; padding: 4px 12px; border-radius: 16px; font-size: 12px;">📊 12 Total</span>
+      </td>
+    </tr>
+  </table>
 
-| Source | PR | Status |
-|--------|-----|--------|
-| Voyage AI | [#1115](https://github.com/withcoral/coral/pull/1115) | ✅ Merged |
-| Sarvam AI | [#1112](https://github.com/withcoral/coral/pull/1112) | ✅ Merged |
-| Cohere AI | [#1098](https://github.com/withcoral/coral/pull/1098) | ✅ Merged |
-| Mistral AI | [#1011](https://github.com/withcoral/coral/pull/1011) | ✅ Merged |
-| OpenRouter | [#882](https://github.com/withcoral/coral/pull/882) | ✅ Merged |
-| LM Studio | [#834](https://github.com/withcoral/coral/pull/834) | ✅ Merged |
-| Ollama | [#798](https://github.com/withcoral/coral/pull/798) | ✅ Merged |
-| Groq AI | [#754](https://github.com/withcoral/coral/pull/754) | ✅ Merged |
-| Deepgram ASR | [#1118](https://github.com/withcoral/coral/pull/1118) | 🔄 Open |
-| NVIDIA NIM | [#958](https://github.com/withcoral/coral/pull/958) | 🔄 Open |
-
-[View all PRs →](https://github.com/withcoral/coral/pulls?q=author%3AFiscalMindset)
+  <table align="center" style="border-collapse: collapse; width: 100%; max-width: 500px; margin-top: 16px;">
+    <tr>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d;"><a href="https://github.com/withcoral/coral/pull/1115" style="color: #58a6ff; text-decoration: none;">Voyage AI</a></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#1115</code></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: right;"><span style="color: #3fb950;">✅</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d;"><a href="https://github.com/withcoral/coral/pull/1112" style="color: #58a6ff; text-decoration: none;">Sarvam AI</a></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#1112</code></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: right;"><span style="color: #3fb950;">✅</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d;"><a href="https://github.com/withcoral/coral/pull/1098" style="color: #58a6ff; text-decoration: none;">Cohere AI</a></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#1098</code></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: right;"><span style="color: #3fb950;">✅</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d;"><a href="https://github.com/withcoral/coral/pull/1011" style="color: #58a6ff; text-decoration: none;">Mistral AI</a></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#1011</code></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: right;"><span style="color: #3fb950;">✅</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d;"><a href="https://github.com/withcoral/coral/pull/882" style="color: #58a6ff; text-decoration: none;">OpenRouter</a></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#882</code></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: right;"><span style="color: #3fb950;">✅</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d;"><a href="https://github.com/withcoral/coral/pull/834" style="color: #58a6ff; text-decoration: none;">LM Studio</a></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#834</code></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: right;"><span style="color: #3fb950;">✅</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d;"><a href="https://github.com/withcoral/coral/pull/798" style="color: #58a6ff; text-decoration: none;">Ollama</a></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#798</code></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: right;"><span style="color: #3fb950;">✅</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d;"><a href="https://github.com/withcoral/coral/pull/754" style="color: #58a6ff; text-decoration: none;">Groq AI</a></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#754</code></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: right;"><span style="color: #3fb950;">✅</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d;"><a href="https://github.com/withcoral/coral/pull/1118" style="color: #58a6ff; text-decoration: none;">Deepgram ASR</a></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#1118</code></td>
+      <td style="padding: 6px 12px; border-bottom: 1px solid #21262d; text-align: right;"><span style="color: #d29922;">🔄</span></td>
+    </tr>
+    <tr>
+      <td style="padding: 6px 12px;"><a href="https://github.com/withcoral/coral/pull/958" style="color: #58a6ff; text-decoration: none;">NVIDIA NIM</a></td>
+      <td style="padding: 6px 12px; text-align: center;"><code style="background: #161b22; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#958</code></td>
+      <td style="padding: 6px 12px; text-align: right;"><span style="color: #d29922;">🔄</span></td>
+    </tr>
+  </table>
+  
+  <p style="margin: 16px 0 0 0;">
+    <a href="https://github.com/withcoral/coral/pulls?q=author%3AFiscalMindset" style="color: #58a6ff; text-decoration: none; font-size: 13px;">View all PRs →</a>
+  </p>
+</div>
 
 ---
 
 ## 🏅 GitHub Achievements
 
-| Achievement | Icon | Description |
-|-------------|------|-------------|
-| Pull Shark | <img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" width="32" height="32"> | 22+ PRs merged |
-| YOLO | <img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="32" height="32"> | Merged PR without review |
-| Quickdraw | <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="32" height="32"> | PR merged in < 5 min |
+<div align="center" style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 24px 0;">
+  
+  <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center; min-width: 140px;">
+    <a href="https://github.com/FiscalMindset?achievement=pull-shark&tab=achievements">
+      <img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" width="64" height="64" style="margin-bottom: 8px;">
+      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 4px;">Pull Shark</div>
+      <div style="font-size: 11px; color: #8b949e;">22+ PRs merged</div>
+    </a>
+  </div>
+  
+  <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center; min-width: 140px;">
+    <a href="https://github.com/FiscalMindset?achievement=yolo&tab=achievements">
+      <img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="64" height="64" style="margin-bottom: 8px;">
+      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 4px;">YOLO</div>
+      <div style="font-size: 11px; color: #8b949e;">PR merged without review</div>
+    </a>
+  </div>
+  
+  <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center; min-width: 140px;">
+    <a href="https://github.com/FiscalMindset?achievement=quickdraw&tab=achievements">
+      <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="64" height="64" style="margin-bottom: 8px;">
+      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 4px;">Quickdraw</div>
+      <div style="font-size: 11px; color: #8b949e;">PR merged < 5 min</div>
+    </a>
+  </div>
+  
+</div>
 
-[View all →](https://github.com/FiscalMindset?tab=achievements)
+<p align="center" style="color: #8b949e; font-size: 13px;">
+  <a href="https://github.com/FiscalMindset?tab=achievements" style="color: #58a6ff;">View all achievements →</a>
+</p>
 
 ---
 
@@ -311,24 +398,24 @@ MIT License
 <table align="center" style="border-collapse: collapse; width: 100%; max-width: 600px;">
   <tr>
     <td align="center" style="padding: 12px;">
-      <a href="https://github.com/FiscalMindset" style="text-decoration: none;">
+      <a href="https://github.com/FiscalMindset">
         <img src="https://img.shields.io/badge/GitHub-@FiscalMindset-181717?style=for-the-badge&logo=github" alt="@FiscalMindset">
       </a>
     </td>
     <td align="center" style="padding: 12px;">
-      <a href="https://github.com/algsoch" style="text-decoration: none;">
+      <a href="https://github.com/algsoch">
         <img src="https://img.shields.io/badge/GitHub-@algsoch-181717?style=for-the-badge&logo=github" alt="@algsoch">
       </a>
     </td>
   </tr>
   <tr>
     <td align="center" style="padding: 12px;">
-      <a href="https://www.linkedin.com/in/algsoch" style="text-decoration: none;">
+      <a href="https://www.linkedin.com/in/algsoch">
         <img src="https://img.shields.io/badge/LinkedIn-algsoch-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn">
       </a>
     </td>
     <td align="center" style="padding: 12px;">
-      <a href="https://algsochvicky.onrender.com" style="text-decoration: none;">
+      <a href="https://algsochvicky.onrender.com">
         <img src="https://img.shields.io/badge/Portfolio-algsochvicky.onrender.com-FF6B6B?style=for-the-badge" alt="Portfolio">
       </a>
     </td>
