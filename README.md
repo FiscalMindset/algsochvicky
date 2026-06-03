@@ -21,18 +21,12 @@
 
 | Project | Account | Description | Website |
 |---------|---------|-------------|---------|
+| [algsoch](https://github.com/FiscalMindset/algsoch) | @FiscalMindset | AI Study Companion for Android — 100% offline with RunAnywhere SDK, SmolLM2/SmolVLM models | [📱 APK](https://github.com/FiscalMindset/algsoch/releases) |
 | [algsochnews](https://github.com/FiscalMindset/algsochnews) | @FiscalMindset | Multi-agent AI newsroom — turns URL into broadcast screenplay with visible agent workflow | [🌐 Live](https://algsochnews-1.onrender.com) |
 | [Synapse-Graph](https://github.com/FiscalMindset/Synapse-Graph) | @FiscalMindset | AI autopsy engine for neural governance — traces and quarantines hallucinating attention heads | [🌐 Live](https://fiscalmindset.github.io/Synapse-Graph/) |
 | [careops](https://github.com/FiscalMindset/careops) | @FiscalMindset | Coral-powered family care coordination — connects patient records, prescriptions, labs into doctor-visit packets | - |
 
-### 📱 Android Applications
-
-| Project | Account | Description | Website |
-|---------|---------|-------------|---------|
-| [algsoch](https://github.com/algsoch/algsoch) | @algsoch | Android AI news app with on-device intelligence | [🌐 Live](https://algsoch.github.io/algsoch/frontend/) |
-| [nsut_bot](https://github.com/FiscalMindset/nsut_bot) | @FiscalMindset | NSUT Bot - Kotlin Android application | - |
-
-### 🧠 ML/AI Projects
+### 🧠 ML/AI + Voice AI Projects
 
 | Project | Account | Description | Website |
 |---------|---------|-------------|---------|
@@ -40,13 +34,14 @@
 | [Cognivise](https://github.com/algsoch/Cognivise) | @algsoch | Cognition + Vision — Clean, powerful, memorable | - |
 | [chatbot_assistant](https://github.com/algsoch/chatbot_assistant) | @algsoch | Vicky Data Science Assistant — pattern recognition based query solver for data science problems | [🌐 Live](https://tds-assistant.onrender.com/) |
 | [deep_learning](https://github.com/algsoch/deep_learning) | @algsoch | Deep learning experiments and models | - |
+| [speakai](https://github.com/algsoch/speakai) | @algsoch | SpeakAI — Local English Practice, runs 100% on device with RunAnywhere Web SDK | - |
 
 ### 🛠️ Developer Tools
 
 | Project | Account | Description | Website |
 |---------|---------|-------------|---------|
 | [html-checker](https://github.com/algsoch/html-checker) | @algsoch | Web app to clean HTML code from unwanted tags like cite_start | [🌐 Live](https://html-checker-1.onrender.com) |
-| [smart_terminal](https://github.com/algsoch/smart_terminal) | @algsoch | Local command for smart terminal | - |
+| [smart_terminal](https://github.com/algsoch/smart_terminal) | @algsoch | RunAnywhere CommandBrain — Offline-first command memory + execution copilot | [🌐 Live](https://smart-terminal.onrender.com/) |
 | [women](https://github.com/algsoch/women) | @algsoch | Safety and empowerment platform | - |
 
 ### 📚 Learning & Experiments
