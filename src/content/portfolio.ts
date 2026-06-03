@@ -689,9 +689,9 @@ export const githubAccounts: GitHubAccount[] = [
   {
     handle: "algsoch",
     role: "Legacy GitHub identity",
-    note: "Suspended old account, but it still contains much of the strongest historical engineering signal.",
+    note: "Original account with the strongest historical engineering signal and largest repository count.",
     overview:
-      "CommandBrain, SpeakAI, and most of the remaining meaningful repository history sit under algsoch even though the account is suspended.",
+      "CommandBrain, SpeakAI, and most of the remaining meaningful repository history sit under algsoch. Contains 107 public repos with deep engineering projects.",
     tags: ["Command systems", "Voice AI", "ML systems", "Developer tooling", "Historical engineering depth"],
     featuredProjects: [
       "CommandBrain",
@@ -703,8 +703,8 @@ export const githubAccounts: GitHubAccount[] = [
       "TDS Tool-Based Assistant"
     ],
     href: "https://github.com/algsoch",
-    avatarUrl: "https://github.com/algsoch.png?size=160",
-    avatarNote: "Avatar from suspended @algsoch account",
+    avatarUrl: "https://avatars.githubusercontent.com/u/158506810?v=4",
+    avatarNote: "Avatar from @algsoch",
     status: "legacy"
   }
 ];
