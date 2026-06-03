@@ -263,16 +263,16 @@ flowchart LR
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [algsoch](https://github.com/FiscalMindset/algsoch) | Android AI study companion, 7 learning modes, 100% offline | fiscal |
-| [algsochvicky](https://github.com/FiscalMindset/algsochvicky) | Portfolio website deployed on Render | fiscal |
+| [algsoch](https://github.com/FiscalMindset/algsoch) | Android AI study companion, 7 learning modes, 100% offline | FiscalMindset |
+| [algsochvicky](https://github.com/FiscalMindset/algsochvicky) | Portfolio website deployed on Render | FiscalMindset |
 
 ### 🤖 Agentic AI Systems
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [algsochnews](https://github.com/FiscalMindset/algsochnews) | Multi-agent newsroom with 5 agents + video generation | fiscal |
-| [careops](https://github.com/FiscalMindset/careops) | Coral-powered family care coordination agent | fiscal |
-| [Synapse-Graph](https://github.com/FiscalMindset/Synapse-Graph) | LLM interpretability with circuit discovery & causal ablation | fiscal |
+| [algsochnews](https://github.com/FiscalMindset/algsochnews) | Multi-agent newsroom with 5 agents + video generation | FiscalMindset |
+| [careops](https://github.com/FiscalMindset/careops) | Coral-powered family care coordination agent | FiscalMindset |
+| [Synapse-Graph](https://github.com/FiscalMindset/Synapse-Graph) | LLM interpretability with circuit discovery & causal ablation | FiscalMindset |
 | [Cognivise](https://github.com/algsoch/Cognivise) | Real-time adaptive tutoring with eye tracking | algsoch |
 | [assistant_chatbot](https://github.com/algsoch/assistant_chatbot) | TDS problem solver & AI assistant, 55+ solvers | algsoch |
 
@@ -280,8 +280,8 @@ flowchart LR
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [autopr](https://github.com/FiscalMindset/autopr) | GitHub-to-social media via Kestra workflows | fiscal |
-| [devalert](https://github.com/FiscalMindset/devalert) | LLM-filtered developer opportunity alerts | fiscal |
+| [autopr](https://github.com/FiscalMindset/autopr) | GitHub-to-social media via Kestra workflows | FiscalMindset |
+| [devalert](https://github.com/FiscalMindset/devalert) | LLM-filtered developer opportunity alerts | FiscalMindset |
 
 ### 🎓 Education & Language Learning
 
@@ -301,8 +301,8 @@ flowchart LR
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [Sentinel Grid](https://github.com/FiscalMindset/women) | Kestra-first emergency response with dispatch orchestration · [Demo](https://youtu.be/rTFPR7DqOBc) | fiscal |
-| [Kairon](https://github.com/FiscalMindset/Kairon) | NSUT smart attendance chatbot with Playwright scraping | fiscal |
+| [Sentinel Grid](https://github.com/FiscalMindset/women) | Kestra-first emergency response with dispatch orchestration · [Demo](https://youtu.be/rTFPR7DqOBc) | FiscalMindset |
+| [Kairon](https://github.com/FiscalMindset/Kairon) | NSUT smart attendance chatbot with Playwright scraping | FiscalMindset |
 | [polybazar](https://github.com/algsoch/polybazar) | E-commerce platform | algsoch |
 | [accomplish](https://github.com/algsoch/accomplish) | AI desktop agent for file management (contributor) | algsoch |
 | [smart_terminal](https://github.com/algsoch/smart_terminal) | RunAnywhere CommandBrain — offline CLI assistant | algsoch |
