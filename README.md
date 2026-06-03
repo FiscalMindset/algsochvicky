@@ -16,6 +16,98 @@
 
 ---
 
+## Skills
+
+<table>
+<tr>
+<td style="padding: 15px; vertical-align: top; background: #161b22; border: 1px solid #30363d; border-radius: 8px;">
+
+**Core Competencies** &nbsp;<span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px;">PRO</span>
+
+- Prompt Engineering
+- AI Systems Engineering
+- On-Device AI Development
+- Agentic Workflow Design
+- Multimodal AI Applications
+- Local-First AI Architecture
+- Android AI Product Development
+- Full-Stack AI Prototyping
+- AI Evaluation & Debugging
+
+</td>
+<td style="padding: 15px; vertical-align: top; background: #161b22; border: 1px solid #30363d; border-radius: 8px;">
+
+**Languages & Databases**
+
+- Python
+- Kotlin
+- JavaScript
+- TypeScript
+- SQL
+- PostgreSQL
+- HTML / CSS
+
+</td>
+</tr>
+<tr>
+<td style="padding: 15px; vertical-align: top; background: #161b22; border: 1px solid #30363d; border-radius: 8px;">
+
+**AI Engineering**
+
+- LangChain / LangGraph
+- Prompt Engineering
+- LLM Evaluation
+- RAG Pipelines
+- Model Evaluation
+- Hallucination Analysis
+- Response Evaluation
+
+</td>
+<td style="padding: 15px; vertical-align: top; background: #161b22; border: 1px solid #30363d; border-radius: 8px;">
+
+**On-Device & Multimodal AI**
+
+- RunAnywhere SDK
+- ONNX Runtime
+- WebAssembly AI
+- Offline Inference
+- Vision Models
+- Speech-to-Text
+- Text-to-Speech
+
+</td>
+</tr>
+<tr>
+<td style="padding: 15px; vertical-align: top; background: #161b22; border: 1px solid #30363d; border-radius: 8px;">
+
+**Frontend, Backend & Mobile**
+
+- FastAPI
+- React
+- Jetpack Compose
+- Android
+- Tailwind CSS
+- REST API Development
+
+</td>
+<td style="padding: 15px; vertical-align: top; background: #161b22; border: 1px solid #30363d; border-radius: 8px;">
+
+**Tools & Automation**
+
+- Docker
+- Git / GitHub Actions
+- Render
+- Playwright
+- FFmpeg
+- Android Studio
+- VS Code
+
+</td>
+</tr>
+</table>
+
+---
+
 ## What I Build
 
 I build AI systems that run **entirely on-device** - no API calls, no internet required. From Android apps to workflow automation, I create production-ready solutions that actually work offline.
