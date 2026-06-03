@@ -318,6 +318,15 @@ Contributor to [Coral](https://github.com/withcoral/coral) — SQL-based data ab
 | **Data** | Coral SQL, JSONL, SQLite, OpenMetadata |
 | **Deployment** | Render, Vercel, ngrok |
 
+### IDE & Tools
+
+| | |
+|:--|:--|
+| **AI Coding** | OpenCode, Codex, AntiGravity, Kimchi, OpenClaw |
+| **Code Editor** | VS Code, Cursor, JetBrains IDEs |
+| **Terminal** | Warp, Hyper, iTerm2 |
+| **Other** | Claude, ChatGPT, Gemini |
+
 ---
 
 ## GitHub Stats
