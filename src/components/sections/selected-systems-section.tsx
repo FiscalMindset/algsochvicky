@@ -20,7 +20,7 @@ export function SelectedSystemsSection() {
   return (
     <section id="systems" className="section-space">
       <div className="section-frame">
-        <div className="mb-5 grid gap-3 xl:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] xl:items-end">
+        <div className="mb-5 grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] lg:items-end">
           <div className="max-w-3xl">
             <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Selected Systems</div>
             <h2 className="text-balance font-display text-3xl font-semibold leading-[0.96] text-ink sm:text-4xl lg:text-[3.5rem]">
@@ -38,7 +38,7 @@ export function SelectedSystemsSection() {
           </p>
         </div>
 
-        <div className="grid gap-5 xl:grid-cols-[0.78fr_1.22fr] xl:items-start">
+        <div className="grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
           <div className="grid content-start gap-2 self-start">
             {featuredSystems.map((system) => {
               const active = system.id === activeSystem.id;

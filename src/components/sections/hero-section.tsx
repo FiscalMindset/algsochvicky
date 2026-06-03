@@ -40,7 +40,7 @@ export function HeroSection() {
               </span>
             </div>
 
-            <h1 className="max-w-4xl text-balance font-display text-3xl font-semibold leading-[0.96] text-ink sm:text-4xl md:text-5xl lg:text-[4.7rem]">
+            <h1 className="max-w-4xl text-balance font-display text-2xl sm:text-3xl md:text-4xl lg:text-[4.7rem] font-semibold leading-[0.96] text-ink">
               Vicky Kumar builds intelligent products that feel engineered, not improvised.
             </h1>
 
@@ -67,10 +67,10 @@ export function HeroSection() {
 
             <AudienceRoutesSection />
 
-            <div className="surface-soft mt-6 overflow-hidden rounded-[30px]">
+            <div className="surface-soft mt-6 overflow-hidden rounded-[24px] sm:rounded-[30px]">
               <div className="grid gap-4 p-4 sm:p-5 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
-                <div className="rounded-[22px] border border-line/70 bg-black/15 p-4">
-                  <div className="grid gap-4 sm:grid-cols-[96px_minmax(0,1fr)]">
+                <div className="rounded-[18px] sm:rounded-[22px] border border-line/70 bg-black/15 p-3 sm:p-4">
+                  <div className="grid gap-3 sm:gap-4 sm:grid-cols-[80px_minmax(0,1fr)] lg:grid-cols-[96px_minmax(0,1fr)]">
                     <div className="self-start overflow-hidden rounded-[20px] border border-line/70 bg-white/4">
                       <div className="aspect-square min-h-[96px] bg-gradient-to-b from-white/8 to-transparent">
                         <img

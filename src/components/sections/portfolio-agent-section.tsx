@@ -108,8 +108,8 @@ export function PortfolioAgentSection() {
           }
         />
 
-        <div className="grid gap-6 xl:grid-cols-[0.98fr_1.02fr]">
-          <div className="rounded-[32px] border border-line/75 bg-canvas-elevated/70 p-5 sm:p-6">
+        <div className="grid gap-6 lg:grid-cols-[0.98fr_1.02fr]">
+          <div className="rounded-[32px] border border-line/75 bg-canvas-elevated/70 p-4 sm:p-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
               <div className="max-w-2xl">
                 <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent/75">Ask Vicky</div>
@@ -130,11 +130,11 @@ export function PortfolioAgentSection() {
 
             <div className="mt-5 rounded-[24px] border border-line/70 bg-black/15 p-4">
               <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Inference path</div>
-              <div className="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+              <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-2 xl:grid-cols-4">
                 {visibleInferenceModes.map((entry) => (
                   <button
                     key={entry.id}
-                    className={`rounded-2xl border px-4 py-3 text-sm transition ${
+                    className={`rounded-2xl border px-3 py-2.5 text-xs sm:text-sm transition ${
                       entry.id === inferenceMode
                         ? "border-accent/40 bg-accent/12 text-ink"
                         : "border-line/75 bg-white/4 text-muted hover:text-ink"
@@ -154,11 +154,11 @@ export function PortfolioAgentSection() {
               </div>
             </div>
 
-            <div className="mt-5 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
               {modes.map((entry) => (
                 <button
                   key={entry.id}
-                  className={`rounded-2xl border px-4 py-3 text-sm transition ${
+                  className={`rounded-2xl border px-3 py-2.5 text-xs sm:text-sm transition ${
                     entry.id === mode
                       ? "border-accent/40 bg-accent/12 text-ink"
                       : "border-line/75 bg-white/4 text-muted hover:text-ink"
@@ -246,39 +246,39 @@ export function PortfolioAgentSection() {
 
             <div className="rounded-[32px] border border-line/75 bg-canvas-elevated/70 p-5">
               <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Signal path</div>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                 {(result?.reasoning ?? [
                   "Intent routing adapts the answer style to the user's real goal.",
                   "Repository ranking and project matching pull the strongest signal first.",
                   "Rule-based mode stays available even if no live model provider is active."
                 ]).map((item) => (
-                  <div key={item} className="rounded-2xl border border-line/70 bg-white/4 p-3 text-sm leading-7 text-muted">
+                  <div key={item} className="rounded-2xl border border-line/70 bg-white/4 p-3 text-sm leading-5 sm:leading-7 text-muted">
                     {item}
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="grid gap-5 xl:grid-cols-2">
-              <div className="rounded-[32px] border border-line/75 bg-canvas-elevated/70 p-5">
+            <div className="grid gap-5 lg:grid-cols-2">
+              <div className="rounded-[32px] border border-line/75 bg-canvas-elevated/70 p-4 sm:p-5">
                 <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Lead evidence</div>
                 <div className="mt-4 grid gap-3">
                   {(result?.evidence ?? []).length ? (
                     result?.evidence.map((entry) => (
                       <div key={entry.title} className="rounded-2xl border border-line/70 bg-white/4 p-3">
                         <div className="text-sm font-semibold text-ink">{entry.title}</div>
-                        <div className="mt-2 text-sm leading-7 text-muted">{entry.summary}</div>
+                        <div className="mt-2 text-sm leading-5 sm:leading-7 text-muted">{entry.summary}</div>
                       </div>
                     ))
                   ) : (
-                    <div className="rounded-2xl border border-line/70 bg-white/4 p-3 text-sm leading-7 text-muted">
+                    <div className="rounded-2xl border border-line/70 bg-white/4 p-3 text-sm leading-5 sm:leading-7 text-muted">
                       Evidence cards will show which portfolio facts and systems the answer was built from.
                     </div>
                   )}
                 </div>
               </div>
 
-              <div className="rounded-[32px] border border-line/75 bg-canvas-elevated/70 p-5">
+              <div className="rounded-[32px] border border-line/75 bg-canvas-elevated/70 p-4 sm:p-5">
                 <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Suggested follow-ups</div>
                 <div className="mt-4 grid gap-3">
                   {(result?.followUps ?? [
@@ -288,7 +288,7 @@ export function PortfolioAgentSection() {
                   ]).map((item) => (
                     <button
                       key={item}
-                      className="rounded-2xl border border-line/70 bg-white/4 p-3 text-left text-sm leading-7 text-muted transition hover:border-accent/30 hover:text-ink"
+                      className="rounded-2xl border border-line/70 bg-white/4 p-3 text-left text-sm leading-5 sm:leading-7 text-muted transition hover:border-accent/30 hover:text-ink"
                       onClick={() => setQuery(item)}
                     >
                       {item}
