@@ -682,8 +682,8 @@ export const githubAccounts: GitHubAccount[] = [
     tags: ["Current flagship", "Applied intelligence", "Android + on-device AI", "Agentic media systems"],
     featuredProjects: ["Algsoch", "Algsoch News"],
     href: "https://github.com/fiscalmindset",
-    avatarUrl: "https://github.com/algsoch.png?size=160",
-    avatarNote: "Avatar sourced from @algsoch",
+    avatarUrl: "https://avatars.githubusercontent.com/u/254638087?v=4",
+    avatarNote: "Avatar sourced from @FiscalMindset",
     status: "primary"
   },
   {
@@ -704,7 +704,7 @@ export const githubAccounts: GitHubAccount[] = [
     ],
     href: "https://github.com/algsoch",
     avatarUrl: "https://github.com/algsoch.png?size=160",
-    avatarNote: "Avatar sourced from @algsoch",
+    avatarNote: "Avatar from suspended @algsoch account",
     status: "legacy"
   }
 ];
