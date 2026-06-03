@@ -11,9 +11,17 @@
   <a href="https://algsochvicky.onrender.com"><img src="https://img.shields.io/badge/Portfolio-View%20Live-FF6B6B?style=for-the-badge" alt="Portfolio"/></a>
 </p>
 
+<!-- GitHub Stats (via github-readme-stats.vercel.app) -->
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=FiscalMindset&theme=radical&border_radius=12&border_color=30363d&hide_border=false" alt="GitHub Stats" style="margin: 8px;"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=algsoch&theme=radical&border_radius=12&border_color=30363d&hide_border=false&layout=compact" alt="Top Languages" style="margin: 8px;"/>
+  <a href="https://github.com/FiscalMindset">
+    <img src="https://img.shields.io/badge/GitHub%20Stats-20%20repos-181717?style=for-the-badge&logo=github" alt="GitHub Stats"/>
+  </a>
+  <a href="https://github.com/algsoch?tab=repositories">
+    <img src="https://img.shields.io/badge/Projects-107+-181717?style=for-the-badge&logo=github" alt="Projects"/>
+  </a>
+  <a href="https://github.com/FiscalMindset?tab=achievements">
+    <img src="https://img.shields.io/badge/Achievements-3%20badges-FFD700?style=for-the-badge" alt="Achievements"/>
+  </a>
 </p>
 
 ---
