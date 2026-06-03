@@ -46,21 +46,69 @@
 
 ## 🔗 Project Ecosystem
 
-<div style="background: linear-gradient(135deg, #161b22 0%, #21262d 100%); border: 1px solid #30363d; border-radius: 12px; padding: 20px; margin: 20px 0;">
-  <p style="color: #8b949e; margin: 0 0 15px;">Explore my complete project landscape across both GitHub accounts</p>
-</div>
+Explore my complete project landscape across both GitHub accounts
+
+---
 
 ### 🚀 Core Technologies
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0;">
-  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🤖 RunAnywhere SDK</span>
-  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🐙 Coral MCP</span>
-  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">⚡ Kestra</span>
-  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">📊 OpenMetadata</span>
-  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🦾 Playwright</span>
-  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🌐 Selenium</span>
-  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">💎 Gemini AI</span>
-  <span style="background: #30363d; color: #c9d1d9; padding: 8px 16px; border-radius: 20px; font-size: 14px;">🧠 TensorFlow</span>
+<div style="background: #0d1117; border: 1px solid #30363d; border-radius: 16px; padding: 24px; margin: 20px 0;">
+
+**🤖 AI & Machine Learning**
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 12px 0 20px;">
+  <div style="background: #161b22; border: 1px solid #238636; border-radius: 10px; padding: 14px; text-align: center;">
+    <div style="font-size: 28px; margin-bottom: 6px;">🤖</div>
+    <strong style="color: #c9d1d9; font-size: 14px;">RunAnywhere SDK</strong>
+    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">On-device AI</p>
+  </div>
+  <div style="background: #161b22; border: 1px solid #238636; border-radius: 10px; padding: 14px; text-align: center;">
+    <div style="font-size: 28px; margin-bottom: 6px;">🧠</div>
+    <strong style="color: #c9d1d9; font-size: 14px;">TensorFlow</strong>
+    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Deep Learning</p>
+  </div>
+  <div style="background: #161b22; border: 1px solid #238636; border-radius: 10px; padding: 14px; text-align: center;">
+    <div style="font-size: 28px; margin-bottom: 6px;">💎</div>
+    <strong style="color: #c9d1d9; font-size: 14px;">Gemini AI</strong>
+    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Google LLM</p>
+  </div>
+</div>
+
+**⚙️ Workflow & Data**
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 12px 0 20px;">
+  <div style="background: #161b22; border: 1px solid #1f6feb; border-radius: 10px; padding: 14px; text-align: center;">
+    <div style="font-size: 28px; margin-bottom: 6px;">🐙</div>
+    <strong style="color: #c9d1d9; font-size: 14px;">Coral MCP</strong>
+    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">12 PRs Merged</p>
+  </div>
+  <div style="background: #161b22; border: 1px solid #1f6feb; border-radius: 10px; padding: 14px; text-align: center;">
+    <div style="font-size: 28px; margin-bottom: 6px;">⚡</div>
+    <strong style="color: #c9d1d9; font-size: 14px;">Kestra</strong>
+    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Workflow Engine</p>
+  </div>
+  <div style="background: #161b22; border: 1px solid #1f6feb; border-radius: 10px; padding: 14px; text-align: center;">
+    <div style="font-size: 28px; margin-bottom: 6px;">📊</div>
+    <strong style="color: #c9d1d9; font-size: 14px;">OpenMetadata</strong>
+    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Data Governance</p>
+  </div>
+</div>
+
+**🌐 Browser & Automation**
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 12px 0 0;">
+  <div style="background: #161b22; border: 1px solid #a371f7; border-radius: 10px; padding: 14px; text-align: center;">
+    <div style="font-size: 28px; margin-bottom: 6px;">🦾</div>
+    <strong style="color: #c9d1d9; font-size: 14px;">Playwright</strong>
+    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">E2E Testing</p>
+  </div>
+  <div style="background: #161b22; border: 1px solid #a371f7; border-radius: 10px; padding: 14px; text-align: center;">
+    <div style="font-size: 28px; margin-bottom: 6px;">🌐</div>
+    <strong style="color: #c9d1d9; font-size: 14px;">Selenium</strong>
+    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Automation</p>
+  </div>
+</div>
+
 </div>
 
 ### 📦 @FiscalMindset Projects
