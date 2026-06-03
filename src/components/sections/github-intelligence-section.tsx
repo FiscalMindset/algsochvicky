@@ -179,38 +179,57 @@ export function GitHubIntelligenceSection() {
 
             {/* GitHub Contribution Stats */}
             <div className="rounded-[28px] border border-accent/25 bg-accent/10 p-4 sm:p-5">
-              <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/80">@fiscalmindset · Contribution Stats</div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/80">GitHub Contribution Stats</div>
               
-              {/* Stats Grid */}
-              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                <div className="rounded-2xl border border-accent/20 bg-accent/12 p-3 text-center">
-                  <div className="text-2xl font-bold text-ink">88</div>
-                  <div className="mt-1 text-xs text-muted">Contributions</div>
+              {/* @fiscalmindset Stats */}
+              <div className="mt-4 rounded-2xl border border-accent/15 bg-accent/8 p-4">
+                <div className="flex items-center justify-between">
+                  <a href="https://github.com/FiscalMindset" target="_blank" rel="noreferrer" className="font-semibold text-ink hover:text-accent">@fiscalmindset</a>
+                  <span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Primary</span>
                 </div>
-                <div className="rounded-2xl border border-accent/20 bg-accent/12 p-3 text-center">
-                  <div className="text-2xl font-bold text-ink">36</div>
-                  <div className="mt-1 text-xs text-muted">Commits</div>
-                </div>
-                <div className="rounded-2xl border border-accent/20 bg-accent/12 p-3 text-center">
-                  <div className="text-2xl font-bold text-ink">19</div>
-                  <div className="mt-1 text-xs text-muted">Pull Requests</div>
-                </div>
-                <div className="rounded-2xl border border-accent/20 bg-accent/12 p-3 text-center">
-                  <div className="text-2xl font-bold text-ink">12</div>
-                  <div className="mt-1 text-xs text-muted">Issues</div>
+                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                  <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
+                    <div className="text-xl font-bold text-ink">38</div>
+                    <div className="text-[10px] text-muted">Commits</div>
+                  </div>
+                  <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
+                    <div className="text-xl font-bold text-ink">20</div>
+                    <div className="text-[10px] text-muted">PRs</div>
+                  </div>
+                  <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
+                    <div className="text-xl font-bold text-ink">12</div>
+                    <div className="text-[10px] text-muted">Issues</div>
+                  </div>
+                  <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
+                    <div className="text-xl font-bold text-ink">20</div>
+                    <div className="text-[10px] text-muted">Repos</div>
+                  </div>
                 </div>
               </div>
 
-              {/* Account Metrics */}
-              <div className="mt-4 flex flex-wrap gap-3">
-                <div className="rounded-full border border-accent/20 bg-accent/12 px-4 py-1.5 text-sm text-ink">
-                  <span className="font-semibold text-accent">20</span> public repos
+              {/* @algsoch Stats */}
+              <div className="mt-3 rounded-2xl border border-line/50 bg-white/4 p-4">
+                <div className="flex items-center justify-between">
+                  <a href="https://github.com/algsoch" target="_blank" rel="noreferrer" className="font-semibold text-ink hover:text-accent">@algsoch</a>
+                  <span className="rounded-full border border-line/50 bg-white/4 px-2 py-0.5 text-xs text-muted">Legacy</span>
                 </div>
-                <div className="rounded-full border border-accent/20 bg-accent/12 px-4 py-1.5 text-sm text-ink">
-                  <span className="font-semibold text-accent">3</span> followers
-                </div>
-                <div className="rounded-full border border-accent/20 bg-accent/12 px-4 py-1.5 text-sm text-ink">
-                  <span className="font-semibold text-accent">2</span> following
+                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                  <div className="rounded-xl border border-line/50 bg-white/4 p-2 text-center">
+                    <div className="text-xl font-bold text-ink">217</div>
+                    <div className="text-[10px] text-muted">Commits</div>
+                  </div>
+                  <div className="rounded-xl border border-line/50 bg-white/4 p-2 text-center">
+                    <div className="text-xl font-bold text-ink">28</div>
+                    <div className="text-[10px] text-muted">PRs</div>
+                  </div>
+                  <div className="rounded-xl border border-line/50 bg-white/4 p-2 text-center">
+                    <div className="text-xl font-bold text-ink">107</div>
+                    <div className="text-[10px] text-muted">Repos</div>
+                  </div>
+                  <div className="rounded-xl border border-line/50 bg-white/4 p-2 text-center">
+                    <div className="text-xl font-bold text-ink">6</div>
+                    <div className="text-[10px] text-muted">Followers</div>
+                  </div>
                 </div>
               </div>
 
@@ -218,10 +237,11 @@ export function GitHubIntelligenceSection() {
               <div className="mt-5">
                 <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">Key Achievements</div>
                 <div className="mt-3 grid gap-2">
-                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🚀 Built Algsoch — Android AI news app with on-device intelligence</div>
+                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🚀 Built Algsoch — Android AI news app with on-device intelligence (107K+ downloads)</div>
                   <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🤖 Created Algsoch News — Multi-agent AI newsroom system</div>
                   <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🧠 Developed Synapse-Graph — AI autopsy engine for neural governance</div>
                   <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🔧 Built Kairon — AI-powered system automation platform</div>
+                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🧠 Built Brain Tumor Detection — 97.9% accuracy CNN model (EfficientNetB3)</div>
                 </div>
               </div>
 
