@@ -86,7 +86,7 @@ export function SystemCaseStudyPage({ system }: SystemCaseStudyPageProps) {
 
             <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr] xl:items-start">
               <div>
-                <h1 className="max-w-4xl text-balance font-display text-3xl font-semibold leading-[0.96] text-ink sm:text-4xl lg:text-[4.1rem]">
+                <h1 className="max-w-4xl font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[4.1rem]" style={{lineHeight: '1.2'}}>
                   {system.shorthand}
                 </h1>
                 <p className="mt-5 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8">{system.summary}</p>

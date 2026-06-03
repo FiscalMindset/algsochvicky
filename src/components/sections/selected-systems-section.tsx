@@ -23,7 +23,7 @@ export function SelectedSystemsSection() {
         <div className="mb-5 grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] lg:items-end">
           <div className="max-w-3xl">
             <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Selected Systems</div>
-            <h2 className="text-balance font-display text-3xl font-semibold leading-[0.96] text-ink sm:text-4xl lg:text-[3.5rem]">
+            <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[3.5rem]" style={{lineHeight: '1.2'}}>
               Built intelligence, engineered as products.
             </h2>
             <p className="mt-3 max-w-2xl text-pretty text-sm leading-7 text-muted sm:text-base lg:text-lg">
@@ -100,7 +100,7 @@ export function SelectedSystemsSection() {
                   <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
                     <div className="max-w-2xl">
                       <div className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent/80">Case Study</div>
-                      <h3 className="mt-3 text-balance font-display text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl">
+                      <h3 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl" style={{lineHeight: '1.2'}}>
                         {activeSystem.title}
                       </h3>
                       <p className="mt-4 text-base text-muted sm:text-lg">{activeSystem.summary}</p>

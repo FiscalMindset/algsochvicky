@@ -19,8 +19,8 @@ export function ContactSection() {
           <div className="relative">
             <div className="max-w-4xl">
               <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/75">Contact / CTA</div>
-              <h2 className="mt-4 text-balance font-display text-3xl font-semibold leading-[0.96] text-ink sm:text-4xl lg:text-[4rem]">
-                Let’s build intelligent products with software quality at the core.
+<h2 className="mt-4 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[4rem]" style={{lineHeight: '1.2'}}>
+                Let's build intelligent products with software quality at the core.
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
                 If you need AI-native product engineering, agentic workflows, voice or chat systems, or runtime-aware
