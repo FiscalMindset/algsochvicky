@@ -17,131 +17,189 @@
 
 ## 🔗 Project Ecosystem
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 24px 0; padding: 20px; background: #0d1117; border-radius: 16px; border: 1px solid #30363d;">
+<div style="margin: 32px 0; padding: 24px; background: #0d1117; border-radius: 16px; border: 1px solid #30363d; overflow-x: auto;">
 
-  <!-- RunAnywhere SDK -->
-  <div style="background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%); border: 1px solid #3b82f6; border-radius: 12px; padding: 16px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 8px;">🤖</div>
-    <div style="font-weight: bold; color: #60a5fa; font-size: 13px; margin-bottom: 4px;">RunAnywhere SDK</div>
-    <div style="font-size: 10px; color: #8b949e;">Offline AI on-device</div>
+<!-- Technology Row -->
+<div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 32px;">
+  
+  <div style="text-align: center; min-width: 120px;">
+    <div style="background: linear-gradient(135deg, #1a1f35, #0d1117); border: 2px solid #3b82f6; border-radius: 12px; padding: 16px 20px;">
+      <div style="font-size: 32px;">🤖</div>
+      <div style="font-weight: bold; color: #60a5fa; font-size: 14px; margin-top: 8px;">RunAnywhere SDK</div>
+    </div>
+    <div style="color: #60a5fa; font-size: 24px; margin-top: 12px;">⬇️</div>
   </div>
 
-  <!-- Coral MCP -->
-  <div style="background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%); border: 1px solid #8b5cf6; border-radius: 12px; padding: 16px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 8px;">🐙</div>
-    <div style="font-weight: bold; color: #a78bfa; font-size: 13px; margin-bottom: 4px;">Coral MCP</div>
-    <div style="font-size: 10px; color: #8b949e;">SQL over anything</div>
+  <div style="text-align: center; min-width: 120px;">
+    <div style="background: linear-gradient(135deg, #1a1f2e, #0d1117); border: 2px solid #8b5cf6; border-radius: 12px; padding: 16px 20px;">
+      <div style="font-size: 32px;">🐙</div>
+      <div style="font-weight: bold; color: #a78bfa; font-size: 14px; margin-top: 8px;">Coral MCP</div>
+    </div>
+    <div style="color: #a78bfa; font-size: 24px; margin-top: 12px;">⬇️</div>
   </div>
 
-  <!-- Kestra -->
-  <div style="background: linear-gradient(135deg, #1f1a1a 0%, #0d1117 100%); border: 1px solid #f59e0b; border-radius: 12px; padding: 16px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 8px;">⚡</div>
-    <div style="font-weight: bold; color: #fbbf24; font-size: 13px; margin-bottom: 4px;">Kestra</div>
-    <div style="font-size: 10px; color: #8b949e;">Workflow Orchestration</div>
+  <div style="text-align: center; min-width: 120px;">
+    <div style="background: linear-gradient(135deg, #1f1a1a, #0d1117); border: 2px solid #f59e0b; border-radius: 12px; padding: 16px 20px;">
+      <div style="font-size: 32px;">⚡</div>
+      <div style="font-weight: bold; color: #fbbf24; font-size: 14px; margin-top: 8px;">Kestra</div>
+    </div>
+    <div style="color: #fbbf24; font-size: 24px; margin-top: 12px;">⬇️</div>
+  </div>
+
+  <div style="text-align: center; min-width: 120px;">
+    <div style="background: linear-gradient(135deg, #1a1a1a, #0d1117); border: 2px solid #f97316; border-radius: 12px; padding: 16px 20px;">
+      <div style="font-size: 32px;">�🦾</div>
+      <div style="font-weight: bold; color: #fb923c; font-size: 14px; margin-top: 8px;">Playwright</div>
+    </div>
+    <div style="color: #f97316; font-size: 24px; margin-top: 12px;">⬇️</div>
+  </div>
+
+  <div style="text-align: center; min-width: 120px;">
+    <div style="background: linear-gradient(135deg, #1a1a1a, #0d1117); border: 2px solid #10b981; border-radius: 12px; padding: 16px 20px;">
+      <div style="font-size: 32px;">💎</div>
+      <div style="font-weight: bold; color: #34d399; font-size: 14px; margin-top: 8px;">Gemini AI</div>
+    </div>
+    <div style="color: #10b981; font-size: 24px; margin-top: 12px;">⬇️</div>
   </div>
 
 </div>
 
-<!-- Technology Cards with Projects -->
+<!-- Projects Connected to Technologies -->
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
 
-### 🤖 RunAnywhere SDK Powered
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin: 16px 0;">
-  <a href="https://github.com/FiscalMindset/algsoch" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">📱 algsoch</div>
-      <div style="font-size: 11px; color: #8b949e;">AI Study Companion for Android with SmolLM2/SmolVLM • <span style="color: #3fb950;">📱 APK</span></div>
+  <!-- RunAnywhere Projects -->
+  <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <a href="https://github.com/FiscalMindset/algsoch" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #3b82f6; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">📱 algsoch</div>
+          <div style="font-size: 9px; color: #8b949e;">SmolLM2/SmolVLM</div>
+        </div>
+      </a>
+      <a href="https://github.com/algsoch/speakai" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #3b82f6; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">🎤 speakAI</div>
+          <div style="font-size: 9px; color: #8b949e;">100% on-device</div>
+        </div>
+      </a>
+      <a href="https://github.com/algsoch/smart_terminal" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #3b82f6; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">💻 smart_terminal</div>
+          <div style="font-size: 9px; color: #8b949e;">CommandBrain</div>
+        </div>
+      </a>
     </div>
-  </a>
-  <a href="https://github.com/algsoch/speakai" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">🎤 speakAI</div>
-      <div style="font-size: 11px; color: #8b949e;">Local English Practice, 100% on-device • <span style="color: #58a6ff;">🌐 Live</span></div>
+  </div>
+
+  <!-- Coral Projects -->
+  <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <a href="https://github.com/FiscalMindset/careops" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #8b5cf6; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">🏥 careops</div>
+          <div style="font-size: 9px; color: #8b949e;">9 Coral sources</div>
+        </div>
+      </a>
+      <a href="https://github.com/FiscalMindset/Synapse-Graph" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #8b5cf6; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">🧠 Synapse-Graph</div>
+          <div style="font-size: 9px; color: #8b949e;">Neural governance</div>
+        </div>
+      </a>
     </div>
-  </a>
-  <a href="https://github.com/algsoch/smart_terminal" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">💻 smart_terminal</div>
-      <div style="font-size: 11px; color: #8b949e;">CommandBrain — Offline command memory • <span style="color: #58a6ff;">🌐 Live</span></div>
+  </div>
+
+  <!-- Kestra Projects -->
+  <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <a href="https://github.com/FiscalMindset/autopr" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #f59e0b; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">📤 autopr</div>
+          <div style="font-size: 9px; color: #8b949e;">Multi-platform</div>
+        </div>
+      </a>
+      <a href="https://github.com/FiscalMindset/devalert" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #f59e0b; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">🔔 devalert</div>
+          <div style="font-size: 9px; color: #8b949e;">Opportunity alerts</div>
+        </div>
+      </a>
+      <a href="https://github.com/FiscalMindset/women" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #f59e0b; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">🛡️ Sentinel Grid</div>
+          <div style="font-size: 9px; color: #8b949e;">Emergency response</div>
+        </div>
+      </a>
     </div>
-  </a>
+  </div>
+
+  <!-- Playwright Projects -->
+  <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <a href="https://github.com/FiscalMindset/Kairon" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #f97316; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">🎓 Kairon</div>
+          <div style="font-size: 9px; color: #8b949e;">NSUT attendance</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Gemini Projects -->
+  <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <a href="https://github.com/FiscalMindset/FAQ" style="text-decoration: none;">
+        <div style="background: #161b22; border: 1px solid #10b981; border-radius: 8px; padding: 10px 14px; min-width: 140px; text-align: center;">
+          <div style="font-weight: 600; color: #c9d1d9; font-size: 12px;">❓ FAQ Generator</div>
+          <div style="font-size: 9px; color: #8b949e;">MERN + Gemini</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
 </div>
 
-### 🐙 Coral MCP Powered
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin: 16px 0;">
-  <a href="https://github.com/FiscalMindset/careops" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">🏥 careops</div>
-      <div style="font-size: 11px; color: #8b949e;">Family care coordination via 9 Coral sources</div>
-    </div>
-  </a>
-  <a href="https://github.com/FiscalMindset/Synapse-Graph" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">🧠 Synapse-Graph</div>
-      <div style="font-size: 11px; color: #8b949e;">AI autopsy engine for neural governance • <span style="color: #58a6ff;">🌐 Live</span></div>
-    </div>
-  </a>
+<!-- Other Projects Row -->
+<div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #30363d;">
+  <div style="text-align: center; font-size: 12px; color: #8b949e; margin-bottom: 16px;">🔗 Other Projects</div>
+  <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+    <a href="https://github.com/FiscalMindset/algsochnews" style="text-decoration: none;">
+      <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 8px 12px;">
+        <span style="color: #c9d1d9; font-size: 11px;">📰 algsochnews</span>
+        <span style="color: #58a6ff; font-size: 10px; margin-left: 6px;">🌐</span>
+      </div>
+    </a>
+    <a href="https://github.com/algsoch/chatbot_assistant" style="text-decoration: none;">
+      <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 8px 12px;">
+        <span style="color: #c9d1d9; font-size: 11px;">🤖 chatbot_assistant</span>
+        <span style="color: #58a6ff; font-size: 10px; margin-left: 6px;">🌐</span>
+      </div>
+    </a>
+    <a href="https://github.com/algsoch/brain_tumor" style="text-decoration: none;">
+      <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 8px 12px;">
+        <span style="color: #c9d1d9; font-size: 11px;">🧠 brain_tumor</span>
+        <span style="color: #3fb950; font-size: 10px; margin-left: 6px;">97.9%</span>
+      </div>
+    </a>
+    <a href="https://github.com/FiscalMindset/algsoch_magicpin" style="text-decoration: none;">
+      <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 8px 12px;">
+        <span style="color: #c9d1d9; font-size: 11px;">🏪 algsoch_magicpin</span>
+      </div>
+    </a>
+    <a href="https://github.com/FiscalMindset/algsoch_social" style="text-decoration: none;">
+      <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 8px 12px;">
+        <span style="color: #c9d1d9; font-size: 11px;">🌐 algsoch_social</span>
+      </div>
+    </a>
+    <a href="https://github.com/FiscalMindset/PathPilot-India" style="text-decoration: none;">
+      <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 8px 12px;">
+        <span style="color: #c9d1d9; font-size: 11px;">📐 PathPilot-India</span>
+      </div>
+    </a>
+  </div>
 </div>
 
-### ⚡ Kestra Powered
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin: 16px 0;">
-  <a href="https://github.com/FiscalMindset/autopr" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">📤 autopr</div>
-      <div style="font-size: 11px; color: #8b949e;">AI Content Orchestration — multi-platform posts</div>
-    </div>
-  </a>
-  <a href="https://github.com/FiscalMindset/devalert" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">🔔 devalert</div>
-      <div style="font-size: 11px; color: #8b949e;">Kestra-orchestrated opportunity aggregator</div>
-    </div>
-  </a>
-  <a href="https://github.com/FiscalMindset/women" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">🛡️ Sentinel Grid</div>
-      <div style="font-size: 11px; color: #8b949e;">Kestra emergency response with GPS & audio</div>
-    </div>
-  </a>
 </div>
-
-### 🔧 Other Technologies
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin: 16px 0;">
-  <a href="https://github.com/FiscalMindset/Kairon" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">🎓 Kairon</div>
-      <div style="font-size: 11px; color: #8b949e;">NSUT Smart Attendance • <strong style="color: #f97316;">Playwright</strong> powered</div>
-    </div>
-  </a>
-  <a href="https://github.com/FiscalMindset/FAQ" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">❓ FAQ Generator</div>
-      <div style="font-size: 11px; color: #8b949e;">MERN + <strong style="color: #10b981;">Gemini AI</strong> • <span style="color: #58a6ff;">🌐 Live</span></div>
-    </div>
-  </a>
-  <a href="https://github.com/FiscalMindset/algsochnews" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">📰 algsochnews</div>
-      <div style="font-size: 11px; color: #8b949e;">Multi-agent AI newsroom • <span style="color: #58a6ff;">🌐 Live</span></div>
-    </div>
-  </a>
-  <a href="https://github.com/algsoch/chatbot_assistant" style="text-decoration: none;">
-    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 14px; transition: all 0.2s; cursor: pointer;">
-      <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 6px;">🤖 chatbot_assistant</div>
-      <div style="font-size: 11px; color: #8b949e;">Vicky Data Science Assistant • <span style="color: #58a6ff;">🌐 Live</span></div>
-    </div>
-  </a>
-</div>
-
-### Technology Integration Map
-
-| Tech | Used In | Purpose |
-|------|---------|---------|
-| **RunAnywhere SDK** | algsoch, speakAI, smart_terminal | 100% offline AI on Android/browser |
-| **Coral MCP** | careops, Synapse-Graph | Cross-source SQL queries, AI sources |
-| **Kestra** | autopr, devalert, women (Sentinel Grid) | Workflow orchestration, automation |
-| **Playwright** | Kairon | Web scraping, automation |
-| **Gemini AI** | FAQ Generator | AI-powered FAQ generation |
-| **OpenAI/Anthropic** | algsoch_social | Content generation |
 
 ---
 
@@ -220,33 +278,94 @@
 ## 📚 Technologies I Work With
 
 ### 🤖 AI & ML
-| Technology | Use Case |
-|------------|----------|
-| **RunAnywhere SDK** | On-device AI inference, offline-first apps |
-| **TensorFlow** | CNN models, brain tumor detection |
-| **LangChain** | LLM chains and agents |
-| **SmolLM2/SmolVLM** | Lightweight on-device models |
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
+  <span style="background: #161b22; border: 1px solid #3b82f6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #60a5fa;">🤖 RunAnywhere SDK</span>
+  <span style="background: #161b22; border: 1px solid #10b981; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #34d399;">🧠 TensorFlow</span>
+  <span style="background: #161b22; border: 1px solid #8b5cf6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #a78bfa;">🔗 LangChain</span>
+  <span style="background: #161b22; border: 1px solid #ec4899; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #f472b6;">💎 Gemini AI</span>
+  <span style="background: #161b22; border: 1px solid #f97316; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #fb923c;">🦙 Ollama</span>
+  <span style="background: #161b22; border: 1px solid #06b6d4; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #22d3ee;">🧬 SmolLM2/SmolVLM</span>
+</div>
 
 ### 🐙 Workflow & Integration
-| Technology | Use Case |
-|------------|----------|
-| **Coral MCP** | Cross-source SQL queries, AI agent integration |
-| **Kestra** | Declarative workflow orchestration |
-| **Playwright** | Web scraping, automation |
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
+  <span style="background: #161b22; border: 1px solid #8b5cf6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #a78bfa;">🐙 Coral MCP</span>
+  <span style="background: #161b22; border: 1px solid #f59e0b; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #fbbf24;">⚡ Kestra</span>
+  <span style="background: #161b22; border: 1px solid #f97316; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #fb923c;">🦾 Playwright</span>
+  <span style="background: #161b22; border: 1px solid #6366f1; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #818cf8;">🔄 Temporal</span>
+</div>
 
 ### 🛠️ Full-Stack
-| Technology | Use Case |
-|------------|----------|
-| **React/Next.js** | Frontend frameworks |
-| **FastAPI/Flask** | Python backends |
-| **Node.js** | API servers |
-| **MongoDB/PostgreSQL** | Databases |
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
+  <span style="background: #161b22; border: 1px solid #61dafb; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #61dafb;">⚛️ React</span>
+  <span style="background: #161b22; border: 1px solid #3178c6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #79b8ff;">🔷 TypeScript</span>
+  <span style="background: #161b22; border: 1px solid #06b6d4; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #22d3ee;">🎨 Tailwind CSS</span>
+  <span style="background: #161b22; border: 1px solid #68a063; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #85e89d;">🐍 Python</span>
+  <span style="background: #161b22; border: 1px solid #68a063; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #85e89d;">⚡ FastAPI</span>
+  <span style="background: #161b22; border: 1px solid #339933; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #85e89d;">🟢 Node.js</span>
+</div>
 
 ### 📱 Mobile
-| Technology | Use Case |
-|------------|----------|
-| **Kotlin** | Android development |
-| **RunAnywhere** | On-device AI for Android |
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
+  <span style="background: #161b22; border: 1px solid #7F52FF; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #a78bfa;">🤖 Kotlin</span>
+  <span style="background: #161b22; border: 1px solid #3b82f6; border-radius: 16px; padding: 6px 12px; font-size: 12px; color: #60a5fa;">📦 Android</span>
+</div>
+
+---
+
+## 💻 IDEs & Tools
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0;">
+  <a href="https://opencode.ai" style="text-decoration: none;">
+    <span style="background: linear-gradient(135deg, #1a1f35, #0d1117); border: 1px solid #3b82f6; border-radius: 20px; padding: 8px 16px; font-size: 13px; color: #60a5fa; font-weight: 600;">⚡ OpenCode</span>
+  </a>
+  <a href="https://codex.so" style="text-decoration: none;">
+    <span style="background: linear-gradient(135deg, #1a1f35, #0d1117); border: 1px solid #10b981; border-radius: 20px; padding: 8px 16px; font-size: 13px; color: #34d399; font-weight: 600;">🔮 Codex</span>
+  </a>
+  <a href="https://openclaw.dev" style="text-decoration: none;">
+    <span style="background: linear-gradient(135deg, #1a1f35, #0d1117); border: 1px solid #f97316; border-radius: 20px; padding: 8px 16px; font-size: 13px; color: #fb923c; font-weight: 600;">🦞 OpenClaw</span>
+  </a>
+  <a href="https://code.visualstudio.com" style="text-decoration: none;">
+    <span style="background: linear-gradient(135deg, #1a1f35, #0d1117); border: 1px solid #007acc; border-radius: 20px; padding: 8px 16px; font-size: 13px; color: #79b8ff; font-weight: 600;">📘 VS Code</span>
+  </a>
+  <a href="https://github.com/raphyr-dev/kimchi" style="text-decoration: none;">
+    <span style="background: linear-gradient(135deg, #1a1f35, #0d1117); border: 1px solid #FF6B6B; border-radius: 20px; padding: 8px 16px; font-size: 13px; color: #FF6B6B; font-weight: 600;">🍲 Kimchi</span>
+  </a>
+  <a href="https://github.com/features/copilot" style="text-decoration: none;">
+    <span style="background: linear-gradient(135deg, #1a1f35, #0d1117); border: 1px solid #S058d9; border-radius: 20px; padding: 8px 16px; font-size: 13px; color: #d2a8ff; font-weight: 600;">🤖 GitHub Copilot</span>
+  </a>
+  <a href="https://www.cursor.com" style="text-decoration: none;">
+    <span style="background: linear-gradient(135deg, #1a1f35, #0d1117); border: 1px solid #7c3aed; border-radius: 20px; padding: 8px 16px; font-size: 13px; color: #a78bfa; font-weight: 600;">📐 Cursor</span>
+  </a>
+  <span style="background: linear-gradient(135deg, #1a1f35, #0d1117); border: 1px solid #8b949e; border-radius: 20px; padding: 8px 16px; font-size: 13px; color: #c9d1d9; font-weight: 600;">🐚 Terminal</span>
+</div>
+
+---
+
+## 🌟 Open Source Contributions
+
+<div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; margin: 16px 0;">
+  <div style="margin-bottom: 16px;">
+    <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 8px;">🐙 Coral MCP — 12 PRs</div>
+    <div style="font-size: 12px; color: #8b949e; margin-bottom: 12px;">CLA Signed Contributor to <a href="https://github.com/withcoral/coral" style="color: #58a6ff;">withcoral/coral</a></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      <span style="background: #238636; color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px;">✅ 9 Merged</span>
+      <span style="background: #9e6a03; color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px;">🔄 2 Open</span>
+      <span style="background: #1f6feb; color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px;">📊 12 Total</span>
+    </div>
+  </div>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px;">
+    <div style="background: #161b22; border-radius: 8px; padding: 10px;">
+      <div style="font-size: 12px; color: #c9d1d9; font-weight: 600;">🔌 Sources Added</div>
+      <div style="font-size: 11px; color: #8b949e; margin-top: 4px;">Voyage AI, Sarvam AI, Cohere AI, Mistral AI, OpenRouter, LM Studio, Ollama, Groq AI, Deepgram ASR, NVIDIA NIM</div>
+    </div>
+    <div style="background: #161b22; border-radius: 8px; padding: 10px;">
+      <div style="font-size: 12px; color: #c9d1d9; font-weight: 600;">🌐 GitHub Profile</div>
+      <div style="font-size: 11px; color: #58a6ff; margin-top: 4px;"><a href="https://github.com/FiscalMindset" style="color: #58a6ff;">@FiscalMindset</a></div>
+    </div>
+  </div>
+</div>
 
 ---
 
