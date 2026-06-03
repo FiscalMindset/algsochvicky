@@ -253,7 +253,7 @@ flowchart LR
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [english_bot](https://github.com/algsoch/english_bot) | AI conversation practice with speech recognition | algsoch |
+| [english_bot](https://github.com/algsoch/english_bot) | AI conversation practice with speech recognition | [algsoch](https://github.com/algsoch) |
 
 ---
 
@@ -263,49 +263,49 @@ flowchart LR
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [algsoch](https://github.com/FiscalMindset/algsoch) | Android AI study companion, 7 learning modes, 100% offline | FiscalMindset |
-| [algsochvicky](https://github.com/FiscalMindset/algsochvicky) | Portfolio website deployed on Render | FiscalMindset |
+| [algsoch](https://github.com/FiscalMindset/algsoch) | Android AI study companion, 7 learning modes, 100% offline | [FiscalMindset](https://github.com/FiscalMindset) |
+| [algsochvicky](https://github.com/FiscalMindset/algsochvicky) | Portfolio website deployed on Render | [FiscalMindset](https://github.com/FiscalMindset) |
 
 ### 🤖 Agentic AI Systems
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [algsochnews](https://github.com/FiscalMindset/algsochnews) | Multi-agent newsroom with 5 agents + video generation | FiscalMindset |
-| [careops](https://github.com/FiscalMindset/careops) | Coral-powered family care coordination agent | FiscalMindset |
-| [Synapse-Graph](https://github.com/FiscalMindset/Synapse-Graph) | LLM interpretability with circuit discovery & causal ablation | FiscalMindset |
-| [Cognivise](https://github.com/algsoch/Cognivise) | Real-time adaptive tutoring with eye tracking | algsoch |
-| [assistant_chatbot](https://github.com/algsoch/assistant_chatbot) | TDS problem solver & AI assistant, 55+ solvers | algsoch |
+| [algsochnews](https://github.com/FiscalMindset/algsochnews) | Multi-agent newsroom with 5 agents + video generation | [FiscalMindset](https://github.com/FiscalMindset) |
+| [careops](https://github.com/FiscalMindset/careops) | Coral-powered family care coordination agent | [FiscalMindset](https://github.com/FiscalMindset) |
+| [Synapse-Graph](https://github.com/FiscalMindset/Synapse-Graph) | LLM interpretability with circuit discovery & causal ablation | [FiscalMindset](https://github.com/FiscalMindset) |
+| [Cognivise](https://github.com/algsoch/Cognivise) | Real-time adaptive tutoring with eye tracking | [algsoch](https://github.com/algsoch) |
+| [assistant_chatbot](https://github.com/algsoch/assistant_chatbot) | TDS problem solver & AI assistant, 55+ solvers | [algsoch](https://github.com/algsoch) |
 
 ### ⚡ Workflow Automation
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [autopr](https://github.com/FiscalMindset/autopr) | GitHub-to-social media via Kestra workflows | FiscalMindset |
-| [devalert](https://github.com/FiscalMindset/devalert) | LLM-filtered developer opportunity alerts | FiscalMindset |
+| [autopr](https://github.com/FiscalMindset/autopr) | GitHub-to-social media via Kestra workflows | [FiscalMindset](https://github.com/FiscalMindset) |
+| [devalert](https://github.com/FiscalMindset/devalert) | LLM-filtered developer opportunity alerts | [FiscalMindset](https://github.com/FiscalMindset) |
 
 ### 🎓 Education & Language Learning
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [english_bot](https://github.com/algsoch/english_bot) | AI conversation practice with speech recognition | algsoch |
-| [speakai](https://github.com/algsoch/speakai) | On-browser English practice with RunAnywhere WASM | algsoch |
+| [english_bot](https://github.com/algsoch/english_bot) | AI conversation practice with speech recognition | [algsoch](https://github.com/algsoch) |
+| [speakai](https://github.com/algsoch/speakai) | On-browser English practice with RunAnywhere WASM | [algsoch](https://github.com/algsoch) |
 
 ### 🔬 Machine Learning
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [brain_tumor](https://github.com/algsoch/brain_tumor) | CNN brain tumor detection from MRI | algsoch |
-| [brain_tumor_cnn](https://github.com/algsoch/brain_tumor_cnn) | Deep learning tumor classification | algsoch |
+| [brain_tumor](https://github.com/algsoch/brain_tumor) | CNN brain tumor detection from MRI | [algsoch](https://github.com/algsoch) |
+| [brain_tumor_cnn](https://github.com/algsoch/brain_tumor_cnn) | Deep learning tumor classification | [algsoch](https://github.com/algsoch) |
 
 ### 🌐 Web & Miscellaneous
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [Sentinel Grid](https://github.com/FiscalMindset/women) | Kestra-first emergency response with dispatch orchestration · [Demo](https://youtu.be/rTFPR7DqOBc) | FiscalMindset |
-| [Kairon](https://github.com/FiscalMindset/Kairon) | NSUT smart attendance chatbot with Playwright scraping | FiscalMindset |
-| [polybazar](https://github.com/algsoch/polybazar) | E-commerce platform | algsoch |
-| [accomplish](https://github.com/algsoch/accomplish) | AI desktop agent for file management (contributor) | algsoch |
-| [smart_terminal](https://github.com/algsoch/smart_terminal) | RunAnywhere CommandBrain — offline CLI assistant | algsoch |
+| [Sentinel Grid](https://github.com/FiscalMindset/women) | Kestra-first emergency response with dispatch orchestration · [Demo](https://youtu.be/rTFPR7DqOBc) | [FiscalMindset](https://github.com/FiscalMindset) |
+| [Kairon](https://github.com/FiscalMindset/Kairon) | NSUT smart attendance chatbot with Playwright scraping | [FiscalMindset](https://github.com/FiscalMindset) |
+| [polybazar](https://github.com/algsoch/polybazar) | E-commerce platform | [algsoch](https://github.com/algsoch) |
+| [accomplish](https://github.com/algsoch/accomplish) | AI desktop agent for file management (contributor) | [algsoch](https://github.com/algsoch) |
+| [smart_terminal](https://github.com/algsoch/smart_terminal) | RunAnywhere CommandBrain — offline CLI assistant | [algsoch](https://github.com/algsoch) |
 
 ---
 
