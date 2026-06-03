@@ -15,39 +15,131 @@
 
 ---
 
+## 🔗 Project Ecosystem
+
+```mermaid
+graph TB
+    subgraph AI["🤖 AI Models & RunAnywhere SDK"]
+        RUNANYWHERE["RunAnywhere SDK<br/>Offline AI on-device"]
+        SMOLLM["SmolLM2/SmolVLM<br/>On-device models"]
+    end
+
+    subgraph CoralLayer["🐙 Coral MCP"]
+        CORAL["Coral CLI<br/>SQL over anything"]
+        SOURCES["9+ Community Sources<br/>Cohere, Mistral, Groq, etc."]
+    end
+
+    subgraph KestraLayer["⚡ Kestra Workflows"]
+        KESTRA["Kestra<br/>Declarative Orchestration"]
+    end
+
+    subgraph MyProjects["🚀 My Projects"]
+        ALGSOCH["algsoch<br/>AI Study Companion<br/>(Android + RunAnywhere)"]
+        ALGSOCHNEWS["algsochnews<br/>AI Newsroom Agent"]
+        SYNAPSGRAPH["Synapse-Graph<br/>Neural Governance"]
+        SPEAKAI["speakAI<br/>Voice Practice AI"]
+        CHATBOT["chatbot_assistant<br/>Data Science Assistant"]
+        BRAIN["brain_tumor<br/>CNN Detection"]
+        
+        CAREOPS["careops<br/>Family Care Coordination<br/>(Coral-powered)"]
+        AUTOPR["autopr<br/>Content Distribution<br/>(Kestra-powered)"]
+        DEVALERT["devalert<br/>Dev Alert Platform<br/>(Kestra-powered)"]
+        KAIRON["Kairon<br/>NSUT Attendance Bot"]
+        
+        FAQ["FAQ Generator<br/>MERN + Gemini AI"]
+        MAGICPIN["algsoch_magicpin<br/>Merchant AI Assistant"]
+        NSUT["nsut_bot<br/>Kotlin Android Bot"]
+        WOMEN["women<br/>Safety Platform"]
+        ALGSOCHSOCIAL["algsoch_social<br/>Builder Presence"]
+        PATHPILOT["PathPilot-India<br/>Agentic Blueprint"]
+    end
+
+    RUNANYWHERE --> ALGSOCH
+    RUNANYWHERE --> SPEAKAI
+    SMOLLM --> ALGSOCH
+    CORAL --> CAREOPS
+    SOURCES --> CAREOPS
+    KESTRA --> AUTOPR
+    KESTRA --> DEVALERT
+
+    ALGSOCHNEWS -.->|uses concepts from| CORAL
+    SYNAPSGRAPH -.->|built on| CORAL
+```
+
+### Technology Integration Map
+
+| Tech | Used In | Purpose |
+|------|---------|---------|
+| **RunAnywhere SDK** | algsoch, speakAI | 100% offline AI on Android/browser |
+| **Coral MCP** | careops, Synapse-Graph | Cross-source SQL queries, AI sources |
+| **Kestra** | autopr, devalert | Workflow orchestration, automation |
+| **Playwright** | Kairon | Web scraping, automation |
+| **Gemini AI** | FAQ Generator | AI-powered FAQ generation |
+| **OpenAI/Anthropic** | algsoch_social | Content generation |
+
+---
+
 ## 🚀 Featured Projects
 
-### 🤖 AI Systems
+### 🤖 AI Systems (Android + On-Device)
 
 | Project | Account | Description | Website |
 |---------|---------|-------------|---------|
 | [algsoch](https://github.com/FiscalMindset/algsoch) | @FiscalMindset | AI Study Companion for Android — 100% offline with RunAnywhere SDK, SmolLM2/SmolVLM models | [📱 APK](https://github.com/FiscalMindset/algsoch/releases) |
+| [speakAI](https://github.com/algsoch/speakai) | @algsoch | SpeakAI — Local English Practice, runs 100% on device with RunAnywhere Web SDK | [🌐 Live](https://speakai-af1l.onrender.com/) |
 | [algsochnews](https://github.com/FiscalMindset/algsochnews) | @FiscalMindset | Multi-agent AI newsroom — turns URL into broadcast screenplay with visible agent workflow | [🌐 Live](https://algsochnews-1.onrender.com) |
-| [Synapse-Graph](https://github.com/FiscalMindset/Synapse-Graph) | @FiscalMindset | AI autopsy engine for neural governance — traces and quarantines hallucinating attention heads | [🌐 Live](https://fiscalmindset.github.io/Synapse-Graph/) |
-| [careops](https://github.com/FiscalMindset/careops) | @FiscalMindset | Coral-powered family care coordination — connects patient records, prescriptions, labs into doctor-visit packets | - |
 
-### 🧠 ML/AI + Voice AI Projects
+### 🧠 Neural & Governance AI
 
 | Project | Account | Description | Website |
 |---------|---------|-------------|---------|
-| [brain_tumor](https://github.com/algsoch/brain_tumor) | @algsoch | CNN-based brain tumor detection with 97.9% accuracy (EfficientNetB3) | [🌐 Live](https://brain-tumor-mcug.onrender.com/) |
-| [Cognivise](https://github.com/algsoch/Cognivise) | @algsoch | Cognition + Vision — Clean, powerful, memorable | - |
-| [chatbot_assistant](https://github.com/algsoch/chatbot_assistant) | @algsoch | Vicky Data Science Assistant — pattern recognition based query solver for data science problems | [🌐 Live](https://tds-assistant.onrender.com/) |
-| [deep_learning](https://github.com/algsoch/deep_learning) | @algsoch | Deep learning experiments and models | - |
-| [speakai](https://github.com/algsoch/speakai) | @algsoch | SpeakAI — Local English Practice, runs 100% on device with RunAnywhere Web SDK | [🌐 Live](https://speakai-af1l.onrender.com/) |
+| [Synapse-Graph](https://github.com/FiscalMindset/Synapse-Graph) | @FiscalMindset | AI autopsy engine — traces and quarantines hallucinating attention heads at runtime using OpenMetadata concepts | [🌐 Live](https://fiscalmindset.github.io/Synapse-Graph/) |
+| [brain_tumor](https://github.com/algsoch/brain_tumor) | @algsoch | CNN-based brain tumor detection with 97.9% accuracy using EfficientNetB3 | [🌐 Live](https://brain-tumor-mcug.onrender.com/) |
 
-### 🛠️ Developer Tools
+### 🏥 AI Agents (Coral-Powered)
 
 | Project | Account | Description | Website |
 |---------|---------|-------------|---------|
-| [html-checker](https://github.com/algsoch/html-checker) | @algsoch | Web app to clean HTML code from unwanted tags like cite_start | [🌐 Live](https://html-checker-1.onrender.com) |
-| [smart_terminal](https://github.com/algsoch/smart_terminal) | @algsoch | RunAnywhere CommandBrain — Offline-first command memory + execution copilot | [🌐 Live](https://smart-terminal.onrender.com/) |
+| [careops](https://github.com/FiscalMindset/careops) | @FiscalMindset | Coral-powered family care coordination — joins medical records via 9 Coral sources into doctor-ready packets | - |
 
-### 🛡️ Safety & Empowerment
+### ⚡ Workflow Automation (Kestra-Powered)
+
+| Project | Account | Description | Website |
+|---------|---------|-------------|---------|
+| [autopr](https://github.com/FiscalMindset/autopr) | @FiscalMindset | AI Content Orchestration — transforms commits to multi-platform posts (LinkedIn, Twitter, Instagram, WhatsApp, Email) via Kestra | - |
+| [devalert](https://github.com/FiscalMindset/devalert) | @FiscalMindset | Kestra-orchestrated alert platform — aggregates opportunities (GitHub, MLH, GSOC), filters via LLM, notifies via Telegram/Email | - |
+
+### 🎓 Education & Utilities
+
+| Project | Account | Description | Website |
+|---------|---------|-------------|---------|
+| [Kairon](https://github.com/FiscalMindset/Kairon) | @FiscalMindset | NSUT Smart Attendance Assistant — Playwright-based scraper with interactive dashboard and chat | - |
+| [FAQ](https://github.com/FiscalMindset/FAQ) | @FiscalMindset | MERN stack FAQ management with AI-powered generation using Google Gemini Pro | [🌐 Live](https://faq-v300.onrender.com) |
+| [nsut_bot](https://github.com/FiscalMindset/nsut_bot) | @FiscalMindset | Kotlin Android application for NSUT | - |
+| [chatbot_assistant](https://github.com/algsoch/chatbot_assistant) | @algsoch | Vicky Data Science Assistant — pattern recognition query solver | [🌐 Live](https://tds-assistant.onrender.com/) |
+
+### 🛡️ Safety & Social Impact
 
 | Project | Account | Description | Website |
 |---------|---------|-------------|---------|
 | [women](https://github.com/FiscalMindset/women) | @FiscalMindset | Safety and empowerment platform for women | - |
+| [algsoch_social](https://github.com/FiscalMindset/algsoch_social) | @FiscalMindset | Open-source AI infrastructure for builders — converts real work into verified public presence | - |
+
+### 🏪 Industry Projects
+
+| Project | Account | Description | Website |
+|---------|---------|-------------|---------|
+| [algsoch_magicpin](https://github.com/FiscalMindset/algsoch_magicpin) | @FiscalMindset | AI-powered WhatsApp merchant assistant for magicpin AI Challenge — 49/49 tests passing | [🌐 Live](https://algsoch-magicpin.onrender.com) |
+
+### 📐 Blueprints & Experiments
+
+| Project | Account | Description |
+|---------|---------|-------------|
+| [PathPilot-India](https://github.com/FiscalMindset/PathPilot-India) | @FiscalMindset | Agentic blueprint for career guidance system — runtime code generation via Claude |
+| [Cognivise](https://github.com/algsoch/Cognivise) | @algsoch | Cognition + Vision — Clean, powerful, memorable |
+| [deep_learning](https://github.com/algsoch/deep_learning) | @algsoch | Deep learning experiments and models |
+| [html-checker](https://github.com/algsoch/html-checker) | @algsoch | Web app to clean HTML code | [🌐 Live](https://html-checker-1.onrender.com) |
+| [smart_terminal](https://github.com/algsoch/smart_terminal) | @algsoch | RunAnywhere CommandBrain — Offline command memory | [🌐 Live](https://smart-terminal.onrender.com/) |
 
 ### 📚 Learning & Experiments
 
@@ -59,15 +151,36 @@
 
 ---
 
-## 🛠️ Tech Stack
+## 📚 Technologies I Work With
 
-| Category | Technologies |
-|----------|--------------|
-| **Frontend** | React, TypeScript, Tailwind CSS, Vite |
-| **Backend** | Node.js, Rust, Python |
-| **AI/ML** | TensorFlow, PyTorch, LangChain, OpenAI |
-| **Mobile** | Kotlin (Android) |
-| **Tools** | Git, GitHub, Coral MCP, Render, Vercel |
+### 🤖 AI & ML
+| Technology | Use Case |
+|------------|----------|
+| **RunAnywhere SDK** | On-device AI inference, offline-first apps |
+| **TensorFlow** | CNN models, brain tumor detection |
+| **LangChain** | LLM chains and agents |
+| **SmolLM2/SmolVLM** | Lightweight on-device models |
+
+### 🐙 Workflow & Integration
+| Technology | Use Case |
+|------------|----------|
+| **Coral MCP** | Cross-source SQL queries, AI agent integration |
+| **Kestra** | Declarative workflow orchestration |
+| **Playwright** | Web scraping, automation |
+
+### 🛠️ Full-Stack
+| Technology | Use Case |
+|------------|----------|
+| **React/Next.js** | Frontend frameworks |
+| **FastAPI/Flask** | Python backends |
+| **Node.js** | API servers |
+| **MongoDB/PostgreSQL** | Databases |
+
+### 📱 Mobile
+| Technology | Use Case |
+|------------|----------|
+| **Kotlin** | Android development |
+| **RunAnywhere** | On-device AI for Android |
 
 ---
 
@@ -75,7 +188,7 @@
 
 <table align="center" style="border-collapse: collapse; width: 100%; max-width: 800px;">
   <tr>
-    <td width="50%" style="vertical-align: top; padding: 16px; border: 1px solid #333; border-radius: 12px; background: #0d1117;">
+    <td width="50%" style="vertical-align: top; padding: 16px; border: 1px solid #30363d; border-radius: 12px; background: #0d1117;">
       <h3 align="center" style="margin: 0 0 8px 0;">
         <a href="https://github.com/FiscalMindset" style="text-decoration: none; color: #FF6B6B;">@FiscalMindset</a>
       </h3>
@@ -112,8 +225,11 @@
           </td>
         </tr>
       </table>
+      <p align="center" style="margin: 12px 0 0 0; font-size: 10px; color: #6e7681;">
+        ⚡ Auto-updates via GitHub Actions
+      </p>
     </td>
-    <td width="50%" style="vertical-align: top; padding: 16px; border: 1px solid #333; border-radius: 12px; background: #0d1117; margin-left: 8px;">
+    <td width="50%" style="vertical-align: top; padding: 16px; border: 1px solid #30363d; border-radius: 12px; background: #0d1117; margin-left: 8px;">
       <h3 align="center" style="margin: 0 0 8px 0;">
         <a href="https://github.com/algsoch" style="text-decoration: none; color: #8b949e;">@algsoch</a>
       </h3>
@@ -153,6 +269,8 @@
     </td>
   </tr>
 </table>
+
+> 💡 **Note**: Stats shown above are updated periodically. For real-time stats, visit [GitHub Profile](https://github.com/FiscalMindset)
 
 ---
 
@@ -245,7 +363,7 @@
 <div align="center" style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 24px 0;">
   
   <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center; min-width: 140px;">
-    <a href="https://github.com/FiscalMindset?achievement=pull-shark&tab=achievements">
+    <a href="https://github.com/FiscalMindset?achievement=pull-shark&tab=achievements" style="text-decoration: none;">
       <img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" width="64" height="64" style="margin-bottom: 8px;">
       <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 4px;">Pull Shark</div>
       <div style="font-size: 11px; color: #8b949e;">22+ PRs merged</div>
@@ -253,7 +371,7 @@
   </div>
   
   <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center; min-width: 140px;">
-    <a href="https://github.com/FiscalMindset?achievement=yolo&tab=achievements">
+    <a href="https://github.com/FiscalMindset?achievement=yolo&tab=achievements" style="text-decoration: none;">
       <img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="64" height="64" style="margin-bottom: 8px;">
       <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 4px;">YOLO</div>
       <div style="font-size: 11px; color: #8b949e;">PR merged without review</div>
@@ -261,7 +379,7 @@
   </div>
   
   <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center; min-width: 140px;">
-    <a href="https://github.com/FiscalMindset?achievement=quickdraw&tab=achievements">
+    <a href="https://github.com/FiscalMindset?achievement=quickdraw&tab=achievements" style="text-decoration: none;">
       <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="64" height="64" style="margin-bottom: 8px;">
       <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 4px;">Quickdraw</div>
       <div style="font-size: 11px; color: #8b949e;">PR merged < 5 min</div>
@@ -273,117 +391,6 @@
 <p align="center" style="color: #8b949e; font-size: 13px;">
   <a href="https://github.com/FiscalMindset?tab=achievements" style="color: #58a6ff;">View all achievements →</a>
 </p>
-
----
-
-## 📐 Architecture Overview
-
-### System Architecture
-
-```mermaid
-graph TB
-    subgraph Frontend
-        A[React + TypeScript + Vite]
-        B[Tailwind CSS]
-        C[Framer Motion]
-    end
-    
-    subgraph AI Runtime
-        D[RunAnywhere WASM]
-        E[Llama.cpp WebGPU]
-        F[Groq API Fallback]
-    end
-    
-    subgraph Agent System
-        G[Portfolio Agent Engine]
-        H[Knowledge Base]
-        I[Response Synthesizer]
-    end
-    
-    subgraph GitHub Integration
-        J[Repo Intelligence]
-        K[Contribution Stats]
-        L[Achievement Tracker]
-    end
-    
-    A --> B & C
-    D --> E
-    A --> D & F
-    G --> H & I
-    A --> G
-    J --> K & L
-    A --> J
-```
-
-### Agent Response Pipeline
-
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant A as Agent Engine
-    participant K as Knowledge Base
-    participant S as Synthesizer
-    participant R as Runtime
-
-    U->>A: Question
-    A->>K: Retrieve evidence
-    K-->>A: Context
-    A->>S: Build reasoning
-    alt Local Model Active
-        S->>R: Generate on-device
-        R-->>S: Response
-    else Fallback
-        S->>S: Deterministic synthesis
-    end
-    S-->>U: Final response
-```
-
----
-
-## 📁 Project Structure
-
-```
-vicky/
-├── src/
-│   ├── app/App.tsx           # Main app shell
-│   ├── components/
-│   │   ├── sections/         # Page sections
-│   │   └── ui/               # Design system
-│   ├── content/
-│   │   └── portfolio.ts      # Central content config
-│   ├── features/
-│   │   ├── agent/            # Portfolio agent
-│   │   ├── github/           # GitHub integration
-│   │   └── runanywhere/      # Local AI runtime
-│   └── styles/globals.css    # Design tokens
-├── api/groq.js               # Groq proxy
-├── server/groq-proxy.mjs     # Render deployment
-└── public/images/            # Assets
-```
-
----
-
-## 🚀 Getting Started
-
-```bash
-# Clone and install
-git clone https://github.com/FiscalMindset/algsochvicky.git
-cd algsochvicky
-npm install
-
-# Development
-npm run dev
-
-# Production build
-npm run build
-```
-
-### Environment Variables
-
-```bash
-GROQ_API_KEY=your_key_here
-GROQ_MODEL=llama-3.1-8b-instant
-```
 
 ---
 
