@@ -1,138 +1,240 @@
-# Vicky Kumar Portfolio
+<!-- Profile Section -->
+<table>
+<tr>
+<td rowspan="3">
+<img src="https://avatars.githubusercontent.com/u/254638087?v=4" width="120" height="120" style="border-radius: 50%;">
+</td>
+<td>
 
-A premium React + TypeScript portfolio built as an applied-intelligence product showcase rather than a conventional portfolio page.
+# Vicky Kumar
 
-## Why this stack
+**Software Engineer** · **AI Engineer** · **Agentic Systems Builder**
 
-This project uses `React + TypeScript + Vite + Tailwind + Framer Motion`.
+[![GitHub](https://img.shields.io/badge/GitHub-FiscalMindset-181717?style=flat&logo=github)](https://github.com/FiscalMindset)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-algsoch-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/algsoch)
+[![Portfolio](https://img.shields.io/badge/Portfolio-algsochvicky.onrender.com-FF6B6B?style=flat)](https://algsochvicky.onrender.com)
 
-Vite was chosen intentionally for production polish and for compatibility with the current RunAnywhere Web SDK guidance:
+Building AI products and real-world systems
 
-- The SDK documentation currently recommends Vite for web projects.
-- Vite makes the RunAnywhere WASM asset workflow explicit and controllable.
-- Cross-origin isolation headers, worker format, and `optimizeDeps.exclude` are easier to keep aligned with the SDK’s current browser-runtime requirements.
-- The app remains lightweight while still giving us a modular, production-grade React architecture.
+</td>
+</tr>
+</table>
 
-## What the site is designed to communicate
+---
 
-- Software Engineer
-- AI Engineer
-- Agentic Systems Builder
-- Applied Intelligence Product Engineer
+## 🏅 GitHub Achievements
 
-The experience is meant to signal engineering depth, interface discipline, runtime awareness, and product maturity before a visitor reads much text.
+<div style="display: flex; gap: 16px; flex-wrap: wrap;">
 
-## Architecture overview
+[![Pull Shark](https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png)](https://github.com/FiscalMindset?achievement=pull-shark&tab=achievements)
+[![YOLO](https://github.githubassets.com/assets/yolo-default-be0bbff04951.png)](https://github.com/FiscalMindset?achievement=yolo&tab=achievements)
+[![Quickdraw](https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png)](https://github.com/FiscalMindset?achievement=quickdraw&tab=achievements)
 
-### App shell
+</div>
 
-- [`src/app/App.tsx`](/Users/viclkykumar/vicky/src/app/App.tsx)
-- Sticky command-style navigation
-- Editorial single-page flow with premium dark visual system
-- Section-based composition instead of template sections
+| Achievement | Description | Earned |
+|-------------|-------------|--------|
+| 🦈 Pull Shark | 22+ pull requests merged | ✅ |
+| 💥 YOLO | Merged PR without review | ✅ |
+| ⚡ Quickdraw | PR merged in < 5 minutes | ✅ |
 
-### Content system
+---
 
-- [`src/content/portfolio.ts`](/Users/viclkykumar/vicky/src/content/portfolio.ts)
-- Central source for brand copy, featured systems, architecture layers, build modes, philosophy, GitHub identity context, and portfolio agent knowledge
-- Makes the site easy to extend without hardcoding narrative copy directly into components
+## 📊 GitHub Stats
 
-### Design system
+### @FiscalMindset (Primary)
 
-- [`src/styles/globals.css`](/Users/viclkykumar/vicky/src/styles/globals.css)
-- [`src/components/ui/button.tsx`](/Users/viclkykumar/vicky/src/components/ui/button.tsx)
-- [`src/components/ui/section-heading.tsx`](/Users/viclkykumar/vicky/src/components/ui/section-heading.tsx)
-- [`src/components/ui/surface.tsx`](/Users/viclkykumar/vicky/src/components/ui/surface.tsx)
+| Metric | Count |
+|--------|-------|
+| ⬆️ Commits | 42 |
+| 🔀 Pull Requests | 22 |
+| 🐛 Issues | 12 |
+| 📦 Public Repos | 20 |
+| ⭐ Stars | 6 |
 
-The visual language is restrained dark technical luxury:
+### @algsoch (Legacy)
 
-- layered graphite backgrounds
-- off-white and muted silver text
-- one controlled cool accent
-- large display typography with editorial spacing
-- utility surfaces for premium panels instead of generic cards
+| Metric | Count |
+|--------|-------|
+| ⬆️ Commits | 217 |
+| 🔀 Pull Requests | 28 |
+| 📦 Public Repos | 107 |
+| ⭐ Stars | 24 |
+| 👥 Followers | 6 |
 
-### Section architecture
+---
 
-- Hero + intelligence map
-- Capability strip
-- Selected systems
-- Agentic architecture blueprint
-- Build-anything-with-AI selector
-- RunAnywhere runtime control panel
-- Advanced portfolio agent
-- GitHub intelligence layer
-- Build philosophy
-- Premium CTA
+## 🐙 Coral MCP Contributions
 
-## RunAnywhere integration
+**12 PRs** merged/open to [withcoral/coral](https://github.com/withcoral/coral)
 
-RunAnywhere is not presented as a fake badge or a future feature. The site includes a real browser-local model lifecycle layer.
+| Source | PR | Status |
+|--------|-----|--------|
+| Voyage AI | [#1115](https://github.com/withcoral/coral/pull/1115) | ✅ Merged |
+| Sarvam AI | [#1112](https://github.com/withcoral/coral/pull/1112) | ✅ Merged |
+| Cohere AI | [#1098](https://github.com/withcoral/coral/pull/1098) | ✅ Merged |
+| Mistral AI | [#1011](https://github.com/withcoral/coral/pull/1011) | ✅ Merged |
+| OpenRouter | [#882](https://github.com/withcoral/coral/pull/882) | ✅ Merged |
+| LM Studio | [#834](https://github.com/withcoral/coral/pull/834) | ✅ Merged |
+| Ollama | [#798](https://github.com/withcoral/coral/pull/798) | ✅ Merged |
+| Groq AI | [#754](https://github.com/withcoral/coral/pull/754) | ✅ Merged |
+| Deepgram ASR | [#1118](https://github.com/withcoral/coral/pull/1118) | 🔄 Open |
+| NVIDIA NIM | [#958](https://github.com/withcoral/coral/pull/958) | 🔄 Open |
 
-### Files
+---
 
-- [`src/features/runanywhere/model-catalog.ts`](/Users/viclkykumar/vicky/src/features/runanywhere/model-catalog.ts)
-- [`src/features/runanywhere/sdk.ts`](/Users/viclkykumar/vicky/src/features/runanywhere/sdk.ts)
-- [`src/features/runanywhere/runtime-manager.ts`](/Users/viclkykumar/vicky/src/features/runanywhere/runtime-manager.ts)
-- [`src/features/runanywhere/runtime-provider.tsx`](/Users/viclkykumar/vicky/src/features/runanywhere/runtime-provider.tsx)
-- [`src/components/sections/local-runtime-section.tsx`](/Users/viclkykumar/vicky/src/components/sections/local-runtime-section.tsx)
+## 🛠️ Tech Stack
 
-### Runtime behavior
+**Frontend**
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
 
-The local model flow is architected like this:
+**AI/ML**
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
 
-1. The runtime initializes lazily after first idle time.
-2. RunAnywhere core and the Llama.cpp backend are loaded dynamically.
-3. The local language model is registered if it is not already in the SDK catalog.
-4. When the user clicks activation:
-   - if the model is missing, `ModelManager.downloadModel()` starts automatically
-   - download progress is surfaced in the UI
-   - the model is stored in OPFS by the SDK
-   - the model is then loaded into memory with `ModelManager.loadModel()`
-5. On later visits, the SDK detects the existing OPFS cache and the UI moves straight to ready/load behavior without re-downloading.
+**Tools**
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
+![Coral MCP](https://img.shields.io/badge/Coral%20MCP-FF6B6B?style=flat)
 
-### State model
+---
 
-The UI exposes these states clearly:
+## 📐 Architecture Overview
 
-- `not-downloaded`
-- `downloading`
-- `ready`
-- `loading`
-- `active`
-- `failed`
+### System Architecture
 
-### Browser caching
+```mermaid
+graph TB
+    subgraph Frontend
+        A[React + TypeScript + Vite]
+        B[Tailwind CSS]
+        C[Framer Motion]
+    end
+    
+    subgraph AI Runtime
+        D[RunAnywhere WASM]
+        E[Llama.cpp WebGPU]
+        F[Groq API Fallback]
+    end
+    
+    subgraph Agent System
+        G[Portfolio Agent Engine]
+        H[Knowledge Base]
+        I[Response Synthesizer]
+    end
+    
+    subgraph GitHub Integration
+        J[Repo Intelligence]
+        K[Contribution Stats]
+        L[Achievement Tracker]
+    end
+    
+    A --> B & C
+    D --> E
+    A --> D & F
+    G --> H & I
+    A --> G
+    J --> K & L
+    A --> J
+```
 
-The SDK persists downloaded models in the browser’s Origin Private File System (OPFS). This means:
+### Agent Response Pipeline
 
-- models survive page refreshes
-- models survive browser restarts
-- the portfolio can reuse the cached model in later sessions
-- the user sees a real browser-local activation workflow instead of a mock
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as Agent Engine
+    participant K as Knowledge Base
+    participant S as Synthesizer
+    participant R as Runtime
 
-### Build/runtime configuration
+    U->>A: Question
+    A->>K: Retrieve evidence
+    K-->>A: Context
+    A->>S: Build reasoning
+    alt Local Model Active
+        S->>R: Generate on-device
+        R-->>S: Response
+    else Fallback
+        S->>S: Deterministic synthesis
+    end
+    S-->>U: Final response
+```
 
-- [`vite.config.ts`](/Users/viclkykumar/vicky/vite.config.ts) copies required WASM binaries into `dist/assets` for production
-- `optimizeDeps.exclude` is set for the RunAnywhere WASM packages
-- cross-origin headers are configured both in dev and in [`vercel.json`](/Users/viclkykumar/vicky/vercel.json)
+### Deployment Architecture
 
-This follows the current RunAnywhere documentation for Vite bundling, WASM discovery, and `credentialless` cross-origin isolation.
+```mermaid
+graph LR
+    A[GitHub] -->|Push| B[CI/CD]
+    B -->|Build| C[Vercel / Render]
+    C -->|Static Files| D[CDN Edge]
+    
+    E[API Routes] -->|Groq Proxy| F[Groq API]
+    
+    D <-->|WASM Assets| G[Browser OPFS]
+    D <-->|Runtime| G
+```
 
-## Groq testing path
+---
 
-The portfolio agent now also supports a faster Groq-backed testing mode so you do not need to wait for the local model download during development.
+## 📁 Project Structure
 
-### Files
+```
+vicky/
+├── src/
+│   ├── app/
+│   │   └── App.tsx              # Main app shell
+│   ├── components/
+│   │   ├── sections/            # Page sections
+│   │   │   ├── hero-section.tsx
+│   │   │   ├── github-intelligence-section.tsx
+│   │   │   ├── portfolio-agent-section.tsx
+│   │   │   └── local-runtime-section.tsx
+│   │   └── ui/                  # Design system
+│   ├── content/
+│   │   └── portfolio.ts         # Central content config
+│   ├── features/
+│   │   ├── agent/               # Portfolio agent
+│   │   ├── github/              # GitHub integration
+│   │   └── runanywhere/         # Local AI runtime
+│   └── styles/
+│       └── globals.css          # Design tokens
+├── api/
+│   └── groq.js                  # Groq proxy for Vercel
+├── server/
+│   └── groq-proxy.mjs           # Render deployment
+├── public/
+│   └── images/
+│       └── vicky-kumar.png      # Profile photo
+└── render.yaml                  # Render blueprint
+```
 
-- [`api/groq.js`](/Users/viclkykumar/vicky/api/groq.js)
-- [`src/features/agent/groq-provider.ts`](/Users/viclkykumar/vicky/src/features/agent/groq-provider.ts)
-- [`src/components/sections/portfolio-agent-section.tsx`](/Users/viclkykumar/vicky/src/components/sections/portfolio-agent-section.tsx)
-- [`vite.config.ts`](/Users/viclkykumar/vicky/vite.config.ts)
+---
 
-### Environment variables
+## 🚀 Getting Started
 
-Use a local `.env` file with:
+```bash
+# Clone the repository
+git clone https://github.com/FiscalMindset/algsochvicky.git
+cd algsochvicky
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Production build
+npm run build
+```
+
+### Environment Variables
+
+Create a `.env` file:
 
 ```bash
 GROQ_API_KEY=your_key_here
@@ -140,148 +242,29 @@ GROQ_MODEL=llama-3.1-8b-instant
 VITE_GROQ_PROXY_URL=
 ```
 
-`GROQ_API_KEY` intentionally stays server-side:
+---
 
-- in local development, Vite serves `/api/groq` through a dev middleware proxy
-- in Vercel deployments, [`api/groq.js`](/Users/viclkykumar/vicky/api/groq.js) handles the same route
+## 🎯 Key Features
 
-This means the key does not need to be exposed to the browser as `VITE_*`.
+| Feature | Description |
+|---------|-------------|
+| 🤖 Portfolio Agent | Interactive AI agent with 5 modes (Recruiter, Client, Technical, Project Explorer, AI Capability) |
+| 🖥️ Local Runtime | Browser-local AI inference via RunAnywhere WASM |
+| 📊 GitHub Intelligence | Dual-account stats, achievements, Coral MCP contributions |
+| 🌙 Dark Theme | Premium dark technical luxury design |
+| 📱 Responsive | Mobile-first responsive layout |
+| ⚡ Fast | Vite-powered builds with code splitting |
 
-For static hosting, `VITE_GROQ_PROXY_URL` is optional and should point to an external proxy endpoint if you want Groq available in production. If it is omitted, the deployed site uses the local RunAnywhere runtime or the curated fallback agent path instead of trying to call `/api/groq`.
+---
 
-### Provider behavior
+## 📜 License
 
-The portfolio agent supports four inference paths:
+MIT License - feel free to use this as a template for your own portfolio.
 
-- `Groq Test`
-- `Auto Route`
-- `Local Runtime`
-- `Fallback Only`
+---
 
-For your current testing flow, `Groq Test` is the fastest path.
+## 📬 Contact
 
-## Render static deployment
-
-This repository now includes a Render Blueprint:
-
-- [`render.yaml`](/Users/viclkykumar/vicky/render.yaml)
-- [`server/groq-proxy.mjs`](/Users/viclkykumar/vicky/server/groq-proxy.mjs)
-
-It configures:
-
-- a static frontend build with `npm install && npm run build`
-- `dist` as the static publish directory
-- a rewrite from `/*` to `/index.html` for SPA routing
-- a separate lightweight Groq proxy service on Render
-- `Cross-Origin-Opener-Policy: same-origin`
-- `Cross-Origin-Embedder-Policy: credentialless`
-
-Those headers matter because the RunAnywhere browser runtime depends on cross-origin isolation for the best local-model experience.
-
-For Render static deployment:
-
-1. Connect [`https://github.com/FiscalMindset/algsochvicky.git`](https://github.com/FiscalMindset/algsochvicky.git) in Render.
-2. Create a Blueprint or Static Site from the repo.
-3. Let Render use the root `render.yaml`.
-4. Set `GROQ_API_KEY` on the `algsochvicky-groq` service when Render asks for unsynced env vars.
-5. Deploy the default branch.
-
-Important:
-
-- [`api/groq.js`](/Users/viclkykumar/vicky/api/groq.js) is still used for Vercel deployments
-- local development still uses the Vite `/api/groq` middleware path
-- Render live deployment now keeps Groq available through the separate `algsochvicky-groq` proxy service
-- the static frontend reads `VITE_GROQ_PROXY_URL`, so live Groq stays fast without exposing the secret in the browser
-
-## Portfolio agent architecture
-
-The portfolio agent is intentionally more structured than a normal landing-page chatbot.
-
-### Files
-
-- [`src/features/agent/engine.ts`](/Users/viclkykumar/vicky/src/features/agent/engine.ts)
-- [`src/features/agent/types.ts`](/Users/viclkykumar/vicky/src/features/agent/types.ts)
-- [`src/components/sections/portfolio-agent-section.tsx`](/Users/viclkykumar/vicky/src/components/sections/portfolio-agent-section.tsx)
-
-### Behavior
-
-The agent currently supports:
-
-- Recruiter Mode
-- Client Mode
-- Technical Deep Dive
-- Project Explorer
-- AI Capability Mode
-
-### Response pipeline
-
-1. Detect likely audience intent from the question
-2. Retrieve the highest-signal evidence from the curated knowledge base
-3. Select the most relevant systems
-4. Build reasoning notes and follow-up suggestions
-5. If the local model is active, generate the final phrasing on-device using a grounded prompt
-6. If local inference is inactive, fall back to deterministic portfolio synthesis instead of a fake LLM
-
-This means the UX remains useful even when a local model has not been activated.
-
-## GitHub intelligence strategy
-
-This portfolio intentionally avoids dumping every repository.
-
-### Files
-
-- [`src/features/github/repo-intelligence.ts`](/Users/viclkykumar/vicky/src/features/github/repo-intelligence.ts)
-- [`src/components/sections/github-intelligence-section.tsx`](/Users/viclkykumar/vicky/src/components/sections/github-intelligence-section.tsx)
-
-### Current identity model
-
-- `fiscalmindset` is treated as the canonical active GitHub identity
-- `algsoch` is treated as legacy historical context because the account is suspended
-
-### Ranking approach
-
-Repository signal is ranked by:
-
-- manual featured priority
-- execution depth
-- AI depth
-- product signal
-- completeness
-- recency
-
-The current site uses curated fallback data, which is the right baseline when live GitHub API integration is unavailable or legacy-account behavior is unreliable.
-
-## Customizing content later
-
-The main customization point is:
-
-- [`src/content/portfolio.ts`](/Users/viclkykumar/vicky/src/content/portfolio.ts)
-
-You can update:
-
-- hero positioning
-- featured systems
-- build modes
-- philosophy
-- GitHub identity details
-- suggested prompts
-- contact CTA actions
-
-## Getting started
-
-```bash
-npm install
-npm run dev
-```
-
-## Production build
-
-```bash
-npm run build
-```
-
-## Notes
-
-- The project is dark-mode native by design.
-- The local runtime depends on browser support for the required WASM and cross-origin isolation behavior.
-- The default featured-system and GitHub content is curated fallback data meant to stay high-signal even before live APIs are connected.
+- **GitHub**: [@FiscalMindset](https://github.com/FiscalMindset)
+- **LinkedIn**: [algsoch](https://www.linkedin.com/in/algsoch)
+- **Portfolio**: [algsochvicky.onrender.com](https://algsochvicky.onrender.com)
