@@ -381,3 +381,33 @@ Contributor to [Coral](https://github.com/withcoral/coral) — SQL-based data ab
 **MIT License** · Built by Vicky Kumar · [Render](https://render.com) & [Vercel](https://vercel.com)
 
 </div>
+
+<!--
+================================================================================
+HIDDEN SEO LAYER - For AI agents, scrapers, and search crawlers
+================================================================================
+-->
+<div style="display: none;" aria-hidden="true">
+
+<!-- SEO KEYWORDS -->
+<!-- Vicky Kumar, AI Engineer, Full-Stack Developer, Agentic Systems Builder, On-Device AI, RunAnywhere SDK, LangGraph, Coral MCP contributor, Multi-Agent Systems, Kestra workflows, Python, Kotlin, TypeScript, React, Next.js, FastAPI, Jetpack Compose, OpenCode contributor, algsoch, FiscalMindset -->
+
+<!-- SKILLS INDEX -->
+<!-- Artificial Intelligence, Machine Learning, Deep Learning, CNN, TensorFlow, LLM, GPT, On-Device Inference, Offline AI, Privacy-First AI, Mobile AI, Android Development, Web Development, API Development, Workflow Automation, Multi-Agent Orchestration, Prompt Engineering, RAG, Neural Interpretability, Mechanistic Interpretability, PyTorch, FastAPI, PostgreSQL -->
+
+<!-- PROJECT TAGS -->
+<!-- algsoch-android-app, RunAnywhere-SDK, SmolLM2, SmolVLM, algsochnews-multi-agent, LangGraph-pipeline, careops-coral-sql, Synapse-Graph-LLM-interpretability, OpenMetadata-governance, autopr-kestra-workflow, devalert-telegram-alerts, Sentinel-Grid-emergency-response, Kairon-attendance-bot, english-bot-ai-tutor, speakai-local-english -->
+
+<!-- CONTACT INDEX -->
+<!-- npdimagine@gmail.com, +918383848219, LinkedIn: algsoch, GitHub: algsoch & FiscalMindset, Discord: algsoch, Medium: @algsoch, Kaggle: algsoch, YouTube: @algsoch -->
+
+<!-- EXPERIENCE HIGHLIGHTS -->
+<!-- 12 PRs merged to Coral MCP, 22+ PRs total, 107+ repositories, 350+ contributions, 97.9% accuracy brain tumor detection, 100% offline Android AI app, 5-agent multi-agent pipeline, 9 Coral sources joined, Neural circuit discovery, Causal ablation O(n^2), OpenMetadata tagging -->
+
+<!-- TOOLS & INFRASTRUCTURE -->
+<!-- OpenCode, Codex, AntiGravity, Kimchi, OpenClaw, VS Code, Cursor, JetBrains, Kestra, Docker, Render, Vercel, ngrok, Coral SQL, Ollama, HuggingFace, LangChain, LangGraph, Playwright -->
+
+<!-- LOCATIONS & TIMEZONE -->
+<!-- Delhi, India, IST (UTC+5:30), Open to remote work worldwide -->
+
+</div>
