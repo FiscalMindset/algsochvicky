@@ -34,7 +34,7 @@
 | [Cognivise](https://github.com/algsoch/Cognivise) | @algsoch | Cognition + Vision — Clean, powerful, memorable | - |
 | [chatbot_assistant](https://github.com/algsoch/chatbot_assistant) | @algsoch | Vicky Data Science Assistant — pattern recognition based query solver for data science problems | [🌐 Live](https://tds-assistant.onrender.com/) |
 | [deep_learning](https://github.com/algsoch/deep_learning) | @algsoch | Deep learning experiments and models | - |
-| [speakai](https://github.com/algsoch/speakai) | @algsoch | SpeakAI — Local English Practice, runs 100% on device with RunAnywhere Web SDK | - |
+| [speakai](https://github.com/algsoch/speakai) | @algsoch | SpeakAI — Local English Practice, runs 100% on device with RunAnywhere Web SDK | [🌐 Live](https://speakai-af1l.onrender.com/) |
 
 ### 🛠️ Developer Tools
 
@@ -42,7 +42,12 @@
 |---------|---------|-------------|---------|
 | [html-checker](https://github.com/algsoch/html-checker) | @algsoch | Web app to clean HTML code from unwanted tags like cite_start | [🌐 Live](https://html-checker-1.onrender.com) |
 | [smart_terminal](https://github.com/algsoch/smart_terminal) | @algsoch | RunAnywhere CommandBrain — Offline-first command memory + execution copilot | [🌐 Live](https://smart-terminal.onrender.com/) |
-| [women](https://github.com/algsoch/women) | @algsoch | Safety and empowerment platform | - |
+
+### 🛡️ Safety & Empowerment
+
+| Project | Account | Description | Website |
+|---------|---------|-------------|---------|
+| [women](https://github.com/FiscalMindset/women) | @FiscalMindset | Safety and empowerment platform for women | - |
 
 ### 📚 Learning & Experiments
 
