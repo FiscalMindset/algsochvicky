@@ -33,6 +33,20 @@
 
 ---
 
+## Philosophy
+
+> "I build software systems, AI-native products, and agentic interfaces that turn ideas into usable, operational products."
+
+- **AI should operate inside a product, not beside it.** A useful system is not just model output. It is the interface, the workflow, the state model, and the decisions around trust.
+
+- **Good AI UX is engineering work.** Latency, control, explainability, failure states, response structure, and operator confidence are implementation concerns, not polish afterthoughts.
+
+- **Workflow design matters more than prompt cleverness.** The strongest systems are built around routes, actions, validation, and output quality, not one-off prompting tricks.
+
+- **Applied intelligence should feel calm and exact.** Serious products communicate precision through restraint, hierarchy, and interface clarity, not through noise.
+
+---
+
 ## Featured Projects
 
 ### 🏆 On-Device AI Learning — algsoch
@@ -375,20 +389,6 @@ Contributor to [Coral](https://github.com/withcoral/coral) — SQL-based data ab
 |:--|:--|
 | **Spoken** | English, Hindi |
 | **Programming** | Python, Kotlin, JavaScript, TypeScript, SQL |
-
----
-
-## Philosophy
-
-> "I build software systems, AI-native products, and agentic interfaces that turn ideas into usable, operational products."
-
-- **AI should operate inside a product, not beside it.** A useful system is not just model output. It is the interface, the workflow, the state model, and the decisions around trust.
-
-- **Good AI UX is engineering work.** Latency, control, explainability, failure states, response structure, and operator confidence are implementation concerns, not polish afterthoughts.
-
-- **Workflow design matters more than prompt cleverness.** The strongest systems are built around routes, actions, validation, and output quality, not one-off prompting tricks.
-
-- **Applied intelligence should feel calm and exact.** Serious products communicate precision through restraint, hierarchy, and interface clarity, not through noise.
 
 ---
 
