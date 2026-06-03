@@ -177,93 +177,190 @@ export function GitHubIntelligenceSection() {
               </div>
             ))}
 
-            {/* GitHub Contribution Stats */}
-            <div className="rounded-[28px] border border-accent/25 bg-accent/10 p-4 sm:p-5">
-              <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/80">GitHub Contribution Stats</div>
+            {/* GitHub Contribution Stats - Dual Account Display */}
+            <div className="rounded-[28px] border border-accent/25 bg-accent/5 p-4 sm:p-5">
+              <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/80">GitHub Stats</div>
               
-              {/* @fiscalmindset Stats */}
-              <div className="mt-4 rounded-2xl border border-accent/15 bg-accent/8 p-4">
-                <div className="flex items-center justify-between">
-                  <a href="https://github.com/FiscalMindset" target="_blank" rel="noreferrer" className="font-semibold text-ink hover:text-accent">@fiscalmindset</a>
-                  <span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Primary</span>
+              <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                {/* @fiscalmindset Account */}
+                <div className="rounded-2xl border border-accent/20 bg-accent/8 p-4">
+                  <div className="flex items-center justify-between">
+                    <a href="https://github.com/FiscalMindset" target="_blank" rel="noreferrer" className="flex items-center gap-2 font-semibold text-ink hover:text-accent">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                      @fiscalmindset
+                    </a>
+                    <span className="rounded-full border border-accent/30 bg-accent/15 px-2.5 py-0.5 text-xs font-medium text-accent">⭐ Primary</span>
+                  </div>
+                  
+                  {/* Stats Grid */}
+                  <div className="mt-3 grid grid-cols-4 gap-2">
+                    <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
+                      <div className="flex justify-center"><svg className="h-4 w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg></div>
+                      <div className="mt-1 text-lg font-bold text-ink">42</div>
+                      <div className="text-[9px] text-muted">Commits</div>
+                    </div>
+                    <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
+                      <div className="flex justify-center"><svg className="h-4 w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>
+                      <div className="mt-1 text-lg font-bold text-ink">22</div>
+                      <div className="text-[9px] text-muted">PRs</div>
+                    </div>
+                    <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
+                      <div className="flex justify-center"><svg className="h-4 w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg></div>
+                      <div className="mt-1 text-lg font-bold text-ink">12</div>
+                      <div className="text-[9px] text-muted">Issues</div>
+                    </div>
+                    <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
+                      <div className="flex justify-center"><svg className="h-4 w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></div>
+                      <div className="mt-1 text-lg font-bold text-ink">20</div>
+                      <div className="text-[9px] text-muted">Repos</div>
+                    </div>
+                  </div>
+                  
+                  {/* Badges */}
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    <span className="inline-flex items-center gap-1 rounded-full border border-accent/25 bg-accent/10 px-2 py-0.5 text-[10px] text-accent">
+                      <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      6 Stars
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded-full border border-accent/25 bg-accent/10 px-2 py-0.5 text-[10px] text-accent">
+                      <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                      CLA Signed
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded-full border border-green-500/25 bg-green-500/10 px-2 py-0.5 text-[10px] text-green-400">
+                      <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                      12 Coral PRs
+                    </span>
+                  </div>
                 </div>
-                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
-                    <div className="text-xl font-bold text-ink">38</div>
-                    <div className="text-[10px] text-muted">Commits</div>
+
+                {/* @algsoch Account */}
+                <div className="rounded-2xl border border-muted/20 bg-white/5 p-4">
+                  <div className="flex items-center justify-between">
+                    <a href="https://github.com/algsoch" target="_blank" rel="noreferrer" className="flex items-center gap-2 font-semibold text-ink hover:text-accent">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                      @algsoch
+                    </a>
+                    <span className="rounded-full border border-muted/30 bg-white/5 px-2.5 py-0.5 text-xs font-medium text-muted">📦 Legacy</span>
                   </div>
-                  <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
-                    <div className="text-xl font-bold text-ink">20</div>
-                    <div className="text-[10px] text-muted">PRs</div>
+                  
+                  {/* Stats Grid */}
+                  <div className="mt-3 grid grid-cols-4 gap-2">
+                    <div className="rounded-xl border border-muted/15 bg-white/4 p-2 text-center">
+                      <div className="flex justify-center"><svg className="h-4 w-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg></div>
+                      <div className="mt-1 text-lg font-bold text-ink">217</div>
+                      <div className="text-[9px] text-muted">Commits</div>
+                    </div>
+                    <div className="rounded-xl border border-muted/15 bg-white/4 p-2 text-center">
+                      <div className="flex justify-center"><svg className="h-4 w-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>
+                      <div className="mt-1 text-lg font-bold text-ink">28</div>
+                      <div className="text-[9px] text-muted">PRs</div>
+                    </div>
+                    <div className="rounded-xl border border-muted/15 bg-white/4 p-2 text-center">
+                      <div className="flex justify-center"><svg className="h-4 w-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></div>
+                      <div className="mt-1 text-lg font-bold text-ink">107</div>
+                      <div className="text-[9px] text-muted">Repos</div>
+                    </div>
+                    <div className="rounded-xl border border-muted/15 bg-white/4 p-2 text-center">
+                      <div className="flex justify-center"><svg className="h-4 w-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
+                      <div className="mt-1 text-lg font-bold text-ink">6</div>
+                      <div className="text-[9px] text-muted">Followers</div>
+                    </div>
                   </div>
-                  <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
-                    <div className="text-xl font-bold text-ink">12</div>
-                    <div className="text-[10px] text-muted">Issues</div>
-                  </div>
-                  <div className="rounded-xl border border-accent/15 bg-accent/10 p-2 text-center">
-                    <div className="text-xl font-bold text-ink">20</div>
-                    <div className="text-[10px] text-muted">Repos</div>
+                  
+                  {/* Badges */}
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    <span className="inline-flex items-center gap-1 rounded-full border border-muted/25 bg-white/5 px-2 py-0.5 text-[10px] text-muted">
+                      <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      24 Stars
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded-full border border-muted/25 bg-white/5 px-2 py-0.5 text-[10px] text-muted">
+                      <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                      350 Contributions
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* @algsoch Stats */}
-              <div className="mt-3 rounded-2xl border border-line/50 bg-white/4 p-4">
-                <div className="flex items-center justify-between">
-                  <a href="https://github.com/algsoch" target="_blank" rel="noreferrer" className="font-semibold text-ink hover:text-accent">@algsoch</a>
-                  <span className="rounded-full border border-line/50 bg-white/4 px-2 py-0.5 text-xs text-muted">Legacy</span>
-                </div>
-                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  <div className="rounded-xl border border-line/50 bg-white/4 p-2 text-center">
-                    <div className="text-xl font-bold text-ink">217</div>
-                    <div className="text-[10px] text-muted">Commits</div>
-                  </div>
-                  <div className="rounded-xl border border-line/50 bg-white/4 p-2 text-center">
-                    <div className="text-xl font-bold text-ink">28</div>
-                    <div className="text-[10px] text-muted">PRs</div>
-                  </div>
-                  <div className="rounded-xl border border-line/50 bg-white/4 p-2 text-center">
-                    <div className="text-xl font-bold text-ink">107</div>
-                    <div className="text-[10px] text-muted">Repos</div>
-                  </div>
-                  <div className="rounded-xl border border-line/50 bg-white/4 p-2 text-center">
-                    <div className="text-xl font-bold text-ink">6</div>
-                    <div className="text-[10px] text-muted">Followers</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Key Achievements */}
+              {/* Key Achievements with Better Icons */}
               <div className="mt-5">
-                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">Key Achievements</div>
-                <div className="mt-3 grid gap-2">
-                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🚀 Built Algsoch — Android AI news app with on-device intelligence (107K+ downloads)</div>
-                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🤖 Created Algsoch News — Multi-agent AI newsroom system</div>
-                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🧠 Developed Synapse-Graph — AI autopsy engine for neural governance</div>
-                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🔧 Built Kairon — AI-powered system automation platform</div>
-                  <div className="rounded-xl border border-accent/15 bg-accent/8 p-2.5 text-sm text-muted">🧠 Built Brain Tumor Detection — 97.9% accuracy CNN model (EfficientNetB3)</div>
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">🏆 Key Achievements</div>
+                <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                  <div className="group flex items-start gap-3 rounded-xl border border-accent/15 bg-accent/8 p-3 transition hover:border-accent/30">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-lg">📱</div>
+                    <div>
+                      <div className="font-medium text-ink">Algsoch</div>
+                      <div className="text-xs text-muted">Android AI news app with on-device intelligence (107K+ downloads)</div>
+                    </div>
+                  </div>
+                  <div className="group flex items-start gap-3 rounded-xl border border-accent/15 bg-accent/8 p-3 transition hover:border-accent/30">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-lg">🤖</div>
+                    <div>
+                      <div className="font-medium text-ink">Algsoch News</div>
+                      <div className="text-xs text-muted">Multi-agent AI newsroom system</div>
+                    </div>
+                  </div>
+                  <div className="group flex items-start gap-3 rounded-xl border border-accent/15 bg-accent/8 p-3 transition hover:border-accent/30">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-lg">🧠</div>
+                    <div>
+                      <div className="font-medium text-ink">Synapse-Graph</div>
+                      <div className="text-xs text-muted">AI autopsy engine for neural governance</div>
+                    </div>
+                  </div>
+                  <div className="group flex items-start gap-3 rounded-xl border border-accent/15 bg-accent/8 p-3 transition hover:border-accent/30">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-lg">🔧</div>
+                    <div>
+                      <div className="font-medium text-ink">Kairon</div>
+                      <div className="text-xs text-muted">AI-powered system automation platform</div>
+                    </div>
+                  </div>
+                  <div className="group flex items-start gap-3 rounded-xl border border-accent/15 bg-accent/8 p-3 transition hover:border-accent/30">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-lg">🧬</div>
+                    <div>
+                      <div className="font-medium text-ink">Brain Tumor Detection</div>
+                      <div className="text-xs text-muted">97.9% accuracy CNN model (EfficientNetB3)</div>
+                    </div>
+                  </div>
+                  <div className="group flex items-start gap-3 rounded-xl border border-purple-500/15 bg-purple-500/8 p-3 transition hover:border-purple-500/30">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-purple-500/15 text-lg">🐙</div>
+                    <div>
+                      <div className="font-medium text-ink">Coral MCP Contributor</div>
+                      <div className="text-xs text-muted">12 PRs merged/open to withcoral/coral sources</div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Pinned Repositories */}
               <div className="mt-5">
-                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">Pinned Repositories</div>
-                <div className="mt-3 grid gap-2">
-                  <a href="https://github.com/FiscalMindset/algsoch" target="_blank" rel="noreferrer" className="group rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
-                    <div className="flex items-center justify-between"><span className="font-semibold text-ink group-hover:text-accent">algsoch</span><span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Kotlin</span></div>
-                    <p className="mt-1 text-xs text-muted">Android AI news app with on-device intelligence</p>
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">📌 Pinned Repositories</div>
+                <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                  <a href="https://github.com/FiscalMindset/algsoch" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
+                    <svg className="h-5 w-5 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2"><span className="font-semibold text-ink group-hover:text-accent truncate">algsoch</span><span className="rounded-full border border-accent/20 bg-accent/10 px-1.5 py-0.5 text-[10px] text-accent">Kotlin</span></div>
+                      <p className="text-xs text-muted truncate">Android AI news app</p>
+                    </div>
                   </a>
-                  <a href="https://github.com/FiscalMindset/algsochnews" target="_blank" rel="noreferrer" className="group rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
-                    <div className="flex items-center justify-between"><span className="font-semibold text-ink group-hover:text-accent">algsochnews</span><span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Python</span></div>
-                    <p className="mt-1 text-xs text-muted">Multi-agent AI newsroom system</p>
+                  <a href="https://github.com/FiscalMindset/algsochnews" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
+                    <svg className="h-5 w-5 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2"><span className="font-semibold text-ink group-hover:text-accent truncate">algsochnews</span><span className="rounded-full border border-accent/20 bg-accent/10 px-1.5 py-0.5 text-[10px] text-accent">Python</span></div>
+                      <p className="text-xs text-muted truncate">Multi-agent AI newsroom</p>
+                    </div>
                   </a>
-                  <a href="https://github.com/FiscalMindset/Kairon" target="_blank" rel="noreferrer" className="group rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
-                    <div className="flex items-center justify-between"><span className="font-semibold text-ink group-hover:text-accent">Kairon</span><span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Python</span></div>
-                    <p className="mt-1 text-xs text-muted">AI-powered system automation</p>
+                  <a href="https://github.com/FiscalMindset/Kairon" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
+                    <svg className="h-5 w-5 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2"><span className="font-semibold text-ink group-hover:text-accent truncate">Kairon</span><span className="rounded-full border border-accent/20 bg-accent/10 px-1.5 py-0.5 text-[10px] text-accent">Python</span></div>
+                      <p className="text-xs text-muted truncate">AI automation platform</p>
+                    </div>
                   </a>
-                  <a href="https://github.com/FiscalMindset/Synapse-Graph" target="_blank" rel="noreferrer" className="group rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
-                    <div className="flex items-center justify-between"><span className="font-semibold text-ink group-hover:text-accent">Synapse-Graph</span><span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">Python</span></div>
-                    <p className="mt-1 text-xs text-muted">AI autopsy engine for neural governance</p>
+                  <a href="https://github.com/FiscalMindset/Synapse-Graph" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-xl border border-line/70 bg-white/4 p-3 transition hover:border-accent/30 hover:bg-accent/5">
+                    <svg className="h-5 w-5 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2"><span className="font-semibold text-ink group-hover:text-accent truncate">Synapse-Graph</span><span className="rounded-full border border-accent/20 bg-accent/10 px-1.5 py-0.5 text-[10px] text-accent">Python</span></div>
+                      <p className="text-xs text-muted truncate">AI autopsy engine</p>
+                    </div>
                   </a>
                 </div>
               </div>
@@ -271,44 +368,43 @@ export function GitHubIntelligenceSection() {
               {/* Coral MCP Contributions */}
               <div className="mt-5">
                 <div className="flex items-center justify-between">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">Coral MCP Contributions</div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">🐙 Coral MCP Contributions</div>
                   <div className="flex gap-2">
-                    <span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">9 merged</span>
-                    <span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">2 open</span>
-                    <span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">12 total</span>
+                    <span className="inline-flex items-center gap-1 rounded-full border border-green-500/25 bg-green-500/10 px-2 py-0.5 text-[10px] text-green-400">✓ 9 merged</span>
+                    <span className="inline-flex items-center gap-1 rounded-full border border-yellow-500/25 bg-yellow-500/10 px-2 py-0.5 text-[10px] text-yellow-400">◐ 2 open</span>
                   </div>
                 </div>
-                <div className="mt-3 grid gap-2">
+                <div className="mt-3 grid gap-1.5 sm:grid-cols-2">
                   {[
-                    { name: "Voyage AI", pr: "#1115", status: "merged" },
-                    { name: "Sarvam AI", pr: "#1112", status: "merged" },
-                    { name: "Cohere AI", pr: "#1098", status: "merged" },
-                    { name: "Mistral AI", pr: "#1011", status: "merged" },
-                    { name: "OpenRouter", pr: "#882", status: "merged" },
-                    { name: "LM Studio", pr: "#834", status: "merged" },
-                    { name: "Ollama", pr: "#798", status: "merged" },
-                    { name: "Groq AI", pr: "#754", status: "merged" },
-                    { name: "Deepgram ASR", pr: "#1118", status: "open" },
-                    { name: "NVIDIA NIM", pr: "#958", status: "open" },
+                    { name: "Voyage AI", pr: "1115", status: "merged" },
+                    { name: "Sarvam AI", pr: "1112", status: "merged" },
+                    { name: "Cohere AI", pr: "1098", status: "merged" },
+                    { name: "Mistral AI", pr: "1011", status: "merged" },
+                    { name: "OpenRouter", pr: "882", status: "merged" },
+                    { name: "LM Studio", pr: "834", status: "merged" },
+                    { name: "Ollama", pr: "798", status: "merged" },
+                    { name: "Groq AI", pr: "754", status: "merged" },
+                    { name: "Deepgram ASR", pr: "1118", status: "open" },
+                    { name: "NVIDIA NIM", pr: "958", status: "open" },
                   ].map((pr) => (
                     <a
                       key={pr.name}
-                      href={`https://github.com/withcoral/coral/pull/${pr.pr.replace("#", "")}`}
+                      href={`https://github.com/withcoral/coral/pull/${pr.pr}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="group flex items-center justify-between rounded-xl border border-line/70 bg-white/4 p-2.5 transition hover:border-accent/30 hover:bg-accent/5"
+                      className="group flex items-center justify-between rounded-lg border border-line/50 bg-white/3 p-2 transition hover:border-accent/30 hover:bg-accent/5"
                     >
                       <div className="flex items-center gap-2">
-                        <span className={`h-2 w-2 rounded-full ${pr.status === "merged" ? "bg-green-400" : "bg-yellow-400"}`}></span>
-                        <span className="font-medium text-ink group-hover:text-accent">{pr.name}</span>
+                        <span className={`h-1.5 w-1.5 rounded-full ${pr.status === "merged" ? "bg-green-400" : "bg-yellow-400"}`}></span>
+                        <span className="text-sm font-medium text-ink group-hover:text-accent">{pr.name}</span>
                       </div>
-                      <span className="font-mono text-xs text-muted">{pr.pr}</span>
+                      <span className="font-mono text-xs text-muted">#{pr.pr}</span>
                     </a>
                   ))}
                 </div>
-                <div className="mt-3 flex items-center gap-2 text-xs text-muted">
-                  <span className="rounded-full border border-line/50 bg-white/4 px-2 py-1">📋 CLA signed</span>
-                  <a href="https://github.com/withcoral/coral/pulls?q=author%3AFiscalMindset" target="_blank" rel="noreferrer" className="text-accent hover:underline">View all on GitHub →</a>
+                <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+                  <span className="inline-flex items-center gap-1 rounded-full border border-accent/20 bg-accent/10 px-2 py-1 text-accent">✓ CLA Signed</span>
+                  <a href="https://github.com/withcoral/coral/pulls?q=author%3AFiscalMindset" target="_blank" rel="noreferrer" className="text-accent hover:underline">View all 12 PRs →</a>
                 </div>
               </div>
             </div>
