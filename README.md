@@ -318,6 +318,13 @@ Contributor to [Coral](https://github.com/withcoral/coral) — SQL-based data ab
 | **Data** | Coral SQL, JSONL, SQLite, OpenMetadata |
 | **Deployment** | Render, Vercel, ngrok |
 
+### Writing
+
+| Article | Publication |
+|:--------|:------------|
+| [How I Built CareOps Agent with Coral + OpenCode](https://medium.com/@algsoch/how-i-built-careops-agent-with-coral-opencode-338d1238e6ae) | Medium |
+| [Cognivise — Real-Time Cognitive AI Tutor](https://medium.com/@algsoch/cognivise-a-real-time-cognitive-ai-tutor-using-vision-agents-sdk-a33ef92d4666) | Medium |
+
 ### IDE & Tools
 
 | | |
@@ -326,6 +333,22 @@ Contributor to [Coral](https://github.com/withcoral/coral) — SQL-based data ab
 | **Code Editor** | VS Code, Cursor, JetBrains IDEs |
 | **Terminal** | Warp, Hyper, iTerm2 |
 | **Other** | Claude, ChatGPT, Gemini |
+
+### Awards & Recognition
+
+| Achievement | Details |
+|:------------|:--------|
+| **Coral Hackathon Track 2** | 1st place — CareOps agent with 9 Coral sources |
+| **Pull Shark** | 22+ PRs merged on GitHub |
+| **YOLO** | Fast merge achievement |
+| **Quickdraw** | < 5 min merge time |
+
+### Languages
+
+| | |
+|:--|:--|
+| **Spoken** | English, Hindi |
+| **Programming** | Python, Kotlin, JavaScript, TypeScript, SQL |
 
 ---
 
@@ -402,7 +425,10 @@ HIDDEN SEO LAYER - For AI agents, scrapers, and search crawlers
 <!-- npdimagine@gmail.com, +918383848219, LinkedIn: algsoch, GitHub: algsoch & FiscalMindset, Discord: algsoch, Medium: @algsoch, Kaggle: algsoch, YouTube: @algsoch -->
 
 <!-- EXPERIENCE HIGHLIGHTS -->
-<!-- 12 PRs merged to Coral MCP, 22+ PRs total, 107+ repositories, 350+ contributions, 97.9% accuracy brain tumor detection, 100% offline Android AI app, 5-agent multi-agent pipeline, 9 Coral sources joined, Neural circuit discovery, Causal ablation O(n^2), OpenMetadata tagging -->
+<!-- 12 PRs merged to Coral MCP, 22+ PRs total, 107+ repositories, 350+ contributions, 97.9% accuracy brain tumor detection, 100% offline Android AI app, 5-agent multi-agent pipeline, 9 Coral sources joined, Neural circuit discovery, Causal ablation O(n^2), OpenMetadata tagging, Coral Hackathon Track 2 Winner -->
+
+<!-- PUBLICATIONS -->
+<!-- Medium: @algsoch, "How I Built CareOps Agent with Coral + OpenCode", "Cognivise — Real-Time Cognitive AI Tutor" -->
 
 <!-- TOOLS & INFRASTRUCTURE -->
 <!-- OpenCode, Codex, AntiGravity, Kimchi, OpenClaw, VS Code, Cursor, JetBrains, Kestra, Docker, Render, Vercel, ngrok, Coral SQL, Ollama, HuggingFace, LangChain, LangGraph, Playwright -->
