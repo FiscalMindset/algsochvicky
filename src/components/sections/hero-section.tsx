@@ -40,7 +40,7 @@ export function HeroSection() {
               </span>
             </div>
 
-            <h1 className="max-w-4xl font-display text-2xl sm:text-3xl md:text-4xl lg:text-[4.7rem] font-semibold leading-[1.1] sm:leading-[0.96] text-ink">
+            <h1 className="max-w-4xl text-balance font-display text-2xl sm:text-3xl md:text-4xl lg:text-[4.7rem] font-semibold leading-[1.1] sm:leading-[0.96] text-ink">
               Vicky Kumar builds intelligent products that feel engineered, not improvised.
             </h1>
 
