@@ -30,6 +30,7 @@
 | Project | Account | Description | Website |
 |---------|---------|-------------|---------|
 | [algsoch](https://github.com/algsoch/algsoch) | @algsoch | Android AI news app with on-device intelligence | [🌐 Live](https://algsoch.github.io/algsoch/frontend/) |
+| [nsut_bot](https://github.com/FiscalMindset/nsut_bot) | @FiscalMindset | NSUT Bot - Kotlin Android application | - |
 
 ### 🧠 ML/AI Projects
 
