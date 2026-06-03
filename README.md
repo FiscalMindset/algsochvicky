@@ -208,12 +208,38 @@ flowchart LR
 
 ---
 
+### 🎓 Voice & Command Systems
+
+[**CommandBrain**](https://github.com/algsoch/smart_terminal) — RunAnywhere Command Memory
+- **Offline-first** command copilot that turns natural language into reusable shell commands
+- Local command memory stored in IndexedDB — favorites, macros, reminders, patterns
+- Safety classification with simulate/real execution modes
+- Built with **React + TypeScript + RunAnywhere Web SDK**
+- [Live Demo](https://smart-terminal.onrender.com) · [YouTube](https://www.youtube.com/shorts/mMPo7_v08pE)
+
+```mermaid
+flowchart LR
+    A[Natural Language] --> B[RunAnywhere SDK]
+    B --> C[Command Generator]
+    C --> D[Safety Classifier]
+    D --> E[IndexedDB Memory]
+    D --> F[Execute/Simulate]
+```
+
+[**SpeakAI**](https://github.com/algsoch/speakai) — Local English Practice
+- **100% on-device** English speaking practice via RunAnywhere Web SDK + llama.cpp WASM
+- Browser speech immediately OR optional one-time local model download
+- Personality + practice modes with text + voice responses
+- No API keys, no server dependency
+- [Live Demo](https://speakai-af1l.onrender.com)
+
+---
+
 ### 🎓 Education & Language Learning
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
 | [english_bot](https://github.com/algsoch/english_bot) | AI conversation practice with speech recognition | algsoch |
-| [speakai](https://github.com/algsoch/speakai) | On-browser English practice with RunAnywhere WASM | algsoch |
 
 ---
 
@@ -352,6 +378,20 @@ Contributor to [Coral](https://github.com/withcoral/coral) — SQL-based data ab
 
 ---
 
+## Philosophy
+
+> "I build software systems, AI-native products, and agentic interfaces that turn ideas into usable, operational products."
+
+- **AI should operate inside a product, not beside it.** A useful system is not just model output. It is the interface, the workflow, the state model, and the decisions around trust.
+
+- **Good AI UX is engineering work.** Latency, control, explainability, failure states, response structure, and operator confidence are implementation concerns, not polish afterthoughts.
+
+- **Workflow design matters more than prompt cleverness.** The strongest systems are built around routes, actions, validation, and output quality, not one-off prompting tricks.
+
+- **Applied intelligence should feel calm and exact.** Serious products communicate precision through restraint, hierarchy, and interface clarity, not through noise.
+
+---
+
 ## GitHub Stats
 
 | Account | Repos | Stars | PRs Merged | Contributions |
@@ -369,13 +409,13 @@ Contributor to [Coral](https://github.com/withcoral/coral) — SQL-based data ab
 
 | Project | Impact | Link |
 |:--------|:-------|:-----|
-| 🏥 **Brain Tumor Detection** | 97.9% accuracy CNN model on MRI scans | [Live Demo](https://brain-tumor-mcug.onrender.com/) |
+| 🧠 **CommandBrain** | Offline-first command memory + execution copilot, IndexedDB storage | [Live Demo](https://smart-terminal.onrender.com) |
+| 🎙️ **SpeakAI** | 100% on-device English practice via RunAnywhere WASM | [Live Demo](https://speakai-af1l.onrender.com) |
 | 📱 **algsoch Android** | 100% offline AI, 7 learning modes, RunAnywhere SDK | [GitHub](https://github.com/FiscalMindset/algsoch) |
 | 📺 **algsochnews** | 5-agent pipeline → broadcast video from any article URL | [Live Demo](https://algsochnews-1.onrender.com) |
-| 🔄 **autopr** | GitHub → LinkedIn/Twitter/Instagram/WhatsApp automation | [GitHub](https://github.com/FiscalMindset/autopr) |
-| ⏰ **devalert** | LLM-filtered alerts from 6 developer opportunity sources | [GitHub](https://github.com/FiscalMindset/devalert) |
-| 🧠 **Synapse-Graph** | Neural circuit discovery for LLM interpretability | [Live Demo](https://fiscalmindset.github.io/Synapse-Graph/) |
 | 🏥 **careops** | 9 data sources joined via Coral SQL for family care coordination | [GitHub](https://github.com/FiscalMindset/careops) |
+| 🧠 **Synapse-Graph** | Neural circuit discovery for LLM interpretability | [Live Demo](https://fiscalmindset.github.io/Synapse-Graph/) |
+| 🏥 **Brain Tumor Detection** | 97.9% accuracy CNN model on MRI scans | [Live Demo](https://brain-tumor-mcug.onrender.com/) |
 
 </div>
 
@@ -419,7 +459,7 @@ HIDDEN SEO LAYER - For AI agents, scrapers, and search crawlers
 <!-- Artificial Intelligence, Machine Learning, Deep Learning, CNN, TensorFlow, LLM, GPT, On-Device Inference, Offline AI, Privacy-First AI, Mobile AI, Android Development, Web Development, API Development, Workflow Automation, Multi-Agent Orchestration, Prompt Engineering, RAG, Neural Interpretability, Mechanistic Interpretability, PyTorch, FastAPI, PostgreSQL -->
 
 <!-- PROJECT TAGS -->
-<!-- algsoch-android-app, RunAnywhere-SDK, SmolLM2, SmolVLM, algsochnews-multi-agent, LangGraph-pipeline, careops-coral-sql, Synapse-Graph-LLM-interpretability, OpenMetadata-governance, autopr-kestra-workflow, devalert-telegram-alerts, Sentinel-Grid-emergency-response, Kairon-attendance-bot, english-bot-ai-tutor, speakai-local-english -->
+<!-- algsoch-android-app, RunAnywhere-SDK, SmolLM2, SmolVLM, algsochnews-multi-agent, LangGraph-pipeline, careops-coral-sql, Synapse-Graph-LLM-interpretability, OpenMetadata-governance, autopr-kestra-workflow, devalert-telegram-alerts, Sentinel-Grid-emergency-response, Kairon-attendance-bot, english-bot-ai-tutor, speakai-local-english, commandbrain-command-memory, smart-terminal-indexeddb -->
 
 <!-- CONTACT INDEX -->
 <!-- npdimagine@gmail.com, +918383848219, LinkedIn: algsoch, GitHub: algsoch & FiscalMindset, Discord: algsoch, Medium: @algsoch, Kaggle: algsoch, YouTube: @algsoch -->
