@@ -17,7 +17,10 @@
 
 ## 🔗 Project Ecosystem
 
+<div style="overflow-x: auto; margin: 20px 0;">
+
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#0d1117', 'primaryTextColor': '#c9d1d9', 'primaryBorderColor': '#30363d', 'lineColor': '#8b949e', 'secondaryColor': '#161b22', 'tertiaryColor': '#21262d'}}}%%
 graph TB
     subgraph AI["🤖 AI Models & RunAnywhere SDK"]
         RUNANYWHERE["RunAnywhere SDK<br/>Offline AI on-device"]
@@ -34,45 +37,48 @@ graph TB
     end
 
     subgraph MyProjects["🚀 My Projects"]
-        ALGSOCH["algsoch<br/>AI Study Companion<br/>(Android + RunAnywhere)"]
+        ALGSOCH["algsoch<br/>(Android + RunAnywhere)"]
         ALGSOCHNEWS["algsochnews<br/>AI Newsroom Agent"]
         SYNAPSGRAPH["Synapse-Graph<br/>Neural Governance"]
-        SPEAKAI["speakAI<br/>Voice Practice AI"]
+        SPEAKAI["speakAI<br/>(RunAnywhere Web SDK)"]
         CHATBOT["chatbot_assistant<br/>Data Science Assistant"]
-        BRAIN["brain_tumor<br/>CNN Detection"]
+        BRAIN["brain_tumor<br/>CNN Detection 97.9%"]
+        SMART["smart_terminal<br/>(RunAnywhere CommandBrain)"]
         
-        CAREOPS["careops<br/>Family Care Coordination<br/>(Coral-powered)"]
-        AUTOPR["autopr<br/>Content Distribution<br/>(Kestra-powered)"]
-        DEVALERT["devalert<br/>Dev Alert Platform<br/>(Kestra-powered)"]
-        KAIRON["Kairon<br/>NSUT Attendance Bot"]
+        CAREOPS["careops<br/>(Coral-powered)"]
+        AUTOPR["autopr<br/>(Kestra-powered)"]
+        DEVALERT["devalert<br/>(Kestra-powered)"]
+        WOMEN["Sentinel Grid<br/>(Kestra-powered)"]
+        KAIRON["Kairon<br/>(Playwright)"]
         
-        FAQ["FAQ Generator<br/>MERN + Gemini AI"]
-        MAGICPIN["algsoch_magicpin<br/>Merchant AI Assistant"]
-        NSUT["nsut_bot<br/>Kotlin Android Bot"]
-        WOMEN["women<br/>Safety Platform"]
+        FAQ["FAQ Generator<br/>(Gemini AI)"]
+        MAGICPIN["algsoch_magicpin<br/>Merchant AI"]
+        NSUT["nsut_bot<br/>Kotlin Android"]
         ALGSOCHSOCIAL["algsoch_social<br/>Builder Presence"]
         PATHPILOT["PathPilot-India<br/>Agentic Blueprint"]
     end
 
     RUNANYWHERE --> ALGSOCH
     RUNANYWHERE --> SPEAKAI
+    RUNANYWHERE --> SMART
     SMOLLM --> ALGSOCH
     CORAL --> CAREOPS
     SOURCES --> CAREOPS
     KESTRA --> AUTOPR
     KESTRA --> DEVALERT
-
-    ALGSOCHNEWS -.->|uses concepts from| CORAL
+    KESTRA --> WOMEN
     SYNAPSGRAPH -.->|built on| CORAL
 ```
+
+</div>
 
 ### Technology Integration Map
 
 | Tech | Used In | Purpose |
 |------|---------|---------|
-| **RunAnywhere SDK** | algsoch, speakAI | 100% offline AI on Android/browser |
+| **RunAnywhere SDK** | algsoch, speakAI, smart_terminal | 100% offline AI on Android/browser |
 | **Coral MCP** | careops, Synapse-Graph | Cross-source SQL queries, AI sources |
-| **Kestra** | autopr, devalert | Workflow orchestration, automation |
+| **Kestra** | autopr, devalert, women (Sentinel Grid) | Workflow orchestration, automation |
 | **Playwright** | Kairon | Web scraping, automation |
 | **Gemini AI** | FAQ Generator | AI-powered FAQ generation |
 | **OpenAI/Anthropic** | algsoch_social | Content generation |
@@ -108,6 +114,7 @@ graph TB
 |---------|---------|-------------|---------|
 | [autopr](https://github.com/FiscalMindset/autopr) | @FiscalMindset | AI Content Orchestration — transforms commits to multi-platform posts (LinkedIn, Twitter, Instagram, WhatsApp, Email) via Kestra | - |
 | [devalert](https://github.com/FiscalMindset/devalert) | @FiscalMindset | Kestra-orchestrated alert platform — aggregates opportunities (GitHub, MLH, GSOC), filters via LLM, notifies via Telegram/Email | - |
+| [women](https://github.com/FiscalMindset/women) | @FiscalMindset | **Sentinel Grid** — Kestra-powered emergency response: GPS, audio, verified dispatch, live tracking, responder alerts | - |
 
 ### 🎓 Education & Utilities
 
@@ -122,7 +129,6 @@ graph TB
 
 | Project | Account | Description | Website |
 |---------|---------|-------------|---------|
-| [women](https://github.com/FiscalMindset/women) | @FiscalMindset | Safety and empowerment platform for women | - |
 | [algsoch_social](https://github.com/FiscalMindset/algsoch_social) | @FiscalMindset | Open-source AI infrastructure for builders — converts real work into verified public presence | - |
 
 ### 🏪 Industry Projects
@@ -139,7 +145,7 @@ graph TB
 | [Cognivise](https://github.com/algsoch/Cognivise) | @algsoch | Cognition + Vision — Clean, powerful, memorable |
 | [deep_learning](https://github.com/algsoch/deep_learning) | @algsoch | Deep learning experiments and models |
 | [html-checker](https://github.com/algsoch/html-checker) | @algsoch | Web app to clean HTML code | [🌐 Live](https://html-checker-1.onrender.com) |
-| [smart_terminal](https://github.com/algsoch/smart_terminal) | @algsoch | RunAnywhere CommandBrain — Offline command memory | [🌐 Live](https://smart-terminal.onrender.com/) |
+| [smart_terminal](https://github.com/algsoch/smart_terminal) | @algsoch | RunAnywhere CommandBrain — Offline-first command memory + execution copilot powered by RunAnywhere SDK | [🌐 Live](https://smart-terminal.onrender.com/) |
 
 ### 📚 Learning & Experiments
 
@@ -360,27 +366,27 @@ graph TB
 
 ## 🏅 GitHub Achievements
 
-<div align="center" style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 24px 0;">
+<div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 24px 0; padding: 0 16px;">
   
-  <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center; min-width: 140px;">
+  <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 16px; text-align: center; min-width: 120px; flex: 1 1 120px; max-width: 180px;">
     <a href="https://github.com/FiscalMindset?achievement=pull-shark&tab=achievements" style="text-decoration: none;">
-      <img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" width="64" height="64" style="margin-bottom: 8px;">
+      <img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" width="56" height="56" style="margin-bottom: 8px;" loading="lazy">
       <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 4px;">Pull Shark</div>
       <div style="font-size: 11px; color: #8b949e;">22+ PRs merged</div>
     </a>
   </div>
   
-  <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center; min-width: 140px;">
+  <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 16px; text-align: center; min-width: 120px; flex: 1 1 120px; max-width: 180px;">
     <a href="https://github.com/FiscalMindset?achievement=yolo&tab=achievements" style="text-decoration: none;">
-      <img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="64" height="64" style="margin-bottom: 8px;">
+      <img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="56" height="56" style="margin-bottom: 8px;" loading="lazy">
       <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 4px;">YOLO</div>
       <div style="font-size: 11px; color: #8b949e;">PR merged without review</div>
     </a>
   </div>
   
-  <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-align: center; min-width: 140px;">
+  <div style="background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 16px; text-align: center; min-width: 120px; flex: 1 1 120px; max-width: 180px;">
     <a href="https://github.com/FiscalMindset?achievement=quickdraw&tab=achievements" style="text-decoration: none;">
-      <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="64" height="64" style="margin-bottom: 8px;">
+      <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="56" height="56" style="margin-bottom: 8px;" loading="lazy">
       <div style="font-weight: bold; color: #c9d1d9; margin-bottom: 4px;">Quickdraw</div>
       <div style="font-size: 11px; color: #8b949e;">PR merged < 5 min</div>
     </a>
