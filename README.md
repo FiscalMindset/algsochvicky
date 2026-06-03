@@ -52,230 +52,40 @@ Explore my complete project landscape across both GitHub accounts
 
 ### 🚀 Core Technologies
 
-<div style="background: #0d1117; border: 1px solid #30363d; border-radius: 16px; padding: 24px; margin: 20px 0;">
-
-**🤖 AI & Machine Learning**
-
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 12px 0 20px;">
-  <div style="background: #161b22; border: 1px solid #238636; border-radius: 10px; padding: 14px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 6px;">🤖</div>
-    <strong style="color: #c9d1d9; font-size: 14px;">RunAnywhere SDK</strong>
-    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">On-device AI</p>
-  </div>
-  <div style="background: #161b22; border: 1px solid #238636; border-radius: 10px; padding: 14px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 6px;">🧠</div>
-    <strong style="color: #c9d1d9; font-size: 14px;">TensorFlow</strong>
-    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Deep Learning</p>
-  </div>
-  <div style="background: #161b22; border: 1px solid #238636; border-radius: 10px; padding: 14px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 6px;">💎</div>
-    <strong style="color: #c9d1d9; font-size: 14px;">Gemini AI</strong>
-    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Google LLM</p>
-  </div>
-</div>
-
-**⚙️ Workflow & Data**
-
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 12px 0 20px;">
-  <div style="background: #161b22; border: 1px solid #1f6feb; border-radius: 10px; padding: 14px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 6px;">🐙</div>
-    <strong style="color: #c9d1d9; font-size: 14px;">Coral MCP</strong>
-    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">12 PRs Merged</p>
-  </div>
-  <div style="background: #161b22; border: 1px solid #1f6feb; border-radius: 10px; padding: 14px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 6px;">⚡</div>
-    <strong style="color: #c9d1d9; font-size: 14px;">Kestra</strong>
-    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Workflow Engine</p>
-  </div>
-  <div style="background: #161b22; border: 1px solid #1f6feb; border-radius: 10px; padding: 14px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 6px;">📊</div>
-    <strong style="color: #c9d1d9; font-size: 14px;">OpenMetadata</strong>
-    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Data Governance</p>
-  </div>
-</div>
-
-**🌐 Browser & Automation**
-
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 12px 0 0;">
-  <div style="background: #161b22; border: 1px solid #a371f7; border-radius: 10px; padding: 14px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 6px;">🦾</div>
-    <strong style="color: #c9d1d9; font-size: 14px;">Playwright</strong>
-    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">E2E Testing</p>
-  </div>
-  <div style="background: #161b22; border: 1px solid #a371f7; border-radius: 10px; padding: 14px; text-align: center;">
-    <div style="font-size: 28px; margin-bottom: 6px;">🌐</div>
-    <strong style="color: #c9d1d9; font-size: 14px;">Selenium</strong>
-    <p style="color: #8b949e; font-size: 11px; margin: 4px 0 0;">Automation</p>
-  </div>
-</div>
-
-</div>
+| Category | Technology | Description |
+|:---------|:----------:|:------------|
+| **🤖 AI & Machine Learning** | RunAnywhere SDK | On-device AI, 100% offline |
+| | TensorFlow | Deep learning, CNN models |
+| | Gemini AI | Google LLM integration |
+| **⚙️ Workflow & Data** | Coral MCP | 12 PRs merged, SQL-based |
+| | Kestra | Workflow orchestration |
+| | OpenMetadata | Data governance |
+| **🌐 Browser & Automation** | Playwright | E2E testing |
+| | Selenium | Browser automation |
 
 ### 📦 @FiscalMindset Projects
 
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin: 15px 0;">
-
-<a href="https://github.com/FiscalMindset/algsoch" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">📱</span>
-    <strong style="color: #58a6ff;">algsoch</strong>
-    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">RunAnywhere SDK · SmolLM2/SmolVLM · 100% Offline AI Learning</p>
-</div>
-</a>
-
-<a href="https://github.com/FiscalMindset/algsochnews" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">📰</span>
-    <strong style="color: #58a6ff;">algsochnews</strong>
-    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">Multi-agent AI newsroom · Automated content generation</p>
-</div>
-</a>
-
-<a href="https://github.com/FiscalMindset/careops" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">🏥</span>
-    <strong style="color: #58a6ff;">careops</strong>
-    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">Coral MCP · 9 data sources · Family care coordination</p>
-</div>
-</a>
-
-<a href="https://github.com/FiscalMindset/autopr" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">📤</span>
-    <strong style="color: #58a6ff;">autopr</strong>
-    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">Kestra · Multi-platform posts · GitHub workflow automation</p>
-</div>
-</a>
-
-<a href="https://github.com/FiscalMindset/devalert" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">🔔</span>
-    <strong style="color: #58a6ff;">devalert</strong>
-    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">Kestra · LLM filtering · Telegram alerts</p>
-</div>
-</a>
-
-<a href="https://github.com/FiscalMindset/women" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">🛡️</span>
-    <strong style="color: #58a6ff;">Sentinel Grid</strong>
-    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">Kestra · Emergency response · GPS + Audio dispatch</p>
-</div>
-</a>
-
-<a href="https://github.com/FiscalMindset/Kairon" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">🎓</span>
-    <strong style="color: #58a6ff;">Kairon</strong>
-    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">Playwright · NSUT attendance automation</p>
-</div>
-</a>
-
-</div>
+| Project | Tech Stack | Status |
+|:--------|:-----------|:------:|
+| [algsoch](https://github.com/FiscalMindset/algsoch) | RunAnywhere SDK, SmolLM2/SmolVLM | Live |
+| [algsochnews](https://github.com/FiscalMindset/algsochnews) | Multi-agent AI newsroom | Live |
+| [careops](https://github.com/FiscalMindset/careops) | Coral MCP, 9 data sources | Active |
+| [autopr](https://github.com/FiscalMindset/autopr) | Kestra, Multi-platform posts | Active |
+| [devalert](https://github.com/FiscalMindset/devalert) | Kestra, LLM filtering, Telegram | Active |
+| [Sentinel Grid](https://github.com/FiscalMindset/women) | Kestra, GPS, Audio dispatch | Active |
+| [Kairon](https://github.com/FiscalMindset/Kairon) | Playwright, NSUT attendance | Active |
 
 ### 🧪 @algsoch Projects
 
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin: 15px 0;">
-
-<a href="https://github.com/algsoch/Synapse-Graph" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">🧠</span>
-    <strong style="color: #a371f7;">Synapse-Graph</strong>
-    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">OpenMetadata · Neural governance · Knowledge graph</p>
-</div>
-</a>
-
-<a href="https://github.com/algsoch/speakAI" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">🎤</span>
-    <strong style="color: #a371f7;">speakAI</strong>
-    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">RunAnywhere · 100% offline · English practice</p>
-</div>
-</a>
-
-<a href="https://github.com/algsoch/smart_terminal" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">💻</span>
-    <strong style="color: #a371f7;">smart_terminal</strong>
-    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">RunAnywhere · CommandBrain · AI terminal</p>
-</div>
-</a>
-
-<a href="https://github.com/algsoch/brain_tumor" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">🧠</span>
-    <strong style="color: #a371f7;">brain_tumor</strong>
-    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">TensorFlow · 97.9% CNN accuracy · Medical AI</p>
-</div>
-</a>
-
-<a href="https://github.com/algsoch/chatbot_assistant" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">🤖</span>
-    <strong style="color: #a371f7;">chatbot_assistant</strong>
-    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">TDS · Pattern recognition · AI assistant</p>
-</div>
-</a>
-
-<a href="https://github.com/algsoch/html-checker" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">🔍</span>
-    <strong style="color: #a371f7;">html-checker</strong>
-    <span style="background: #238636; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🟢 Live</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">HTML validator · Syntax checker</p>
-</div>
-</a>
-
-<a href="https://github.com/algsoch/Cognivise" style="text-decoration: none;">
-<div class="project-card" style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; transition: all 0.3s ease;">
-  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <span style="font-size: 24px;">👁️</span>
-    <strong style="color: #a371f7;">Cognivise</strong>
-    <span style="background: #1f6feb; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: auto;">🔧 Active</span>
-  </div>
-  <p style="color: #8b949e; font-size: 13px; margin: 0;">Computer Vision · Cognitive analysis</p>
-</div>
-</a>
-
-</div>
+| Project | Tech Stack | Status |
+|:--------|:-----------|:------:|
+| [Synapse-Graph](https://github.com/algsoch/Synapse-Graph) | OpenMetadata, Neural governance | Live |
+| [speakAI](https://github.com/algsoch/speakAI) | RunAnywhere, 100% offline | Live |
+| [smart_terminal](https://github.com/algsoch/smart_terminal) | RunAnywhere, CommandBrain | Live |
+| [brain_tumor](https://github.com/algsoch/brain_tumor) | TensorFlow, 97.9% CNN | Live |
+| [chatbot_assistant](https://github.com/algsoch/chatbot_assistant) | TDS, Pattern recognition | Live |
+| [html-checker](https://github.com/algsoch/html-checker) | HTML validation | Live |
+| [Cognivise](https://github.com/algsoch/Cognivise) | Computer Vision | Active |
 
 ---
 
