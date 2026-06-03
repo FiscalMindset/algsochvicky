@@ -267,6 +267,50 @@ export function GitHubIntelligenceSection() {
                   </a>
                 </div>
               </div>
+
+              {/* Coral MCP Contributions */}
+              <div className="mt-5">
+                <div className="flex items-center justify-between">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent/75">Coral MCP Contributions</div>
+                  <div className="flex gap-2">
+                    <span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">9 merged</span>
+                    <span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">2 open</span>
+                    <span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs text-accent">12 total</span>
+                  </div>
+                </div>
+                <div className="mt-3 grid gap-2">
+                  {[
+                    { name: "Voyage AI", pr: "#1115", status: "merged" },
+                    { name: "Sarvam AI", pr: "#1112", status: "merged" },
+                    { name: "Cohere AI", pr: "#1098", status: "merged" },
+                    { name: "Mistral AI", pr: "#1011", status: "merged" },
+                    { name: "OpenRouter", pr: "#882", status: "merged" },
+                    { name: "LM Studio", pr: "#834", status: "merged" },
+                    { name: "Ollama", pr: "#798", status: "merged" },
+                    { name: "Groq AI", pr: "#754", status: "merged" },
+                    { name: "Deepgram ASR", pr: "#1118", status: "open" },
+                    { name: "NVIDIA NIM", pr: "#958", status: "open" },
+                  ].map((pr) => (
+                    <a
+                      key={pr.name}
+                      href={`https://github.com/withcoral/coral/pull/${pr.pr.replace("#", "")}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group flex items-center justify-between rounded-xl border border-line/70 bg-white/4 p-2.5 transition hover:border-accent/30 hover:bg-accent/5"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className={`h-2 w-2 rounded-full ${pr.status === "merged" ? "bg-green-400" : "bg-yellow-400"}`}></span>
+                        <span className="font-medium text-ink group-hover:text-accent">{pr.name}</span>
+                      </div>
+                      <span className="font-mono text-xs text-muted">{pr.pr}</span>
+                    </a>
+                  ))}
+                </div>
+                <div className="mt-3 flex items-center gap-2 text-xs text-muted">
+                  <span className="rounded-full border border-line/50 bg-white/4 px-2 py-1">📋 CLA signed</span>
+                  <a href="https://github.com/withcoral/coral/pulls?q=author%3AFiscalMindset" target="_blank" rel="noreferrer" className="text-accent hover:underline">View all on GitHub →</a>
+                </div>
+              </div>
             </div>
 
             <div className="rounded-[28px] border border-line/75 bg-canvas-elevated/70 p-4 sm:p-5">
