@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.project-card:hover {
-  transform: translateY(-3px);
-  border-color: #58a6ff !important;
-  box-shadow: 0 8px 25px rgba(88, 166, 255, 0.2);
-}
-.tool-card:hover {
-  border-color: #58a6ff !important;
-  transform: translateY(-2px);
-}
-</style>
-</head>
-<body>
-
 <div id="vicky-kumar" align="center">
   <img src="https://avatars.githubusercontent.com/u/254638087?v=4" width="120" height="120" style="border-radius: 50%; border: 4px solid #FF6B6B; box-shadow: 0 4px 20px rgba(255,107,107,0.3);">
   <h1 style="margin: 20px 0 10px; font-size: 32px; color: #c9d1d9;">Vicky Kumar</h1>
@@ -432,14 +415,6 @@
   </a>
 </div>
 
-<style>
-.tool-card:hover {
-  border-color: #58a6ff;
-  transform: translateY(-2px);
-  transition: all 0.2s ease;
-}
-</style>
-
 ---
 
 ## 🌟 Open Source Contributions
@@ -597,7 +572,7 @@
 
 <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center; border: 1px solid #30363d;">
   <p style="margin: 0; color: #c9d1d9;">
-    <strong style="color: #58a6ff;">MIT License</strong> · Built with ❤️ · Deployed on 
+    <strong style="color: #58a6ff;">MIT License</strong> · Built with love · Deployed on 
     <a href="https://render.com" style="color: #ff6b6b; text-decoration: none;">Render</a> & 
     <a href="https://vercel.com" style="color: #ffffff; text-decoration: none;">Vercel</a>
   </p>
@@ -609,8 +584,5 @@
 ---
 
 <p align="center">
-  <a href="#vicky-kumar">🔝 Back to Top</a>
+  <a href="#vicky-kumar">Back to Top</a>
 </p>
-
-</body>
-</html>
