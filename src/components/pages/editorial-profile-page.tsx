@@ -319,9 +319,17 @@ export function EditorialProfilePage() {
                 </div>
 
                 <div className="min-w-0">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-accent/85">
-                    <Newspaper size={13} />
-                    {brandProfile.brand} = {brandProfile.brandMeaning}
+                  <div className="inline-flex flex-wrap items-center gap-2 rounded-full border border-accent/20 bg-gradient-to-r from-accent/14 via-accent/8 to-white/[0.02] px-2.5 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full border border-accent/25 bg-accent/12 text-accent/85">
+                      <Newspaper size={13} />
+                    </span>
+                    <span className="rounded-full border border-accent/25 bg-accent/14 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-ink">
+                      {brandProfile.brand}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent/65">=</span>
+                    <span className="rounded-full border border-line/70 bg-white/6 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent/90">
+                      {brandProfile.brandMeaning}
+                    </span>
                   </div>
 
                   <h1 className="mt-5 text-balance font-display text-[2.35rem] font-semibold leading-[0.92] text-ink sm:text-5xl lg:text-[4.25rem] xl:text-[5rem]">

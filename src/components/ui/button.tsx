@@ -53,6 +53,9 @@ export function Button(props: LinkProps | ButtonProps) {
       <a
         className={className}
         href={href}
+        data-button=""
+        data-variant={variant ?? "primary"}
+        data-size={size ?? "md"}
         {...(external ? { target: "_blank", rel: "noreferrer" } : undefined)}
         {...rest}
       >
@@ -63,7 +66,7 @@ export function Button(props: LinkProps | ButtonProps) {
 
   const { children, className: _className, variant, size, type = "button", ...rest } = props;
   return (
-    <button className={className} type={type} {...rest}>
+    <button className={className} type={type} data-button="" data-variant={variant ?? "primary"} data-size={size ?? "md"} {...rest}>
       {children}
     </button>
   );

@@ -193,6 +193,182 @@ function buildRepositoryBlock(query: string) {
     .join("\n\n");
 }
 
+type PortfolioSignal = {
+  id: string;
+  title: string;
+  summary: string;
+  problem: string;
+  whyItMatters: string;
+  intelligence: string;
+  architecture: string[];
+  bestFor: string[];
+  account: string;
+};
+
+function resolvePortfolioSignal(idOrTitle: string): PortfolioSignal | null {
+  const system =
+    featuredSystems.find((entry) => entry.id === idOrTitle || entry.title.toLowerCase() === idOrTitle.toLowerCase()) ?? null;
+  const repository =
+    repositorySignals.find((entry) => entry.id === idOrTitle || entry.title.toLowerCase() === idOrTitle.toLowerCase()) ?? null;
+
+  if (!system && !repository) {
+    return null;
+  }
+
+  return {
+    id: system?.id ?? repository!.id,
+    title: system?.title ?? repository!.title,
+    summary: system?.summary ?? repository!.overview ?? repository!.synopsis ?? "",
+    problem: system?.problem ?? repository?.synopsis ?? repository?.overview ?? "",
+    whyItMatters: system?.significance ?? repository?.whyItMatters ?? "",
+    intelligence: system?.intelligence ?? repository?.overview ?? "",
+    architecture: system?.architecture ?? repository?.highlights ?? [],
+    bestFor:
+      system?.audienceFit.map((entry) => entry.title.replace(/^For\s+/i, "")) ??
+      repository?.bestFor ??
+      [],
+    account: repository?.account ?? githubAccounts.find((account) => account.featuredProjects.includes(system?.title ?? ""))?.handle ?? "fiscalmindset"
+  };
+}
+
+function extractPortfolioSignals(query: string, systems: string[]) {
+  const explicitMatches = inferSystems(query, []).map((title) => resolvePortfolioSignal(title)).filter((item): item is PortfolioSignal => Boolean(item));
+  const inferredMatches = systems.map((title) => resolvePortfolioSignal(title)).filter((item): item is PortfolioSignal => Boolean(item));
+
+  return [...new Map([...explicitMatches, ...inferredMatches].map((item) => [item.id, item])).values()];
+}
+
+function isComparisonQuestion(query: string) {
+  return /\b(compare|comparison|vs|versus|difference|different)\b/i.test(query);
+}
+
+function composeComparisonAnswer(signals: PortfolioSignal[]) {
+  const [left, right] = signals;
+
+  if (!left || !right) {
+    return null;
+  }
+
+  return [
+    "## Comparison Read",
+    `${left.title} is stronger for ${left.bestFor.slice(0, 2).join(" and ") || "product execution"}, while ${right.title} is stronger for ${right.bestFor.slice(0, 2).join(" and ") || "workflow depth"}.`,
+    "",
+    "## Architectural Difference",
+    `- ${left.title}: ${left.architecture[0] ?? left.intelligence}`,
+    `- ${right.title}: ${right.architecture[0] ?? right.intelligence}`,
+    "",
+    "## Why Each Matters",
+    `- ${left.title}: ${left.whyItMatters}`,
+    `- ${right.title}: ${right.whyItMatters}`,
+    "",
+    "## Best Use",
+    `- Choose ${left.title} when you want ${left.problem.toLowerCase()}.`,
+    `- Choose ${right.title} when you want ${right.problem.toLowerCase()}.`
+  ].join("\n");
+}
+
+function composeProjectBrief(signal: PortfolioSignal) {
+  return [
+    "## Project Brief",
+    `${signal.title} is best understood as a serious product proof, not just a repository.`,
+    "",
+    "## What It Does",
+    signal.problem,
+    "",
+    "## Why It Matters",
+    `- ${signal.whyItMatters}`,
+    `- Hosted under @${signal.account}.`,
+    `- Strongest for ${signal.bestFor.slice(0, 3).join(", ") || "applied AI product execution"}.`,
+    "",
+    "## Technical Read",
+    ...signal.architecture.slice(0, 3).map((point) => `- ${point}`)
+  ].join("\n");
+}
+
+function composeRuleBasedAnswer(query: string, mode: AgentIntent, signals: PortfolioSignal[], evidenceTitles: string[]) {
+  const lead = signals[0] ?? resolvePortfolioSignal("algsoch") ?? resolvePortfolioSignal("commandbrain");
+  const secondary = signals[1];
+  const evidenceLine = evidenceTitles.length ? `Evidence came primarily from ${evidenceTitles.join(", ")}.` : "";
+
+  if (isComparisonQuestion(query) && signals.length >= 2) {
+    return composeComparisonAnswer(signals.slice(0, 2));
+  }
+
+  if ((mode === "project" || /which project|tell me about|what is .*project|explain .*project/i.test(query)) && lead) {
+    return composeProjectBrief(lead);
+  }
+
+  switch (mode) {
+    case "recruiter":
+      return [
+        "## Hiring Read",
+        `${brandProfile.name} is strongest for roles that sit between software engineering, applied AI, and product execution.`,
+        "",
+        "## Best Proof",
+        `- ${lead?.title ?? "Algsoch"}: ${lead?.whyItMatters ?? ""}`,
+        secondary ? `- ${secondary.title}: ${secondary.whyItMatters}` : "",
+        "- The portfolio consistently shows interfaces, runtime logic, and workflow design working together rather than separately.",
+        "",
+        "## Why That Matters",
+        "- This reads like someone who can ship AI-native product work end to end, not someone limited to prompt experiments.",
+        "- The strongest signal is product maturity under technical constraint.",
+        evidenceLine
+      ]
+        .filter(Boolean)
+        .join("\n");
+    case "client":
+      return [
+        "## Client Read",
+        `${brandProfile.name} is a stronger fit when the problem is bigger than adding a chatbot and needs workflow design, interface clarity, and a reliable intelligence layer.`,
+        "",
+        "## Best Proof",
+        `- ${lead?.title ?? "Algsoch"}: ${lead?.problem ?? ""}`,
+        secondary ? `- ${secondary.title}: ${secondary.problem}` : "",
+        "",
+        "## Why That Matters",
+        "- The work shows delivery thinking, not just model integration.",
+        "- Product surfaces are treated as part of the engineering job.",
+        evidenceLine
+      ]
+        .filter(Boolean)
+        .join("\n");
+    case "technical":
+      return [
+        "## Technical Read",
+        `${brandProfile.name} approaches AI systems as layered software: interface, routing, intelligence, and execution each have a clear job.`,
+        "",
+        "## Strongest Technical Proof",
+        `- ${lead?.title ?? "CommandBrain"}: ${lead?.architecture[0] ?? lead?.intelligence ?? ""}`,
+        secondary ? `- ${secondary.title}: ${secondary.architecture[0] ?? secondary.intelligence}` : "",
+        "",
+        "## What Stands Out",
+        "- The systems are designed for visible state, traceability, and controllable behavior.",
+        "- Runtime constraints and product usability are handled as part of the architecture.",
+        evidenceLine
+      ]
+        .filter(Boolean)
+        .join("\n");
+    case "project":
+      return lead ? composeProjectBrief(lead) : "## Project Read\nNo matching project signal was found strongly enough from the current question.";
+    case "capability":
+      return [
+        "## Capability Read",
+        `${brandProfile.name} looks strongest in applied AI product engineering: full-stack delivery, voice and chat interfaces, local runtime thinking, and agentic workflow design.`,
+        "",
+        "## Best Proof",
+        `- ${lead?.title ?? "Algsoch"}: ${lead?.whyItMatters ?? ""}`,
+        secondary ? `- ${secondary.title}: ${secondary.whyItMatters}` : "",
+        "",
+        "## What That Suggests",
+        "- He can turn AI capability into usable systems rather than isolated demos.",
+        "- He thinks in workflows, state, interfaces, and runtime behavior together.",
+        evidenceLine
+      ]
+        .filter(Boolean)
+        .join("\n");
+  }
+}
+
 function composeBestProjectAnswer(query: string) {
   const ranked = recommendRepositoriesForQuery(query);
   const winner = ranked[0] ?? getTopRepository();
@@ -230,9 +406,6 @@ function composeBestProjectAnswer(query: string) {
 }
 
 function composeFallbackAnswer(query: string, mode: AgentIntent, systems: string[], evidenceTitles: string[]) {
-  const subject = systems.length ? systems.join(", ") : "the portfolio";
-  const evidenceLine = evidenceTitles.length ? `The strongest evidence comes from ${evidenceTitles.join(", ")}.` : "";
-
   if (mode === "project" || isBestProjectQuestion(query)) {
     const bestProjectAnswer = composeBestProjectAnswer(query);
     if (bestProjectAnswer) {
@@ -240,58 +413,14 @@ function composeFallbackAnswer(query: string, mode: AgentIntent, systems: string
     }
   }
 
-  switch (mode) {
-    case "recruiter":
-      return [
-        "## Hiring Read",
-        `${brandProfile.name} is strongest where software engineering, applied AI, and product execution meet. ${subject} shows that he does not stop at model integration: he builds interfaces, workflows, and runtime behavior that make intelligent systems usable.`,
-        "",
-        "## Why That Matters",
-        "- He can move across full-stack product work, agentic workflow design, chat and voice interaction, and local-model integration.",
-        "- The work suggests shipping capability, not just familiarity with AI tooling.",
-        `- ${evidenceLine}`.trim()
-      ].join("\n");
-    case "client":
-      return [
-        "## Client Read",
-        `If you need an AI-native product, ${brandProfile.name} looks like a strong fit because the work is organized around usable systems, not isolated AI features. ${subject} reflects a style of building where interface quality, orchestration, and delivery logic work together.`,
-        "",
-        "## Why That Matters",
-        "- He can shape the product surface, wire the intelligence layer, and think through workflow execution in one pass.",
-        "- The portfolio signals product maturity rather than prototype-only AI work.",
-        `- ${evidenceLine}`.trim()
-      ].join("\n");
-    case "technical":
-      return [
-        "## Technical Read",
-        `${brandProfile.name} approaches AI systems as layered software architecture. The pattern visible across ${subject} is consistent: interface design clarifies state, an agent layer routes intent, an intelligence layer grounds reasoning, and an execution layer handles models or actions.`,
-        "",
-        "## What Stands Out",
-        "- The systems are designed for control, traceability, and product readiness.",
-        "- The architecture separates interaction, orchestration, and runtime concerns cleanly.",
-        `- ${evidenceLine}`.trim()
-      ].join("\n");
-    case "project":
-      return [
-        "## Project Read",
-        `The best way to read ${brandProfile.name}'s portfolio is by what each system proves. ${subject} is not presented as a list of apps; each project demonstrates a different dimension of applied intelligence, from command-driven orchestration to voice interaction to structured automation.`,
-        "",
-        "## What Matters",
-        "- Each project maps AI capability to a real workflow or user experience.",
-        "- The portfolio differentiates systems instead of flattening them into one skills list.",
-        `- ${evidenceLine}`.trim()
-      ].join("\n");
-    case "capability":
-      return [
-        "## Capability Read",
-        `${brandProfile.name} is credible in AI because the portfolio demonstrates applied execution across interfaces, workflows, and runtime behavior. ${subject} shows chat systems, voice experiences, agentic pipelines, and local-model thinking framed as products.`,
-        "",
-        "## Signals",
-        "- The work suggests someone who can architect, integrate, and ship intelligent systems.",
-        "- Product thinking and interface quality are treated as part of the engineering work.",
-        `- ${evidenceLine}`.trim()
-      ].join("\n");
+  const ruleBasedSignals = extractPortfolioSignals(query, systems);
+  const ruleBasedAnswer = composeRuleBasedAnswer(query, mode, ruleBasedSignals, evidenceTitles);
+
+  if (ruleBasedAnswer) {
+    return ruleBasedAnswer;
   }
+
+  return "## Brief\nThe current rule-based portfolio engine did not find a stronger direct pattern for that exact question, but the portfolio still suggests strong overlap across software engineering, applied AI, workflow design, and product execution.";
 }
 
 function buildGroundedPrompt(query: string, mode: AgentIntent, systems: string[], evidence: ReturnType<typeof retrieveEvidence>) {
@@ -398,8 +527,8 @@ export async function answerPortfolioQuestion({
       modeLabel: modeLabels[detectedMode],
       answer: deterministicProjectAnswer,
       usedLocalModel: false,
-      provider: "fallback",
-      providerLabel: "Curated GitHub Ranking",
+          provider: "fallback",
+          providerLabel: "Rule-Based GitHub Ranking",
       providerModel: null,
       recommendedSystems,
       evidence: fallbackEvidence.map((entry) => ({ title: entry.title, summary: entry.summary })),
@@ -488,7 +617,7 @@ export async function answerPortfolioQuestion({
     answer: fallbackAnswer,
     usedLocalModel: false,
     provider: "fallback",
-    providerLabel: "Curated Fallback",
+    providerLabel: "Rule-Based Portfolio Engine",
     providerModel: null,
     recommendedSystems,
     evidence: fallbackEvidence.map((entry) => ({ title: entry.title, summary: entry.summary })),

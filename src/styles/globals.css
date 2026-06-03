@@ -159,6 +159,7 @@ body {
 .portfolio-shell[data-portfolio-theme="newsprint"] .surface {
   background: rgba(249, 244, 235, 0.94) !important;
   border-color: rgba(68, 57, 44, 0.18) !important;
+  backdrop-filter: none !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.72),
     0 18px 42px rgba(65, 50, 34, 0.08) !important;
@@ -167,6 +168,83 @@ body {
 .portfolio-shell[data-portfolio-theme="newsprint"] .surface-soft {
   background: rgba(244, 237, 226, 0.9) !important;
   border-color: rgba(68, 57, 44, 0.16) !important;
+  backdrop-filter: none !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] .panel-grid {
+  background-image:
+    linear-gradient(to right, rgba(45, 37, 28, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(45, 37, 28, 0.05) 1px, transparent 1px) !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-black/15"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-black/20"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-black/25"] {
+  background: rgba(242, 233, 220, 0.86) !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-white/4"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-white/5"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-white/6"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-white/[0.06]"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-white/[0.03]"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-white/[0.02]"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-white/[0.015]"] {
+  background: rgba(252, 247, 239, 0.88) !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="border-accent/20"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="border-accent/25"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="border-accent/30"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="border-accent/35"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="border-accent/40"] {
+  border-color: rgba(58, 47, 36, 0.2) !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-accent/10"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-accent/12"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-accent/14"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-accent/15"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="bg-accent/16"] {
+  background: rgba(40, 32, 24, 0.08) !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="from-white/8"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="from-white/[0.03]"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="from-accent/10"] {
+  --tw-gradient-from: rgba(39, 31, 23, 0.06) var(--tw-gradient-from-position) !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="to-transparent"] {
+  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position) !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="text-accent/"],
+.portfolio-shell[data-portfolio-theme="newsprint"] .text-accent {
+  color: #3a3026 !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [data-button][data-variant="primary"] {
+  background: #1f1a15 !important;
+  border-color: #1f1a15 !important;
+  color: #f7f1e7 !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [data-button][data-variant="secondary"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [data-button][data-variant="ghost"] {
+  background: rgba(252, 247, 239, 0.9) !important;
+  border-color: rgba(58, 47, 36, 0.18) !important;
+  color: #1d1712 !important;
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] [data-button]:hover {
+  filter: brightness(0.98);
+}
+
+.portfolio-shell[data-portfolio-theme="newsprint"] .text-white,
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="text-white/"],
+.portfolio-shell[data-portfolio-theme="newsprint"] [class*="text-white "] {
+  color: #1d1712 !important;
 }
 
 .portfolio-shell[data-portfolio-theme="newsprint"] ::selection {

@@ -62,6 +62,8 @@ graph LR
 - Built with **LangGraph** + **FastAPI** + **React**
 - Live: [Frontend](https://algsochnews-1.onrender.com) · [API](https://algsochnews.onrender.com)
 
+[Demo](https://youtu.be/vX4ZxSSpP8M)
+
 ```mermaid
 flowchart LR
     A[Article URL] --> B[Extraction Agent]
@@ -84,6 +86,8 @@ flowchart LR
 - Safety guardrails — never diagnoses or prescribes
 - Built with **Next.js 15** + **Coral SQL** + **TypeScript**
 - 22 tests passing (13 careops + 9 coral-cli)
+
+[Demo](https://youtu.be/TAOyyIH2_rc)
 
 ```mermaid
 flowchart TD
@@ -200,6 +204,8 @@ flowchart LR
     OM -->|"tag"| DEF
 ```
 
+[Demo](https://youtu.be/idOJYh6TUC8) · [Product Demo](https://youtu.be/b78Y7RwvYeU) · [Live Site](https://fiscalmindset.github.io/Synapse-Graph/)
+
 ---
 
 ### 🎓 Education & Language Learning
@@ -255,7 +261,7 @@ flowchart LR
 
 | Project | Description | Account |
 |---------|-------------|:-------:|
-| [Sentinel Grid](https://github.com/FiscalMindset/women) | Kestra-first emergency response with dispatch orchestration | fiscal |
+| [Sentinel Grid](https://github.com/FiscalMindset/women) | Kestra-first emergency response with dispatch orchestration · [Demo](https://youtu.be/rTFPR7DqOBc) | fiscal |
 | [Kairon](https://github.com/FiscalMindset/Kairon) | NSUT smart attendance chatbot with Playwright scraping | fiscal |
 | [polybazar](https://github.com/algsoch/polybazar) | E-commerce platform | algsoch |
 | [accomplish](https://github.com/algsoch/accomplish) | AI desktop agent for file management (contributor) | algsoch |

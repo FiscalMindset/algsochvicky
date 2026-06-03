@@ -30,7 +30,11 @@ function renderList(items: string[], ordered: boolean, key: string) {
   return (
     <ListTag
       key={key}
-      className={ordered ? "ml-5 list-decimal space-y-2 text-sm leading-7 text-muted" : "ml-5 list-disc space-y-2 text-sm leading-7 text-muted"}
+      className={
+        ordered
+          ? "ml-5 list-decimal space-y-2 text-sm leading-7 text-muted"
+          : "ml-5 list-disc space-y-2 text-sm leading-7 text-muted"
+      }
     >
       {items.map((item, index) => (
         <li key={`${item}-${index}`}>{renderInline(item)}</li>
@@ -100,9 +104,27 @@ export function RichResponse({ content, empty }: RichResponseProps) {
       flushParagraph();
       flushList();
       blocks.push(
-        <h3 key={`h3-${blocks.length}`} className="mt-3 text-lg font-semibold text-ink">
+        <h3
+          key={`h3-${blocks.length}`}
+          className="border-t border-line/70 pt-4 text-lg font-semibold text-ink first:border-t-0 first:pt-0"
+        >
           {renderInline(trimmed.slice(3))}
         </h3>
+      );
+      continue;
+    }
+
+    const quoteMatch = trimmed.match(/^>\s?(.*)$/);
+    if (quoteMatch) {
+      flushParagraph();
+      flushList();
+      blocks.push(
+        <blockquote
+          key={`quote-${blocks.length}`}
+          className="rounded-[18px] border border-accent/20 bg-accent/10 px-4 py-3 text-sm leading-7 text-ink/90"
+        >
+          {renderInline(quoteMatch[1])}
+        </blockquote>
       );
       continue;
     }

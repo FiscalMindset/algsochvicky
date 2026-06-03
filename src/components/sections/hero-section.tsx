@@ -30,8 +30,14 @@ export function HeroSection() {
       <div className="section-frame">
         <div className="grid gap-6 xl:gap-8 lg:grid-cols-[1.03fr_0.97fr] lg:items-start">
           <div>
-            <div className="mb-5 inline-flex items-center rounded-full border border-accent/25 bg-accent/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-accent/85">
-              {brandProfile.brand} = {brandProfile.brandMeaning}
+            <div className="mb-5 inline-flex flex-wrap items-center gap-2 rounded-full border border-accent/25 bg-gradient-to-r from-accent/14 via-accent/8 to-white/[0.02] px-2.5 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <span className="rounded-full border border-accent/30 bg-accent/16 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-ink">
+                {brandProfile.brand}
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/65">=</span>
+              <span className="rounded-full border border-line/70 bg-white/6 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.24em] text-accent/90">
+                {brandProfile.brandMeaning}
+              </span>
             </div>
 
             <h1 className="max-w-4xl text-balance font-display text-3xl font-semibold leading-[0.96] text-ink sm:text-4xl md:text-5xl lg:text-[4.7rem]">
