@@ -12,13 +12,15 @@ import { Button } from "../ui/button";
 export function ContactSection() {
   return (
     <section id="contact" className="section-space pt-6">
-      <div className="section-frame">
+      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <div className="relative overflow-hidden rounded-[36px] border border-line/75 bg-canvas-elevated/80 p-8 sm:p-10 lg:p-12">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/12 via-transparent to-transparent" />
           <div className="pointer-events-none absolute inset-0 panel-grid opacity-20" />
           <div className="relative">
             <div className="max-w-4xl">
-              <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/75">Contact / CTA</div>
+              <div className="inline-block rounded-full border-2 border-orange-500 bg-white px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.3em] text-black">
+                Contact / CTA
+              </div>
 <h2 className="mt-4 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[4rem]" style={{lineHeight: '1.2'}}>
                 Let's build intelligent products with software quality at the core.
               </h2>

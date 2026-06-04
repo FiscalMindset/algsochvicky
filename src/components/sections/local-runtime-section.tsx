@@ -21,7 +21,7 @@ export function LocalRuntimeSection() {
 
   return (
     <section id="runtime" className="section-space">
-      <div className="section-frame">
+      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
           eyebrow="RunAnywhere SDK / On-Device AI"
           title="A real browser runtime, not a decorative local-AI claim."

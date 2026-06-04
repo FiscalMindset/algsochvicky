@@ -16,7 +16,7 @@ export function ArchitectureSection() {
 
   return (
     <section id="architecture" className="section-space">
-      <div className="section-frame">
+      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
           eyebrow="Agentic Architecture"
           title="Built in layers so intelligence stays usable."
