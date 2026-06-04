@@ -132,12 +132,12 @@ export type RepositorySignal = {
 export const brandProfile = {
   name: "Vicky Kumar",
   brand: "Algsoch",
-  brandMeaning: "Think Different",
+  brandMeaning: "Keep Building",
   portraitUrl: "/images/vicky-kumar.png",
   statement:
-    "I build software systems, AI-native products, and agentic interfaces that turn ideas into usable, operational products.",
+    "AI engineer who solves problems with code. Building AI-powered products, contributing to open source, and shipping useful tools.",
   supporting:
-    "The work sits at the intersection of full-stack engineering, on-device intelligence, workflow orchestration, and product-grade interface design."
+    "Focused on browser AI, multi-agent systems, and production-ready applications. 12 PRs merged to Coral MCP."
 };
 
 export const contactDetails: ContactDetail[] = [
@@ -145,11 +145,6 @@ export const contactDetails: ContactDetail[] = [
     label: "Resume",
     value: "vicky_software_engineer.pdf",
     href: "/docs/vicky_software_engineer.pdf"
-  },
-  {
-    label: "Phone",
-    value: "+91 8383848219",
-    href: "tel:+918383848219"
   },
   {
     label: "Email",
@@ -277,9 +272,10 @@ export const conversionPaths: ConversionPath[] = [
 
 export const navItems: NavItem[] = [
   { id: "hero", label: "Overview" },
-  { id: "systems", label: "Systems" },
+  { id: "skills", label: "Skills" },
+  { id: "systems", label: "Projects" },
   { id: "architecture", label: "Architecture" },
-  { id: "build-modes", label: "Build Modes" },
+  { id: "build-modes", label: "What I Build" },
   { id: "runtime", label: "Local AI" },
   { id: "agent", label: "Ask Vicky" },
   { id: "github", label: "GitHub" },
@@ -330,7 +326,7 @@ export const featuredSystems: FeaturedSystem[] = [
     problem:
       "Terminal help is often disposable and repetitive. CommandBrain solves that by storing commands, favorites, macros, reminders, and execution context locally so useful command workflows do not vanish after one chat.",
     significance:
-      "This is one of the clearest proofs of Vicky's systems thinking: local storage, safety-aware execution, natural-language command generation, bridge-based execution, and a real operator workflow in one product.",
+      "This project shows practical application of local-first AI concepts and demonstrates ability to build a complete browser-based product with React, TypeScript, and IndexedDB.",
     intelligence:
       "Natural-language command generation, safety labeling, refinement loops, memory-backed command reuse, and local-first execution workflows.",
     layers: [
@@ -346,9 +342,9 @@ export const featuredSystems: FeaturedSystem[] = [
       "The app supports simulate mode and real execution through a configurable local bridge."
     ],
     outcomes: [
-      "Shows real local-first AI product thinking.",
-      "Demonstrates command memory as a product system, not a one-shot prompt trick.",
-      "Balances generation, safety, storage, and execution in one interface."
+      "First project using RunAnywhere SDK for local-first browser AI.",
+      "Learned React + TypeScript best practices for building AI interfaces.",
+      "Implemented local storage, safety checks, and execution flow."
     ],
     deliverables: ["Browser product", "Local command memory", "Execution control surface", "Bridge-ready runtime"],
     audienceFit: [
@@ -440,7 +436,7 @@ export const featuredSystems: FeaturedSystem[] = [
     problem:
       "Most study assistants depend on cloud inference and weak privacy guarantees. Algsoch pushes the opposite direction: on-device inference, zero tracking, local storage, and learning-mode-driven UX.",
     significance:
-      "It is the clearest flagship product signal because it combines Android engineering, on-device AI, learning UX, model lifecycle, and privacy-first product positioning in one app.",
+      "This was my first major project integrating local AI models into a mobile app. Shows Android development skills, on-device AI understanding, and privacy-focused product thinking.",
     intelligence:
       "On-device language and vision assistance, mode-based prompt shaping, local chat history, and adaptive study workflows.",
     layers: [
@@ -456,9 +452,9 @@ export const featuredSystems: FeaturedSystem[] = [
       "All conversations and learning state stay on the device without cloud processing."
     ],
     outcomes: [
-      "Shows a real offline AI product, not just a concept.",
-      "Demonstrates Android product execution with on-device models.",
-      "Connects privacy, speed, and educational UX in one system."
+      "First Android app with on-device AI integration.",
+      "Learned Kotlin, Jetpack Compose, and model lifecycle management.",
+      "Built a complete privacy-first mobile AI product."
     ],
     deliverables: ["Android app", "On-device inference", "Seven-mode learning UX", "Private local-first experience"],
     audienceFit: [
@@ -598,7 +594,7 @@ export const buildModes: BuildMode[] = [
     outputStyle: "Direct, structured, user-intent-aware answers.",
     architectureFlow: ["Input framing", "Intent detection", "Knowledge retrieval", "Response synthesis", "Feedback loop"],
     technologies: ["React", "Structured prompts", "Retrieval logic", "Streaming responses"],
-    relevantSystems: ["CommandBrain", "Algsoch"]
+    relevantSystems: ["CommandBrain", "Algsoch", "assistant_chatbot", "Kairon"]
   },
   {
     id: "voice-assistant",
@@ -608,7 +604,7 @@ export const buildModes: BuildMode[] = [
     outputStyle: "Practice-oriented feedback with text plus voice responses.",
     architectureFlow: ["Speech input", "Mode selection", "Optional local model download", "Local response generation", "Voice feedback"],
     technologies: ["RunAnywhere Web SDK", "Web Speech API", "React", "Browser model caching"],
-    relevantSystems: ["SpeakAI"]
+    relevantSystems: ["SpeakAI", "english_bot", "CommandBrain"]
   },
   {
     id: "agent-workflow",
@@ -617,8 +613,8 @@ export const buildModes: BuildMode[] = [
     interfacePattern: "Command center UI with execution traces, checkpoints, and route summaries.",
     outputStyle: "Action plans, structured outputs, and transparent state transitions.",
     architectureFlow: ["Intent routing", "Planner layer", "Tool execution", "Trace display", "Review"],
-    technologies: ["Tool orchestration", "Execution logic", "State machines", "Structured outputs"],
-    relevantSystems: ["CommandBrain", "Algsoch News"]
+    technologies: ["LangGraph", "Tool orchestration", "Execution logic", "State machines"],
+    relevantSystems: ["Algsoch News", "careops", "autopr", "devalert", "Synapse-Graph"]
   },
   {
     id: "news-automation",
@@ -627,48 +623,48 @@ export const buildModes: BuildMode[] = [
     interfacePattern: "Editorial operations board with ranking, transformation, and output stages.",
     outputStyle: "Structured summaries and consistent delivery formats.",
     architectureFlow: ["Collection", "Filtering", "Ranking", "Summarization", "Distribution"],
-    technologies: ["Automation pipelines", "Signal ranking", "Output templates", "Data curation"],
-    relevantSystems: ["Algsoch News"]
+    technologies: ["LangGraph", "FastAPI", "Automation pipelines", "FFmpeg"],
+    relevantSystems: ["Algsoch News", "autopr"]
   },
   {
     id: "on-device-tool",
-    title: "On-Device Tool",
+    title: "On-Device AI",
     summary: "Private, local-first interfaces powered by browser or device runtime models.",
     interfacePattern: "Runtime control panel with model state, download flow, and private local interaction.",
     outputStyle: "Offline-first answers with explicit runtime state and reuse behavior.",
     architectureFlow: ["Model registration", "Download and cache", "Load to runtime", "Local inference", "Release or reuse"],
-    technologies: ["RunAnywhere Web SDK", "On-device inference", "OPFS caching", "Runtime management"],
-    relevantSystems: ["Algsoch", "CommandBrain"]
+    technologies: ["RunAnywhere Web SDK", "ONNX Runtime", "WebAssembly", "OPFS caching"],
+    relevantSystems: ["Algsoch", "CommandBrain", "SpeakAI"]
   },
   {
     id: "educational-assistant",
-    title: "Educational Assistant",
+    title: "Education AI",
     summary: "Systems that explain, compare, and adapt information for different audiences.",
     interfacePattern: "Guided explainer UI with examples, comparisons, and follow-up pathways.",
     outputStyle: "Audience-aware explanations with progressive depth.",
     architectureFlow: ["Intent detect", "Audience map", "Content retrieval", "Adaptive response", "Guided follow-up"],
-    technologies: ["Routing logic", "Prompt planning", "Knowledge graphs", "Interface scaffolding"],
-    relevantSystems: ["Algsoch", "SpeakAI"]
+    technologies: ["RunAnywhere SDK", "SmolLM2", "SmolVLM", "Prompt planning"],
+    relevantSystems: ["Algsoch", "SpeakAI", "Cognivise", "english_bot"]
   },
   {
-    id: "command-interface",
-    title: "Command Interface",
-    summary: "Precision-oriented interfaces for turning human requests into system actions.",
-    interfacePattern: "Keyboard-first control surface with state visibility and execution review.",
-    outputStyle: "Commands, plans, system notices, and traceable actions.",
-    architectureFlow: ["Command parsing", "Execution mapping", "Action orchestration", "Status feedback", "Human confirmation"],
-    technologies: ["Command parsers", "Action logs", "State layers", "Control UIs"],
-    relevantSystems: ["CommandBrain"]
+    id: "healthcare-ai",
+    title: "Healthcare AI",
+    summary: "Medical data coordination with safety guardrails and multi-source aggregation.",
+    interfacePattern: "Care coordination dashboard with timeline synthesis and report generation.",
+    outputStyle: "Structured medical summaries and visit-ready packets.",
+    architectureFlow: ["Data aggregation", "Cross-source JOIN", "Timeline synthesis", "Guardrail check", "Packet generation"],
+    technologies: ["Coral SQL", "Next.js", "TypeScript", "Medical data APIs"],
+    relevantSystems: ["careops"]
   },
   {
-    id: "multimodal-app",
-    title: "Multimodal App",
-    summary: "Products that combine text, voice, and system context without collapsing into gimmicks.",
-    interfacePattern: "Layered interface with text, voice, optional vision, and synchronized runtime feedback.",
-    outputStyle: "Mode-aware responses tuned to learning, speaking, or media workflows.",
-    architectureFlow: ["Input capture", "Mode selection", "Model/runtime route", "Response generation", "UI adaptation"],
-    technologies: ["Voice + chat", "Vision models", "RunAnywhere SDK", "State synchronization"],
-    relevantSystems: ["SpeakAI", "Algsoch"]
+    id: "ml-systems",
+    title: "ML Systems",
+    summary: "Machine learning systems from model training to interpretability analysis.",
+    interfacePattern: "Research dashboard with visualization and causal analysis tools.",
+    outputStyle: "Model predictions, interpretability reports, and diagnostic outputs.",
+    architectureFlow: ["Data input", "Model inference", "Circuit tracing", "Causal ablation", "Governance tagging"],
+    technologies: ["PyTorch", "FastAPI", "Next.js", "OpenMetadata", "Ollama"],
+    relevantSystems: ["Synapse-Graph", "brain_tumor", "Cognivise"]
   }
 ];
 
@@ -954,24 +950,24 @@ export const repositorySignals: RepositorySignal[] = [
 
 export const philosophyStatements = [
   {
-    title: "Products ship, demos don't.",
+    title: "Local-first is the future.",
     detail:
-      "Algsoch has 107K+ downloads. CommandBrain runs locally. SpeakAI works offline. The work is measured by usage, not by how it looks in a deck."
-  },
-  {
-    title: "Local-first when possible.",
-    detail:
-      "On-device inference means no API costs, no privacy leaks, no latency spikes. RunAnywhere SDK makes this work in a browser without a server."
+      "Browser-based AI with no API calls means no costs, no privacy concerns, and offline capability. RunAnywhere SDK makes this accessible today."
   },
   {
     title: "Workflow before model.",
     detail:
-      "The model is the last layer, not the first. I build the routing, state, error handling, and UX first. Then I plug in whichever model fits."
+      "The model is the last layer, not the first. Build the routing, state, error handling, and UX first. Then plug in whichever model fits."
   },
   {
-    title: "Interface is product.",
+    title: "Open source contribution over consumption.",
     detail:
-      "How something feels determines whether it gets used. CommandBrain's safety labels, Algsoch's learning modes, SpeakAI's offline indicator—these are the product."
+      "12 merged PRs to Coral MCP. Real code review, documentation, and upstream collaboration. Contributing builds reputation and skills."
+  },
+  {
+    title: "Keep shipping.",
+    detail:
+      "Projects don't need to be perfect to be useful. CommandBrain runs. Algsoch runs. SpeakAI runs. Done and working beats perfect and incomplete."
   }
 ];
 

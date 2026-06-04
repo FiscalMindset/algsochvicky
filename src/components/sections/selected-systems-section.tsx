@@ -26,15 +26,15 @@ export function SelectedSystemsSection() {
               Selected Systems
             </div>
             <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[2.75rem]" style={{lineHeight: '1.15'}}>
-              Shipped products, not prototypes.
+              Problems I've solved with AI.
             </h2>
             <p className="mt-2 max-w-2xl text-pretty text-sm leading-6 text-muted lg:text-base">
-              Each system is a case study: what problem it solves, how it's built, and why it matters. Click any system to explore.
+              Each project solves a real problem. Click to see how I approached it and what I built.
             </p>
           </div>
 
           <p className="max-w-xs text-sm leading-6 text-muted">
-            Featured systems are ranked by product maturity, execution depth, and real-world usage.
+            Ranked by complexity and real-world usefulness.
           </p>
         </div>
 

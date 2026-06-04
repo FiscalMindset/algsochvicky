@@ -97,12 +97,12 @@ export function PortfolioAgentSection() {
     <section id="agent" className="section-space">
       <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
-          eyebrow="Portfolio Assistant"
-          title="Ask questions, get grounded answers."
-          description="This agent answers questions about my work using curated portfolio context. It runs locally in your browser—no server, no data leaves your machine."
+          eyebrow="Portfolio Chat"
+          title="Ask about my projects and skills."
+          description="A simple chat interface to learn more about my work. Uses local AI to answer questions about my projects, technologies I've learned, and what I'm looking for."
           aside={
             <p>
-              Click "Activate Local Model" to run the full AI assistant in your browser using on-device inference.
+              Built as a learning project to understand how to integrate local AI into a web app.
             </p>
           }
         />

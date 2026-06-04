@@ -14,6 +14,7 @@ import { NavShell } from "../components/sections/nav-shell";
 import { PhilosophySection } from "../components/sections/philosophy-section";
 import { PortfolioAgentSection } from "../components/sections/portfolio-agent-section";
 import { SelectedSystemsSection } from "../components/sections/selected-systems-section";
+import { SkillsSection } from "../components/sections/skills-section";
 
 const PORTFOLIO_THEME_STORAGE_KEY = "algsoch-portfolio-theme";
 
@@ -58,6 +59,7 @@ function PortfolioHome({
       <NavShell items={navItems} activeSection={activeSection} theme={theme} onToggleTheme={onToggleTheme} />
       <main>
         <HeroSection />
+        <SkillsSection />
         <SelectedSystemsSection />
         <ArchitectureSection />
         <BuildWithAiSection />

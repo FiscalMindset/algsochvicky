@@ -38,27 +38,27 @@ export function HeroSection() {
               <div className="space-y-3 flex-1">
                 <div className="inline-flex items-center gap-2 rounded-full border-2 border-accent/40 bg-canvas px-3 py-1.5">
                   <span className="rounded-full border border-accent/40 bg-accent/20 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.28em] text-accent font-semibold">
-                    {brandProfile.brand}
+                    {brandProfile.name}
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/50">=</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/50">·</span>
                   <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.24em] text-accent/90">
-                    {brandProfile.brandMeaning}
+                    Open to Work
                   </span>
                 </div>
 
                 <h1 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.4rem] font-bold text-ink" style={{lineHeight: '1.3'}}>
-                  I build AI products that actually ship.
+                  AI Engineer / Software Engineer
                 </h1>
 
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="rounded-full border-2 border-accent/40 bg-accent/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-accent font-semibold">
-                    107K+ app downloads
+                    Open to Work
                   </span>
                   <span className="rounded-full border border-line/60 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
-                    Products, not demos
+                    Problem Solver
                   </span>
                   <span className="rounded-full border border-line/60 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
-                    On-Device AI
+                    Critical Thinker
                   </span>
                   <span className="rounded-full border border-line/60 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
                     Full-Stack
@@ -92,45 +92,17 @@ export function HeroSection() {
 
             <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
               <div className="space-y-4">
-                <div className="rounded-xl border-2 border-accent/30 bg-black/10 p-4">
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <div className="relative group rounded-lg border-2 border-accent/30 overflow-hidden shrink-0 cursor-pointer">
-                      <img
-                        src={brandProfile.portraitUrl}
-                        alt={brandProfile.name}
-                        className="h-20 w-20 object-cover object-top"
-                      />
-                      <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center gap-1 sm:hidden md:flex">
-                        <div className="font-mono text-[8px] uppercase tracking-[0.2em] text-accent/80">Identity Surface</div>
-                        <div className="text-xs font-semibold text-ink">{brandProfile.name}</div>
-                        <div className="text-[9px] text-muted">Software Engineer · AI Engineer</div>
-                        <div className="flex flex-wrap justify-center gap-1 mt-1">
-                          {["Software Systems", "Agentic Workflows", "On-Device AI"].map((tag) => (
-                            <span key={tag} className="rounded-full border border-accent/40 bg-accent/20 px-1.5 py-0.5 font-mono text-[7px] uppercase tracking-[0.05em] text-accent">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex-1 min-w-0 space-y-3">
-                      <div>
-                        <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent/70">Identity Surface</div>
-                        <div className="text-base font-semibold text-ink">{brandProfile.name}</div>
-                        <div className="text-xs text-muted">Software Engineer · AI Engineer</div>
-                      </div>
-
-                      <div className="flex flex-wrap gap-1.5">
-                        {["Software Systems", "Agentic Workflows", "On-Device AI"].map((tag) => (
-                          <span key={tag} className="rounded-full border border-accent/40 bg-accent/15 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.1em] text-accent">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                <div className="flex items-center gap-4">
+                    <img
+                      src={brandProfile.portraitUrl}
+                      alt={brandProfile.name}
+                      className="h-16 w-16 rounded-xl border-2 border-accent/30 object-cover object-top"
+                    />
+                    <div>
+                      <div className="text-base font-semibold text-ink">{brandProfile.name}</div>
+                      <div className="text-xs text-muted">AI Engineer · Full-Stack Developer</div>
                     </div>
                   </div>
-                </div>
 
                 <div className="rounded-xl border-2 border-accent/25 bg-black/10 p-4">
                   <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent/70 mb-3">Core Capabilities</div>
@@ -161,40 +133,12 @@ export function HeroSection() {
               <div className="space-y-3">
                 <HeroFeaturedSystems embedded />
 
-                <div className="flex gap-3">
-                  <button
-                    onClick={() => setCapabilityExpanded(!capabilityExpanded)}
-                    className="flex-1 flex items-center justify-between rounded-xl border-2 border-accent/30 bg-black/10 p-3 text-left hover:border-accent/50 transition"
-                  >
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/80">
-                      Signal Bar
-                    </span>
-                    {capabilityExpanded ? <ChevronUp size={14} className="text-accent shrink-0" /> : <ChevronDown size={14} className="text-accent shrink-0" />}
-                  </button>
-
-                  <button
-                    onClick={() => setSignalMapExpanded(!signalMapExpanded)}
-                    className="flex-1 flex items-center justify-between rounded-xl border-2 border-accent/30 bg-black/10 p-3 text-left hover:border-accent/50 transition"
-                  >
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/80">
-                      Repository Intel
-                    </span>
-                    {signalMapExpanded ? <ChevronUp size={14} className="text-accent shrink-0" /> : <ChevronDown size={14} className="text-accent shrink-0" />}
-                  </button>
-                </div>
-
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {capabilityExpanded && (
-                    <div className="rounded-xl border-2 border-accent/20 bg-canvas-elevated p-4">
-                      <CapabilityStripSection embedded />
-                    </div>
-                  )}
-
-                  {signalMapExpanded && (
-                    <div className="rounded-xl border-2 border-accent/20 bg-canvas-elevated p-4">
-                      <HeroSignalMap />
-                    </div>
-                  )}
+                <div className="flex items-center gap-2 text-[10px] text-muted">
+                  <span className="font-mono uppercase tracking-wider">12 Coral MCP PRs</span>
+                  <span>·</span>
+                  <span className="font-mono uppercase tracking-wider">22+ GitHub PRs</span>
+                  <span>·</span>
+                  <span className="font-mono uppercase tracking-wider">8 Major Projects</span>
                 </div>
               </div>
             </div>
