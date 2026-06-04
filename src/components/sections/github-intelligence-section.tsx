@@ -59,8 +59,8 @@ export function GitHubIntelligenceSection() {
           description="The repository view is curated intentionally. The hosting split is explicit: Algsoch and Algsoch News are in `fiscalmindset`, while CommandBrain, SpeakAI, and most remaining repositories live in the suspended `algsoch` account."
         />
 
-        <div className="grid gap-4 xl:grid-cols-[0.92fr_1.08fr]">
-          <div className="grid gap-4">
+        <div className="grid gap-3 xl:grid-cols-[0.92fr_1.08fr]">
+          <div className="grid gap-3 self-start">
             {topRepository ? (
               <div className="rounded-2xl border border-accent/25 bg-accent/10 p-4">
                 <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/80">Strongest overall signal</div>

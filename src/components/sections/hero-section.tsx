@@ -47,27 +47,21 @@ export function HeroSection() {
                 </div>
 
                 <h1 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.4rem] font-bold text-ink" style={{lineHeight: '1.3'}}>
-                  AI Engineer · Software Engineer
+                  I build AI products that actually ship.
                 </h1>
 
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="rounded-full border-2 border-accent/40 bg-accent/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-accent font-semibold">
-                    12 PRs Coral MCP
+                    107K+ app downloads
                   </span>
                   <span className="rounded-full border border-line/60 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
-                    Agentic Systems
+                    Products, not demos
                   </span>
                   <span className="rounded-full border border-line/60 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
                     On-Device AI
                   </span>
                   <span className="rounded-full border border-line/60 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
-                    Multi-Agent Pipelines
-                  </span>
-                  <span className="rounded-full border border-line/60 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
-                    Workflow Automation
-                  </span>
-                  <span className="rounded-full border border-line/60 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
-                    Open-Source Integrations
+                    Full-Stack
                   </span>
                   <div className="flex gap-1.5 ml-2">
                     <a href="https://github.com/FiscalMindset" target="_blank" rel="noopener" className="rounded-full border border-line/60 bg-white/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.1em] text-muted hover:text-accent hover:border-accent/40 transition">
@@ -82,14 +76,14 @@ export function HeroSection() {
 
               <div className="flex items-center justify-between gap-2">
                 <Button href="#systems" size="sm">
-                  View Systems
+                  View Work
                   <ArrowDownRight size={14} />
                 </Button>
                 <Button href={getEditorialRouteHref()} variant="secondary" size="sm">
                   Editorial Profile
                 </Button>
-                <Button href="#runtime" variant="ghost" size="sm">
-                  Local AI
+                <Button href="#contact" variant="ghost" size="sm">
+                  Contact
                 </Button>
               </div>
             </div>

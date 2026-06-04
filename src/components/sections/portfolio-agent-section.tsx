@@ -97,13 +97,12 @@ export function PortfolioAgentSection() {
     <section id="agent" className="section-space">
       <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
-          eyebrow="Advanced Portfolio Agent"
-          title="A smarter portfolio chatbot built around rule-based signal, not shallow chat."
-          description="The agent now defaults to a deterministic portfolio briefing engine: it detects intent, matches the right systems, ranks evidence, and formats a clearer answer before any optional live model path is used."
+          eyebrow="Portfolio Assistant"
+          title="Ask questions, get grounded answers."
+          description="This agent answers questions about my work using curated portfolio context. It runs locally in your browser—no server, no data leaves your machine."
           aside={
             <p>
-              Recruiter, client, collaborator, founder, or technical interviewer: the answer should change with the
-              intent, even when the system is staying fully rule-based.
+              Click "Activate Local Model" to run the full AI assistant in your browser using on-device inference.
             </p>
           }
         />
