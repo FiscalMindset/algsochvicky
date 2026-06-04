@@ -15,9 +15,9 @@ import { Button } from "../ui/button";
 const EDITORIAL_THEME_STORAGE_KEY = "algsoch-editorial-theme";
 
 const editorialLead = [
-  "Vicky Kumar does not approach AI as a branding layer. He approaches it as software that has to survive contact with real users, real workflows, and real runtime constraints.",
+  "Vicky Kumar does not approach AI as a feature layer. He approaches it as software engineering that has to survive contact with real users, real workflows, and real runtime constraints.",
   "Across browser apps, Android products, voice interfaces, and agentic pipelines, the pattern is consistent: intelligence is only valuable when it is shaped into an interface people can trust, a workflow people can follow, and a product people can keep using.",
-  "That is why the strongest read of this work is not 'developer interested in AI.' It is software engineer, AI engineer, and product-minded systems builder operating at the point where engineering depth and interface judgment have to work as one."
+  "That is why the strongest read of this work is not 'developer interested in AI.' It is AI engineer and software engineer building products that solve real problems, not demos."
 ] as const;
 
 const editorialSections = [
@@ -208,27 +208,27 @@ export function EditorialProfilePage() {
           <div className="section-frame">
             <div className="editorial-surface rounded-[34px] border border-line/75 bg-canvas-elevated/75 p-5 sm:p-6 lg:p-8">
               <div className="border-y border-line/70 py-3">
-                <div className="grid gap-3 lg:grid-cols-[0.95fr_1.1fr_0.95fr] lg:items-center">
-                  <div className="grid gap-1 text-center lg:text-left">
+                <div className="grid gap-4 md:grid-cols-3 md:items-center">
+                  <div className="grid gap-1 text-center md:text-left">
                     <div className="font-mono text-[10px] uppercase tracking-[0.32em] text-accent/80">Algsoch Review</div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">Editorial profile feature</div>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">Editorial profile</div>
                   </div>
-                  <div className="text-center">
-                    <div className="font-display text-3xl font-semibold tracking-[-0.08em] text-ink sm:text-4xl lg:text-[3.7rem]">
-                      Special Profile Edition
+                  <div className="text-center order-first md:order-none">
+                    <div className="font-display text-2xl font-semibold tracking-[-0.04em] text-ink sm:text-3xl lg:text-[2.5rem]">
+                      Profile Edition
                     </div>
-                    <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
-                      Software systems / AI products / agentic workflows / runtime execution
+                    <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-muted hidden sm:block">
+                      AI Engineering / Products / Systems
                     </div>
                   </div>
-                  <div className="grid gap-1 text-center lg:text-right">
-                    <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">{currentDate}</div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">Independent profile report</div>
+                  <div className="grid gap-1 text-center md:text-right">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">{currentDate}</div>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">Independent</div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-4 grid gap-2 rounded-[22px] border border-line/70 bg-black/15 p-3 sm:grid-cols-2 xl:grid-cols-4">
+              <div className="mt-4 grid grid-cols-2 gap-2 rounded-[22px] border border-line/70 bg-black/15 p-3 lg:grid-cols-4">
                 {editionFacts.map(([label, value]) => (
                   <div key={label} className="editorial-note rounded-[16px] border border-line/70 bg-white/4 px-3 py-2.5">
                     <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent/75">{label}</div>
@@ -259,8 +259,8 @@ export function EditorialProfilePage() {
                 </div>
               </div>
 
-              <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] xl:grid-cols-[0.9fr_1.2fr_0.9fr]">
-                <div className="grid content-start gap-5 md:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:grid-cols-1">
+              <div className="mt-6 grid gap-6 xl:grid-cols-[1fr_1.5fr_1fr]">
+                <div className="grid content-start gap-5">
                   <div className="editorial-card mx-auto w-full max-w-[17rem] overflow-hidden rounded-[26px] border border-line/70 bg-black/20 md:mx-0 md:max-w-none">
                     <div className="aspect-[4/4.8] bg-gradient-to-b from-white/8 to-transparent sm:aspect-[4/5]">
                       <img
@@ -327,13 +327,13 @@ export function EditorialProfilePage() {
                       {brandProfile.brand}
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent/65">=</span>
-                    <span className="rounded-full border border-line/70 bg-white/6 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent/90">
+                    <span className="rounded-full border border-line/70 bg-white/6 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
                       {brandProfile.brandMeaning}
                     </span>
                   </div>
 
                   <h1 className="mt-5 text-balance font-display text-[2.35rem] font-semibold leading-[0.92] text-ink sm:text-5xl lg:text-[4.25rem] xl:text-[5rem]">
-                    Vicky Kumar builds AI systems that read like products, not demos.
+                    AI Engineer solving problems with real products.
                   </h1>
 
                   <p className="mt-5 max-w-3xl text-base leading-8 text-muted sm:text-xl">
@@ -390,7 +390,7 @@ export function EditorialProfilePage() {
                   </div>
                 </div>
 
-                <div className="grid gap-5 content-start lg:col-span-2 xl:col-span-1">
+                <div className="grid gap-5 content-start xl:col-span-1">
                   <div className="editorial-card rounded-[26px] border border-line/70 bg-black/15 p-4 sm:p-5">
                     <div className="flex items-center justify-between gap-3 border-b border-dashed border-line/70 pb-3">
                       <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Margin notes</div>
