@@ -54,9 +54,9 @@ export function GitHubIntelligenceSection() {
     <section id="github" className="section-space">
       <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
-          eyebrow="GitHub Intelligence"
-          title="A signal-first repository lens across two identities."
-          description="The repository view is curated intentionally. The hosting split is explicit: Algsoch and Algsoch News are in `fiscalmindset`, while CommandBrain, SpeakAI, and most remaining repositories live in the suspended `algsoch` account."
+          eyebrow="GitHub Profile"
+          title="My open source work and contributions."
+          description="I've contributed to Coral MCP (12 merged PRs) and built several AI projects. Most of my work is on @FiscalMindset."
         />
 
         <div className="grid gap-3 xl:grid-cols-[0.92fr_1.08fr]">

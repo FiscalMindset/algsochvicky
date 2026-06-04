@@ -19,13 +19,13 @@ export function ContactSection() {
           <div className="relative">
             <div className="max-w-4xl">
               <div className="inline-block rounded-full border-2 border-orange-500 bg-white px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.3em] text-black">
-                Let's Talk
+                Open to Work
               </div>
               <h2 className="mt-4 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[4rem]" style={{lineHeight: '1.2'}}>
-                Building something that needs AI engineering?
+                Looking for remote AI engineering roles.
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
-                I work with teams building AI-native products where execution quality matters. If you're shipping something that needs real engineering—not just a prototype—let's talk.
+                AI engineer specializing in local-first products and browser-based AI. Looking for remote roles where I can contribute to production AI systems.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -35,6 +35,9 @@ export function ContactSection() {
                 </Button>
                 <Button href="https://www.linkedin.com/in/algsoch" variant="secondary" size="lg">
                   LinkedIn
+                </Button>
+                <Button href="/docs/vicky_software_engineer.pdf" variant="secondary" size="lg">
+                  Resume
                 </Button>
               </div>
             </div>
