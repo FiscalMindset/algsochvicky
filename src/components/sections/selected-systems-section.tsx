@@ -18,27 +18,29 @@ export function SelectedSystemsSection() {
   }
 
   return (
-    <section id="systems" className="section-space">
-      <div className="section-frame">
-        <div className="mb-5 grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] lg:items-end">
+    <section id="systems" className="py-12 lg:py-16">
+      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
+        <div className="mb-5 grid gap-4 lg:grid-cols-[1fr_280px] lg:items-start">
           <div className="max-w-3xl">
-            <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Selected Systems</div>
-            <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[3.5rem]" style={{lineHeight: '1.2'}}>
+            <div className="mb-3 inline-block rounded-full border-2 border-orange-500 bg-gray-100 px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.3em] text-gray-900">
+              Selected Systems
+            </div>
+            <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[2.75rem]" style={{lineHeight: '1.15'}}>
               Built intelligence, engineered as products.
             </h2>
-            <p className="mt-3 max-w-2xl text-pretty text-sm leading-7 text-muted sm:text-base lg:text-lg">
+            <p className="mt-2 max-w-2xl text-pretty text-sm leading-6 text-muted lg:text-base">
               These are not presented as hobby projects or a repo dump. Each system is positioned as a proof point for
               how Vicky designs interfaces, workflows, runtime behavior, and product maturity around AI.
             </p>
           </div>
 
-          <p className="max-w-md text-sm leading-7 text-muted">
+          <p className="max-w-xs text-sm leading-6 text-muted">
             Each module is treated like a case-study surface: thesis, workflow, architecture, and why the system
             matters all sit in one view.
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+        <div className="grid gap-4 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
           <div className="grid content-start gap-2 self-start">
             {featuredSystems.map((system) => {
               const active = system.id === activeSystem.id;
@@ -125,25 +127,25 @@ export function SelectedSystemsSection() {
                     </div>
                   </div>
 
-                  <div className="mt-6 grid gap-5 xl:grid-cols-2">
-                    <div className="grid gap-5">
-                      <div className="rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
+                  <div className="mt-4 grid gap-4 xl:grid-cols-2">
+                    <div className="grid gap-4">
+                      <div className="rounded-2xl border border-line/75 bg-black/15 p-3 sm:p-4">
                         <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">What it solves</div>
-                        <p className="mt-3 text-sm text-muted">{activeSystem.problem}</p>
+                        <p className="mt-2 text-sm text-muted">{activeSystem.problem}</p>
                       </div>
-                      <div className="rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
+                      <div className="rounded-2xl border border-line/75 bg-black/15 p-3 sm:p-4">
                         <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">Why it matters</div>
-                        <p className="mt-3 text-sm text-muted">{activeSystem.significance}</p>
+                        <p className="mt-2 text-sm text-muted">{activeSystem.significance}</p>
                       </div>
-                      <div className="rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
+                      <div className="rounded-2xl border border-line/75 bg-black/15 p-3 sm:p-4">
                         <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">
                           Intelligence / Workflow
                         </div>
-                        <p className="mt-3 text-sm text-muted">{activeSystem.intelligence}</p>
+                        <p className="mt-2 text-sm text-muted">{activeSystem.intelligence}</p>
                       </div>
                     </div>
 
-                    <div className="grid gap-5">
+                    <div className="grid gap-4">
                       <GitHubCommitSurface
                         repoUrl={activeSystem.links.find((link) => link.label === "Repository")?.href}
                         title={activeSystem.title}
@@ -151,13 +153,13 @@ export function SelectedSystemsSection() {
                         compact
                       />
 
-                      <div className="rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
+                      <div className="rounded-2xl border border-line/75 bg-black/15 p-3 sm:p-4">
                         <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">
                           Architecture glimpse
                         </div>
-                        <div className="mt-4 grid gap-3">
+                        <div className="mt-3 grid gap-2">
                           {activeSystem.architecture.map((point) => (
-                            <div key={point} className="rounded-2xl border border-line/70 bg-white/4 p-3 text-sm text-muted">
+                            <div key={point} className="rounded-xl border border-line/70 bg-white/4 p-2.5 text-sm text-muted">
                               {point}
                             </div>
                           ))}
@@ -166,27 +168,27 @@ export function SelectedSystemsSection() {
                     </div>
                   </div>
 
-                  <div className="mt-5 grid gap-5 xl:grid-cols-[0.95fr_1.05fr]">
-                    <div className="rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
+                  <div className="mt-4 grid gap-4 xl:grid-cols-[0.95fr_1.05fr]">
+                    <div className="rounded-2xl border border-line/75 bg-black/15 p-3 sm:p-4">
                       <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">
                         Technical layers built
                       </div>
-                      <div className="mt-4 flex flex-wrap gap-2">
+                      <div className="mt-3 flex flex-wrap gap-2">
                         {activeSystem.layers.map((layer) => (
-                          <span key={layer} className="rounded-full border border-line/70 px-3 py-1.5 text-sm text-muted">
+                          <span key={layer} className="rounded-full border border-line/70 px-2.5 py-1 text-xs text-muted">
                             {layer}
                           </span>
                         ))}
                       </div>
                     </div>
 
-                    <div className="rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
+                    <div className="rounded-2xl border border-line/75 bg-black/15 p-3 sm:p-4">
                       <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">Stack</div>
-                      <div className="mt-4 flex flex-wrap gap-2">
+                      <div className="mt-3 flex flex-wrap gap-2">
                         {activeSystem.stack.map((item) => (
                           <span
                             key={item}
-                            className="rounded-full border border-accent/20 bg-accent/10 px-3 py-1.5 text-sm text-ink"
+                            className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-xs text-ink"
                           >
                             {item}
                           </span>
@@ -195,11 +197,11 @@ export function SelectedSystemsSection() {
                     </div>
                   </div>
 
-                  <div className="mt-5 rounded-[24px] border border-line/75 bg-black/15 p-4 sm:p-5">
+                  <div className="mt-4 rounded-2xl border border-line/75 bg-black/15 p-3 sm:p-4">
                     <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/70">Why this is strong signal</div>
-                    <div className="mt-4 grid gap-3 xl:grid-cols-3">
+                    <div className="mt-3 grid gap-2 xl:grid-cols-3">
                       {activeSystem.outcomes.map((outcome) => (
-                        <div key={outcome} className="rounded-2xl border border-line/70 bg-white/4 p-3 text-sm text-muted">
+                        <div key={outcome} className="rounded-xl border border-line/70 bg-white/4 p-2.5 text-sm text-muted">
                           {outcome}
                         </div>
                       ))}

@@ -4,7 +4,7 @@ import { SectionHeading } from "../ui/section-heading";
 export function PhilosophySection() {
   return (
     <section id="philosophy" className="section-space">
-      <div className="section-frame">
+      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
           eyebrow="Build Philosophy"
           title="The system should work as one product."

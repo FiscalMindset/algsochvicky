@@ -52,19 +52,19 @@ export function GitHubIntelligenceSection() {
 
   return (
     <section id="github" className="section-space">
-      <div className="section-frame">
+      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
           eyebrow="GitHub Intelligence"
           title="A signal-first repository lens across two identities."
           description="The repository view is curated intentionally. The hosting split is explicit: Algsoch and Algsoch News are in `fiscalmindset`, while CommandBrain, SpeakAI, and most remaining repositories live in the suspended `algsoch` account."
         />
 
-        <div className="grid gap-6 xl:grid-cols-[0.92fr_1.08fr]">
-          <div className="grid gap-5">
+        <div className="grid gap-4 xl:grid-cols-[0.92fr_1.08fr]">
+          <div className="grid gap-4">
             {topRepository ? (
-              <div className="rounded-[28px] border border-accent/25 bg-accent/10 p-4 sm:p-5">
+              <div className="rounded-2xl border border-accent/25 bg-accent/10 p-4">
                 <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/80">Strongest overall signal</div>
-                <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div className="min-w-0">
                     <div className="text-xl font-semibold text-ink sm:text-2xl">{topRepository.title}</div>
                     <p className="mt-2 text-sm leading-6 text-muted">{topRepository.overview}</p>
@@ -119,7 +119,7 @@ export function GitHubIntelligenceSection() {
             ) : null}
 
             {githubAccounts.map((account) => (
-              <div key={account.handle} className="rounded-[28px] border border-line/75 bg-canvas-elevated/70 p-4 sm:p-5">
+              <div key={account.handle} className="rounded-2xl border border-line/75 bg-white/4 p-4">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                   <div className="flex min-w-0 items-center gap-4">
                     <img
@@ -178,7 +178,7 @@ export function GitHubIntelligenceSection() {
             ))}
 
             {/* GitHub Contribution Stats - Dual Account Display */}
-            <div className="rounded-[28px] border border-accent/25 bg-accent/5 p-4 sm:p-5">
+            <div className="rounded-2xl border border-accent/25 bg-accent/5 p-4">
               {/* Profile Header with Avatar */}
               <div className="flex items-center gap-4">
                 <img 
@@ -452,7 +452,7 @@ export function GitHubIntelligenceSection() {
               </div>
             </div>
 
-            <div className="rounded-[28px] border border-line/75 bg-canvas-elevated/70 p-4 sm:p-5">
+<div className="rounded-2xl border border-line/75 bg-white/4 p-4">
               <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Ranking read</div>
               <div className="mt-3 grid gap-3">
                 {[
@@ -476,7 +476,7 @@ export function GitHubIntelligenceSection() {
             </div>
           </div>
 
-          <div className="rounded-[32px] border border-line/75 bg-canvas-elevated/70 p-4 sm:p-6">
+          <div className="rounded-2xl border border-line/75 bg-white/4 p-4">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent/75">Curated repository ranking</div>

@@ -13,7 +13,7 @@ export function BuildWithAiSection() {
 
   return (
     <section id="build-modes" className="section-space">
-      <div className="section-frame">
+      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
           eyebrow="Build Anything With AI"
           title="One engineering mindset, many product forms."

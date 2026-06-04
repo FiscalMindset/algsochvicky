@@ -95,7 +95,7 @@ export function PortfolioAgentSection() {
 
   return (
     <section id="agent" className="section-space">
-      <div className="section-frame">
+      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
           eyebrow="Advanced Portfolio Agent"
           title="A smarter portfolio chatbot built around rule-based signal, not shallow chat."
