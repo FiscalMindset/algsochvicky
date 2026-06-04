@@ -954,43 +954,39 @@ export const repositorySignals: RepositorySignal[] = [
 
 export const philosophyStatements = [
   {
-    title: "AI should operate inside a product, not beside it.",
+    title: "Products ship, demos don't.",
     detail:
-      "A useful system is not just model output. It is the interface, the workflow, the state model, and the decisions around trust."
+      "Algsoch has 107K+ downloads. CommandBrain runs locally. SpeakAI works offline. The work is measured by usage, not by how it looks in a deck."
   },
   {
-    title: "Good AI UX is engineering work.",
+    title: "Local-first when possible.",
     detail:
-      "Latency, control, explainability, failure states, response structure, and operator confidence are implementation concerns, not polish afterthoughts."
+      "On-device inference means no API costs, no privacy leaks, no latency spikes. RunAnywhere SDK makes this work in a browser without a server."
   },
   {
-    title: "Workflow design matters more than prompt cleverness.",
+    title: "Workflow before model.",
     detail:
-      "The strongest systems are built around routes, actions, validation, and output quality, not one-off prompting tricks."
+      "The model is the last layer, not the first. I build the routing, state, error handling, and UX first. Then I plug in whichever model fits."
   },
   {
-    title: "Applied intelligence should feel calm and exact.",
+    title: "Interface is product.",
     detail:
-      "Serious products communicate precision through restraint, hierarchy, and interface clarity, not through noise."
+      "How something feels determines whether it gets used. CommandBrain's safety labels, Algsoch's learning modes, SpeakAI's offline indicator—these are the product."
   }
 ];
 
 export const contactActions = [
   {
-    label: "Open Resume",
+    label: "Resume",
     href: "/docs/vicky_software_engineer.pdf"
   },
   {
-    label: "Open GitHub",
+    label: "GitHub",
     href: "https://github.com/fiscalmindset"
   },
   {
-    label: "Inspect Local AI",
-    href: "#runtime"
-  },
-  {
-    label: "Ask The Portfolio Agent",
-    href: "#agent"
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/algsoch"
   }
 ];
 

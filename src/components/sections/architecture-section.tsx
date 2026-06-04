@@ -18,10 +18,10 @@ export function ArchitectureSection() {
     <section id="architecture" className="section-space">
       <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
         <SectionHeading
-          eyebrow="Agentic Architecture"
-          title="Built in layers so intelligence stays usable."
-          description="The architecture is intentionally layered. Interface, agents, intelligence, execution, and product experience each have a clear role, which makes the resulting systems easier to trust, extend, and ship."
-          aside={<p>The emphasis is not on adding more AI. It is on building cleaner system boundaries around where AI belongs.</p>}
+          eyebrow="Architecture"
+          title="How the work is organized."
+          description="Every system here uses the same layered approach: clear interfaces, controlled runtime, structured output, and local-first design."
+          aside={<p>Click any layer to see how it maps to actual modules and outputs.</p>}
         />
 
         <div className="grid gap-6 xl:grid-cols-[0.72fr_1.28fr]">

@@ -19,40 +19,23 @@ export function ContactSection() {
           <div className="relative">
             <div className="max-w-4xl">
               <div className="inline-block rounded-full border-2 border-orange-500 bg-white px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.3em] text-black">
-                Contact / CTA
+                Let's Talk
               </div>
-<h2 className="mt-4 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[4rem]" style={{lineHeight: '1.2'}}>
-                Let's build intelligent products with software quality at the core.
+              <h2 className="mt-4 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[4rem]" style={{lineHeight: '1.2'}}>
+                Building something that needs AI engineering?
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
-                If you need AI-native product engineering, agentic workflows, voice or chat systems, or runtime-aware
-                local intelligence, {brandProfile.name}'s work is built to show how that execution looks in practice.
+                I work with teams building AI-native products where execution quality matters. If you're shipping something that needs real engineering—not just a prototype—let's talk.
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-2.5">
-                {contactTags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-accent/20 bg-accent/10 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:flex xl:flex-wrap">
-                {contactActions.map((action, index) => (
-                  <Button
-                    key={action.label}
-                    href={action.href}
-                    variant={index === 0 ? "primary" : "secondary"}
-                    size="lg"
-                    className="w-full xl:w-auto"
-                  >
-                    {action.label}
-                    <ArrowUpRight size={16} />
-                  </Button>
-                ))}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href="mailto:npdimagine@gmail.com" variant="primary" size="lg">
+                  Email Me
+                  <ArrowUpRight size={16} />
+                </Button>
+                <Button href="https://www.linkedin.com/in/algsoch" variant="secondary" size="lg">
+                  LinkedIn
+                </Button>
               </div>
             </div>
 

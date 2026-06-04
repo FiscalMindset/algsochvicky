@@ -26,17 +26,15 @@ export function SelectedSystemsSection() {
               Selected Systems
             </div>
             <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[2.75rem]" style={{lineHeight: '1.15'}}>
-              Built intelligence, engineered as products.
+              Shipped products, not prototypes.
             </h2>
             <p className="mt-2 max-w-2xl text-pretty text-sm leading-6 text-muted lg:text-base">
-              These are not presented as hobby projects or a repo dump. Each system is positioned as a proof point for
-              how Vicky designs interfaces, workflows, runtime behavior, and product maturity around AI.
+              Each system is a case study: what problem it solves, how it's built, and why it matters. Click any system to explore.
             </p>
           </div>
 
           <p className="max-w-xs text-sm leading-6 text-muted">
-            Each module is treated like a case-study surface: thesis, workflow, architecture, and why the system
-            matters all sit in one view.
+            Featured systems are ranked by product maturity, execution depth, and real-world usage.
           </p>
         </div>
 
