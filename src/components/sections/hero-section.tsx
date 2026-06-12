@@ -31,8 +31,8 @@ export function HeroSection() {
 
   return (
     <section id="hero" className="pt-[4.5rem] sm:pt-20 lg:pt-24">
-      <div className="section-frame pb-4">
-        <div className="max-h-[calc(100vh-8rem)] overflow-y-auto rounded-2xl border-2 border-accent/40 bg-canvas-elevated lg:p-6 p-4">
+      <div className="section-frame pb-6 sm:pb-8 lg:pb-12">
+        <div className="max-h-[calc(100vh-8rem)] overflow-y-auto rounded-xl border border-accent/35 bg-canvas-elevated p-4 sm:rounded-2xl sm:border-2 sm:border-accent/40 lg:p-6">
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div className="space-y-3 flex-1">

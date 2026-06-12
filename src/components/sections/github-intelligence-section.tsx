@@ -52,7 +52,8 @@ export function GitHubIntelligenceSection() {
 
   return (
     <section id="github" className="section-space">
-      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
+      <div className="section-frame">
+        <div className="rounded-xl border border-orange-500/50 bg-black/10 p-5 sm:rounded-2xl sm:border-2 sm:p-6 lg:rounded-3xl lg:p-10">
         <SectionHeading
           eyebrow="GitHub Profile"
           title="My open source work and contributions."
@@ -600,6 +601,8 @@ export function GitHubIntelligenceSection() {
           </div>
         </div>
       </div>
+    </div>
     </section>
   );
 }
+

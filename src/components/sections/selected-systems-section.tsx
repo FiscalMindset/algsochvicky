@@ -18,8 +18,9 @@ export function SelectedSystemsSection() {
   }
 
   return (
-    <section id="systems" className="py-12 lg:py-16">
-      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
+    <section id="systems" className="section-space">
+      <div className="section-frame">
+        <div className="rounded-xl border border-orange-500/50 bg-black/10 p-5 sm:rounded-2xl sm:border-2 sm:p-6 lg:rounded-3xl lg:p-10">
         <div className="mb-5 grid gap-4 lg:grid-cols-[1fr_280px] lg:items-start">
           <div className="max-w-3xl">
             <div className="mb-3 inline-block rounded-full border-2 border-orange-500 bg-gray-100 px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.3em] text-gray-900">
@@ -211,6 +212,8 @@ export function SelectedSystemsSection() {
           </AnimatePresence>
         </div>
       </div>
+    </div>
     </section>
   );
 }
+

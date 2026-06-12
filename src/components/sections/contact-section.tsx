@@ -11,8 +11,9 @@ import { Button } from "../ui/button";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="section-space pt-6">
-      <div className="section-frame rounded-3xl border-2 border-orange-500/60 bg-black/10 p-6 sm:p-8 lg:p-10">
+    <section id="contact" className="section-space">
+      <div className="section-frame">
+        <div className="rounded-xl border border-orange-500/50 bg-black/10 p-5 sm:rounded-2xl sm:border-2 sm:p-6 lg:rounded-3xl lg:p-10">
         <div className="relative overflow-hidden rounded-[36px] border border-line/75 bg-canvas-elevated/80 p-8 sm:p-10 lg:p-12">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/12 via-transparent to-transparent" />
           <div className="pointer-events-none absolute inset-0 panel-grid opacity-20" />
@@ -107,6 +108,8 @@ export function ContactSection() {
           </div>
         </div>
       </div>
+    </div>
     </section>
   );
 }
+
