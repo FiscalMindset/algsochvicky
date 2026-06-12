@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { buildModes } from "../../content/portfolio";
 import { SectionHeading } from "../ui/section-heading";
+import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
 
 export function BuildWithAiSection() {
   const [activeId, setActiveId] = useState(buildModes[0]?.id ?? "");
@@ -116,6 +117,7 @@ export function BuildWithAiSection() {
             </div>
           </motion.div>
         </AnimatePresence>
+      <FiscalMindsetBadge />
       </div>
     </div>
     </section>

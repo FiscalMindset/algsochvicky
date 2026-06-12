@@ -1,5 +1,6 @@
 import { philosophyStatements } from "../../content/portfolio";
 import { SectionHeading } from "../ui/section-heading";
+import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
 
 export function PhilosophySection() {
   return (
@@ -21,8 +22,10 @@ export function PhilosophySection() {
             </div>
           ))}
         </div>
+      <FiscalMindsetBadge />
       </div>
     </div>
     </section>
   );
 }
+

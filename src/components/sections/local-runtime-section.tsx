@@ -4,6 +4,7 @@ import { useRunAnywhereRuntime } from "../../features/runanywhere/runtime-provid
 import { formatBytes, sentenceCase } from "../../lib/utils";
 import { Button } from "../ui/button";
 import { SectionHeading } from "../ui/section-heading";
+import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
 
 const statusConfig = {
   "not-downloaded": { label: "Not Downloaded", tone: "text-muted", icon: <HardDriveDownload size={16} /> },
@@ -164,6 +165,7 @@ export function LocalRuntimeSection() {
             </div>
           </div>
         </div>
+      <FiscalMindsetBadge />
       </div>
     </div>
     </section>

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { architectureLayers } from "../../content/portfolio";
 import { SectionHeading } from "../ui/section-heading";
 import { ArchitectureBlueprint } from "../visuals/architecture-blueprint";
+import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
 
 export function ArchitectureSection() {
   const [activeId, setActiveId] = useState(architectureLayers[0]?.id ?? "");
@@ -67,6 +68,7 @@ export function ArchitectureSection() {
             </div>
           </div>
         </div>
+      <FiscalMindsetBadge />
       </div>
     </div>
     </section>

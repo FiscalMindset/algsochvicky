@@ -8,6 +8,7 @@ import { useRunAnywhereRuntime } from "../../features/runanywhere/runtime-provid
 import { Button } from "../ui/button";
 import { RichResponse } from "../ui/rich-response";
 import { SectionHeading } from "../ui/section-heading";
+import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
 
 const modes: { id: AgentMode; label: string }[] = [
   { id: "auto", label: "Auto" },
@@ -299,6 +300,7 @@ export function PortfolioAgentSection() {
             </div>
           </div>
         </div>
+      <FiscalMindsetBadge />
       </div>
     </div>
     </section>
