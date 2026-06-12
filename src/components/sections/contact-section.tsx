@@ -8,6 +8,7 @@ import {
   conversionPaths
 } from "../../content/portfolio";
 import { Button } from "../ui/button";
+import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
 
 export function ContactSection() {
   return (
@@ -107,6 +108,7 @@ export function ContactSection() {
             </div>
           </div>
         </div>
+      <FiscalMindsetBadge />
       </div>
     </div>
     </section>

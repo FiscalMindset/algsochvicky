@@ -9,6 +9,7 @@ import { BuildWithAiSection } from "../components/sections/build-with-ai-section
 import { ContactSection } from "../components/sections/contact-section";
 import { GitHubIntelligenceSection } from "../components/sections/github-intelligence-section";
 import { HeroSection } from "../components/sections/hero-section";
+import { LLMAgentBg } from "../components/visuals/llm-agent-bg";
 import { LocalRuntimeSection } from "../components/sections/local-runtime-section";
 import { NavShell } from "../components/sections/nav-shell";
 import { PhilosophySection } from "../components/sections/philosophy-section";
@@ -47,6 +48,7 @@ function PortfolioHome({
 
   return (
     <div className="relative overflow-x-hidden">
+      <LLMAgentBg />
       <div className="portfolio-grid-overlay pointer-events-none fixed inset-0 bg-grid opacity-[0.06]" />
       <div className="portfolio-accent-glow pointer-events-none fixed left-[-10%] top-20 h-[26rem] w-[26rem] rounded-full bg-accent/10 blur-[150px]" />
       <div className="portfolio-ink-glow pointer-events-none fixed bottom-[-10rem] right-[-6rem] h-[24rem] w-[24rem] rounded-full bg-white/6 blur-[150px]" />

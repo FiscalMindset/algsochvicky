@@ -1,5 +1,6 @@
-import { ExternalLink, Play } from "lucide-react";
-import { cn, getYouTubeThumbnailUrl } from "../../lib/utils";
+import { useState } from "react";
+import { ExternalLink, Play, X } from "lucide-react";
+import { cn, extractYouTubeVideoId, getYouTubeThumbnailUrl } from "../../lib/utils";
 
 type YouTubePreviewProps = {
   url: string;
@@ -14,21 +15,43 @@ export function YouTubePreview({
   title,
   className,
   aspectClassName = "aspect-video",
-  note = "Open video demo"
+  note = "Play video demo"
 }: YouTubePreviewProps) {
+  const [showPlayer, setShowPlayer] = useState(false);
   const thumbnailUrl = getYouTubeThumbnailUrl(url);
+  const videoId = extractYouTubeVideoId(url);
 
-  if (!thumbnailUrl) {
+  if (!thumbnailUrl || !videoId) {
     return null;
   }
 
+  if (showPlayer) {
+    return (
+      <div className={cn("overflow-hidden rounded-[18px] border border-line/70 bg-black/25", className)}>
+        <div className={cn("relative", aspectClassName)}>
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="h-full w-full"
+          />
+          <button
+            onClick={() => setShowPlayer(false)}
+            className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur hover:bg-black/80 transition"
+          >
+            <X size={14} />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noreferrer"
+    <button
+      onClick={() => setShowPlayer(true)}
       className={cn(
-        "group block overflow-hidden rounded-[18px] border border-line/70 bg-black/25 transition hover:border-accent/30",
+        "group block w-full overflow-hidden rounded-[18px] border border-line/70 bg-black/25 transition hover:border-accent/30 text-left",
         className
       )}
       aria-label={`${title} video demo`}
@@ -59,9 +82,9 @@ export function YouTubePreview({
       </div>
 
       <div className="flex items-center justify-between gap-3 border-t border-line/60 px-3 py-2.5 text-[11px] text-muted">
-        <span>Opens on YouTube</span>
+        <span>Click to play</span>
         <ExternalLink size={14} />
       </div>
-    </a>
+    </button>
   );
 }

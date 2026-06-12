@@ -189,6 +189,70 @@ export function formatRelativeCommitTime(date?: string) {
   return rtf.format(diffMonths, "month");
 }
 
+export type RepoStats = {
+  stars: number;
+  forks: number;
+  openIssues: number;
+  language: string | null;
+  defaultBranch: string;
+  branchCount: number;
+};
+
+function parseRepoUrl(repoUrl?: string): { owner: string; repo: string } | null {
+  if (!repoUrl) return null;
+  const match = repoUrl.match(/github\.com\/([^/]+)\/([^/?#]+)/i);
+  if (!match) return null;
+  return { owner: match[1], repo: match[2].replace(/\.git$/, "") };
+}
+
+type GitHubRepoApiResponse = {
+  stargazers_count?: number;
+  forks_count?: number;
+  open_issues_count?: number;
+  language?: string | null;
+  default_branch?: string;
+};
+
+type GitHubBranchApiItem = {
+  name: string;
+};
+
+const statsCache = new Map<string, { expiresAt: number; stats: RepoStats }>();
+
+export function useRepositoryStats(repoUrl?: string) {
+  const parsed = useMemo(() => parseRepoUrl(repoUrl), [repoUrl]);
+  const [stats, setStats] = useState<RepoStats | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!parsed) { setStats(null); return; }
+    const key = `${parsed.owner}/${parsed.repo}`;
+    const cached = statsCache.get(key);
+    if (cached && cached.expiresAt > Date.now()) { setStats(cached.stats); return; }
+    setLoading(true);
+    const controller = new AbortController();
+    Promise.all([
+      fetch(`https://api.github.com/repos/${key}`, { headers: { Accept: "application/vnd.github+json" }, signal: controller.signal }).then((r) => r.json()),
+      fetch(`https://api.github.com/repos/${key}/branches?per_page=100`, { headers: { Accept: "application/vnd.github+json" }, signal: controller.signal }).then((r) => r.json()),
+    ]).then(([repoData, branchesData]: [GitHubRepoApiResponse, GitHubBranchApiItem[]]) => {
+      const s: RepoStats = {
+        stars: repoData.stargazers_count ?? 0,
+        forks: repoData.forks_count ?? 0,
+        openIssues: repoData.open_issues_count ?? 0,
+        language: repoData.language ?? null,
+        defaultBranch: repoData.default_branch ?? "main",
+        branchCount: Array.isArray(branchesData) ? branchesData.length : 0,
+      };
+      statsCache.set(key, { expiresAt: Date.now() + 1000 * 60 * 30, stats: s });
+      setStats(s);
+      setLoading(false);
+    }).catch(() => { setLoading(false); });
+    return () => controller.abort();
+  }, [parsed]);
+
+  return { stats, loading };
+}
+
 export function useRepositoryCommitFeed(repoUrl?: string, fallbackEntries: string[] = []) {
   const repository = useMemo(() => parseGitHubRepository(repoUrl), [repoUrl]);
   const fallbackKey = fallbackEntries.join("||");

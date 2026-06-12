@@ -8,6 +8,7 @@ import {
 } from "../../features/github/repo-intelligence";
 import { compactActionLabel, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
+import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
 import { GitHubCommitSurface } from "../ui/github-commit-surface";
 import { SectionHeading } from "../ui/section-heading";
 import { YouTubePreview } from "../ui/youtube-preview";
@@ -600,6 +601,7 @@ export function GitHubIntelligenceSection() {
             </div>
           </div>
         </div>
+      <FiscalMindsetBadge />
       </div>
     </div>
     </section>

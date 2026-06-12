@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { featuredSystems } from "../../content/portfolio";
+import { useMemo, useState } from "react";
+import { featuredSystems, repositorySignals } from "../../content/portfolio";
 import { cn, compactActionLabel, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
 import { YouTubePreview } from "../ui/youtube-preview";
@@ -34,13 +34,28 @@ const stages = [
 
 const productSignals = featuredSystems.map((system) => ({
   id: system.id,
-  step: system.id === "commandbrain" ? "01" : system.id === "speakai" ? "02" : system.id === "algsoch" ? "03" : "04",
+  step: system.id === "algsoch" ? "01" : system.id === "speakai" ? "02" : system.id === "careops" ? "03" : "04",
   title: system.title,
   detail: system.shorthand,
   proof: system.outcomes[0],
-  tags: system.signals.slice(0, 3),
-  links: system.links.slice(0, 3)
+  tags: system.signals,
+  stack: system.stack,
+  layers: system.layers,
+  deliverables: system.deliverables,
+  links: system.links.slice(0, 4)
 }));
+
+const skillCatMap: Record<string, string> = {
+  "React": "Frontend", "Next.js": "Frontend", "TypeScript": "Languages", "Kotlin": "Languages",
+  "Python": "Languages", "Jetpack Compose": "Frontend", "Tailwind CSS": "Frontend",
+  "FastAPI": "Backend", "PostgreSQL": "Backend", "Node.js": "Backend",
+  "Docker": "Infrastructure", "Vercel": "Infrastructure", "Render": "Infrastructure",
+  "LangGraph": "AI / ML", "LangChain": "AI / ML", "PyTorch": "AI / ML",
+  "FFmpeg": "Tools", "Coral MCP": "Tools", "Coral SQL": "Tools",
+  "RunAnywhere SDK": "AI / ML", "SmolLM2": "AI / ML", "SmolVLM": "AI / ML",
+  "Android": "Infrastructure", "Vite": "Infrastructure", "IndexedDB": "Backend",
+  "llama.cpp WASM": "AI / ML", "Web Speech API": "Frontend", "Agent orchestration": "AI / ML",
+};
 
 const proofPoints = [
   "Full-stack systems that connect interface, runtime, and delivery.",
@@ -53,6 +68,110 @@ const liveState = [
   ["interaction.model", "visible_and_controlled"],
   ["delivery.goal", "usable_product_output"]
 ] as const;
+
+const systemColors: Record<string, { border: string; bg: string; text: string; bar: string; tag: string; tagBorder: string }> = {
+  algsoch:        { border: "border-blue-500/25", bg: "bg-blue-500/8", text: "text-blue-400", bar: "rgba(59,130,246,0.6)", tag: "border-blue-500/25 bg-blue-500/10 text-blue-400/90", tagBorder: "border-blue-500/25" },
+  speakai:        { border: "border-sky-500/25", bg: "bg-sky-500/8", text: "text-sky-400", bar: "rgba(14,165,233,0.6)", tag: "border-sky-500/25 bg-sky-500/10 text-sky-400/90", tagBorder: "border-sky-500/25" },
+  careops:        { border: "border-teal-500/25", bg: "bg-teal-500/8", text: "text-teal-400", bar: "rgba(20,184,166,0.6)", tag: "border-teal-500/25 bg-teal-500/10 text-teal-400/90", tagBorder: "border-teal-500/25" },
+  "algsoch-news": { border: "border-amber-500/25", bg: "bg-amber-500/8", text: "text-amber-400", bar: "rgba(245,158,11,0.6)", tag: "border-amber-500/25 bg-amber-500/10 text-amber-400/90", tagBorder: "border-amber-500/25" },
+};
+
+const tagColorWheel = [
+  "border-rose-500/25 bg-rose-500/10 text-rose-400/90",
+  "border-cyan-500/25 bg-cyan-500/10 text-cyan-400/90",
+  "border-violet-500/25 bg-violet-500/10 text-violet-400/90",
+  "border-lime-500/25 bg-lime-500/10 text-lime-400/90",
+  "border-pink-500/25 bg-pink-500/10 text-pink-400/90",
+  "border-yellow-500/25 bg-yellow-500/10 text-yellow-400/90",
+];
+
+const metricLabels = ["Completeness", "Execution", "AI Depth", "Product", "Recency"];
+const metricKeys = ["completeness", "executionDepth", "aiDepth", "productSignal", "recencySignal"] as const;
+
+function RadarChart({ systemId }: { systemId: string }) {
+  const signals = useMemo(() => {
+    const active = repositorySignals.find((r) => r.id === systemId);
+    const all = repositorySignals.filter((r) => ["algsoch", "speakai", "careops", "algsoch-news"].includes(r.id));
+    const avg: Record<string, number> = {};
+    for (const key of metricKeys) {
+      avg[key] = all.reduce((s, r) => s + (r[key] as number), 0) / all.length;
+    }
+    return { active, avg };
+  }, [systemId]);
+
+  const color = systemColors[systemId] ?? systemColors.algsoch;
+  const cx = 80, cy = 80, r = 60;
+  const levels = [0.25, 0.5, 0.75, 1];
+  const numAxes = metricKeys.length;
+
+  const angleStep = (Math.PI * 2) / numAxes;
+  const rotOffset = -Math.PI / 2;
+
+  const toPoint = (val: number, i: number) => {
+    const angle = rotOffset + i * angleStep;
+    return { x: cx + r * val * Math.cos(angle), y: cy + r * val * Math.sin(angle) };
+  };
+
+  const gridPolygons = levels.map((lvl) => {
+    const pts = metricKeys.map((_, i) => toPoint(lvl, i));
+    return pts.map((p) => `${p.x},${p.y}`).join(" ");
+  });
+
+  const activePts = signals.active
+    ? metricKeys.map((key, i) => toPoint((signals.active![key] as number), i))
+    : [];
+  const avgPts = metricKeys.map((key, i) => toPoint(signals.avg[key], i));
+
+  return (
+    <svg viewBox="0 0 160 160" className="w-full max-w-[160px] h-auto">
+      {gridPolygons.map((pts, i) => (
+        <polygon key={i} points={pts} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="0.5" />
+      ))}
+      {metricKeys.map((_, i) => {
+        const p = toPoint(1, i);
+        return <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />;
+      })}
+      {avgPts.length > 0 && (
+        <polygon
+          points={avgPts.map((p) => `${p.x},${p.y}`).join(" ")}
+          fill="rgba(255,255,255,0.06)"
+          stroke="rgba(255,255,255,0.2)"
+          strokeWidth="0.8"
+          strokeDasharray="2 2"
+        />
+      )}
+      {activePts.length > 0 && (
+        <polygon
+          points={activePts.map((p) => `${p.x},${p.y}`).join(" ")}
+          fill={color.bar.replace("0.6", "0.15")}
+          stroke={color.bar}
+          strokeWidth="1.2"
+        />
+      )}
+      {metricKeys.map((key, i) => {
+        const p = toPoint(1, i);
+        const label = metricLabels[i].split(" ")[0];
+        const labelR = r + 14;
+        const lp = toPoint(labelR / r, i);
+        return (
+          <text
+            key={key}
+            x={lp.x}
+            y={lp.y}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            className="fill-muted/50 text-[5px] font-mono"
+          >
+            {label}
+          </text>
+        );
+      })}
+      {activePts.map((p, i) => (
+        <circle key={i} cx={p.x} cy={p.y} r="2" fill={color.bar} />
+      ))}
+    </svg>
+  );
+}
 
 export function HeroSignalMap() {
   return (
@@ -191,23 +310,30 @@ export function HeroFeaturedSystems({ embedded = false }: HeroFeaturedSystemsPro
           <div className="grid gap-2 sm:grid-cols-2">
             {productSignals.map((signal) => {
               const active = signal.id === activeSignal.id;
+              const sc = systemColors[signal.id] ?? systemColors.algsoch;
               return (
                 <button
                   key={signal.id}
                   className={cn(
                     "min-w-0 rounded-[18px] border px-3 py-3 text-left transition",
-                    active ? "border-accent/35 bg-accent/10" : "border-line/70 bg-white/4 hover:border-accent/20"
+                    active
+                      ? `${sc.border} ${sc.bg}`
+                      : "border-line/70 bg-white/4 hover:border-accent/20"
                   )}
                   onClick={() => setActiveId(signal.id)}
                 >
-                  <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent/75">{signal.step}</div>
-                  <div className="mt-1 text-sm font-semibold leading-tight text-ink">{signal.title}</div>
-                  <div className="mt-1 text-[12px] leading-5 text-muted">{signal.detail}</div>
+                  <div className={cn("font-mono text-[10px] uppercase tracking-[0.16em]", active ? sc.text : "text-accent/75")}>
+                    {signal.step} · {signal.title}
+                  </div>
+                  <div className="mt-1 text-sm font-semibold leading-tight text-ink">{signal.detail}</div>
                   <div className="mt-2 flex min-w-0 flex-wrap gap-1">
-                    {signal.tags.slice(0, 2).map((tag) => (
+                    {signal.tags.map((tag, ti) => (
                       <span
                         key={`${signal.id}-${tag}`}
-                        className="rounded-full border border-line/70 bg-white/4 px-2 py-1 text-[9px] font-medium uppercase tracking-[0.08em] text-ink/85"
+                        className={cn(
+                          "rounded-full border px-2 py-1 text-[9px] font-medium uppercase tracking-[0.08em]",
+                          active ? tagColorWheel[ti % tagColorWheel.length] : "border-line/70 bg-white/4 text-ink/85"
+                        )}
                       >
                         {tag}
                       </span>
@@ -229,10 +355,10 @@ export function HeroFeaturedSystems({ embedded = false }: HeroFeaturedSystemsPro
                 <div className="mt-2 text-[12px] leading-5 text-ink/85">{activeSignal.proof}</div>
 
                 <div className="mt-2.5 flex min-w-0 flex-wrap gap-1.5">
-                  {activeSignal.tags.map((tag) => (
+                  {activeSignal.tags.map((tag, ti) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-ink/90"
+                      className={`rounded-full border ${tagColorWheel[ti % tagColorWheel.length]} px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em]`}
                     >
                       {tag}
                     </span>
@@ -270,11 +396,134 @@ export function HeroFeaturedSystems({ embedded = false }: HeroFeaturedSystemsPro
                 </div>
               </div>
 
+              <div className="flex items-start gap-4">
+                <div className="flex-1 min-w-0">
+                  <RadarChart systemId={activeSignal.id} />
+                </div>
+                <div className="flex-1 min-w-0 text-[10px] text-muted/70 leading-relaxed pt-1">
+                  <div className="font-mono text-[8px] uppercase tracking-[0.2em] text-muted/50 mb-1.5">Signal profile</div>
+                  {(() => {
+                    const sig = repositorySignals.find((r) => r.id === activeSignal.id);
+                    if (!sig) return null;
+                    return (
+                      <div className="space-y-1">
+                        {([["completeness", "Completeness"], ["executionDepth", "Execution"], ["aiDepth", "AI Depth"], ["productSignal", "Product"], ["recencySignal", "Recency"]] as const).map(([key, label]) => {
+                          const val = sig[key];
+                          const sc = systemColors[activeSignal.id] ?? systemColors.algsoch;
+                          return (
+                            <div key={key} className="flex items-center gap-2">
+                              <span className="w-14 truncate text-muted/60">{label}</span>
+                              <div className="flex-1 h-1.5 rounded-full bg-white/6 overflow-hidden">
+                                <div className="h-full rounded-full" style={{ width: `${val * 100}%`, backgroundColor: sc.bar }} />
+                              </div>
+                              <span className="w-6 text-right font-mono text-[9px] text-muted">{Math.round(val * 100)}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    );
+                  })()}
+                </div>
+              </div>
+
+              {/* stack + layers analysis */}
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="min-w-0">
+                  <div className="font-mono text-[8px] uppercase tracking-[0.2em] text-muted/50 mb-1.5">Tech Stack</div>
+                  <div className="flex flex-wrap gap-1">
+                    {activeSignal.stack.map((s, si) => {
+                      const cat = skillCatMap[s] ?? "Tools";
+                      const ci = ["Languages", "AI / ML", "Frontend", "Backend", "Infrastructure", "Tools"].indexOf(cat);
+                      const tc = tagColorWheel[Math.max(0, ci) % tagColorWheel.length];
+                      return (
+                        <span key={s} className={`rounded-full border ${tc} px-2 py-[1px] text-[8px] font-mono`}>{s}</span>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="min-w-0">
+                  <div className="font-mono text-[8px] uppercase tracking-[0.2em] text-muted/50 mb-1.5">Architecture Layers</div>
+                  <div className="text-[10px] text-muted/80 space-y-0.5">
+                    {activeSignal.layers.map((l) => (
+                      <div key={l} className="flex items-center gap-1.5">
+                        <span className="h-1 w-1 rounded-full bg-accent/50 shrink-0" />
+                        <span>{l}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* deliverables + outcomes */}
+              <div className="grid gap-2 sm:grid-cols-2">
+                <div className="min-w-0">
+                  <div className="font-mono text-[8px] uppercase tracking-[0.2em] text-muted/50 mb-1">Deliverables</div>
+                  <div className="flex flex-wrap gap-1">
+                    {activeSignal.deliverables.map((d) => (
+                      <span key={d} className="rounded-md border border-line/60 bg-white/4 px-1.5 py-0.5 text-[8px] font-mono text-muted/80">{d}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="min-w-0">
+                  <div className="font-mono text-[8px] uppercase tracking-[0.2em] text-muted/50 mb-1">Key Outcome</div>
+                  <div className="text-[10px] text-muted/80 leading-relaxed">{activeSignal.proof}</div>
+                </div>
+              </div>
+
+              {/* deep-dive Q&A pulled from project data */}
+              {(() => {
+                const sys = featuredSystems.find((s) => s.id === activeSignal.id);
+                if (!sys) return null;
+                const qa: { q: string; a: string; icon: string }[] = [
+                  { q: "What problem does this solve?", a: sys.problem, icon: "!" },
+                  { q: "What makes it significant?", a: sys.significance, icon: "★" },
+                  { q: "How does the intelligence work?", a: sys.intelligence, icon: "◈" },
+                  { q: "How is it architected?", a: sys.architecture.join(" "), icon: "⊡" },
+                ];
+                const sig = repositorySignals.find((r) => r.id === activeSignal.id);
+                if (sig) {
+                  qa.push({ q: "Why does this matter?", a: sig.whyItMatters, icon: "▶" });
+                  qa.push({ q: "What are the highlights?", a: (sig.highlights ?? []).join(" · ") || "See repository for details.", icon: "◆" });
+                }
+                const sc = systemColors[activeSignal.id] ?? systemColors.algsoch;
+                return (
+                  <div className="min-w-0">
+                    <div className="font-mono text-[8px] uppercase tracking-[0.2em] text-muted/50 mb-2">Deep Dive Q&A</div>
+                    <div className="grid gap-2">
+                      {qa.map(({ q, a, icon }, i) => {
+                        const tc = tagColorWheel[i % tagColorWheel.length];
+                        return (
+                          <div
+                            key={q}
+                            className="rounded-xl border bg-white/4 overflow-hidden"
+                            style={{ borderColor: sc.bar.replace("0.6", "0.2") }}
+                          >
+                            <div className="flex items-start gap-2 px-2.5 pt-2 pb-1">
+                              <span className={`mt-[1px] flex h-4 w-4 shrink-0 items-center justify-center rounded text-[7px] font-mono font-bold ${tc}`}>
+                                {icon}
+                              </span>
+                              <div className="text-[10px] font-semibold leading-tight" style={{ color: sc.text }}>
+                                {q}
+                              </div>
+                            </div>
+                            <div className="px-2.5 pb-2 pt-0.5">
+                              <div className="text-[9px] text-muted/80 leading-relaxed pl-6 border-l" style={{ borderColor: sc.bar.replace("0.6", "0.15") }}>
+                                {a}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })()}
+
               {videoLink ? (
                 <YouTubePreview
                   url={videoLink}
                   title={activeSignal.title}
-                  note="Preview card. Open the full demo on YouTube."
+                  note="Click to play embedded demo."
                   className="w-full"
                 />
               ) : null}
@@ -283,46 +532,49 @@ export function HeroFeaturedSystems({ embedded = false }: HeroFeaturedSystemsPro
         </div>
       ) : (
         <div className="grid gap-3 xl:grid-cols-2 2xl:grid-cols-4">
-          {productSignals.map((signal) => (
-            <div key={signal.id} className="surface-soft min-w-0 rounded-[20px] border border-line/70 bg-white/4 p-3.5">
-              <div className="grid gap-3 min-w-0">
-                <div className="min-w-0">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent/75">{signal.step}</div>
-                  <div className="mt-1 text-base font-semibold leading-tight text-ink">{signal.title}</div>
-                  <div className="mt-2 text-[13px] leading-5 text-muted">{signal.detail}</div>
+          {productSignals.map((signal) => {
+            const sc = systemColors[signal.id] ?? systemColors.algsoch;
+            return (
+              <div key={signal.id} className="surface-soft min-w-0 rounded-[20px] border border-line/70 bg-white/4 p-3.5">
+                <div className="grid gap-3 min-w-0">
+                  <div className="min-w-0">
+                    <div className={cn("font-mono text-[10px] uppercase tracking-[0.18em]", sc.text)}>{signal.step}</div>
+                    <div className="mt-1 text-base font-semibold leading-tight text-ink">{signal.title}</div>
+                    <div className="mt-2 text-[13px] leading-5 text-muted">{signal.detail}</div>
 
-                  <div className="mt-3 flex min-w-0 flex-wrap gap-1.5">
-                    {signal.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-ink/90"
+                    <div className="mt-3 flex min-w-0 flex-wrap gap-1.5">
+                      {signal.tags.map((tag, ti) => (
+                        <span
+                          key={tag}
+                          className={`rounded-full border ${tagColorWheel[ti % tagColorWheel.length]} px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.12em]`}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex min-w-0 flex-wrap gap-1.5">
+                    <Button href={getSystemRouteHref(signal.id)} size="sm" className="h-8 min-w-0 justify-center px-3 text-[10px]">
+                      <span className="truncate">Case Study</span>
+                    </Button>
+                    {signal.links.map((link) => (
+                      <Button
+                        key={`${signal.id}-${link.label}`}
+                        href={link.href ?? "#"}
+                        variant={link.variant === "primary" ? "primary" : "secondary"}
+                        size="sm"
+                        className="h-8 min-w-0 justify-center px-3 text-[10px]"
+                        aria-label={`${signal.title} ${link.label}`}
                       >
-                        {tag}
-                      </span>
+                        <span className="truncate">{compactActionLabel(link.label)}</span>
+                      </Button>
                     ))}
                   </div>
                 </div>
-
-                <div className="flex min-w-0 flex-wrap gap-1.5">
-                  <Button href={getSystemRouteHref(signal.id)} size="sm" className="h-8 min-w-0 justify-center px-3 text-[10px]">
-                    <span className="truncate">Case Study</span>
-                  </Button>
-                  {signal.links.map((link) => (
-                    <Button
-                      key={`${signal.id}-${link.label}`}
-                      href={link.href ?? "#"}
-                      variant={link.variant === "primary" ? "primary" : "secondary"}
-                      size="sm"
-                      className="h-8 min-w-0 justify-center px-3 text-[10px]"
-                      aria-label={`${signal.title} ${link.label}`}
-                    >
-                      <span className="truncate">{compactActionLabel(link.label)}</span>
-                    </Button>
-                  ))}
-                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>

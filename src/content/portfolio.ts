@@ -316,58 +316,58 @@ export const capabilitySignals: CapabilitySignal[] = [
 
 export const featuredSystems: FeaturedSystem[] = [
   {
-    id: "commandbrain",
-    title: "CommandBrain",
-    shorthand: "RunAnywhere-powered command memory and execution copilot",
+    id: "algsoch",
+    title: "Algsoch",
+    shorthand: "Offline Android study companion with local AI",
     thesis:
-      "A RunAnywhere-powered offline-first browser app that turns natural language into reusable system commands and remembers them locally.",
+      "An Android study companion with 7 learning modes, local chat history, and fully offline RunAnywhere SDK inference.",
     summary:
-      "CommandBrain, published as RunAnywhere CommandBrain, is a React + TypeScript browser app built around local command memory, command generation, refinement, safety classification, and optional real execution through a bridge. The core idea is simple: stop repeating the same prompt and start building a reusable local command system.",
+      "The current Algsoch repo is an Android/Kotlin product built around offline education. It uses SmolLM2 and SmolVLM through RunAnywhere SDK, supports seven learning modes, stores data locally, and is designed as a privacy-first mobile AI app rather than a web landing page concept.",
     problem:
-      "Terminal help is often disposable and repetitive. CommandBrain solves that by storing commands, favorites, macros, reminders, and execution context locally so useful command workflows do not vanish after one chat.",
+      "Most study assistants depend on cloud inference and weak privacy guarantees. Algsoch pushes the opposite direction: on-device inference, zero tracking, local storage, and learning-mode-driven UX.",
     significance:
-      "This project shows practical application of local-first AI concepts and demonstrates ability to build a complete browser-based product with React, TypeScript, and IndexedDB.",
+      "This was my first major project integrating local AI models into a mobile app. Shows Android development skills, on-device AI understanding, and privacy-focused product thinking.",
     intelligence:
-      "Natural-language command generation, safety labeling, refinement loops, memory-backed command reuse, and local-first execution workflows.",
+      "On-device language and vision assistance, mode-based prompt shaping, local chat history, and adaptive study workflows.",
     layers: [
-      "Natural-language command input",
-      "Local command memory in IndexedDB",
-      "Safety classification and preview",
-      "Simulate or real execution bridge"
+      "Jetpack Compose mobile interface",
+      "Seven learning-mode prompt system",
+      "RunAnywhere model management and inference",
+      "Local storage and private study history"
     ],
-    stack: ["React", "TypeScript", "Vite", "IndexedDB", "RunAnywhere Web SDK", "Bridge-based execution"],
+    stack: ["Android", "Kotlin", "Jetpack Compose", "RunAnywhere SDK", "SmolLM2", "SmolVLM"],
     architecture: [
-      "Natural-language input becomes command suggestions with safety classification before execution.",
-      "Commands, favorites, macros, patterns, and reminders are stored locally in the browser database.",
-      "The app supports simulate mode and real execution through a configurable local bridge."
+      "RunAnywhere initializes and manages local model download, caching, and inference on device.",
+      "The app routes user questions through seven learning modes with different instructional behavior.",
+      "All conversations and learning state stay on the device without cloud processing."
     ],
     outcomes: [
-      "First project using RunAnywhere SDK for local-first browser AI.",
-      "Learned React + TypeScript best practices for building AI interfaces.",
-      "Implemented local storage, safety checks, and execution flow."
+      "First Android app with on-device AI integration.",
+      "Learned Kotlin, Jetpack Compose, and model lifecycle management.",
+      "Built a complete privacy-first mobile AI product."
     ],
-    deliverables: ["Browser product", "Local command memory", "Execution control surface", "Bridge-ready runtime"],
+    deliverables: ["Android app", "On-device inference", "Seven-mode learning UX", "Private local-first experience"],
     audienceFit: [
       {
-        title: "For technical reviewers",
-        detail: "Shows clear boundaries between generation, storage, safety review, and execution."
+        title: "For founders",
+        detail: "Best proof that Vicky can shape a full product, not just integrate an API."
       },
       {
         title: "For recruiters",
-        detail: "Strong evidence of React, TypeScript, product design, and applied AI execution in one system."
+        detail: "Strongest overall signal of current engineering maturity, Android execution, and AI product quality."
       },
       {
-        title: "For founders",
-        detail: "Proves Vicky can turn a repeated operator pain point into a real workflow product."
+        title: "For clients",
+        detail: "Shows how privacy, product usability, and AI capability can be designed as one system."
       }
     ],
-    themes: ["AI Systems", "Command Interface", "Agentic"],
-    accent: "from-accent/25 via-accent/10 to-transparent",
-    signals: ["RunAnywhere Web SDK", "Local command memory", "Safety + execution"],
+    themes: ["Full-Stack Products", "Interfaces", "AI Systems"],
+    accent: "from-white/15 via-white/5 to-transparent",
+    signals: ["RunAnywhere SDK", "Android offline AI", "7 learning modes"],
     links: [
-      { label: "Repository", href: "https://github.com/algsoch/smart_terminal", variant: "primary" },
-      { label: "Live Demo", href: "https://smart-terminal.onrender.com/", variant: "secondary" },
-      { label: "YouTube Demo", href: "https://www.youtube.com/shorts/mMPo7_v08pE", variant: "secondary" }
+      { label: "Repository", href: "https://github.com/FiscalMindset/algsoch", variant: "primary" },
+      { label: "APK Releases", href: "https://github.com/FiscalMindset/algsoch/releases", variant: "secondary" },
+      { label: "YouTube Demo", href: "https://www.youtube.com/shorts/T09FWf5gFew", variant: "secondary" }
     ]
   },
   {
@@ -426,58 +426,58 @@ export const featuredSystems: FeaturedSystem[] = [
     ]
   },
   {
-    id: "algsoch",
-    title: "Algsoch",
-    shorthand: "Offline Android study companion with local AI",
+    id: "careops",
+    title: "CareOps",
+    shorthand: "Coral-powered family healthcare coordination agent",
     thesis:
-      "An Android study companion with 7 learning modes, local chat history, and fully offline RunAnywhere SDK inference.",
+      "A family healthcare coordination agent that joins 9 medical data sources through Coral SQL into a single operations view.",
     summary:
-      "The current Algsoch repo is an Android/Kotlin product built around offline education. It uses SmolLM2 and SmolVLM through RunAnywhere SDK, supports seven learning modes, stores data locally, and is designed as a privacy-first mobile AI app rather than a web landing page concept.",
+      "CareOps is a healthcare coordination agent built with Next.js and Coral MCP. It queries 9 medical data sources — patients, medications, lab reports, doctor chats, pharmacy receipts, symptom logs, appointments, prescription OCR, and family notes — through a single Coral-powered interface.",
     problem:
-      "Most study assistants depend on cloud inference and weak privacy guarantees. Algsoch pushes the opposite direction: on-device inference, zero tracking, local storage, and learning-mode-driven UX.",
+      "Family healthcare data is scattered across doctors, labs, pharmacies, and chat logs with no unified view. CareOps solves this by using Coral SQL to cross-reference all sources into a coordinated care timeline.",
     significance:
-      "This was my first major project integrating local AI models into a mobile app. Shows Android development skills, on-device AI understanding, and privacy-focused product thinking.",
+      "Shows practical healthcare AI application with real data-source integration. Demonstrates ability to build multi-source medical coordination products using Coral's semantic SQL layer.",
     intelligence:
-      "On-device language and vision assistance, mode-based prompt shaping, local chat history, and adaptive study workflows.",
+      "Multi-source data JOIN, semantic SQL querying, appointment and medication timeline synthesis, and cross-reference medical intelligence.",
     layers: [
-      "Jetpack Compose mobile interface",
-      "Seven learning-mode prompt system",
-      "RunAnywhere model management and inference",
-      "Local storage and private study history"
+      "Coral SQL multi-source JOIN layer",
+      "Care coordination timeline",
+      "Medication and appointment tracking",
+      "Family member health profile"
     ],
-    stack: ["Android", "Kotlin", "Jetpack Compose", "RunAnywhere SDK", "SmolLM2", "SmolVLM"],
+    stack: ["Next.js", "TypeScript", "Coral MCP", "PostgreSQL", "Tailwind CSS", "Vercel"],
     architecture: [
-      "RunAnywhere initializes and manages local model download, caching, and inference on device.",
-      "The app routes user questions through seven learning modes with different instructional behavior.",
-      "All conversations and learning state stay on the device without cloud processing."
+      "Coral SQL queries 9 data sources simultaneously through a unified semantic schema.",
+      "Results are cross-referenced into per-family-member care timelines.",
+      "Medication, appointment, symptom, and lab data are surfaced through a coordination dashboard."
     ],
     outcomes: [
-      "First Android app with on-device AI integration.",
-      "Learned Kotlin, Jetpack Compose, and model lifecycle management.",
-      "Built a complete privacy-first mobile AI product."
+      "22 passing tests across careops and coral-cli integration.",
+      "Shows production-grade Coral MCP integration with real healthcare workflows.",
+      "Proves multi-source healthcare data coordination is buildable with semantic SQL."
     ],
-    deliverables: ["Android app", "On-device inference", "Seven-mode learning UX", "Private local-first experience"],
+    deliverables: ["Healthcare coordination agent", "9-source data JOIN", "Care timeline UI", "Coral MCP integration"],
     audienceFit: [
       {
         title: "For founders",
-        detail: "Best proof that Vicky can shape a full product, not just integrate an API."
-      },
-      {
-        title: "For recruiters",
-        detail: "Strongest overall signal of current engineering maturity, Android execution, and AI product quality."
+        detail: "Proves Vicky can build serious multi-source data products using Coral's SQL layer."
       },
       {
         title: "For clients",
-        detail: "Shows how privacy, product usability, and AI capability can be designed as one system."
+        detail: "Shows how scattered healthcare data can be unified into a single operations surface."
+      },
+      {
+        title: "For technical reviewers",
+        detail: "Demonstrates deep Coral MCP integration with multiple source JOINs and real test coverage."
       }
     ],
-    themes: ["Full-Stack Products", "Interfaces", "AI Systems"],
-    accent: "from-white/15 via-white/5 to-transparent",
-    signals: ["RunAnywhere SDK", "Android offline AI", "7 learning modes"],
+    themes: ["Healthcare AI", "Data Integration", "Agentic"],
+    accent: "from-teal-400/20 via-accent/5 to-transparent",
+    signals: ["Coral SQL", "9-source JOIN", "Care coordination"],
     links: [
-      { label: "Repository", href: "https://github.com/FiscalMindset/algsoch", variant: "primary" },
-      { label: "APK Releases", href: "https://github.com/FiscalMindset/algsoch/releases", variant: "secondary" },
-      { label: "YouTube Demo", href: "https://www.youtube.com/shorts/T09FWf5gFew", variant: "secondary" }
+      { label: "Repository", href: "https://github.com/FiscalMindset/careops", variant: "primary" },
+      { label: "YouTube Demo", href: "https://www.youtube.com/watch?v=TAOyyIH2_rc", variant: "secondary" },
+      { label: "Blog Post", href: "https://medium.com/@algsoch/how-i-built-careops-agent-with-coral-opencode-338d1238e6ae", variant: "secondary" }
     ]
   },
   {
@@ -707,29 +707,28 @@ export const githubAccounts: GitHubAccount[] = [
 
 export const repositorySignals: RepositorySignal[] = [
   {
-    id: "commandbrain",
-    title: "CommandBrain",
-    account: "algsoch",
-    synopsis: "Command-driven orchestration and execution interface for AI workflows.",
+    id: "careops",
+    title: "CareOps",
+    account: "fiscalmindset",
+    synopsis: "Coral-powered family healthcare coordination agent spanning 9 medical data sources.",
     overview:
-      "An offline-first command memory and execution copilot that converts natural language into commands, stores them locally, and supports simulate or real execution.",
+      "A healthcare coordination agent built with Next.js, TypeScript, and Coral MCP that queries 9 data sources — patients, medications, lab reports, doctor chats, pharmacy receipts, symptom logs, appointments, prescription OCR, and family notes.",
     whyItMatters:
-      "It proves Vicky can build a local-first AI product with command generation, safety review, memory, analytics, and execution workflows instead of a disposable prompt box.",
-    bestFor: ["Agentic systems", "Technical depth", "Execution interfaces"],
-    repoUrl: "https://github.com/algsoch/smart_terminal",
-    demoUrl: "https://smart-terminal.onrender.com/",
+      "It proves Vicky can build multi-source data coordination products with real healthcare integration, 22 passing tests, and production-grade Coral MCP usage.",
+    bestFor: ["Healthcare AI", "Data integration", "Coral MCP", "Multi-source JOIN"],
+    repoUrl: "https://github.com/FiscalMindset/careops",
     highlights: [
-      "Natural language to command generation",
-      "IndexedDB-backed local command memory",
-      "Safety labels, macros, reminders, and execution modes"
+      "9 medical data sources JOINed via Coral SQL",
+      "Family care coordination timeline",
+      "22 passing tests across careops and coral-cli"
     ],
-    themes: ["AI Systems", "Command Interface", "Agentic"],
+    themes: ["Healthcare AI", "Data Integration", "Agentic"],
     featured: true,
-    completeness: 0.92,
-    executionDepth: 0.96,
-    aiDepth: 0.95,
-    productSignal: 0.91,
-    recencySignal: 0.88
+    completeness: 0.85,
+    executionDepth: 0.82,
+    aiDepth: 0.78,
+    productSignal: 0.86,
+    recencySignal: 0.95
   },
   {
     id: "speakai",
