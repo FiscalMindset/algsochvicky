@@ -1,11 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { featuredSystems, repositorySignals } from "../../content/portfolio";
-import { systemDiagrams } from "../../content/system-diagrams";
 import { compactActionLabel, getSystemRouteHref } from "../../lib/utils";
 import { Button } from "../ui/button";
 import { GitHubCommitSurface } from "../ui/github-commit-surface";
-import { MermaidDiagram } from "../ui/mermaid-diagram";
+import { SystemFlowView } from "../ui/system-flow-view";
 import { Surface } from "../ui/surface";
 import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
 import { VectorFieldBg } from "../visuals/vector-field-bg";
@@ -248,12 +247,9 @@ export function SelectedSystemsSection() {
                       </div>
                     </div>
 
-                    {systemDiagrams[activeSystem.id]?.length ? (
+                    {activeSystem.architecture.length ? (
                       <div className="mt-4">
-                        <MermaidDiagram
-                          diagrams={systemDiagrams[activeSystem.id]}
-                          className="w-full"
-                        />
+                        <SystemFlowView steps={activeSystem.architecture} color={sysColors[activeSystem.id]?.bar} />
                       </div>
                     ) : null}
                   </div>

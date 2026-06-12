@@ -13,7 +13,7 @@ import { LLMAgentBg } from "../components/visuals/llm-agent-bg";
 import { LocalRuntimeSection } from "../components/sections/local-runtime-section";
 import { NavShell } from "../components/sections/nav-shell";
 import { PhilosophySection } from "../components/sections/philosophy-section";
-import { PortfolioAgentSection } from "../components/sections/portfolio-agent-section";
+import { ChatWidget } from "../components/ui/chat-widget";
 import { SelectedSystemsSection } from "../components/sections/selected-systems-section";
 import { SkillsSection } from "../components/sections/skills-section";
 
@@ -66,11 +66,11 @@ function PortfolioHome({
         <ArchitectureSection />
         <BuildWithAiSection />
         <LocalRuntimeSection />
-        <PortfolioAgentSection />
         <GitHubIntelligenceSection />
         <PhilosophySection />
         <ContactSection />
       </main>
+      <ChatWidget />
     </div>
   );
 }

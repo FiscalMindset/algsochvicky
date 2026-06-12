@@ -33,6 +33,7 @@ export type FeaturedSystem = {
   architecture: string[];
   outcomes: string[];
   deliverables: string[];
+  layerIds: string[];
   audienceFit: SystemAudienceFit[];
   themes: string[];
   accent: string;
@@ -137,7 +138,7 @@ export const brandProfile = {
   statement:
     "AI engineer who solves problems with code. Building AI-powered products, contributing to open source, and shipping useful tools.",
   supporting:
-    "Focused on browser AI, multi-agent systems, and production-ready applications. 12 PRs merged to Coral MCP."
+    "Focused on browser AI, multi-agent systems, and production-ready applications. 18 PRs (11 merged) to Coral MCP."
 };
 
 export const contactDetails: ContactDetail[] = [
@@ -279,7 +280,6 @@ export const navItems: NavItem[] = [
   { id: "runtime", label: "Local AI" },
   { id: "agent", label: "Ask Vicky" },
   { id: "github", label: "GitHub" },
-  { id: "philosophy", label: "Philosophy" },
   { id: "contact", label: "Contact" }
 ];
 
@@ -347,6 +347,7 @@ export const featuredSystems: FeaturedSystem[] = [
       "Built a complete privacy-first mobile AI product."
     ],
     deliverables: ["Android app", "On-device inference", "Seven-mode learning UX", "Private local-first experience"],
+    layerIds: ["interface", "agent", "intelligence", "execution", "product"],
     audienceFit: [
       {
         title: "For founders",
@@ -402,6 +403,7 @@ export const featuredSystems: FeaturedSystem[] = [
       "Proves browser-based, privacy-respecting voice practice design."
     ],
     deliverables: ["Voice-first interface", "Browser speech workflow", "On-device model activation", "Offline practice UX"],
+    layerIds: ["interface", "intelligence", "execution", "product"],
     audienceFit: [
       {
         title: "For clients",
@@ -457,6 +459,7 @@ export const featuredSystems: FeaturedSystem[] = [
       "Proves multi-source healthcare data coordination is buildable with semantic SQL."
     ],
     deliverables: ["Healthcare coordination agent", "9-source data JOIN", "Care timeline UI", "Coral MCP integration"],
+    layerIds: ["intelligence", "execution", "product"],
     audienceFit: [
       {
         title: "For founders",
@@ -513,6 +516,7 @@ export const featuredSystems: FeaturedSystem[] = [
       "Bridges extraction, editorial shaping, packaging, QA, and rendering in one product."
     ],
     deliverables: ["5-agent workflow", "Screenplay JSON", "Traceable orchestration", "Rendered MP4 output"],
+    layerIds: ["agent", "intelligence", "execution", "product"],
     audienceFit: [
       {
         title: "For technical reviewers",
@@ -961,7 +965,7 @@ export const philosophyStatements = [
   {
     title: "Open source contribution over consumption.",
     detail:
-      "12 merged PRs to Coral MCP. Real code review, documentation, and upstream collaboration. Contributing builds reputation and skills."
+      "18 PRs (11 merged) to Coral MCP. Real code review, documentation, and upstream collaboration across sources, docs, and features."
   },
   {
     title: "Keep shipping.",
@@ -1196,5 +1200,80 @@ export const knowledgeEntries: KnowledgeEntry[] = [
     ],
     tags: ["best project", "strongest github project", "github winner", "algsoch"],
     relatedSystems: ["algsoch"]
+  },
+  {
+    id: "coral-mcp-contributions",
+    title: "Coral MCP open source contributions",
+    type: "github",
+    summary:
+      "Vicky has 18 PRs (11 merged) to Coral MCP, a semantic data-source platform, demonstrating real open source collaboration through code review, documentation, and upstream contributions.",
+    evidence: [
+      "18 pull requests (11 merged) into the Coral MCP codebase.",
+      "Contributions span documentation, testing, and core feature work.",
+      "Demonstrates ability to work with production-grade open source projects under real review processes."
+    ],
+    tags: ["coral", "mcp", "open source", "prs", "contributions"],
+    relatedSystems: ["careops"]
+  },
+  {
+    id: "engineering-approach",
+    title: "Engineering approach and methodology",
+    type: "philosophy",
+    summary:
+      "Vicky follows a workflow-first engineering methodology: build the routing, state, error handling, and UX before plugging in the model layer.",
+    evidence: [
+      "Prioritizes interface quality and workflow design as core engineering concerns.",
+      "Treats local-first and privacy-respecting architectures as default, not exceptions.",
+      "Emphasizes visible state, traceability, and controllable behavior in all systems.",
+      "Shipping mentality: projects that run and are useful beat perfect but incomplete systems."
+    ],
+    tags: ["engineering", "methodology", "workflow", "architecture", "philosophy"],
+    relatedSystems: ["commandbrain", "algsoch", "speakai", "algsoch-news"]
+  },
+  {
+    id: "fullstack-capability",
+    title: "Full-stack engineering capability",
+    type: "profile",
+    summary:
+      "Vicky works across the full stack: Android/Kotlin apps, React/TypeScript web frontends, Python/FastAPI backends, ML pipelines, and browser-runtime AI integration.",
+    evidence: [
+      "Built a complete Android app (Algsoch) with Kotlin, Jetpack Compose, and on-device AI.",
+      "Built multiple React/TypeScript web apps with voice, chat, and agentic interfaces.",
+      "Built Python/FastAPI backends for ML inference, agent orchestration, and API delivery.",
+      "Integrated browser-runtime AI through RunAnywhere SDK, Web Speech API, and WebAssembly."
+    ],
+    tags: ["full-stack", "android", "react", "python", "typescript", "kotlin"],
+    relatedSystems: ["algsoch", "speakai", "algsoch-news", "commandbrain"]
+  },
+  {
+    id: "ai-product-thinking",
+    title: "AI product thinking and delivery",
+    type: "philosophy",
+    summary:
+      "Vicky builds AI products for real use, not demo value. Systems are designed to ship, scale, and be understood by actual users with clear workflows and trust signals.",
+    evidence: [
+      "Algsoch delivers offline AI education with 7 learning modes — a complete product, not a feature demo.",
+      "SpeakAI offers voice practice with local inference and browser speech — focused use case, not generic assistant.",
+      "Algsoch News transforms articles to video through a visible multi-agent pipeline — full workflow, not hidden LLM call.",
+      "Every system has a clear problem statement, audience fit, and delivery artifacts."
+    ],
+    tags: ["product thinking", "delivery", "ai product", "usability", "product engineering"],
+    relatedSystems: ["algsoch", "speakai", "algsoch-news", "careops"]
+  },
+  {
+    id: "personal-background",
+    title: "Personal background and experience",
+    type: "profile",
+    summary:
+      "Vicky Kumar is an AI engineer who combines software engineering depth with product thinking. He has built multiple shipped AI products across mobile, web, and ML domains.",
+    evidence: [
+      "Self-directed engineering career building production AI products from concept to delivery.",
+      "Dual GitHub presence: fiscalmindset (current flagship) and algsoch (107 repos of historical engineering depth).",
+      "Works across the full AI stack: mobile apps, web frontends, backend APIs, ML pipelines, and local runtime integration.",
+      "Open source contributor with 18 PRs (11 merged) to Coral MCP.",
+      "Shipping philosophy: 'Done and working beats perfect and incomplete.'"
+    ],
+    tags: ["background", "experience", "ai engineer", "self-directed", "full-stack"],
+    relatedSystems: ["algsoch", "commandbrain", "speakai", "careops"]
   }
 ];
