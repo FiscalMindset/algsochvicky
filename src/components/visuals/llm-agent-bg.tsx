@@ -34,7 +34,7 @@ const promptExamples = [
 
 type Phase = "training" | "deploying" | "running";
 
-export function LLMAgentBg() {
+export function LLMAgentBg({ embedded }: { embedded?: boolean }) {
   const [phase, setPhase] = useState<Phase>("training");
   const [lossVal, setLossVal] = useState(2.4);
   const [epoch, setEpoch] = useState(0);
@@ -92,7 +92,7 @@ export function LLMAgentBg() {
   }, [phase, promptIdx]);
 
   return (
-    <div className="pointer-events-none fixed inset-0 overflow-hidden opacity-[0.4] select-none">
+    <div className={`pointer-events-none ${embedded ? "absolute" : "fixed"} inset-0 overflow-hidden opacity-[0.4] select-none`}>
       {/* top-left: phase indicator */}
       <div className="absolute left-6 top-6 font-mono">
         <div className="flex items-center gap-2 mb-3">

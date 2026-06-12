@@ -40,7 +40,7 @@ function groqDevProxyPlugin(env: Record<string, string>): Plugin {
         try {
           const rawBody = await readRequestBody(req);
           const incoming = rawBody ? JSON.parse(rawBody) : {};
-          const response = await fetch("https://api.groq.com/openai/v1/responses", {
+          const groqRes = await fetch("https://api.groq.com/openai/v1/responses", {
             method: "POST",
             headers: {
               Authorization: `Bearer ${env.GROQ_API_KEY}`,
@@ -51,14 +51,26 @@ function groqDevProxyPlugin(env: Record<string, string>): Plugin {
               input: incoming.input,
               instructions: incoming.instructions,
               temperature: incoming.temperature,
-              max_output_tokens: incoming.max_output_tokens
+              max_output_tokens: incoming.max_output_tokens,
+              stream: incoming.stream ?? false
             })
           });
 
-          const bodyText = await response.text();
-          res.statusCode = response.status;
-          res.setHeader("Content-Type", response.headers.get("content-type") ?? "application/json");
-          res.end(bodyText);
+          res.statusCode = groqRes.status;
+          groqRes.headers.forEach((value, key) => res.setHeader(key, value));
+          if (groqRes.body) {
+            const reader = groqRes.body.getReader();
+            const pump = async () => {
+              while (true) {
+                const { done, value } = await reader.read();
+                if (done) { res.end(); break; }
+                res.write(value);
+              }
+            };
+            pump();
+          } else {
+            res.end();
+          }
         } catch (error) {
           res.statusCode = 500;
           res.setHeader("Content-Type", "application/json");

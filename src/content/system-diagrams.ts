@@ -3,6 +3,38 @@ export type SystemDiagram = {
   definition: string;
 };
 
+export const layerColors: Record<string, { border: string; bg: string; text: string; bar: string; label: string }> = {
+  interface:    { border: "border-blue-500/30", bg: "bg-blue-500/10", text: "text-blue-400", bar: "rgba(59,130,246,0.6)", label: "border-blue-500/20 bg-blue-500/8 text-blue-400/90" },
+  agent:        { border: "border-violet-500/30", bg: "bg-violet-500/10", text: "text-violet-400", bar: "rgba(139,92,246,0.6)", label: "border-violet-500/20 bg-violet-500/8 text-violet-400/90" },
+  intelligence: { border: "border-cyan-500/30", bg: "bg-cyan-500/10", text: "text-cyan-400", bar: "rgba(6,182,212,0.6)", label: "border-cyan-500/20 bg-cyan-500/8 text-cyan-400/90" },
+  execution:    { border: "border-orange-500/30", bg: "bg-orange-500/10", text: "text-orange-400", bar: "rgba(249,115,22,0.6)", label: "border-orange-500/20 bg-orange-500/8 text-orange-400/90" },
+  product:      { border: "border-emerald-500/30", bg: "bg-emerald-500/10", text: "text-emerald-400", bar: "rgba(16,185,129,0.6)", label: "border-emerald-500/20 bg-emerald-500/8 text-emerald-400/90" },
+};
+
+export const architectureDiagram: SystemDiagram[] = [
+  {
+    title: "Architecture Stack",
+    definition: `flowchart TB
+    IF["Interface Layer</br>Chat Surfaces · Voice Controls · Operator Dashboards · Command Inputs"]
+
+    A["Agent Layer</br>Intent Routing · Planner Logic · Mode-aware Behavior · Action Boundaries"]
+
+    I["Intelligence Layer</br>Knowledge Retrieval · Context Ranking · Structured Output · Response Composition"]
+
+    E["Execution Layer</br>Local Model Runtime · Tool Invocation · Download Lifecycle · Progress Feedback"]
+
+    P["Product Layer</br>Experience Design · Trust Signals · Content Architecture · Operational Polish"]
+
+    IF --> A --> I --> E --> P
+
+    style IF fill:#1e3a5f,stroke:#3b82f6,color:#e2e8f0
+    style A fill:#2e1a4f,stroke:#8b5cf6,color:#e2e8f0
+    style I fill:#0f3b4a,stroke:#06b6d4,color:#e2e8f0
+    style E fill:#3b1f0f,stroke:#f97316,color:#e2e8f0
+    style P fill:#0f3b2a,stroke:#10b981,color:#e2e8f0`,
+  },
+];
+
 export const systemDiagrams: Record<string, SystemDiagram[]> = {
   algsoch: [
     {

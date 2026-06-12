@@ -28,19 +28,30 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch("https://api.groq.com/openai/v1/responses", {
+    const groqRes = await fetch("https://api.groq.com/openai/v1/responses", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(normalizePayload(req.body))
+      body: JSON.stringify({
+        ...normalizePayload(req.body),
+        stream: req.body?.stream ?? false
+      })
     });
 
-    const bodyText = await response.text();
-    res.status(response.status);
-    res.setHeader("Content-Type", response.headers.get("content-type") ?? "application/json");
-    res.send(bodyText);
+    res.status(groqRes.status);
+    groqRes.headers.forEach((value, key) => res.setHeader(key, value));
+    if (groqRes.body) {
+      const reader = groqRes.body.getReader();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) { res.end(); break; }
+        res.write(value);
+      }
+    } else {
+      res.end();
+    }
   } catch (error) {
     res.status(500).json({
       error: {

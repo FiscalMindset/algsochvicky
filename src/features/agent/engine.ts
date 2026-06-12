@@ -18,11 +18,11 @@ import { generateWithGroq } from "./groq-provider";
 import type { AgentInferenceMode, AgentIntent, AgentMode, AgentRequest, AgentResponse } from "./types";
 
 const modeKeywords: Record<AgentIntent, string[]> = {
-  recruiter: ["hire", "role", "candidate", "engineer", "team", "fit", "experience"],
-  client: ["client", "build", "product", "startup", "company", "deliver", "engagement"],
-  technical: ["architecture", "stack", "system", "agent", "runtime", "compare", "implementation"],
-  project: ["project", "commandbrain", "speakai", "algsoch", "news", "portfolio"],
-  capability: ["ai", "agentic", "voice", "chat", "on-device", "workflow", "local", "multimodal"]
+  recruiter: ["hire", "role", "candidate", "engineer", "team", "fit", "experience", "resume", "job", "background", "work", "skill", "strength", "hiring", "interview", "recruiter", "employment"],
+  client: ["client", "build", "product", "startup", "company", "deliver", "engagement", "commission", "freelance", "consult", "contract", "agency", "outsource", "need", "solution"],
+  technical: ["architecture", "stack", "system", "agent", "runtime", "compare", "implementation", "design", "pattern", "pipeline", "deploy", "integration", "layer", "backend", "frontend", "database", "api", "infrastructure", "performance"],
+  project: ["project", "commandbrain", "speakai", "algsoch", "news", "portfolio", "careops", "github", "repository", "repo", "code", "case study", "demo", "showcase", "build"],
+  capability: ["ai", "agentic", "voice", "chat", "on-device", "workflow", "local", "multimodal", "llm", "machine learning", "deep learning", "nlp", "inference", "automation", "intelligence", "capability"]
 };
 
 const modeLabels: Record<AgentIntent, string> = {
@@ -50,28 +50,34 @@ function detectIntent(query: string, requestedMode: AgentMode): AgentIntent {
 
 function retrieveEvidence(query: string) {
   const queryTokens = tokenize(query);
+  const queryLower = query.toLowerCase();
 
   const scored = knowledgeEntries
     .map((entry) => {
-      const score =
-        entry.tags.reduce((total, tag) => total + (queryTokens.some((token) => tag.includes(token)) ? 2 : 0), 0) +
-        entry.relatedSystems.reduce(
-          (total, systemId) => total + (queryTokens.some((token) => systemId.includes(token)) ? 3 : 0),
-          0
-        ) +
-        queryTokens.reduce(
-          (total, token) =>
-            total +
-            (entry.summary.toLowerCase().includes(token) ? 1 : 0) +
-            entry.evidence.reduce((sum, point) => sum + (point.toLowerCase().includes(token) ? 1 : 0), 0),
-          0
-        );
+      const entryText = [entry.title, entry.summary, ...entry.evidence, ...entry.tags, ...entry.relatedSystems]
+        .join(" ")
+        .toLowerCase();
+
+      const exactMatch = queryTokens.filter((t) => entryText.includes(t)).length;
+      const tagMatch = entry.tags.filter((t) => queryTokens.some((qt) => t.includes(qt) || qt.includes(t))).length * 2;
+      const systemMatch = entry.relatedSystems.filter((s) => queryTokens.some((qt) => s.includes(qt) || qt.includes(s))).length * 3;
+      const bigramMatch = queryTokens.reduce((sum, t, i) => {
+        if (i === 0) return sum;
+        const bigram = queryTokens[i - 1] + " " + t;
+        return sum + (entryText.includes(bigram) ? 5 : 0);
+      }, 0);
+
+      const score = exactMatch + tagMatch + systemMatch + bigramMatch;
 
       return { entry, score };
     })
     .sort((left, right) => right.score - left.score);
 
-  return scored.filter((item) => item.score > 0).slice(0, 4).map((item) => item.entry);
+  const top = scored.filter((item) => item.score > 0);
+  if (top.length < 2) {
+    return scored.slice(0, 3).map((item) => item.entry);
+  }
+  return top.slice(0, 4).map((item) => item.entry);
 }
 
 function inferSystems(query: string, evidenceIds: string[]) {
@@ -147,39 +153,84 @@ function buildReasoning(mode: AgentIntent, systems: string[]) {
   }
 }
 
-function buildFollowUps(mode: AgentIntent, systems: string[]) {
+function simpleHash(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+}
+
+function pick<T>(arr: T[], seed: number, count: number): T[] {
+  const result: T[] = [];
+  const copy = [...arr];
+  for (let i = 0; i < Math.min(count, copy.length); i++) {
+    const idx = (seed + i * 7) % copy.length;
+    result.push(copy.splice(idx, 1)[0]);
+  }
+  return result;
+}
+
+function buildFollowUps(mode: AgentIntent, systems: string[], query: string) {
+  const seed = simpleHash(query);
+
   const base =
     systems[0] && systems[1]
-      ? [`Compare ${systems[0]} and ${systems[1]} in more detail.`]
+      ? seed % 2 === 0
+        ? [`Compare ${systems[0]} and ${systems[1]} in more detail.`]
+        : [`How does ${systems[0]} compare to ${systems[1]}?`]
       : systems[0]
-        ? [`Go deeper on how ${systems[0]} was architected.`]
+        ? seed % 2 === 0
+          ? [`Go deeper on how ${systems[0]} was architected.`]
+          : [`What tech stack does ${systems[0]} use?`]
         : [];
 
   const modePrompts: Record<AgentIntent, string[]> = {
     recruiter: [
       "Which project is the strongest hiring signal for an AI engineer role?",
-      "How does Vicky balance engineering depth with product thinking?"
+      "How does Vicky balance engineering depth with product thinking?",
+      "What makes his Coral MCP contributions stand out?",
+      "What is his technical background and experience level?",
+      "Which project shows the best engineering depth?",
+      "What is Vicky's strongest skill as an engineer?"
     ],
     client: [
       "If I need an AI-native product, where would Vicky start?",
-      "Which system best proves he can build something client-facing and real?"
+      "Which system best proves he can build something client-facing and real?",
+      "Has he built anything like my use case before?",
+      "What is his delivery process for new projects?",
+      "Can he handle end-to-end product development?",
+      "How does he approach building for real users?"
     ],
     technical: [
       "How does he separate interface, agent, and execution layers?",
-      "What shows runtime integration or local inference capability most clearly?"
+      "What shows runtime integration or local inference capability most clearly?",
+      "How does he handle multi-agent orchestration versus single LLM calls?",
+      "What are the key architectural patterns across his systems?",
+      "How does he think about state and traceability?",
+      "What distinguishes his architecture approach?"
     ],
     project: [
       "What is Vicky Kumar's best project across both GitHub accounts, and why?",
       "Which project best represents his flagship product thinking?",
-      "What makes CommandBrain different from a normal AI assistant?"
+      "What makes CommandBrain different from a normal AI assistant?",
+      "Tell me about CareOps and how it uses Coral SQL.",
+      "How does Algsoch News pipeline work from article to video?",
+      "Why is Algsoch considered the flagship project?"
     ],
     capability: [
       "How does Vicky turn AI into usable systems rather than demos?",
-      "Which work best demonstrates on-device or runtime-aware AI thinking?"
+      "Which work best demonstrates on-device or runtime-aware AI thinking?",
+      "What is his experience with ML beyond LLMs?",
+      "Can he build voice or multimodal AI products?",
+      "What AI capabilities does he have beyond chatbots?",
+      "Does he have experience with on-device inference?"
     ]
   };
 
-  return [...base, ...modePrompts[mode]].slice(0, 3);
+  const modeList = modePrompts[mode];
+  const picked = pick(modeList, seed, 3 - base.length);
+  return [...base, ...picked].slice(0, 3);
 }
 
 function buildRepositoryBlock(query: string) {
@@ -254,16 +305,20 @@ function composeComparisonAnswer(signals: PortfolioSignal[]) {
     `${left.title} is stronger for ${left.bestFor.slice(0, 2).join(" and ") || "product execution"}, while ${right.title} is stronger for ${right.bestFor.slice(0, 2).join(" and ") || "workflow depth"}.`,
     "",
     "## Architectural Difference",
-    `- ${left.title}: ${left.architecture[0] ?? left.intelligence}`,
-    `- ${right.title}: ${right.architecture[0] ?? right.intelligence}`,
+    `- **${left.title}**: ${left.architecture[0] ?? left.intelligence}`,
+    `- **${right.title}**: ${right.architecture[0] ?? right.intelligence}`,
     "",
     "## Why Each Matters",
-    `- ${left.title}: ${left.whyItMatters}`,
-    `- ${right.title}: ${right.whyItMatters}`,
+    `- **${left.title}**: ${left.whyItMatters}`,
+    `- **${right.title}**: ${right.whyItMatters}`,
     "",
-    "## Best Use",
-    `- Choose ${left.title} when you want ${left.problem.toLowerCase()}.`,
-    `- Choose ${right.title} when you want ${right.problem.toLowerCase()}.`
+    "## Best Use Case",
+    `- Choose **${left.title}** when you want ${left.problem.toLowerCase()}.`,
+    `- Choose **${right.title}** when you want ${right.problem.toLowerCase()}.`,
+    "",
+    "## Technical Signal",
+    `- **${left.title}** (${left.account}): ${left.summary}`,
+    `- **${right.title}** (${right.account}): ${right.summary}`
   ].join("\n");
 }
 
@@ -285,6 +340,13 @@ function composeProjectBrief(signal: PortfolioSignal) {
   ].join("\n");
 }
 
+function formatSignalList(signals: (PortfolioSignal | null)[]): string {
+  return signals.filter(Boolean).map((s, i) => {
+    const signal = s!;
+    return `${i + 1}. **${signal.title}** (@${signal.account}) — ${signal.summary}`;
+  }).join("\n");
+}
+
 function composeRuleBasedAnswer(query: string, mode: AgentIntent, signals: PortfolioSignal[], evidenceTitles: string[]) {
   const lead = signals[0] ?? resolvePortfolioSignal("algsoch") ?? resolvePortfolioSignal("commandbrain");
   const secondary = signals[1];
@@ -302,16 +364,18 @@ function composeRuleBasedAnswer(query: string, mode: AgentIntent, signals: Portf
     case "recruiter":
       return [
         "## Hiring Read",
-        `${brandProfile.name} is strongest for roles that sit between software engineering, applied AI, and product execution.`,
+        `${brandProfile.name} is strongest for roles that sit between software engineering, applied AI, and product execution. 107+ public repos across two GitHub accounts (${githubAccounts.map((a) => "@" + a.handle).join(", ")}) with a clear flagship focus on Algsoch.`,
         "",
         "## Best Proof",
-        `- ${lead?.title ?? "Algsoch"}: ${lead?.whyItMatters ?? ""}`,
-        secondary ? `- ${secondary.title}: ${secondary.whyItMatters}` : "",
-        "- The portfolio consistently shows interfaces, runtime logic, and workflow design working together rather than separately.",
+        ...(signals.length > 0 ? [formatSignalList(signals.slice(0, 3))] : []),
+        "- **Coral MCP**: 16+ merged PRs showing real open-source collaboration under code review.",
+        "- **Full-stack range**: Android (Kotlin), Web (React/TypeScript), Backend (Python/FastAPI), ML pipelines.",
+        "- Portfolio consistently shows interfaces, runtime logic, and workflow design working together.",
         "",
         "## Why That Matters",
-        "- This reads like someone who can ship AI-native product work end to end, not someone limited to prompt experiments.",
-        "- The strongest signal is product maturity under technical constraint.",
+        "- Ships AI-native product work end to end — not limited to prompt experiments.",
+        "- Strongest signal is product maturity under technical constraint.",
+        "- Works across mobile, web, voice, and ML domains — not siloed in one stack.",
         evidenceLine
       ]
         .filter(Boolean)
@@ -322,12 +386,15 @@ function composeRuleBasedAnswer(query: string, mode: AgentIntent, signals: Portf
         `${brandProfile.name} is a stronger fit when the problem is bigger than adding a chatbot and needs workflow design, interface clarity, and a reliable intelligence layer.`,
         "",
         "## Best Proof",
-        `- ${lead?.title ?? "Algsoch"}: ${lead?.problem ?? ""}`,
-        secondary ? `- ${secondary.title}: ${secondary.problem}` : "",
+        ...(signals.length > 0 ? [formatSignalList(signals.slice(0, 3))] : []),
+        "- **CareOps**: Healthcare coordination across 9 data sources — real multi-source integration.",
+        "- **SpeakAI**: Voice product with local inference — focused use case, not generic assistant.",
+        "- **Algsoch News**: Full media pipeline from article URL to rendered video.",
         "",
-        "## Why That Matters",
-        "- The work shows delivery thinking, not just model integration.",
-        "- Product surfaces are treated as part of the engineering job.",
+        "## Delivery Approach",
+        "- Works in iterative, visible stages — workflow design before model integration.",
+        "- Products are designed to ship: each project has working demos, APKs, or deployed URLs.",
+        "- Treats product surfaces as part of the engineering job, not an afterthought.",
         evidenceLine
       ]
         .filter(Boolean)
@@ -335,15 +402,18 @@ function composeRuleBasedAnswer(query: string, mode: AgentIntent, signals: Portf
     case "technical":
       return [
         "## Technical Read",
-        `${brandProfile.name} approaches AI systems as layered software: interface, routing, intelligence, and execution each have a clear job.`,
+        `${brandProfile.name} approaches AI systems as layered software: interface → agent → intelligence → execution → product. Each layer has a distinct job with clear boundaries.`,
         "",
         "## Strongest Technical Proof",
-        `- ${lead?.title ?? "CommandBrain"}: ${lead?.architecture[0] ?? lead?.intelligence ?? ""}`,
-        secondary ? `- ${secondary.title}: ${secondary.architecture[0] ?? secondary.intelligence}` : "",
+        ...(signals.length > 0 ? [formatSignalList(signals.slice(0, 3))] : []),
+        "- **Algsoch News**: Five-agent pipeline with visible orchestration, retry routing, and structured output.",
+        "- **CareOps**: 9-source Coral SQL JOIN with 22 passing tests.",
+        "- **RunAnywhere SDK**: On-device inference across Android and WebAssembly runtimes.",
         "",
-        "## What Stands Out",
-        "- The systems are designed for visible state, traceability, and controllable behavior.",
-        "- Runtime constraints and product usability are handled as part of the architecture.",
+        "## Architecture Pattern",
+        "- Systems separate interface, routing, intelligence, and execution into distinct concerns.",
+        "- Runtime-aware design: local inference, model caching, download lifecycle, and progressive activation.",
+        "- Visible state and traceability built in — not bolted on after the fact.",
         evidenceLine
       ]
         .filter(Boolean)
@@ -355,13 +425,21 @@ function composeRuleBasedAnswer(query: string, mode: AgentIntent, signals: Portf
         "## Capability Read",
         `${brandProfile.name} looks strongest in applied AI product engineering: full-stack delivery, voice and chat interfaces, local runtime thinking, and agentic workflow design.`,
         "",
+        "## AI Capabilities",
+        `- **On-Device AI**: RunAnywhere SDK on Android (SmolLM2, SmolVLM) and browser (llama.cpp WASM).`,
+        `- **Voice Systems**: Browser speech + local inference in SpeakAI with offline practice workflow.`,
+        `- **Agent Workflows**: Multi-agent pipelines (Algsoch News) with visible orchestration and retry routing.`,
+        `- **Chat Systems**: Grounded conversational products with evidence-backed responses (this portfolio agent).`,
+        `- **ML Systems**: CNN pipelines (brain tumor), XGBoost with SHAP (disease detection), feature engineering.`,
+        `- **Full-Stack AI**: Android, React, FastAPI — full delivery surface, not just model integration.`,
+        "",
         "## Best Proof",
-        `- ${lead?.title ?? "Algsoch"}: ${lead?.whyItMatters ?? ""}`,
-        secondary ? `- ${secondary.title}: ${secondary.whyItMatters}` : "",
+        ...(signals.length > 0 ? [formatSignalList(signals.slice(0, 3))] : []),
         "",
         "## What That Suggests",
-        "- He can turn AI capability into usable systems rather than isolated demos.",
-        "- He thinks in workflows, state, interfaces, and runtime behavior together.",
+        "- Turns AI capability into usable systems rather than isolated demos.",
+        "- Thinks in workflows, state, interfaces, and runtime behavior together.",
+        "- Has breadth across mobile AI, voice AI, agent pipelines, and traditional ML.",
         evidenceLine
       ]
         .filter(Boolean)
@@ -450,7 +528,7 @@ function buildGroundedPrompt(query: string, mode: AgentIntent, systems: string[]
         ];
 
   return [
-    `You are Ask Vicky, a portfolio briefing assistant for ${brandProfile.name}.`,
+    `You are Ask Vicky, a portfolio briefing assistant for ${brandProfile.name}. You write concise, substantive portfolio briefings.`,
     "Answer only from the provided evidence. If information is missing, say that directly.",
     `Audience mode: ${modeLabels[mode]}.`,
     `Focus systems: ${systemList}.`,
@@ -471,12 +549,35 @@ function buildGroundedPrompt(query: string, mode: AgentIntent, systems: string[]
     evidenceBlock,
     "",
     "Response requirements:",
-    "- Use a calm, precise, high-trust tone.",
+    "- Lead with a direct answer to the question in the first sentence.",
     "- Prioritize engineering depth, product maturity, and applied AI capability.",
+    "- Use specific project names and technical details from the evidence.",
+    "- Structure with markdown sections (## headings) and bullet lists.",
+    "- Keep responses thorough but concise — 3-6 paragraphs typically.",
     "- Do not invent facts beyond the provided evidence."
   ]
     .concat(formattingInstructions)
     .join("\n");
+}
+
+function buildLocalPrompt(query: string, mode: AgentIntent, systems: string[], evidence: ReturnType<typeof retrieveEvidence>) {
+  const evidenceBlock = evidence
+    .map((entry) => `${entry.title}: ${entry.summary}`)
+    .join("\n");
+
+  const systemHint = systems.length ? `Mention these projects: ${systems.join(", ")}.` : "";
+
+  return [
+    `Answer briefly in 2-3 paragraphs. Use ## headings.`,
+    `Mode: ${modeLabels[mode]}.`,
+    systemHint,
+    `Question: ${query}`,
+    ``,
+    `Evidence:`,
+    evidenceBlock,
+    ``,
+    `Answer (2-3 paragraphs, ## headings):`
+  ].filter(Boolean).join("\n");
 }
 
 function resolveInferenceOrder(inferenceMode: AgentInferenceMode, hasRuntime: boolean) {
@@ -507,7 +608,7 @@ export async function answerPortfolioQuestion({
   const fallbackEvidence = evidence.length ? evidence : knowledgeEntries.slice(0, 3);
   const systems = inferSystems(query, fallbackEvidence.map((entry) => entry.id));
   const reasoning = buildReasoning(detectedMode, systems);
-  const followUps = buildFollowUps(detectedMode, systems);
+  const followUps = buildFollowUps(detectedMode, systems, query);
   const recommendedSystems = systems.length ? systems : featuredSystems.slice(0, 3).map((system) => system.title);
 
   const fallbackAnswer = composeFallbackAnswer(
@@ -546,19 +647,19 @@ export async function answerPortfolioQuestion({
         const result = await generateWithGroq(
           groundedPrompt,
           {
-            maxTokens: 320,
-            temperature: 0.3
-          },
-          (next) => onToken?.(next)
-        );
+          maxTokens: 512,
+          temperature: 0.4
+        },
+        (next) => onToken?.(next)
+      );
 
-        return {
-          mode: detectedMode,
-          modeLabel: modeLabels[detectedMode],
-          answer: result.text,
-          usedLocalModel: false,
-          provider: "groq",
-          providerLabel: "Groq Test Path",
+      return {
+        mode: detectedMode,
+        modeLabel: modeLabels[detectedMode],
+        answer: result.text,
+        usedLocalModel: false,
+        provider: "groq",
+        providerLabel: "Groq",
           providerModel: result.model,
           recommendedSystems,
           evidence: fallbackEvidence.map((entry) => ({ title: entry.title, summary: entry.summary })),
@@ -575,11 +676,12 @@ export async function answerPortfolioQuestion({
 
     if (provider === "local" && runtime) {
       try {
+        const localPrompt = buildLocalPrompt(query, detectedMode, recommendedSystems, fallbackEvidence);
         const result = await runtime.generate(
-          groundedPrompt,
+          localPrompt,
           {
-            maxTokens: 260,
-            temperature: 0.3
+          maxTokens: 300,
+          temperature: 0.3
           },
           (next) => onToken?.(next)
         );

@@ -71,15 +71,27 @@ createServer(async (request, response) => {
         input: payload.input,
         instructions: payload.instructions,
         temperature: payload.temperature,
-        max_output_tokens: payload.max_output_tokens
+        max_output_tokens: payload.max_output_tokens,
+        stream: payload.stream ?? false
       })
     });
 
-    const text = await upstream.text();
     setCorsHeaders(response);
     response.statusCode = upstream.status;
-    response.setHeader("Content-Type", upstream.headers.get("content-type") || "application/json");
-    response.end(text);
+    upstream.headers.forEach((value, key) => response.setHeader(key, value));
+    if (upstream.body) {
+      const reader = upstream.body.getReader();
+      const pump = async () => {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) { response.end(); break; }
+          response.write(value);
+        }
+      };
+      pump();
+    } else {
+      response.end();
+    }
   } catch (error) {
     sendJson(response, 500, {
       error: {

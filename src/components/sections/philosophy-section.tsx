@@ -4,7 +4,7 @@ import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
 
 export function PhilosophySection() {
   return (
-    <section id="philosophy" className="section-space">
+    <section id="philosophy" className="section-space hidden">
       <div className="section-frame">
         <div className="rounded-xl border border-orange-500/50 bg-black/10 p-5 sm:rounded-2xl sm:border-2 sm:p-6 lg:rounded-3xl lg:p-10">
         <SectionHeading
