@@ -1,9 +1,17 @@
-import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles, Mail, Github, Linkedin, FileText } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Sparkles, Mail, Github, Linkedin, FileText, ChevronDown, ExternalLink } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { brandProfile, contactDetails, repositorySignals } from "../../content/portfolio";
-import { Button } from "../ui/button";
 import { FiscalMindsetBadge } from "../ui/fiscalmindset-badge";
+import { cn } from "../../lib/utils";
+
+const POST_COLORS = {
+  violet: { border: "border-violet-500/25", bg: "bg-violet-500/8", hoverBg: "hover:bg-violet-500/12", text: "text-violet-400", dot: "bg-violet-500" },
+  cyan: { border: "border-cyan-500/25", bg: "bg-cyan-500/8", hoverBg: "hover:bg-cyan-500/12", text: "text-cyan-400", dot: "bg-cyan-500" },
+  emerald: { border: "border-emerald-500/25", bg: "bg-emerald-500/8", hoverBg: "hover:bg-emerald-500/12", text: "text-emerald-400", dot: "bg-emerald-500" },
+  amber: { border: "border-amber-500/25", bg: "bg-amber-500/8", hoverBg: "hover:bg-amber-500/12", text: "text-amber-400", dot: "bg-amber-500" },
+  blue: { border: "border-blue-500/25", bg: "bg-blue-500/8", hoverBg: "hover:bg-blue-500/12", text: "text-blue-400", dot: "bg-blue-500" },
+} as const;
 
 const SIGNAL_CONFIG = [
   { label: "Completeness", key: "completeness" as const, color: "#10b981" },
@@ -234,78 +242,439 @@ function AgentBackground() {
   );
 }
 
+const LINKEDIN_POSTS = [
+  { text: "DevAlert: AI-Powered Dev Opportunity Aggregator built with Kestra workflows — 26+ flows across 5 namespaces, parallel multi-source ingestion, LLM-based ranking, Telegram + Gmail notifications, and AI research workflows using Groq + Llama 3.3 70B.", url: "https://www.linkedin.com/posts/algsoch_kestraacademy-kestra-kestraacademy-activity-7459526665598136320-NdX2", date: "May 11, 2026", color: "violet", tag: "Project" },
+  { text: "Kestra Academy — workflow orchestration fundamentals, flow design, triggers, execution lifecycle, state management, and building production-like workflows locally with Docker. Shifted from writing scripts to designing workflows.", url: "https://www.linkedin.com/posts/algsoch_kestra-kestraacademy-workfloworchestration-activity-7460280651146006530-I-Kj", date: "May 13, 2026", color: "cyan", tag: "Learning" },
+];
+
+function ImpactHeatmap({ signals }: { signals: { label: string; value: number; color: string; key: string }[] }) {
+  const repos = useMemo(() => [...repositorySignals].sort((a, b) => b.recencySignal - a.recencySignal).slice(0, 10), []);
+  const [hoverCell, setHoverCell] = useState<{ repoIdx: number; signalIdx: number } | null>(null);
+  const cellSize = 8;
+  const gap = 2;
+  const cols = repos.length;
+  const rows = signals.length;
+  const width = cols * (cellSize + gap) - gap;
+  const height = rows * (cellSize + gap) - gap;
+
+  return (
+    <div className="w-full">
+      <div className="flex items-center justify-between mb-1.5">
+        <span className="font-mono text-[6px] uppercase tracking-[0.12em] text-muted/40">Impact Signal</span>
+        <span className="font-mono text-[5px] text-muted/30">{repos.length} repos · {rows} signals</span>
+      </div>
+      <div className="overflow-x-auto pb-0.5 -mx-1 px-1 scrollbar-thin">
+        <svg width={width} height={height + 14} className="block mx-auto" style={{ minWidth: width }}>
+          <g transform={`translate(0, ${14})`}>
+            {signals.map((s, si) =>
+              repos.map((repo, ri) => {
+                const x = ri * (cellSize + gap);
+                const y = si * (cellSize + gap);
+                const signalKey = s.key as keyof typeof repo;
+                const rawValue = typeof repo[signalKey] === "number" ? (repo[signalKey] as number) : 0.5;
+                const intensity = Math.max(0.05, Math.min(1, rawValue));
+                const isActive = hoverCell?.repoIdx === ri && hoverCell?.signalIdx === si;
+                const alpha = isActive ? 1 : 0.35 + intensity * 0.6;
+                return (
+                  <rect
+                    key={`${ri}-${si}`}
+                    x={x} y={y} width={cellSize} height={cellSize} rx={1.5}
+                    fill={s.color}
+                    opacity={alpha}
+                    className="cursor-crosshair transition-all duration-150"
+                    onMouseEnter={() => setHoverCell({ repoIdx: ri, signalIdx: si })}
+                    onMouseLeave={() => setHoverCell(null)}
+                  />
+                );
+              })
+            )}
+          </g>
+          <g transform={`translate(0, ${height + 14 + 2})`}>
+            {repos.map((repo, ri) => (
+              <text key={ri} x={ri * (cellSize + gap) + cellSize / 2} y={0} textAnchor="middle"
+                fill={hoverCell?.repoIdx === ri ? "rgba(255,255,255,0.6)" : "rgba(255,255,255,0.2)"}
+                fontSize={4} fontFamily="monospace" className="transition-colors duration-150">
+                {repo.title.slice(0, 3)}
+              </text>
+            ))}
+          </g>
+          {hoverCell && (() => {
+            const repo = repos[hoverCell.repoIdx];
+            const sig = signals[hoverCell.signalIdx];
+            const signalKey = sig.key as keyof typeof repo;
+            const val = typeof repo[signalKey] === "number" ? Math.round((repo[signalKey] as number) * 100) : 0;
+            return (
+              <g>
+                <rect x={Math.min(hoverCell.repoIdx * (cellSize + gap) - 12, width - 56)} y={0} width={56} height={10} rx={3}
+                  fill="rgba(0,0,0,0.85)" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
+                <text x={Math.min(hoverCell.repoIdx * (cellSize + gap) + 16, width - 28)} y={7.5}
+                  textAnchor="middle" fill="#fff" fontSize={5} fontFamily="monospace">
+                  {repo.title.slice(0, 8)} · {sig.label} {val}%
+                </text>
+              </g>
+            );
+          })()}
+        </svg>
+      </div>
+    </div>
+  );
+}
+
 export function ContactSection() {
   const signalAverages = useMemo(() => {
     const n = repositorySignals.length || 1;
     return SIGNAL_CONFIG.map(({ label, key, color }) => ({
       label,
+      key,
       value: repositorySignals.reduce((sum, r) => sum + r[key], 0) / n,
       color,
     }));
   }, []);
+  const [linkedinOpen, setLinkedinOpen] = useState(false);
+  const [githubOpen, setGithubOpen] = useState<string | null>(null);
+  const [resumeOpen, setResumeOpen] = useState(false);
+  const resumeRef = useRef<HTMLDivElement>(null);
+
+  const toggleLinkedin = () => setLinkedinOpen((v) => !v);
+  const toggleGithub = (handle: string) => setGithubOpen((v) => v === handle ? null : handle);
+  const toggleResume = () => setResumeOpen((v) => {
+    if (!v) setTimeout(() => resumeRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+    return !v;
+  });
 
   return (
-    <section id="contact" className="section-space">
+    <section id="contact" className="py-4 sm:py-6 lg:py-8 overflow-hidden">
       <div className="section-frame">
-        <div className="rounded-xl border border-orange-500/50 bg-black/10 p-5 sm:rounded-2xl sm:border-2 sm:p-6 lg:rounded-3xl lg:p-10">
-        <div className="relative overflow-hidden rounded-[36px] border border-emerald-500/25 bg-gradient-to-br from-emerald-500/8 via-transparent to-transparent p-8 sm:p-10 lg:p-12">
+        <div className="rounded-xl border border-orange-500/50 bg-black/10 p-2 sm:rounded-2xl sm:border-2 sm:p-3 lg:rounded-3xl lg:p-5">
+        <div className="relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-gradient-to-br from-emerald-500/8 via-transparent to-transparent p-2 sm:rounded-[28px] sm:p-4 lg:rounded-[36px] lg:p-6">
           <div className="pointer-events-none absolute -inset-32 bg-emerald-500/5 blur-[120px] rounded-full" />
           <div className="pointer-events-none absolute inset-0 panel-grid opacity-15" />
-          <div className="relative">
+            <div className="relative">
             <AgentBackground />
-            <div className="max-w-4xl">
-              <motion.div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/12 px-4 py-1.5"
-                animate={{ boxShadow: ["0 0 0px rgba(16,185,129,0)", "0 0 12px rgba(16,185,129,0.25)", "0 0 0px rgba(16,185,129,0)"] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}>
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-emerald-400 font-semibold">Open to Work</span>
-                <Sparkles size={11} className="text-emerald-400/60" />
-              </motion.div>
-              <h2 className="mt-5 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-[4rem]" style={{lineHeight: '1.2'}}>
-                Hire me. <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Remote AI systems</span>, production-ready.
-              </h2>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <span className="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1 font-mono text-[10px] text-emerald-400">Local AI</span>
-                <span className="rounded-full border border-blue-500/25 bg-blue-500/10 px-3 py-1 font-mono text-[10px] text-blue-400">Agentic Workflows</span>
-                <span className="rounded-full border border-amber-500/25 bg-amber-500/10 px-3 py-1 font-mono text-[10px] text-amber-400">Full-Stack</span>
-                <span className="rounded-full border border-purple-500/25 bg-purple-500/10 px-3 py-1 font-mono text-[10px] text-purple-400">Edge Inference</span>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+              <div className="max-w-3xl min-w-0">
+                <motion.div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/12 px-3 py-1 sm:px-4 sm:py-1.5"
+                  animate={{ boxShadow: ["0 0 0px rgba(16,185,129,0)", "0 0 12px rgba(16,185,129,0.25)", "0 0 0px rgba(16,185,129,0)"] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}>
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400 font-semibold sm:text-[10px] sm:tracking-[0.28em]">Open to Work</span>
+                  <Sparkles size={10} className="text-emerald-400/60 sm:size-[11px]" />
+                </motion.div>
+                <h2 className="mt-2 sm:mt-3 font-display text-xl font-semibold text-ink sm:text-2xl lg:text-3xl xl:text-4xl" style={{lineHeight: '1.2'}}>
+                  Hire me. <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Remote AI systems</span>, production-ready.
+                </h2>
+
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button href="mailto:npdimagine@gmail.com" variant="primary" size="lg">
-                  Email Me
-                  <ArrowUpRight size={16} />
-                </Button>
-                <Button href="https://www.linkedin.com/in/algsoch" variant="secondary" size="lg">
-                  LinkedIn
-                </Button>
-                <Button href="/docs/vicky_software_engineer.pdf" variant="secondary" size="lg">
-                  Resume
-                </Button>
+              <div className="relative shrink-0 self-center sm:self-auto w-auto">
+                {/* Floating tags — desktop */}
+                <div className="hidden sm:block">
+                  {/* Left side */}
+                  <motion.span
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.1, rotate: -6 }}
+                    className="absolute top-[15%] -left-4 z-10 cursor-default rounded-full border border-emerald-500/30 bg-emerald-500/12 px-2 py-0.5 font-mono text-[7px] text-emerald-400 shadow-lg shadow-emerald-500/10 backdrop-blur-sm sm:text-[6px] sm:-left-3 lg:text-[7px] lg:-left-4"
+                    style={{ transform: "rotate(-7deg)" }}>
+                    Open to Work
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.35, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="absolute top-[35%] -left-4 z-10 cursor-default rounded-full border border-amber-500/30 bg-amber-500/12 px-2 py-0.5 font-mono text-[7px] text-amber-400 shadow-lg shadow-amber-500/10 backdrop-blur-sm sm:text-[6px] sm:-left-3 lg:text-[7px] lg:-left-5"
+                    style={{ transform: "rotate(4deg)" }}>
+                    LangGraph
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.1, rotate: -4 }}
+                    className="absolute top-[68%] -left-4 z-10 cursor-default rounded-full border border-orange-500/30 bg-orange-500/12 px-2 py-0.5 font-mono text-[7px] text-orange-400 shadow-lg shadow-orange-500/10 backdrop-blur-sm sm:text-[6px] sm:-left-3 lg:text-[7px] lg:-left-4"
+                    style={{ transform: "rotate(-5deg)" }}>
+                    Full-Stack
+                  </motion.span>
+                  {/* Right side */}
+                  <motion.span
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.15, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.1, rotate: 6 }}
+                    className="absolute top-[15%] -right-4 z-10 cursor-default rounded-full border border-cyan-500/30 bg-cyan-500/12 px-2 py-0.5 font-mono text-[7px] text-cyan-400 shadow-lg shadow-cyan-500/10 backdrop-blur-sm sm:text-[6px] sm:-right-3 lg:text-[7px] lg:-right-4"
+                    style={{ transform: "rotate(5deg)" }}>
+                    On-Device AI
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.1, rotate: 4 }}
+                    className="absolute top-[35%] -right-4 z-10 cursor-default rounded-full border border-blue-500/30 bg-blue-500/12 px-2 py-0.5 font-mono text-[7px] text-blue-400 shadow-lg shadow-blue-500/10 backdrop-blur-sm sm:text-[6px] sm:-right-3 lg:text-[7px] lg:-right-5"
+                    style={{ transform: "rotate(3deg)" }}>
+                    Agentic Workflows
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.1, rotate: -5 }}
+                    className="absolute top-[68%] -right-4 z-10 cursor-default rounded-full border border-purple-500/30 bg-purple-500/12 px-2 py-0.5 font-mono text-[7px] text-purple-400 shadow-lg shadow-purple-500/10 backdrop-blur-sm sm:text-[6px] sm:-right-3 lg:text-[7px] lg:-right-4"
+                    style={{ transform: "rotate(-6deg)" }}>
+                    Edge Inference
+                  </motion.span>
+                  {/* Floating action buttons — desktop */}
+                  <motion.a href="mailto:npdimagine@gmail.com"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.45, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.08 }}
+                    className="absolute -bottom-2.5 left-0 z-10 cursor-pointer rounded-full border border-emerald-500/30 bg-emerald-500/12 px-2.5 py-0.5 font-mono text-[7px] text-emerald-400 shadow-lg shadow-emerald-500/10 backdrop-blur-sm hover:bg-emerald-500/20 transition-all sm:text-[6px] lg:text-[8px] lg:px-3">
+                    Email Me
+                  </motion.a>
+                  <motion.a href="https://www.linkedin.com/in/algsoch" target="_blank" rel="noreferrer"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.08 }}
+                    className="absolute -bottom-2.5 left-1/2 z-10 -translate-x-1/2 cursor-pointer rounded-full border border-blue-500/30 bg-blue-500/12 px-2.5 py-0.5 font-mono text-[7px] text-blue-400 shadow-lg shadow-blue-500/10 backdrop-blur-sm hover:bg-blue-500/20 transition-all sm:text-[6px] lg:text-[8px] lg:px-3">
+                    LinkedIn
+                  </motion.a>
+                  <motion.button onClick={toggleResume}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.55, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.08 }}
+                    className="absolute -bottom-2.5 right-0 z-10 cursor-pointer rounded-full border border-amber-500/30 bg-amber-500/12 px-2.5 py-0.5 font-mono text-[7px] text-amber-400 shadow-lg shadow-amber-500/10 backdrop-blur-sm hover:bg-amber-500/20 transition-all sm:text-[6px] lg:text-[8px] lg:px-3">
+                    Resume
+                  </motion.button>
+                </div>
+                <div className="flex flex-col items-center gap-1.5 rounded-xl border-2 border-accent/25 bg-black/15 px-3 py-2 sm:px-4 sm:py-3 group hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-200">
+                  <div className="relative">
+                    <img
+                      src={brandProfile.portraitUrl}
+                      alt={brandProfile.name}
+                      className="h-12 w-12 rounded-xl border-2 border-accent/30 object-cover object-top transition-all duration-300 group-hover:scale-105 group-hover:border-orange-500/40 sm:h-16 sm:w-16 sm:rounded-2xl"
+                    />
+                    <div className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-[var(--surface)] sm:h-3.5 sm:w-3.5" />
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xs font-semibold text-ink sm:text-sm">{brandProfile.brand.toLowerCase()}</div>
+                    <div className="text-[8px] text-muted/80 font-mono sm:text-[10px]">Applied Intelligence Engineer</div>
+                  </div>
+                  <div className="w-full border-t border-white/[0.04] pt-1.5">
+                    <ImpactHeatmap signals={signalAverages} />
+                  </div>
+                </div>
+                {/* Floating tags — mobile */}
+                <div className="flex sm:hidden flex-wrap gap-1 mt-1.5 justify-center">
+                  <span className="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2 py-0.5 font-mono text-[7px] text-emerald-400">Open to Work</span>
+                  <span className="rounded-full border border-cyan-500/25 bg-cyan-500/10 px-2 py-0.5 font-mono text-[7px] text-cyan-400">On-Device AI</span>
+                  <span className="rounded-full border border-blue-500/25 bg-blue-500/10 px-2 py-0.5 font-mono text-[7px] text-blue-400">Agentic Workflows</span>
+                  <span className="rounded-full border border-purple-500/25 bg-purple-500/10 px-2 py-0.5 font-mono text-[7px] text-purple-400">Edge Inference</span>
+                  <span className="rounded-full border border-amber-500/25 bg-amber-500/10 px-2 py-0.5 font-mono text-[7px] text-amber-400">LangGraph</span>
+                  <span className="rounded-full border border-orange-500/25 bg-orange-500/10 px-2 py-0.5 font-mono text-[7px] text-orange-400">Full-Stack</span>
+                </div>
+                {/* Action buttons — mobile */}
+                <div className="flex sm:hidden flex-wrap gap-1.5 mt-2 justify-center">
+                  <a href="mailto:npdimagine@gmail.com"
+                    className="rounded-full border border-emerald-500/30 bg-emerald-500/12 px-3 py-1 font-mono text-[8px] text-emerald-400 hover:bg-emerald-500/20 transition-all">
+                    Email Me
+                  </a>
+                  <a href="https://www.linkedin.com/in/algsoch" target="_blank" rel="noreferrer"
+                    className="rounded-full border border-blue-500/30 bg-blue-500/12 px-3 py-1 font-mono text-[8px] text-blue-400 hover:bg-blue-500/20 transition-all">
+                    LinkedIn
+                  </a>
+                  <button onClick={toggleResume}
+                    className="rounded-full border border-amber-500/30 bg-amber-500/12 px-3 py-1 font-mono text-[8px] text-amber-400 hover:bg-amber-500/20 transition-all">
+                    Resume
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1.2fr] items-start">
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">
-                <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted/50 text-center mb-2">Signal profile · {repositorySignals.length} repos</div>
-                <RadarChart signals={signalAverages} />
+            <div className="mt-2 sm:mt-5 grid gap-2 sm:gap-4 lg:grid-cols-[1fr_1.2fr] items-start">
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-1.5 sm:rounded-2xl sm:p-3">
+                <div className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted/50 text-center mb-1 sm:text-[9px] sm:tracking-[0.2em]">Signal profile · {repositorySignals.length} repos</div>
+                <div className="max-w-[180px] mx-auto sm:max-w-none">
+                  <RadarChart signals={signalAverages} />
+                </div>
               </div>
-              <div className="grid gap-3">
-                {contactDetails.map((detail) => (
-                  <a key={detail.label} href={detail.href} target={detail.href.startsWith("http") ? "_blank" : undefined}
-                    rel={detail.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 hover:border-emerald-500/20 hover:bg-emerald-500/5 transition">
-                    {detail.label === "Email" ? <Mail size={14} className="text-muted/50 group-hover:text-emerald-400 transition" /> :
-                     detail.label === "GitHub" ? <Github size={14} className="text-muted/50 group-hover:text-emerald-400 transition" /> :
-                     detail.label === "LinkedIn" ? <Linkedin size={14} className="text-muted/50 group-hover:text-emerald-400 transition" /> :
-                     <FileText size={14} className="text-muted/50 group-hover:text-emerald-400 transition" />}
-                    <div className="flex-1 min-w-0">
-                      <div className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted/40">{detail.label}</div>
-                      <div className="text-[12px] text-ink truncate group-hover:text-emerald-400 transition">{detail.value}</div>
-                    </div>
-                    <ArrowUpRight size={12} className="text-muted/30 group-hover:text-emerald-400 transition" />
-                  </a>
-                ))}
+              <div className="grid gap-1 sm:gap-3">
+                {contactDetails.map((detail) => {
+                  if (detail.label.startsWith("GitHub / ")) {
+                    const handle = detail.label.replace("GitHub / ", "");
+                    const isOpen = githubOpen === handle;
+                    const repoColors: (keyof typeof POST_COLORS)[] = ["violet", "cyan", "emerald", "amber", "blue"];
+                    const accountRepos = [...repositorySignals]
+                      .filter((r) => r.account === handle)
+                      .sort((a, b) => b.recencySignal - a.recencySignal)
+                      .slice(0, 3);
+                    return (
+                      <div key={detail.label} className="grid gap-1">
+                        <button onClick={() => toggleGithub(handle)}
+                          className={cn(
+                            "group flex items-center gap-2.5 rounded-xl border px-3 py-2.5 sm:px-4 sm:py-3 transition w-full text-left",
+                            isOpen
+                              ? "border-violet-500/30 bg-violet-500/8"
+                              : "border-white/[0.06] bg-white/[0.02] hover:border-violet-500/20 hover:bg-violet-500/5"
+                          )}>
+                          <Github size={13} className={cn("transition sm:size-[14px]", isOpen ? "text-violet-400" : "text-muted/50 group-hover:text-violet-400")} />
+                          <div className="flex-1 min-w-0">
+                            <div className="font-mono text-[7px] uppercase tracking-[0.12em] text-muted/40 sm:text-[8px] sm:tracking-[0.15em]">{detail.label}</div>
+                            <div className="text-[11px] text-ink truncate group-hover:text-violet-400 transition sm:text-[12px]">{detail.value}</div>
+                          </div>
+                          <ChevronDown size={11} className={cn("text-muted/30 transition sm:size-[12px]", isOpen && "rotate-180")} />
+                        </button>
+                        <AnimatePresence>
+                          {isOpen ? (
+                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
+                              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 mt-1">
+                                <div className="font-mono text-[7px] uppercase tracking-[0.12em] text-muted/40 mb-2 sm:text-[8px]">Top Repos</div>
+                                <div className="grid gap-2">
+                                  {accountRepos.map((repo, i) => {
+                                    const c = POST_COLORS[repoColors[i % repoColors.length]];
+                                    return (
+                                      <motion.a key={repo.id} href={repo.repoUrl} target="_blank" rel="noreferrer"
+                                        initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.08, duration: 0.25 }}
+                                        className={cn("group/item flex items-start gap-2.5 rounded-xl border p-2.5 transition-all duration-200 hover:scale-[1.01]", c.border, c.bg)}>
+                                        <div className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-md border", c.border, c.bg)}>
+                                          <span className={cn("h-1.5 w-1.5 rounded-full", c.dot)} />
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                          <div className="flex items-center gap-1.5 mb-0.5">
+                                            <span className={cn("font-mono text-[7px] uppercase tracking-[0.1em] font-semibold", c.text)}>{repo.title}</span>
+                                            <span className="font-mono text-[6px] text-muted/30">· {repo.themes[0]}</span>
+                                          </div>
+                                          <div className="font-mono text-[8px] text-muted/60 leading-relaxed group-hover/item:text-ink transition sm:text-[9px]">{repo.synopsis.slice(0, 120)}{repo.synopsis.length > 120 ? "..." : ""}</div>
+                                        </div>
+                                        <ArrowUpRight size={10} className={cn("shrink-0 mt-1 transition opacity-0 group-hover/item:opacity-100", c.text)} />
+                                      </motion.a>
+                                    );
+                                  })}
+                                  <a href={detail.href} target="_blank" rel="noreferrer"
+                                    className="group flex items-center justify-center gap-1 rounded-lg border border-white/[0.06] py-1.5 font-mono text-[8px] text-muted/40 hover:text-ink hover:border-white/[0.12] transition-all duration-200">
+                                    View all on GitHub <ArrowUpRight size={10} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                  </a>
+                                </div>
+                              </div>
+                            </motion.div>
+                          ) : null}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+                  if (detail.label === "LinkedIn") {
+                    return (
+                      <div key={detail.label} className="grid gap-1">
+                        <button onClick={toggleLinkedin}
+                          className={cn(
+                            "group flex items-center gap-2.5 rounded-xl border px-3 py-2.5 sm:px-4 sm:py-3 transition w-full text-left",
+                            linkedinOpen
+                              ? "border-emerald-500/30 bg-emerald-500/8"
+                              : "border-white/[0.06] bg-white/[0.02] hover:border-emerald-500/20 hover:bg-emerald-500/5"
+                          )}>
+                          <Linkedin size={13} className={cn("transition sm:size-[14px]", linkedinOpen ? "text-emerald-400" : "text-muted/50 group-hover:text-emerald-400")} />
+                          <div className="flex-1 min-w-0">
+                            <div className="font-mono text-[7px] uppercase tracking-[0.12em] text-muted/40 sm:text-[8px] sm:tracking-[0.15em]">{detail.label}</div>
+                            <div className="text-[11px] text-ink truncate group-hover:text-emerald-400 transition sm:text-[12px]">{detail.value}</div>
+                          </div>
+                          <ChevronDown size={11} className={cn("text-muted/30 transition sm:size-[12px]", linkedinOpen && "rotate-180")} />
+                        </button>
+                        <AnimatePresence>
+                          {linkedinOpen ? (
+                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
+                              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 mt-1">
+                                <div className="font-mono text-[7px] uppercase tracking-[0.12em] text-muted/40 mb-2 sm:text-[8px]">Latest Posts</div>
+                                <div className="grid gap-2">
+                                  {LINKEDIN_POSTS.map((post, i) => {
+                                    const c = POST_COLORS[post.color as keyof typeof POST_COLORS] || POST_COLORS.emerald;
+                                    return (
+                                      <motion.a
+                                        key={i}
+                                        href={post.url}
+                                        target="_blank" rel="noreferrer"
+                                        initial={{ opacity: 0, x: -8 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: i * 0.08, duration: 0.25 }}
+                                        className={cn("group/post flex items-start gap-2.5 rounded-xl border p-2.5 transition-all duration-200 hover:scale-[1.01]", c.border, c.bg)}>
+                                        <div className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-md border", c.border, c.bg)}>
+                                          <span className={cn("h-1.5 w-1.5 rounded-full", c.dot)} />
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                          <div className="flex items-center gap-1.5 mb-0.5">
+                                            <span className={cn("font-mono text-[7px] uppercase tracking-[0.1em] font-semibold", c.text)}>{post.tag}</span>
+                                            {post.date ? <span className="font-mono text-[6px] text-muted/30">· {post.date}</span> : null}
+                                          </div>
+                                          <div className={cn("font-mono text-[8px] leading-relaxed transition sm:text-[9px]", "text-muted/60 group-hover/post:text-ink")}>{post.text.slice(0, 150)}{post.text.length > 150 ? "..." : ""}</div>
+                                        </div>
+                                        <ExternalLink size={10} className={cn("shrink-0 mt-1 transition", c.text, "opacity-0 group-hover/post:opacity-100")} />
+                                      </motion.a>
+                                    );
+                                  })}
+                                  <a href={detail.href} target="_blank" rel="noreferrer"
+                                    className="group flex items-center justify-center gap-1 rounded-lg border border-white/[0.06] py-1.5 font-mono text-[8px] text-muted/40 hover:text-ink hover:border-white/[0.12] transition-all duration-200 hover:scale-[1.01]">
+                                    View all on LinkedIn <ArrowUpRight size={10} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                  </a>
+                                </div>
+                              </div>
+                            </motion.div>
+                          ) : null}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+                  if (detail.label === "Resume") {
+                    return (
+                      <div key={detail.label} ref={resumeRef} className="grid gap-1">
+                        <button onClick={toggleResume}
+                          className={cn(
+                            "group flex items-center gap-2.5 rounded-xl border px-3 py-2.5 sm:px-4 sm:py-3 transition w-full text-left",
+                            resumeOpen
+                              ? "border-amber-500/30 bg-amber-500/8"
+                              : "border-white/[0.06] bg-white/[0.02] hover:border-amber-500/20 hover:bg-amber-500/5"
+                          )}>
+                          <FileText size={13} className={cn("transition sm:size-[14px]", resumeOpen ? "text-amber-400" : "text-muted/50 group-hover:text-amber-400")} />
+                          <div className="flex-1 min-w-0">
+                            <div className="font-mono text-[7px] uppercase tracking-[0.12em] text-muted/40 sm:text-[8px] sm:tracking-[0.15em]">{detail.label}</div>
+                            <div className="text-[11px] text-ink truncate group-hover:text-amber-400 transition sm:text-[12px]">{detail.value}</div>
+                          </div>
+                          <ChevronDown size={11} className={cn("text-muted/30 transition sm:size-[12px]", resumeOpen && "rotate-180")} />
+                        </button>
+                        <AnimatePresence>
+                          {resumeOpen ? (
+                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
+                              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-2 mt-1">
+                                <div className="relative w-full rounded-lg overflow-hidden" style={{ height: "50vh", minHeight: "300px" }}>
+                                  <iframe src={detail.href} className="absolute inset-0 w-full h-full" title="Resume" />
+                                </div>
+                                <div className="flex items-center justify-center gap-2 mt-2">
+                                  <a href={detail.href} target="_blank" rel="noreferrer"
+                                    className="inline-flex items-center gap-1 rounded-lg border border-white/[0.06] px-3 py-1.5 font-mono text-[8px] text-muted/40 hover:text-ink hover:border-white/[0.12] transition">
+                                    Open in new tab <ArrowUpRight size={10} />
+                                  </a>
+                                </div>
+                              </div>
+                            </motion.div>
+                          ) : null}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+                  return (
+                    <a key={detail.label} href={detail.href} target="_blank" rel="noreferrer"
+                      className="group flex items-center gap-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 sm:px-4 sm:py-3 hover:border-emerald-500/20 hover:bg-emerald-500/5 transition">
+                      <Mail size={13} className="text-muted/50 group-hover:text-emerald-400 transition sm:size-[14px]" />
+                      <div className="flex-1 min-w-0">
+                        <div className="font-mono text-[7px] uppercase tracking-[0.12em] text-muted/40 sm:text-[8px] sm:tracking-[0.15em]">{detail.label}</div>
+                        <div className="text-[11px] text-ink truncate group-hover:text-emerald-400 transition sm:text-[12px]">{detail.value}</div>
+                      </div>
+                      <ArrowUpRight size={11} className="text-muted/30 group-hover:text-emerald-400 transition sm:size-[12px]" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
