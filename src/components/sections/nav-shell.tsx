@@ -56,28 +56,33 @@ export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShel
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  const navBorder = scrolled
+    ? "border-orange-500/25 shadow-lg shadow-orange-500/5"
+    : "border-transparent";
+
   return (
     <>
-      <motion.div className="fixed inset-x-0 top-0 z-50 h-px origin-left bg-accent" style={{ scaleX: scrollYProgress }} />
+      <motion.div className="fixed inset-x-0 top-0 z-50 h-px origin-left bg-orange-500" style={{ scaleX: scrollYProgress }} />
       <header className="fixed inset-x-0 top-0 z-40">
         <div className="section-frame pt-2 sm:pt-3">
           <div className={cn(
-            "surface relative flex items-center justify-between rounded-full px-2 py-1.5 transition-all sm:px-3 sm:py-2",
-            scrolled ? "shadow-lg shadow-black/10 ring-1 ring-white/[0.04]" : ""
+            "surface relative flex items-center justify-between rounded-full px-2 py-1.5 transition-all duration-300 sm:px-3 sm:py-2 border",
+            navBorder,
+            scrolled ? "shadow-lg shadow-black/10" : ""
           )}>
-            <a href="#hero" onClick={() => scrollToSection("hero")} className="flex min-w-0 items-center gap-2 sm:gap-2.5 shrink-0 group">
+            <a href="#hero" onClick={() => scrollToSection("hero")} className="flex min-w-0 items-center gap-1.5 sm:gap-2.5 shrink-0 group">
               <div className="relative">
                 <img
                   src={brandProfile.portraitUrl}
                   alt={`${brandProfile.name} portrait`}
-                  className="h-7 w-7 sm:h-8 sm:w-8 shrink-0 rounded-xl border border-line/75 object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                  className="h-7 w-7 sm:h-8 sm:w-8 shrink-0 rounded-xl border border-line/75 object-cover object-center transition-all duration-300 group-hover:scale-105 group-hover:border-orange-500/40"
                 />
                 <div className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-[var(--surface)]" />
               </div>
               <div className="min-w-0 hidden xs:block">
                 <div className="flex items-center gap-1.5">
                   <span className="text-[10px] font-bold tracking-tight text-ink sm:text-[11px]">{brandProfile.brand.toLowerCase()}</span>
-                  <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-1.5 py-0.5 text-[8px] font-medium text-emerald-400 sm:text-[9px]">Open to Work</span>
+                  <span className="hidden lg:inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-1.5 py-0.5 text-[8px] font-medium text-emerald-400 sm:text-[9px]">Open to Work</span>
                 </div>
                 <div className="truncate text-[10px] text-muted sm:text-xs">
                   Applied Intelligence Engineer
@@ -85,10 +90,10 @@ export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShel
               </div>
             </a>
 
-            <div className="hidden md:flex items-center gap-1 ml-auto">
-              <nav className="relative flex items-center gap-0.5 overflow-x-auto scrollbar-none mr-1">
+            <div className="hidden md:flex items-center gap-0.5 sm:gap-1 min-w-0">
+              <nav className="relative flex items-center overflow-hidden">
                 <NavItemIndicator items={items} activeSection={activeSection} containerRef={navRef} />
-                <div ref={navRef} className="flex items-center gap-0.5">
+                <div ref={navRef} className="flex items-center flex-shrink-0">
                   {items.map((item) => {
                     const active = item.id === activeSection;
                     return (
@@ -97,8 +102,10 @@ export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShel
                         href={`#${item.id}`}
                         onClick={(e) => { e.preventDefault(); scrollToSection(item.id); }}
                         className={cn(
-                          "relative z-10 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-medium transition duration-200",
-                          active ? "text-ink" : "text-muted hover:text-ink"
+                          "relative z-10 whitespace-nowrap rounded-full px-2 py-1.5 text-[11px] sm:px-2.5 sm:py-1.5 sm:text-xs font-medium transition-all duration-200",
+                          active
+                            ? "text-ink"
+                            : "text-muted hover:text-ink hover:bg-orange-500/5 hover:scale-105"
                         )}
                       >
                         {item.label}
@@ -108,13 +115,13 @@ export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShel
                 </div>
               </nav>
 
-              <div className="flex items-center gap-1 shrink-0">
+              <div className="flex items-center gap-0.5 sm:gap-1 shrink-0 ml-1 sm:ml-2 pl-1 sm:pl-2 border-l border-orange-500/15">
                 <button
                   className={cn(
-                    "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold transition shrink-0",
+                    "inline-flex items-center gap-1 rounded-full border px-2 py-1.5 text-[11px] font-semibold transition-all duration-200 shrink-0 hover:scale-105",
                     theme === "newsprint"
                       ? "border-accent/35 bg-accent/12 text-ink hover:bg-accent/18"
-                      : "border-line/80 text-muted hover:text-ink hover:border-accent/30 hover:bg-white/[0.03]"
+                      : "border-line/80 text-muted hover:text-ink hover:border-orange-500/30 hover:bg-orange-500/5"
                   )}
                   onClick={onToggleTheme}
                   aria-label="Toggle newspaper theme"
@@ -124,7 +131,7 @@ export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShel
 
                 <a
                   href={getEditorialRouteHref()}
-                  className="inline-flex items-center gap-1 rounded-full border border-accent/25 bg-accent/8 px-2.5 py-1.5 text-[11px] font-semibold text-ink transition hover:bg-accent/14 shrink-0"
+                  className="inline-flex items-center gap-1 rounded-full border border-accent/25 bg-accent/8 px-2 py-1.5 text-[11px] font-semibold text-ink transition-all duration-200 hover:bg-accent/14 hover:scale-105 shrink-0"
                 >
                   Edit
                   <ArrowUpRight size={11} />
@@ -133,7 +140,7 @@ export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShel
             </div>
 
             <button
-              className="inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-line/80 text-muted transition hover:text-ink hover:bg-white/[0.03] md:hidden shrink-0"
+              className="inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-line/80 text-muted transition-all duration-200 hover:text-ink hover:border-orange-500/30 hover:bg-orange-500/5 hover:scale-105 md:hidden shrink-0"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle navigation"
             >
@@ -152,9 +159,9 @@ export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShel
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="surface rounded-2xl p-2.5 sm:rounded-[24px] sm:p-3 border border-white/[0.04] shadow-xl shadow-black/20">
+            <div className="surface rounded-2xl p-2.5 sm:rounded-[24px] sm:p-3 border border-orange-500/15 shadow-xl shadow-orange-500/5">
               <div className="grid gap-0.5">
-                <div className="flex items-center gap-2 px-3 py-2 mb-1 border-b border-white/[0.06]">
+                <div className="flex items-center gap-2 px-3 py-2 mb-1 border-b border-orange-500/10">
                   <div className="h-2 w-2 rounded-full bg-emerald-500" />
                   <span className="text-[10px] font-medium text-emerald-400">Open to Work</span>
                   <span className="ml-auto text-[10px] text-muted">{brandProfile.brand.toLowerCase()}</span>
@@ -167,26 +174,26 @@ export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShel
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.03, duration: 0.2 }}
                     className={cn(
-                      "rounded-xl px-3 py-2.5 text-xs transition sm:px-4",
-                      item.id === activeSection ? "bg-accent/14 text-ink font-semibold" : "text-muted hover:bg-white/[0.03] hover:text-ink"
+                      "rounded-xl px-3 py-2.5 text-xs transition-all duration-200 sm:px-4 hover:scale-[1.02]",
+                      item.id === activeSection ? "bg-accent/14 text-ink font-semibold" : "text-muted hover:bg-orange-500/5 hover:text-ink"
                     )}
                     onClick={() => { scrollToSection(item.id); setMobileOpen(false); }}
                   >
                     <span className="flex items-center justify-between">
                       {item.label}
                       {item.id === activeSection ? (
-                        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
                       ) : null}
                     </span>
                   </motion.a>
                 ))}
-                <div className="mt-1 pt-2 border-t border-white/[0.06] grid grid-cols-2 gap-1.5">
+                <div className="mt-1 pt-2 border-t border-orange-500/10 grid grid-cols-2 gap-1.5">
                   <button
                     className={cn(
-                      "rounded-xl border px-3 py-2.5 text-left text-[11px] font-medium transition sm:py-3",
+                      "rounded-xl border px-3 py-2.5 text-left text-[11px] font-medium transition-all duration-200 sm:py-3 hover:scale-[1.02]",
                       theme === "newsprint"
                         ? "border-accent/20 bg-accent/8 text-ink"
-                        : "border-line/80 text-muted hover:text-ink hover:bg-white/[0.03]"
+                        : "border-line/80 text-muted hover:text-ink hover:border-orange-500/30 hover:bg-orange-500/5"
                     )}
                     onClick={() => { onToggleTheme(); setMobileOpen(false); }}
                   >
@@ -194,7 +201,7 @@ export function NavShell({ items, activeSection, theme, onToggleTheme }: NavShel
                   </button>
                   <a
                     href={getEditorialRouteHref()}
-                    className="rounded-xl border border-accent/20 bg-accent/8 px-3 py-2.5 text-[11px] font-medium text-ink sm:py-3 flex items-center justify-between"
+                    className="rounded-xl border border-accent/20 bg-accent/8 px-3 py-2.5 text-[11px] font-medium text-ink sm:py-3 flex items-center justify-between transition-all duration-200 hover:scale-[1.02]"
                     onClick={() => setMobileOpen(false)}
                   >
                     Editorial
